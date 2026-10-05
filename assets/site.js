@@ -23,6 +23,8 @@
   dr.querySelector('.main').addEventListener('mouseleave',function(){ show(current); });
   function open(){ loadImages(); dr.classList.add('open'); dr.setAttribute('aria-hidden','false'); openB.setAttribute('aria-expanded','true'); document.documentElement.style.overflow='hidden'; setTimeout(function(){ closeB.focus({preventScroll:true}); },400); }
   function close(){ dr.classList.remove('open'); dr.setAttribute('aria-hidden','true'); openB.setAttribute('aria-expanded','false'); document.documentElement.style.overflow=''; show(current); openB.focus({preventScroll:true}); }
+  /* Eat and Drink: the round + expands the spaces; the words still go to the main page */
+  [].forEach.call(dr.querySelectorAll('.tog'),function(t){ t.addEventListener('click',function(){ var li=t.closest('li'), on=!li.classList.contains('open'); li.classList.toggle('open',on); t.setAttribute('aria-expanded',String(on)); }); });
   openB.addEventListener('click',open); closeB.addEventListener('click',close);
   addEventListener('keydown',function(e){ if(e.key==='Escape' && dr.classList.contains('open')) close(); });
   dr.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ if(a.getAttribute('href').indexOf('#')>-1) close(); }); });
