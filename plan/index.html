@@ -44,7 +44,7 @@
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--paper:#FFFDF6;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;
 --font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;--hand:"Caveat","Bradley Hand","Segoe Print",cursive;
 --gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1);
-background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;position:relative;text-align:left;overflow:hidden}
+background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;position:relative;text-align:left;overflow:hidden;overflow:clip}
 .gved,.gved *{box-sizing:border-box}
 .gved h1,.gved h2,.gved h3,.gved h4,.gved p,.gved ul,.gved ol,.gved li,.gved figure{margin:0;padding:0;color:inherit;text-transform:none;letter-spacing:normal;list-style:none;background:none}
 .gved li::before{display:none}
@@ -183,7 +183,7 @@ background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size
 .gved .try p{font-size:14px;color:var(--ink-soft)}
 
 /* summary card */
-.gved .sum{position:sticky;top:110px;background:var(--panel);border-radius:6px;padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;gap:18px}
+.gved .sum{position:sticky;top:110px;max-height:calc(100vh - 130px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;background:var(--panel);border-radius:6px;padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;gap:18px}
 .gved .sum h3{font-size:30px}
 .gved .sum .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
 .gved .sum ul{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
@@ -202,11 +202,13 @@ background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size
 .gved .sum .self-row{display:flex;flex-direction:column;gap:8px}
 .gved .sum input[type=email]{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:12px 18px;font-size:15px;min-height:46px}
 .gved .sum input[type=email]:focus,.gved .sum input[type=date]:focus{outline:2px solid var(--ink);outline-offset:1px}
+.gved .sum .self-h{font-family:var(--hand);font-size:32px;line-height:1;color:var(--warm);font-weight:600;transform:rotate(-2deg);transform-origin:left;display:inline-block}
+.gved .sum .self-s{font-size:14px;color:var(--ink-soft);margin-bottom:4px}
 /* mobile bottom bar */
 .gved .mbar{display:none}
 @media (max-width:980px){
   .gved .res-grid{grid-template-columns:minmax(0,1fr)}
-  .gved .sum{position:static}
+  .gved .sum{position:static;max-height:none;overflow:visible}
   .gved .try ul{grid-template-columns:1fr}
   .gved .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:var(--panel);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 14px 34px rgba(0,0,0,.28);transform:translateY(140%);transition:transform .5s var(--ease)}
   .gved .mbar.on{transform:none}
@@ -444,7 +446,7 @@ function result(){
   var food=FOOD.filter(fits).sort(function(a,b){return score(b,.4)-score(a,.4);}).slice(0,3);
   el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><div class="eyebrow">Your Gallivant plan</div><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' <em>'+phrase+'</em></h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
   '<div class="wrap res-grid"><div>'+days+tips+'<section class="try"><h3>Don’t leave without trying</h3><ul>'+food.map(function(f){return '<li><b>'+f.t+'</b><p>'+f.d+'</p></li>';}).join('')+'</ul></section></div>'+
-  '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><div class="self"><span class="lbl">Keep a copy</span><div class="self-row"><input type="email" class="gp-me" placeholder="Your email address" autocomplete="email" aria-label="Your email address"><a class="btn btn-i gp-self" href="#">Email it to me</a></div></div><p class="fine">Both buttons open your email app with the plan written out. Nothing is booked until we confirm with you.</p></aside></div>'+
+  '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><div class="self"><span class="self-h">Save your plan!</span><span class="self-s">Pop it in your inbox and start the countdown to the sea.</span><div class="self-row"><input type="email" class="gp-me" placeholder="Your email address" autocomplete="email" aria-label="Your email address"><a class="btn btn-i gp-self" href="#">Email me my plan</a></div></div><p class="fine">Both buttons open your email app with the plan written out. Nothing is booked until we confirm with you.</p></aside></div>'+
   '</div><div class="mbar"><span class="mcount"></span><button type="button" data-sum>Review and send</button></div>';
   updateSum();
   var mb=el.querySelector('.mbar'); setTimeout(function(){ if(mb) mb.classList.add('on'); },900);
