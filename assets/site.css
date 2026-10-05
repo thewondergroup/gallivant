@@ -141,3 +141,10 @@ main{display:block}
 .site-ftr .give{margin-top:clamp(40px,5vw,64px);padding:22px 0;border-top:1px solid rgba(242,237,224,.18);border-bottom:1px solid rgba(242,237,224,.18);font-family:var(--display);font-size:clamp(20px,2vw,26px)}
 .site-ftr .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:12px;opacity:.7}
 @media (max-width:960px){.site-ftr .top{grid-template-columns:1fr 1fr}.site-ftr .brand{grid-column:1/-1}}
+
+/* pages not built yet: shown faded, not clickable */
+.drawer li.off .ml{opacity:.32;cursor:default;pointer-events:none}
+.drawer li.off .ml .t{font-size:clamp(18px,1.55vw,24px)}
+.drawer li:not(.off)+li.off{margin-top:clamp(10px,2vh,22px);padding-top:clamp(10px,2vh,22px);border-top:1px solid rgba(43,42,40,.16)}
+.drawer .more.off span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.32;padding:4px 0}
+@media (max-width:860px){.drawer li.off .ml .t{font-size:20px}.drawer li:not(.off)+li.off{margin-top:0;padding-top:0;border-top:0}.drawer .more.off span{font-size:11px;padding:8px 0}}
