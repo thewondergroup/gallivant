@@ -198,6 +198,10 @@ background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size
 .gved .sum .fine{font-size:12px;color:var(--ink-soft);line-height:1.5}
 .gved .sum .dogline{font-size:14px;padding:12px 14px;border-radius:6px;background:rgba(43,42,40,.06)}
 
+.gved .sum .self{display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid var(--line)}
+.gved .sum .self-row{display:flex;flex-direction:column;gap:8px}
+.gved .sum input[type=email]{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:12px 18px;font-size:15px;min-height:46px}
+.gved .sum input[type=email]:focus,.gved .sum input[type=date]:focus{outline:2px solid var(--ink);outline-offset:1px}
 /* mobile bottom bar */
 .gved .mbar{display:none}
 @media (max-width:980px){
@@ -440,7 +444,7 @@ function result(){
   var food=FOOD.filter(fits).sort(function(a,b){return score(b,.4)-score(a,.4);}).slice(0,3);
   el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><div class="eyebrow">Your Gallivant plan</div><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' <em>'+phrase+'</em></h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
   '<div class="wrap res-grid"><div>'+days+tips+'<section class="try"><h3>Don’t leave without trying</h3><ul>'+food.map(function(f){return '<li><b>'+f.t+'</b><p>'+f.d+'</p></li>';}).join('')+'</ul></section></div>'+
-  '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><p class="fine">Sending your plan opens an email to our reservations team. Nothing is booked until we confirm with you.</p></aside></div>'+
+  '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><div class="self"><span class="lbl">Keep a copy</span><div class="self-row"><input type="email" class="gp-me" placeholder="Your email address" autocomplete="email" aria-label="Your email address"><a class="btn btn-i gp-self" href="#">Email it to me</a></div></div><p class="fine">Both buttons open your email app with the plan written out. Nothing is booked until we confirm with you.</p></aside></div>'+
   '</div><div class="mbar"><span class="mcount"></span><button type="button" data-sum>Review and send</button></div>';
   updateSum();
   var mb=el.querySelector('.mbar'); setTimeout(function(){ if(mb) mb.classList.add('on'); },900);
@@ -462,8 +466,15 @@ function updateSum(){
   lines.push('My plan:');
   plan.forEach(function(d,di){ lines.push(dayName(di).n+': '+d.filter(Boolean).map(function(e){return slotTime(e.slot,P)+' '+title(e.it);}).join(' / ')); });
   lines.push('','Thank you!');
-  var send=el.querySelector('.gp-send'); if(send) send.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('My Gallivant stay plan')+'&body='+encodeURIComponent(lines.join('\n'));
   var bk=el.querySelector('.gp-book'); if(bk) bk.href=P.date?BOOK+(BOOK.indexOf('?')>-1?'&':'?')+'mewsStart='+P.date+'&mewsEnd='+dateAdd(P.date,P.nights):BOOK;
+  /* a copy for the guest, written for them rather than the hotel */
+  var me=['Your Gallivant stay plan','',NUM[P.nights]+' night'+(P.nights>1?'s':'')+' '+moodPhrase()+(P.date?', arriving '+new Date(P.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}):''),''];
+  plan.forEach(function(d,di){ var dn=dayName(di); me.push(dn.n.toUpperCase()+(dn.sub?' ('+dn.sub+')':'')); d.filter(Boolean).forEach(function(e){ me.push(slotTime(e.slot,P)+'  '+title(e.it)+' – '+e.it.w); }); me.push(''); });
+  if(xs.length){ me.push('Extras to book:'); xs.forEach(function(x){ me.push('- '+x.x+' ('+x.day+', '+x.time+')'); }); me.push(''); }
+  me.push('Book your stay: '+(el.querySelector('.gp-book')||{}).href, 'Ask us to book your extras: '+EMAIL+' or 01797 225 057','','See you by the sea,','The Gallivant, Camber Sands');
+  var selfA=el.querySelector('.gp-self'), meIn=el.querySelector('.gp-me');
+  if(selfA) selfA.href='mailto:'+((meIn&&meIn.value.trim())?encodeURIComponent(meIn.value.trim()).replace('%40','@'):'')+'?subject='+encodeURIComponent('Our Gallivant stay plan')+'&body='+encodeURIComponent(me.join('\n'));
+  var send=el.querySelector('.gp-send'); if(send) send.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('My Gallivant stay plan')+'&body='+encodeURIComponent(lines.join('\n'));
 }
 function go(n){ P.step=n; render(); var top=root.getBoundingClientRect().top+scrollY-90; if(scrollY>top) scrollTo({top:Math.max(0,top),behavior:'smooth'}); }
 
@@ -487,6 +498,7 @@ el.addEventListener('click',function(e){
   if(e.target.closest('[data-shuffle]')){ var y2=scrollY; build(2.5); result(); scrollTo(0,y2); return; }
   if(e.target.closest('[data-sum]')){ var s=el.querySelector('#gp-sum'); if(s) scrollTo({top:s.getBoundingClientRect().top+scrollY-90,behavior:'smooth'}); return; }
 });
+el.addEventListener('input',function(e){ if(e.target.classList.contains('gp-me')) updateSum(); });
 el.addEventListener('change',function(e){ if(e.target.classList.contains('gp-date')){ P.date=e.target.value;
   /* swap out anything that doesn't fit the real days (Saturday lunch, Sunday roast) */
   plan.forEach(function(d,di){ d.forEach(function(en,si){ if(en && !dayOk(en.it,di)){ var nx=pick(en.slot,di+'-'+si,.6,en.it.id); delete extras[di+':'+en.it.id]; d[si]=nx?{slot:en.slot,it:nx}:null; } }); });
