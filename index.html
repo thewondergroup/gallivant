@@ -319,6 +319,57 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .link:hover::after{background:var(--ink);color:var(--panel);border-color:var(--ink);transform:translateX(3px)}
 .gved .card:hover .arrow,.gved .feature:hover .arrow{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--panel)!important}
 
+
+/* A year at the Gallivant */
+.gved .year .sec-head{margin-bottom:clamp(24px,3vw,40px)}
+.gved .yr-nav{display:none;gap:10px}
+.gved .yr-nav button{width:46px;height:46px;border:1px solid var(--ink);border-radius:50%;background:none;color:var(--ink);display:grid;place-items:center;font-size:16px;cursor:pointer;transition:background .3s,color .3s,opacity .3s}
+.gved .yr-nav button:hover{background:var(--ink);color:var(--panel)}
+.gved .yr-nav button[disabled]{opacity:.25;pointer-events:none}
+.gved .yr{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.2vw,18px)}
+.gved .yr a{position:relative;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:3/4.4;overflow:hidden;border-radius:4px;color:#fff;text-decoration:none;padding:clamp(18px,1.8vw,26px)}
+.gved .yr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1);z-index:0}
+.gved .yr a::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,19,18,.35),rgba(20,19,18,0) 28%,rgba(20,19,18,0) 45%,rgba(20,19,18,.78));z-index:1}
+.gved .yr a>:not(img){position:relative;z-index:2}
+.gved .yr .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.gved .yr .top .eyebrow{font-size:11px}
+.gved .yr .now{display:none;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:var(--blush,#F4C2CA);color:var(--ink);padding:5px 10px;border-radius:20px}
+.gved .yr a.is-now .now{display:inline-block}
+.gved .yr h3{font-family:var(--font-display,var(--serif));font-weight:400;font-size:clamp(24px,2.1vw,32px);line-height:1.1;margin:0 0 10px}
+.gved .yr h3 em{font-style:italic}
+.gved .yr p{font-size:14px;line-height:1.5;opacity:.9;margin:0 0 16px;max-width:30ch}
+.gved .yr .more{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.3);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.gved .yr .more i{font-style:normal;width:34px;height:34px;flex:0 0 34px;border:1px solid rgba(255,255,255,.75);border-radius:50%;display:grid;place-items:center;font-size:14px;letter-spacing:0;transition:background .3s,color .3s}
+.gved .yr a:hover img{transform:scale(1.06)}
+.gved .yr a:hover .more i{background:#fff;color:var(--ink)}
+@media (max-width:1000px){
+  .gved .yr-nav{display:flex}
+  .gved .yr{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+  .gved .yr::-webkit-scrollbar{display:none}
+  .gved .yr a{flex:0 0 min(78%,340px);scroll-snap-align:start}
+}
+
+/* Guest postcards */
+.gved .cards-pc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,36px);padding:12px 0 10px}
+.gved .pc{position:relative;min-width:0;margin:0;background:#FFFDF6;color:#27324A;border-radius:3px;padding:clamp(20px,2vw,28px);aspect-ratio:3/2.05;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(14px,1.6vw,22px);box-shadow:0 1px 1px rgba(0,0,0,.05),0 14px 34px rgba(46,45,39,.16);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.gved .pc:nth-child(1){transform:rotate(-2.2deg)}
+.gved .pc:nth-child(2){transform:rotate(1.4deg) translateY(14px)}
+.gved .pc:nth-child(3){transform:rotate(-.8deg)}
+.gved .pc:hover{transform:rotate(0) translateY(-6px);box-shadow:0 1px 1px rgba(0,0,0,.05),0 26px 50px rgba(46,45,39,.22);z-index:2}
+.gved .pc .msg{font-family:"Caveat","Bradley Hand","Segoe Print",cursive;font-size:clamp(19px,1.55vw,23px);line-height:1.22;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(39,50,74,.25);padding-right:clamp(14px,1.6vw,22px)}
+.gved .pc .msg p{margin:0}
+.gved .pc .msg .sig{font-weight:600;font-size:1.05em;margin-top:10px}
+.gved .pc .addr{display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.gved .pc .addr span{font-family:"Caveat","Bradley Hand",cursive;font-size:clamp(16px,1.3vw,19px);line-height:1;border-bottom:1px solid rgba(39,50,74,.3);padding:0 0 3px;margin-top:clamp(10px,1.1vw,14px);white-space:nowrap;overflow:hidden}
+.gved .pc .stamp{position:absolute;top:clamp(20px,2vw,28px);right:clamp(20px,2vw,28px);width:clamp(52px,4.6vw,66px);aspect-ratio:4/5;padding:6px;transform:rotate(3deg);background:radial-gradient(circle at 3.5px 3.5px,rgba(255,253,246,0) 2.2px,#fff 2.8px) -3.5px -3.5px/7px 7px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18))}
+.gved .pc .stamp img{width:100%;height:100%;object-fit:cover;display:block}
+.gved .pc .pm{position:absolute;top:clamp(38px,3.6vw,50px);right:clamp(60px,5.6vw,80px);width:clamp(62px,5.4vw,76px);height:auto;opacity:.55;transform:rotate(-12deg);pointer-events:none}
+.gved .pc .pm text{font-family:var(--font-body,sans-serif);font-size:9px;letter-spacing:1.6px;fill:#27324A}
+.gved .pc-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:clamp(36px,4vw,56px)}
+.gved .pc-foot p{margin:0;color:var(--ink-soft);font-size:14px}
+@media (max-width:1100px){.gved .cards-pc{grid-template-columns:1fr 1fr}.gved .pc:nth-child(3){display:none}}
+@media (max-width:700px){.gved .cards-pc{grid-template-columns:1fr;gap:26px}.gved .pc:nth-child(3){display:grid}.gved .pc{aspect-ratio:auto;min-height:230px}.gved .pc:nth-child(2){transform:rotate(1.2deg)}}
+@media (max-width:420px){.gved .pc{grid-template-columns:1fr}.gved .pc .msg{border-right:0;padding-right:0;padding-bottom:14px;border-bottom:1px solid rgba(39,50,74,.25);padding-top:66px}.gved .pc .addr{display:none}.gved .pc .stamp{top:16px;right:18px;width:46px}.gved .pc .pm{top:18px;right:52px;width:58px}}
 </style>
 
 <div class="gved" id="gved">
@@ -442,14 +493,15 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   </div>
 </section>
 
-<section class="season rv">
-  <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"></figure>
-  <div class="txt">
-    <div class="eyebrow" style="color:var(--bright)">This winter</div>
-    <h2>A happy Christmas <em>by the sea</em></h2>
-    <p>Our Christmas house party: beach walks, a roaring fire, champagne and three days of feasting at Harry’s. Then see in the new year with us.</p>
-    <div class="row"><div><b>23–26 Dec</b><small>Three nights</small></div><div><b>From £959</b><small>Per person, all-inclusive</small></div></div>
-    <div class="btns"><a class="btn btn-m" href="christmas/">Christmas 2026</a><a class="btn btn-w" href="https://thegallivant.co.uk/new-year-2026/">New Year</a></div>
+<section class="sec year">
+  <div class="wrap">
+    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">A year at the Gallivant</div><h2>Every season <em>by the sea</em></h2></div><div class="yr-nav"><button type="button" data-dir="-1" aria-label="Previous season">←</button><button type="button" data-dir="1" aria-label="Next season">→</button></div></div>
+    <div class="yr rv">
+      <a href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/offers/" data-season="spring"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/03/PaulReadPhotography-33-scaled.jpg" alt="Yoga in the dunes" loading="lazy"><div class="top"><span class="eyebrow">Spring</span><span class="now">Now</span></div><div><h3>Fresh air <em>and long lunches</em></h3><p>Yoga in the dunes, the first lunches on the Terrace and quiet beaches before the summer crowds.</p><div class="more">Explore spring<i>→</i></div></div></a>
+      <a href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/offers/" data-season="summer"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2021/11/PaulReadPhotography-109.jpg" alt="Sunlight on Camber Sands beach" loading="lazy"><div class="top"><span class="eyebrow">Summer</span><span class="now">Now</span></div><div><h3>Barefoot <em>days</em></h3><p>Miles of sand from the garden gate, sea swims, cocktails at sunset and long, light evenings.</p><div class="more">Explore summer<i>→</i></div></div></a>
+      <a href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/offers/" data-season="autumn"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" alt="The log fire in the Sitting Room" loading="lazy"><div class="top"><span class="eyebrow">Autumn</span><span class="now">Now</span></div><div><h3>Bracing walks, <em>then the fire</em></h3><p>Wild skies over the dunes, muddy dogs, Sunday roasts and a seat by the log fire.</p><div class="more">Explore autumn<i>→</i></div></div></a>
+      <a href="christmas/" data-season="winter"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"><div class="top"><span class="eyebrow">Winter</span><span class="now">Now</span></div><div><h3>Christmas <em>by the sea</em></h3><p>Our Christmas house party, 23–26 December, from £959 per person. Then see the new year in with us.</p><div class="more">Christmas 2026<i>→</i></div></div></a>
+    </div>
   </div>
 </section>
 
@@ -474,12 +526,13 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Happiness delivered</div><h2>What our guests say</h2></div><a class="link" href="https://thegallivant.co.uk/customer-reviews/">Read all reviews</a></div>
-    <div class="revs">
-      <div class="rev rv"><div class="stars">★★★★★</div><p>“I honestly cannot think of anything you can do better. The service from every single member of your staff was exceptional.”</p><small>Veronika S.</small></div>
-      <div class="rev rv"><div class="stars">★★★★★</div><p>“We loved playing Scrabble and rummaging through the books in the snug whilst having a lovely cocktail. We will be back!”</p><small>Andrea W.</small></div>
-      <div class="rev rv"><div class="stars">★★★★★</div><p>“We absolutely loved our bedroom complete with a roll top bath and a stunning little private garden. A real gem.”</p><small>Caroline H.</small></div>
+    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Happiness delivered</div><h2>Postcards from <em>our guests</em></h2></div></div>
+    <div class="cards-pc">
+      <figure class="pc rv"><div class="msg"><p>I honestly cannot think of anything you can do better. The service from every single member of your staff was exceptional.</p><p class="sig">Veronika S.</p></div><span class="stamp"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="" loading="lazy"></span><svg class="pm" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36" fill="none" stroke="#27324A" stroke-width="1.4"/><circle cx="40" cy="40" r="25" fill="none" stroke="#27324A" stroke-width="1"/><path id="pmc" d="M40 10a30 30 0 1 1 0 60a30 30 0 1 1 0-60" fill="none"/><text><textPath href="#pmc" startOffset="2%">CAMBER SANDS · HAPPINESS IS A PLACE ·</textPath></text><text x="40" y="44" text-anchor="middle" style="font-size:11px;letter-spacing:1px">TN31</text></svg><div class="addr"><span>The Gallivant</span><span>Camber Sands</span><span>East Sussex</span><span>TN31 7RB</span></div></figure>
+      <figure class="pc rv"><div class="msg"><p>We loved playing Scrabble and rummaging through the books in the snug whilst having a lovely cocktail. We will be back!</p><p class="sig">Andrea W.</p></div><span class="stamp"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" alt="" loading="lazy"></span><svg class="pm" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36" fill="none" stroke="#27324A" stroke-width="1.4"/><circle cx="40" cy="40" r="25" fill="none" stroke="#27324A" stroke-width="1"/><path id="pmc" d="M40 10a30 30 0 1 1 0 60a30 30 0 1 1 0-60" fill="none"/><text><textPath href="#pmc" startOffset="2%">CAMBER SANDS · HAPPINESS IS A PLACE ·</textPath></text><text x="40" y="44" text-anchor="middle" style="font-size:11px;letter-spacing:1px">TN31</text></svg><div class="addr"><span>The Gallivant</span><span>Camber Sands</span><span>East Sussex</span><span>TN31 7RB</span></div></figure>
+      <figure class="pc rv"><div class="msg"><p>We absolutely loved our bedroom, complete with a roll top bath and a stunning little private garden. A real gem.</p><p class="sig">Caroline H.</p></div><span class="stamp"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/28.jpeg" alt="" loading="lazy"></span><svg class="pm" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36" fill="none" stroke="#27324A" stroke-width="1.4"/><circle cx="40" cy="40" r="25" fill="none" stroke="#27324A" stroke-width="1"/><path id="pmc" d="M40 10a30 30 0 1 1 0 60a30 30 0 1 1 0-60" fill="none"/><text><textPath href="#pmc" startOffset="2%">CAMBER SANDS · HAPPINESS IS A PLACE ·</textPath></text><text x="40" y="44" text-anchor="middle" style="font-size:11px;letter-spacing:1px">TN31</text></svg><div class="addr"><span>The Gallivant</span><span>Camber Sands</span><span>East Sussex</span><span>TN31 7RB</span></div></figure>
     </div>
+    <div class="pc-foot rv"><p>From guest reviews of The Gallivant.</p><a class="link" href="https://thegallivant.co.uk/customer-reviews/">Read all reviews</a></div>
   </div>
 </section>
 
@@ -640,6 +693,17 @@ var root=document.getElementById('gved');
   if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   [].forEach.call(els,function(el,k){el.style.transitionDelay=(k%4)*70+'ms';io.observe(el)});
+})();
+
+/* A year at the Gallivant: mark the current season, carousel arrows on smaller screens */
+(function(){
+  var yr=root.querySelector('.yr'); if(!yr) return;
+  var m=new Date().getMonth(), k=m<2||m==11?'winter':m<5?'spring':m<8?'summer':'autumn';
+  var cur=yr.querySelector('[data-season="'+k+'"]'); if(cur) cur.classList.add('is-now');
+  var btns=root.querySelectorAll('.yr-nav button');
+  function upd(){var max=yr.scrollWidth-yr.clientWidth-2;if(!btns.length)return;btns[0].disabled=yr.scrollLeft<=2;btns[1].disabled=yr.scrollLeft>=max;}
+  btns.forEach(function(b){b.onclick=function(){var a=yr.querySelector('a');yr.scrollBy({left:(a.offsetWidth+12)*(+b.dataset.dir),behavior:'smooth'});};});
+  yr.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
 })();
 </script>
 
