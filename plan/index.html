@@ -505,6 +505,10 @@ el.addEventListener('change',function(e){ if(e.target.classList.contains('gp-dat
   var y=scrollY; result(); scrollTo(0,y); } });
 /* hide the mobile bar once the summary card is on screen */
 addEventListener('scroll',function(){ var s=el.querySelector('#gp-sum'), mb=el.querySelector('.mbar'); if(!s||!mb) return; var r=s.getBoundingClientRect(); mb.classList.toggle('on', r.top>innerHeight-60); },{passive:true});
+/* Arriving from the homepage with moods already chosen: skip to question 2 */
+(function(){ try{ var q=(location.search.match(/[?&]moods=([^&]+)/)||[])[1]; if(!q) return;
+  var ok=decodeURIComponent(q).split(',').filter(function(k){return MOODS.some(function(m){return m.k===k;});});
+  if(ok.length){ P.moods=ok; P.step=2; } }catch(e){} })();
 render();
 })();
 </script>

@@ -370,6 +370,32 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 @media (max-width:1100px){.gved .cards-pc{grid-template-columns:1fr 1fr}.gved .pc:nth-child(3){display:none}}
 @media (max-width:700px){.gved .cards-pc{grid-template-columns:1fr;gap:26px}.gved .pc:nth-child(3){display:grid}.gved .pc{aspect-ratio:auto;min-height:230px}.gved .pc:nth-child(2){transform:rotate(1.2deg)}}
 @media (max-width:420px){.gved .pc{grid-template-columns:1fr}.gved .pc .msg{border-right:0;padding-right:0;padding-bottom:14px;border-bottom:1px solid rgba(39,50,74,.25);padding-top:66px}.gved .pc .addr{display:none}.gved .pc .stamp{top:16px;right:18px;width:46px}.gved .pc .pm{top:18px;right:52px;width:58px}}
+
+/* Stay planner band */
+.gved .planband{background:var(--ink);color:var(--panel);padding:clamp(64px,8vw,120px) 0;position:relative;overflow:hidden}
+.gved .planband::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(242,237,224,.12);box-shadow:0 0 0 60px rgba(242,237,224,.03)}
+.gved .pb-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,100px);align-items:center;position:relative}
+.gved .planband .eyebrow{color:var(--blush,#F4C2CA)}
+.gved .planband h2{font-size:clamp(32px,4vw,58px);margin:16px 0 22px;color:var(--panel)}
+.gved .planband p{max-width:44ch;opacity:.85}
+.gved .pb-q{font-family:var(--font-display);font-size:clamp(22px,1.9vw,28px);line-height:1.2;margin-bottom:18px!important;opacity:1!important;max-width:none!important}
+.gved .pb-q span{display:block;font-family:var(--font-body);font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:8px}
+.gved .pb-chips{display:flex;flex-wrap:wrap;gap:10px}
+.gved .pb-chip{display:inline-flex;align-items:center;gap:12px;padding:6px 16px 6px 6px;border:1px solid rgba(242,237,224,.3);border-radius:999px;font-size:15px;color:var(--panel);cursor:pointer;transition:background .3s,border-color .3s,color .3s}
+.gved .pb-chip .pb-img{width:40px;height:40px;border-radius:50%;overflow:hidden;flex:0 0 40px}
+.gved .pb-chip img{width:100%;height:100%;object-fit:cover}
+.gved .pb-chip i{width:18px;height:18px;border-radius:50%;border:1px solid rgba(242,237,224,.5);position:relative;flex:0 0 18px;transition:background .3s,border-color .3s}
+.gved .pb-chip i::after{content:"";position:absolute;left:5px;top:3px;width:5px;height:8px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);opacity:0;transition:opacity .2s}
+.gved .pb-chip:hover{border-color:var(--panel)}
+.gved .pb-chip[aria-pressed="true"]{background:var(--panel);color:var(--ink);border-color:var(--panel)}
+.gved .pb-chip[aria-pressed="true"] i{background:var(--blush,#F4C2CA);border-color:var(--blush,#F4C2CA)}
+.gved .pb-chip[aria-pressed="true"] i::after{opacity:1}
+.gved .pb-go{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:28px}
+.gved .btn-c{background:var(--panel);color:var(--ink)}.gved .btn-c:hover{background:#fff}
+.gved .pb-hand{font-family:"Caveat","Bradley Hand",cursive;font-size:24px;color:var(--blush,#F4C2CA);transform:rotate(-3deg)}
+@media (max-width:900px){.gved .pb-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.gved .pb-hand{display:none}}
+@media (max-width:480px){.gved .pb-chip{font-size:14px;padding-right:12px}.gved .pb-chip .pb-img{width:34px;height:34px;flex-basis:34px}}
 </style>
 
 <div class="gved" id="gved">
@@ -440,7 +466,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <div class="eyebrow rv">A perfect Gallivant day</div>
       <h2 class="rv">Nothing to do, and <em>all day</em> to do it</h2>
       <p class="rv">Beach, cake, English wine, sunset in the dunes and dinner at Harry’s. Here’s how we’d spend it – though doing absolutely nothing is also allowed.</p>
-      <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book your day</a><a class="btn btn-i" href="plan/">Plan your own stay</a></div>
+      <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book your day</a><a class="btn btn-i" href="https://thegallivant.co.uk/gallivant-guides/">Gallivant guides</a></div>
     </div>
     <div class="desk">
       <div class="note" aria-label="A handwritten plan for the day">
@@ -461,6 +487,21 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
         <div class="sign" style="margin-top:44px">x</div>
       </div>
       <div class="polaroid"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="Sunset over the dunes" loading="lazy"><span>the dunes ♡</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="planband">
+  <div class="wrap pb-grid">
+    <div class="pb-txt">
+      <div class="eyebrow rv">New · The stay planner</div>
+      <h2 class="rv">Plan your weekend <em>in 30 seconds</em></h2>
+      <p class="rv">Tell us what kind of stay you’re after and we’ll sketch out the whole thing: what to do, where to go, what to eat, and the bits worth booking ahead. Then send it to us, or keep it for yourself.</p>
+    </div>
+    <div class="pb-pick rv">
+      <p class="pb-q">What kind of stay are you after? <span>Pick as many as you like</span></p>
+      <div class="pb-chips"><button type="button" class="pb-chip" data-m="cosy" aria-pressed="false"><span class="pb-img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" alt="" loading="lazy"></span><span>Do absolutely nothing</span><i aria-hidden="true"></i></button><button type="button" class="pb-chip" data-m="foodie" aria-pressed="false"><span class="pb-img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF7904-scaled.jpeg" alt="" loading="lazy"></span><span>Eat and drink well</span><i aria-hidden="true"></i></button><button type="button" class="pb-chip" data-m="active" aria-pressed="false"><span class="pb-img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2021/11/PaulReadPhotography-109.jpg" alt="" loading="lazy"></span><span>Get outdoors</span><i aria-hidden="true"></i></button><button type="button" class="pb-chip" data-m="romantic" aria-pressed="false"><span class="pb-img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="" loading="lazy"></span><span>Romance</span><i aria-hidden="true"></i></button><button type="button" class="pb-chip" data-m="explore" aria-pressed="false"><span class="pb-img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/30-1080x854.jpeg" alt="" loading="lazy"></span><span>Explore the coast</span><i aria-hidden="true"></i></button></div>
+      <div class="pb-go"><a class="btn btn-c pb-btn" href="plan/" data-base="plan/">Plan my stay</a><span class="pb-hand">← it only takes 30 seconds</span></div>
     </div>
   </div>
 </section>
@@ -704,6 +745,19 @@ var root=document.getElementById('gved');
   function upd(){var max=yr.scrollWidth-yr.clientWidth-2;if(!btns.length)return;btns[0].disabled=yr.scrollLeft<=2;btns[1].disabled=yr.scrollLeft>=max;}
   btns.forEach(function(b){b.onclick=function(){var a=yr.querySelector('a');yr.scrollBy({left:(a.offsetWidth+12)*(+b.dataset.dir),behavior:'smooth'});};});
   yr.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
+})();
+
+/* Stay planner band: chosen moods carry through to the planner */
+(function(){
+  var band=root.querySelector('.planband'); if(!band) return;
+  var btn=band.querySelector('.pb-btn'), base=btn.getAttribute('href');
+  band.addEventListener('click',function(e){
+    var c=e.target.closest('.pb-chip'); if(!c) return;
+    c.setAttribute('aria-pressed',String(c.getAttribute('aria-pressed')!=='true'));
+    var on=[].map.call(band.querySelectorAll('.pb-chip[aria-pressed="true"]'),function(x){return x.dataset.m;});
+    btn.href=base+(on.length?'?moods='+on.join(','):'');
+    btn.textContent=on.length?'Plan my stay →':'Plan my stay';
+  });
 })();
 </script>
 
