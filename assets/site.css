@@ -148,3 +148,18 @@ main{display:block}
 .drawer li:not(.off)+li.off{margin-top:clamp(10px,2vh,22px);padding-top:clamp(10px,2vh,22px);border-top:1px solid rgba(43,42,40,.16)}
 .drawer .more.off span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.32;padding:4px 0}
 @media (max-width:860px){.drawer li.off .ml .t{font-size:20px}.drawer li:not(.off)+li.off{margin-top:0;padding-top:0;border-top:0}.drawer .more.off span{font-size:11px;padding:8px 0}}
+
+/* Homepage: header sits transparent over the hero, turns solid once you scroll */
+body.hdr-over{padding-top:0}
+body.hdr-over .gved .hero{height:100svh;min-height:680px}
+body.hdr-over .gved .wx{top:calc(var(--hdr) + 14px)}
+.site-hdr{transition:background-color .45s,box-shadow .3s}
+.site-hdr::before{content:"";position:absolute;inset:0 0 -40px 0;background:linear-gradient(180deg,rgba(20,20,15,.45),rgba(20,20,15,0));opacity:0;transition:opacity .45s;pointer-events:none}
+.site-hdr .in{position:relative}
+.site-hdr .logo img,.site-hdr .burger,.site-hdr .tel,.site-hdr nav a{transition:filter .45s,opacity .45s,color .45s,border-color .3s}
+body.hdr-over .site-hdr:not(.scrolled){background-color:transparent}
+body.hdr-over .site-hdr:not(.scrolled)::before{opacity:1}
+body.hdr-over .site-hdr:not(.scrolled) .logo img{filter:brightness(0) invert(1);opacity:1}
+body.hdr-over .site-hdr:not(.scrolled) .burger,body.hdr-over .site-hdr:not(.scrolled) .tel,body.hdr-over .site-hdr:not(.scrolled) nav a{color:#fff}
+body.hdr-over .site-hdr:not(.scrolled) nav a:hover,body.hdr-over .site-hdr:not(.scrolled) nav a[aria-current="page"]{border-color:#fff}
+@media (max-width:640px){body.hdr-over .gved .wx{top:calc(var(--hdr) + 10px)}}
