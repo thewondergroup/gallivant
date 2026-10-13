@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Romney Bay House at Littlestone-on-Sea, a Clough Williams-Ellis house on the dunes, is being restored as Gallivant Littlestone Beach, opening 1 July 2027. Watch the series and become a Friend for first access to book.">
 <meta name="twitter:image" content="https://thewondergroup.github.io/gallivant/gallivant-littlestone-beach/media/romney-bay-house-today.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -42,7 +42,7 @@
 <style>
 /* GALLIVANT LITTLESTONE BEACH (WordPress embed, scoped to .gved) */
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--paper:#ECE7DA;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--sea:#4FA3A5;
---font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
+--font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);--gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1)}
 .gved{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative;text-align:left}
 .gved,.gved *{box-sizing:border-box}
@@ -51,7 +51,8 @@
 .gved button{background:none;border:0;border-radius:0;padding:0;margin:0;color:inherit;font:inherit;cursor:pointer}
 .gved img{display:block;max-width:100%;height:auto}
 .gved h1{font-family:var(--font-display);font-weight:400;line-height:1}
-.gved h2{font-family:var(--font-heading);font-weight:500;font-stretch:125%;letter-spacing:-.015em;line-height:1.08}
+.gved h2{font-family:var(--font-display);font-weight:400;line-height:1.1}
+.gved h1,.gved h2,.gved h3,.gved h4,.gved h1 em,.gved h2 em,.gved h3 em,.gved h4 em{font-style:normal!important}
 .gved h2 em,.gved h1 em{font-family:var(--font-display);font-stretch:normal;font-weight:400;font-style:italic;letter-spacing:0}
 .gved h3{font-family:var(--font-display);font-weight:400;line-height:1.15}
 .gved .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
@@ -68,13 +69,14 @@
 .gved .bw{filter:grayscale(1) contrast(1.02)}
 
 /* Hero */
-.gved .hero{position:relative;height:calc(100svh - 82px);min-height:620px;color:#fff;overflow:hidden;background:#111}
+.gved .hero{position:relative;min-height:max(620px,calc(100svh - 82px));display:flex;flex-direction:column;color:#fff;overflow:hidden;background:#111}
 .gved .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.06);animation:lsZoom 14s var(--ease) forwards}
 @keyframes lsZoom{to{transform:scale(1)}}
 .gved .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.62) 0%,rgba(10,10,10,.25) 45%,rgba(10,10,10,0) 70%),linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.15) 55%,rgba(10,10,10,.8) 100%)}
 @media (max-width:760px){.gved .hero::after{background:linear-gradient(180deg,rgba(10,10,10,.4) 0%,rgba(10,10,10,.5) 35%,rgba(10,10,10,.75) 60%,rgba(10,10,10,.92) 100%)}}
-.gved .hero .inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,8vh,90px)}
-.gved .hero h1{font-size:clamp(50px,8.4vw,132px);margin-top:16px;max-width:12ch}
+.gved .hero .inner{position:relative;z-index:2;flex:1 0 auto;width:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-top:clamp(40px,7vh,80px);padding-bottom:clamp(40px,8vh,90px)}
+@media (max-width:760px){.gved .hero .inner{padding-top:150px}}
+.gved .hero h1{font-size:clamp(46px,min(7.2vw,11vh),118px);margin-top:16px;max-width:12ch;line-height:1.02}
 .gved .hero .sub{margin-top:18px;max-width:48ch;font-size:clamp(16px,1.4vw,19px)}
 .gved .hero .btns{margin-top:28px}
 .gved .count{position:absolute;right:var(--gutter);top:clamp(24px,5vh,48px);z-index:2;text-align:right}
@@ -240,11 +242,13 @@
 .gved .eps-row{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(150px,16vw,200px);gap:clamp(14px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
 .gved .ep{scroll-snap-align:start;display:block;color:#fff}
 .gved .ep .im{display:block;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#1d1c1a;position:relative}
-.gved .ep .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gved .ep .im img,.gved .ep .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gved .ep .im video{opacity:0;transition:opacity .4s}.gved .ep .im video.on{opacity:1}
 .gved .ep:hover .im img{transform:scale(1.04)}
 .gved .ep .im::after{content:"";position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(20,20,15,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 4.5v7l5.5-3.5z' fill='white'/%3E%3C/svg%3E") center/18px no-repeat}
 .gved .ep .n{display:block;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bright)}
 .gved .ep b{display:block;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;margin-top:4px}
+.gved .ep .w{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px}
 .gved .ep small{display:block;font-size:13px;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}
 .gved .ep.soon .im{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;font-family:var(--serif);font-size:64px;color:rgba(255,255,255,.35)}
 .gved .ep.soon .im::after{display:none}
@@ -301,7 +305,6 @@
 /* Theme overrides */
 body:has(.gved) section.page-header{display:none}
 body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.gved),body:has(.gved) .content:has(.gved){padding:0;margin:0;max-width:none;width:100%}
-@font-face{font-family:"Swiss 721 Extended BT";src:url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff2") format("woff2"),url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff") format("woff");font-weight:400 600;font-display:swap}
 </style>
 
 <div class="gved" id="gved" data-mode="friends">
@@ -310,7 +313,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="count" aria-live="polite"><b data-days>&nbsp;</b><span>days until we open</span></div>
   <div class="wrap inner">
     <div class="eyebrow rv">Opening 1 July 2027 · Littlestone-on-Sea</div>
-    <h1 class="rv">Gallivant <em>Littlestone Beach</em></h1>
+    <h1 class="rv">Gallivant Littlestone Beach</h1>
     <p class="sub rv">We’ve begun the complete restoration of Romney Bay House, a house by Clough Williams-Ellis on a sand dune above the sea. This is its story so far.</p>
     <div class="quick rv" data-only="friends prebook">
       <form id="gved-quick" novalidate>
@@ -346,7 +349,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div>
       <div class="eyebrow rv" style="color:var(--bright)">The series · Episode one</div>
-      <h2 class="rv">We bought <em>a hotel</em></h2>
+      <h2 class="rv">We bought a hotel</h2>
       <p class="rv">Harry and Sigrid are filming the whole restoration of Romney Bay House, from the first walk round to opening day. This is where it starts.</p>
       <p class="rv">They’ll share the lot: the build, the problems, the finds, the makers, the styling of the rooms and the history of the house.</p>
       <ul class="rv"><li>The build</li><li>The problems</li><li>The rooms</li><li>The makers</li><li>The history</li></ul>
@@ -372,7 +375,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div>
       <div class="eyebrow rv">A house on the dunes</div>
-      <h2 class="rv">Our second house, <em>and its first life</em></h2>
+      <h2 class="rv">Our second house, and its first life</h2>
       <p class="body rv">Along the coast from Camber, at Littlestone-on-Sea, a white house with a mansard roof and four tall columns looks straight out to sea. It was drawn up by Clough Williams-Ellis, the architect behind Portmeirion, for a Mrs M. E. Bray.</p>
       <p class="body rv">Today it’s known as Romney Bay House. Now we’re restoring it, room by room, to become Gallivant Littlestone Beach: our second house by the sea, with the same welcome you know from Camber.</p>
     </div>
@@ -382,7 +385,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec build">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px;color:var(--bright)">From the drawing board to the dunes</div><h2>How the house <em>came to be</em></h2></div><p>The house went up on bare sand, with nothing between it and the sea but marram grass.</p></div>
+    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px;color:var(--bright)">From the drawing board to the dunes</div><h2>How the house came to be</h2></div><p>The house went up on bare sand, with nothing between it and the sea but marram grass.</p></div>
     <div class="frames">
       <figure class="rv"><div class="im plan"><img src="media/plans-entrance.jpg" alt="Architect’s drawing of the entrance elevation and ground floor plan" loading="lazy"></div><figcaption><b>On paper</b>The entrance elevation and ground floor, with a garage, a dining room and a curved bay facing the sea.</figcaption></figure>
       <figure class="rv"><div class="im"><img src="media/construction.jpg" alt="Romney Bay House under construction, with a ladder against the wall" loading="lazy"></div><figcaption><b>Going up</b>Ladders still against the walls, and the dunes running right up to the door.</figcaption></figure>
@@ -394,7 +397,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec tn">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">Then and now</div><h2>The same steps, <em>the same view</em></h2></div><p>Drag across to see the house as it was, and as we found it. The wings came later.</p></div>
+    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">Then and now</div><h2>The same steps, the same view</h2></div><p>Drag across to see the house as it was, and as we found it. The wings came later.</p></div>
     <div class="compare rv">
       <img src="media/now.jpg" alt="Romney Bay House today, from the foot of the garden steps" loading="lazy">
       <img class="then" src="media/then.jpg" alt="The house in its early years, from the same steps, with the family on the terrace" loading="lazy">
@@ -409,7 +412,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <figure class="rv"><img src="media/clough-williams-ellis.jpg" alt="Sir Clough Williams-Ellis at Portmeirion" loading="lazy"></figure>
   <div class="txt">
     <div class="eyebrow rv" style="color:var(--warm)">The architect</div>
-    <h2 class="rv">The man who <em>built Portmeirion</em></h2>
+    <h2 class="rv">The man who built Portmeirion</h2>
     <p class="rv">Clough Williams-Ellis is best known for Portmeirion, the Italianate village he built on the Welsh coast. Romney Bay House is one of only a few examples of his work.</p>
     <p class="rv">The columns, the roofline and the windows facing the sea are all his. Our job is to make them ready for many more summers.</p>
   </div>
@@ -417,7 +420,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec album">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">From the archive</div><h2>Summers <em>at Littlestone</em></h2></div><p>Beach days, motor cars, model aeroplanes on the lawn and a lot of sitting on the front steps.</p></div>
+    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">From the archive</div><h2>Summers at Littlestone</h2></div><p>Beach days, motor cars, model aeroplanes on the lawn and a lot of sitting on the front steps.</p></div>
     <div class="masonry">
       <figure class="rv"><img class="bw" src="media/house-steps-family.jpg" alt="The family on the steps of the house" loading="lazy"><figcaption>The front steps, and the people on them</figcaption></figure>
       <figure class="rv"><img class="bw" src="media/beach-girl.jpg" alt="A girl in a swimming cap with a rubber ring on the beach" loading="lazy"><figcaption>Ready for the sea</figcaption></figure>
@@ -438,7 +441,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div>
       <div class="eyebrow rv">Wish you were here</div>
-      <h2 class="rv">Littlestone-on-Sea, <em>by postcard</em></h2>
+      <h2 class="rv">Littlestone-on-Sea, by postcard</h2>
       <p class="rv">A long sea wall to sit on, breakers to dodge, a parade of grand houses and The Grand Hotel. Littlestone was a seaside resort with ambitions.</p>
       <p class="rv">The beach is still there, and so are the big skies over Romney Marsh. We think it’s ready for a second act.</p>
     </div>
@@ -462,13 +465,13 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div class="card rv">
       <div class="eyebrow" style="color:var(--warm)">What happens next</div>
-      <h2>Watch it come <em>back to life</em></h2>
+      <h2>Watch it come back to life</h2>
       <p>Work has started on site. Harry and Sigrid are sharing the restoration as it happens: the build, the problems, the finds, the makers and the rooms taking shape.</p>
       <a class="link" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_next">@gallivantlittlestone</a>
     </div>
     <div class="card rv">
       <div class="eyebrow" style="color:var(--warm)">Do you remember Romney Bay House?</div>
-      <h2>Help us fill in <em>the story</em></h2>
+      <h2>Help us fill in the story</h2>
       <p>If you stayed here, grew up nearby or have old photographs of the house, we’d love to see them. Every memory helps us restore it properly.</p>
       <a class="link" href="mailto:enquiries@thegallivant.co.uk?subject=My%20memories%20of%20Romney%20Bay%20House" data-track="share_memories">Share your memories</a>
     </div>
@@ -479,7 +482,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div class="intro-t">
       <div class="eyebrow rv" style="color:var(--bright)"><span data-only="friends prebook">Become a Friend</span><span data-only="book">Stay in touch</span></div>
-      <h2 class="rv"><span data-only="friends">Be first <em>through the door</em></span><span data-only="prebook">Book before <em>everyone else</em></span><span data-only="book">News from <em>the dunes</em></span></h2>
+      <h2 class="rv"><span data-only="friends">Be first through the door</span><span data-only="prebook">Book before everyone else</span><span data-only="book">News from the dunes</span></h2>
       <p class="rv" data-only="friends">Friends of Gallivant Littlestone Beach get first access to book, before bookings open to everyone. You’ll also hear about our pre-opening events first.</p>
       <p class="rv" data-only="prebook">Friends’ booking is open now. Join and we’ll email you a link to book before bookings open to everyone.</p>
       <p class="rv" data-only="book">Bookings are open. Sign up for news, events and the occasional offer from Gallivant Littlestone Beach.</p>
@@ -547,11 +550,16 @@ var GVED_LS={
   mode:'friends',
   bookingUrl:'',   /* the Littlestone booking link (Mews), used in 'book' mode */
   stage:1,         /* where the build is: 0 Bought, 1 Strip-out, 2 Structure, 3 Rooms, 4 Styling, 5 Opening */
-  /* Episodes of the series, newest last. Or set episodesCsv to a published Google Sheet CSV
-     with the columns: title, image, url (one row per episode) and it will be used instead. */
+  /* Episodes of the series, oldest first. For each one:
+       title  the episode name
+       url    the reel's link on Instagram (on the reel: ⋯ → Copy link)
+       image  a still for the card
+       video  optional: a short muted clip that plays on the card
+       date   optional: e.g. 'Oct 2026'
+     Or set episodesCsv to a published Google Sheet CSV with those columns and it will be used instead. */
   episodesCsv:'',
   episodes:[
-    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', url:'https://www.instagram.com/gallivantlittlestone/'}
+    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', video:'media/we-bought-a-hotel-preview.mp4', url:'https://www.instagram.com/gallivantlittlestone/'}
   ]
 };
 /* Preview another mode without editing: add ?ls_mode=prebook or ?ls_mode=book to the URL */
@@ -592,15 +600,23 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function render(list){
     list=list.filter(function(e){ return e && e.title; }); if(!list.length) return;
-    row.innerHTML=list.map(function(e,i){ return '<a class="ep" href="'+esc(e.url||ig)+'" target="_blank" rel="noopener" data-track="episode_'+(i+1)+'"><span class="im">'+(e.image?'<img src="'+esc(e.image)+'" alt="" loading="lazy">':'')+'</span><span class="n">Episode '+(i+1)+'</span><b>'+esc(e.title)+'</b></a>'; }).join('')
+    row.innerHTML=list.map(function(e,i){ return '<a class="ep" href="'+esc(e.url||ig)+'" target="_blank" rel="noopener" data-track="episode_'+(i+1)+'"><span class="im">'+(e.image?'<img src="'+esc(e.image)+'" alt="" loading="lazy">':'')+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+'</span><span class="n">Episode '+(i+1)+(e.date?' · '+esc(e.date):'')+'</span><b>'+esc(e.title)+'</b><span class="w">Watch on Instagram ↗</span></a>'; }).join('')
       +'<a class="ep soon" href="'+ig+'" target="_blank" rel="noopener" data-track="episode_next"><span class="im">'+(list.length+1)+'</span><span class="n">Episode '+(list.length+1)+'</span><b>Coming soon</b><small>Follow so you don’t miss it</small></a>';
   }
+  /* Episode previews: if a card has a video, it plays silently while the card is on screen (or hovered) */
+  function previews(){
+    var vids=[].slice.call(row.querySelectorAll('video')); if(!vids.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function go(v){ if(!v.getAttribute('src')){ v.src=v.getAttribute('data-src'); } v.muted=true; var pr=v.play(); if(pr&&pr.then) pr.then(function(){ v.classList.add('on'); }).catch(function(){}); }
+    function stop(v){ if(v.getAttribute('src')) v.pause(); }
+    vids.forEach(function(v){ var a=v.closest('.ep'); a.addEventListener('mouseenter',function(){ go(v); }); a.addEventListener('focus',function(){ go(v); }); });
+    if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?go(e.target):stop(e.target); }); },{threshold:.6}); vids.forEach(function(v){ io.observe(v); }); }
+  }
   function csv(t){ var out=[],r=[],f='',q=false; for(var i=0;i<t.length;i++){ var c=t[i]; if(q){ if(c==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; } else if(c==='"') q=true; else if(c===','){ r.push(f); f=''; } else if(c==='\n'||c==='\r'){ if(c==='\r'&&t[i+1]==='\n') i++; r.push(f); out.push(r); r=[]; f=''; } else f+=c; } if(f||r.length){ r.push(f); out.push(r); } return out; }
-  render(GVED_LS.episodes||[]);
+  render(GVED_LS.episodes||[]); previews();
   if(GVED_LS.episodesCsv && window.fetch){
     fetch(GVED_LS.episodesCsv).then(function(r){ return r.text(); }).then(function(t){
       var rows=csv(t), h=(rows.shift()||[]).map(function(x){ return x.trim().toLowerCase(); });
-      render(rows.map(function(r){ var o={}; h.forEach(function(k,i){ o[k]=(r[i]||'').trim(); }); return o; }));
+      render(rows.map(function(r){ var o={}; h.forEach(function(k,i){ o[k]=(r[i]||'').trim(); }); return o; })); previews();
     }).catch(function(){});
   }
 })();

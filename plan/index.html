@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Plan your stay at The Gallivant: answer four quick questions and get a weekend of ideas, from Drinks in the Dunes to dinner at Harry’s.">
 <meta name="twitter:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/04/DB-GALLIVANT-EXTERIORS-16-1440x685.jpeg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -42,7 +42,7 @@
 <style>
 /* THE GALLIVANT — STAY PLANNER (WordPress embed, scoped to .gved) */
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--paper:#FFFDF6;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;
---font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;--hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+--font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;--hand:"Caveat","Bradley Hand","Segoe Print",cursive;
 --gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1);
 background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;position:relative;text-align:left;overflow:hidden;overflow:clip}
 .gved,.gved *{box-sizing:border-box}
@@ -53,7 +53,8 @@ background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size
 .gved button{background:none;border:0;border-radius:0;padding:0;margin:0;box-shadow:none;text-transform:none;letter-spacing:inherit;min-height:0;cursor:pointer}
 .gved img{display:block;max-width:100%;border-radius:0;box-shadow:none}
 .gved h1,.gved h3{font-family:var(--font-display);font-weight:400;line-height:1.05}
-.gved h2{font-family:var(--font-heading);font-weight:500;font-stretch:125%;letter-spacing:-.015em;line-height:1.08}
+.gved h2{font-family:var(--font-display);font-weight:400;line-height:1.1}
+.gved h1,.gved h2,.gved h3,.gved h4,.gved h1 em,.gved h2 em,.gved h3 em,.gved h4 em{font-style:normal!important}
 .gved h1 em,.gved h2 em{font-family:var(--font-display);font-stretch:normal;font-weight:400;font-style:italic;letter-spacing:0}
 .gved em{font-style:italic}
 .gved .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
@@ -423,7 +424,7 @@ function render(){
 var introTimer;
 function intro(){
   clearInterval(introTimer);
-  el.innerHTML='<section class="intro scr"><div class="txt"><div class="eyebrow">Plan your stay</div><h1>Your weekend, <em>your way</em></h1><p class="lead">Answer four quick questions and we’ll sketch out your stay at the Gallivant: what to do, where to go and what to eat. Then send it to us and we’ll book the bits you love.</p><div class="steps"><span><b>1</b>Your mood</span><span><b>2</b>Who’s coming</span><span><b>3</b>How long</span><span><b>4</b>When</span></div><div><button class="btn btn-k" data-go="1">Start planning</button></div></div><div class="pics">'+MOODS.map(function(m,i){return '<img src="'+IMG[m.k]+'" alt="" class="'+(i?'':'on')+'">';}).join('')+'<p class="note">cake at <b>4</b>, sunset in the dunes at <b>6</b>, then Harry’s…</p></div></section>';
+  el.innerHTML='<section class="intro scr"><div class="txt"><div class="eyebrow">Plan your stay</div><h1>Your weekend, your way</h1><p class="lead">Answer four quick questions and we’ll sketch out your stay at the Gallivant: what to do, where to go and what to eat. Then send it to us and we’ll book the bits you love.</p><div class="steps"><span><b>1</b>Your mood</span><span><b>2</b>Who’s coming</span><span><b>3</b>How long</span><span><b>4</b>When</span></div><div><button class="btn btn-k" data-go="1">Start planning</button></div></div><div class="pics">'+MOODS.map(function(m,i){return '<img src="'+IMG[m.k]+'" alt="" class="'+(i?'':'on')+'">';}).join('')+'<p class="note">cake at <b>4</b>, sunset in the dunes at <b>6</b>, then Harry’s…</p></div></section>';
   var imgs=el.querySelectorAll('.pics img'), i=0;
   introTimer=setInterval(function(){ if(!document.body.contains(imgs[0])){clearInterval(introTimer);return;} imgs[i].classList.remove('on'); i=(i+1)%imgs.length; imgs[i].classList.add('on'); },4200);
 }
@@ -454,7 +455,7 @@ function result(){
   var tips='';
   if(P.nights===3) tips+='<p class="tip"><b>psst</b><span>Coming Sunday to Thursday? Book three nights and the third is on us. <a href="https://thegallivant.co.uk/offers/stay-longer-on-us/">Stay longer on us</a></span></p>';
   var food=FOOD.filter(fits).sort(function(a,b){return score(b,.4)-score(a,.4);}).slice(0,3);
-  el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><div class="eyebrow">Your Gallivant plan</div><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' <em>'+phrase+'</em></h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
+  el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><div class="eyebrow">Your Gallivant plan</div><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' '+phrase+'</h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
   '<div class="wrap res-grid"><div>'+days+tips+'<section class="try"><h3>Don’t leave without trying</h3><ul>'+food.map(function(f){return '<li><b>'+f.t+'</b><p>'+f.d+'</p></li>';}).join('')+'</ul></section></div>'+
   '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><div class="self"><span class="self-h">Save your plan!</span><span class="self-s">Pop it in your inbox and start the countdown to the sea.</span><div class="self-row"><input type="email" class="gp-me" placeholder="Your email address" autocomplete="email" aria-label="Your email address"><a class="btn btn-i gp-self" href="#">Email me my plan</a></div></div><p class="fine">Both buttons open your email app with the plan written out. Nothing is booked until we confirm with you.</p><div class="sum-hint" aria-hidden="true"><button type="button" tabindex="-1">Save your plan ↓</button></div></aside></div>'+
   '</div><div class="mbar"><span class="mcount"></span><button type="button" data-sum>Review and send</button></div>';

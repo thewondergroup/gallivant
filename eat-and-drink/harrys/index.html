@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Harry’s at The Gallivant: a French brasserie by the sea at Camber Sands. Lunch and dinner every day.">
 <meta name="twitter:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/04/DB-GALLIVANT-EXTERIORS-16-1440x685.jpeg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
@@ -265,14 +265,14 @@
 /* Theme overrides */
 body:has(.gved) section.page-header{display:none}
 body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.gved),body:has(.gved) .content:has(.gved){padding:0;margin:0;max-width:none;width:100%}
-@font-face{font-family:"Swiss 721 Extended BT";src:url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff2") format("woff2"),url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff") format("woff");font-weight:400 600;font-display:swap}
 /* ===== Gallivant Camber design tokens (client notes, Oct 2026) ===== */
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--cool:#4FA3A5;--quiet:#8A8D3F;
 --paper:var(--ground);--paper-2:var(--panel);--white:var(--panel);--sage:var(--ink);--sage-deep:#9C9A8A;--sage-soft:var(--panel);--pine:var(--ink);--pine-2:#3A3936;--gold:var(--bright);--magenta:var(--warm);--magenta-deep:var(--warm);
---font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
+--font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);background:var(--ground);color:var(--ink);font-family:var(--font-body)}
 .gved h1{font-family:var(--font-display)}
-.gved h2{font-family:var(--font-heading);font-weight:500;font-stretch:125%;letter-spacing:-.015em;line-height:1.08}
+.gved h2{font-family:var(--font-display);font-weight:400;line-height:1.1}
+.gved h1,.gved h2,.gved h3,.gved h4,.gved h1 em,.gved h2 em,.gved h3 em,.gved h4 em{font-style:normal!important}
 .gved h2 em{font-family:var(--font-display);font-stretch:normal;font-weight:400;font-style:italic;letter-spacing:0}
 /* Pill buttons; pink is for BOOK / primary actions only */
 .gved .btn{border-radius:999px}
@@ -317,7 +317,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap character">
     <div>
       <div class="eyebrow rv">The character</div>
-      <h2 class="rv">A table for <em>the occasion</em></h2>
+      <h2 class="rv">A table for the occasion</h2>
       <p class="lead rv">Candlelight, white tablecloths and food for sharing – inspired by the Paris brasseries that people in the know frequent.</p>
       <p class="body rv">We’re the restaurant locals pick when there’s something to celebrate. Order to share – a whole roast fish or a cut of beef – and finish with our signature tarte fine aux pommes, flambéed in Calvados at your table.</p>
       <p class="body rv">By day it’s relaxed and full of light: slow weekend lunches and a Sunday roast with a silver gravy jug that doesn’t leave the table.</p>
@@ -368,7 +368,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 
 <section class="sec season">
-  <div class="wrap"><div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">In season this autumn</div><h2>What’s good <em>right now</em></h2><p class="intro">The produce we’re most excited about this autumn, from the coast and the Marsh around us. It shapes the menu week by week.</p></div><div class="p-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous">←</button><button class="circ" type="button" data-dir="1" aria-label="Next">→</button></div></div></div>
+  <div class="wrap"><div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">In season this autumn</div><h2>What’s good right now</h2><p class="intro">The produce we’re most excited about this autumn, from the coast and the Marsh around us. It shapes the menu week by week.</p></div><div class="p-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous">←</button><button class="circ" type="button" data-dir="1" aria-label="Next">→</button></div></div></div>
   <div class="ptrack rv">
     <article class="pcard"><figure><img src="https://images.unsplash.com/photo-1717251882176-acdf0d46282c?w=900&amp;h=1125&amp;fit=crop&amp;q=75&amp;auto=format" alt="Oysters on ice with lemon" loading="lazy"></figure><div class="pt"><div class="meta"><span class="n">01</span><small>Essex</small></div><b>Maldon oysters</b><p>From the Blackwater estuary. Back with the “R” months – cold water makes them firm, briny and sweet.</p></div></article>
     <article class="pcard"><figure><img src="https://images.unsplash.com/photo-1593252073713-d82278ca4883?w=900&amp;h=1125&amp;fit=crop&amp;q=75&amp;auto=format" alt="A fishing boat pulled up on a shingle beach" loading="lazy"></figure><div class="pt"><div class="meta"><span class="n">02</span><small>Rye Bay</small></div><b>Skate and brown shrimps</b><p>Landed by Rye’s day boats. Delicate, sweet skate wings, and tiny brown shrimps from the shallow, sandy bay.</p></div></article>
@@ -422,7 +422,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set for private dining" loading="lazy"></figure>
   <div class="txt">
     <div class="eyebrow">Private dining</div>
-    <h2>A celebration that needs <em>its own room</em></h2>
+    <h2>A celebration that needs its own room</h2>
     <p>The Cabin seats up to 18 for lunch or dinner, with its own menus and personal service for you and your guests.</p>
     <div class="btns"><a class="btn btn-i" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/08/Private-Dining-brochure-260826.pdf" target="_blank" rel="noopener">The brochure</a><a class="link" href="https://thegallivant.co.uk/private-dining/">Make an enquiry</a></div>
   </div>
@@ -431,7 +431,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="stay">
   <div class="txt">
     <div class="eyebrow rv">Stay the night</div>
-    <h2 class="rv">Dinner, then <em>a few steps to bed</em></h2>
+    <h2 class="rv">Dinner, then a few steps to bed</h2>
     <p class="rv">Harry’s is at the heart of The Gallivant, so after dinner there’s no taxi to call – just a deeply comfortable bed upstairs, and breakfast on the tray in the morning, which is just for hotel guests.</p>
     <a class="offer rv" href="https://thegallivant.co.uk/offers/stay-longer-on-us/"><small>Offer · Sunday to Thursday</small><b>Stay longer on us</b><span>Book three nights from Sunday to Thursday and the third night is on us. More time for slow dinners at Harry’s.</span><span class="circ">→</span></a>
     <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book a stay</a><a class="link" href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/rooms/">See the rooms</a></div>

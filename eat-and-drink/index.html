@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Five ways to spend a day by the sea: Harry’s, the Bar, the Terrace, the Snug and private dining at The Gallivant.">
 <meta name="twitter:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/04/DB-GALLIVANT-EXTERIORS-16-1440x685.jpeg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -242,14 +242,14 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .hero{height:calc(100svh - 82px)}
 .gved .s-hero{height:calc(86svh - 82px)}
 
-@font-face{font-family:"Swiss 721 Extended BT";src:url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff2") format("woff2"),url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff") format("woff");font-weight:400 600;font-display:swap}
 /* ===== Gallivant Camber design tokens (client notes, Oct 2026) ===== */
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--cool:#4FA3A5;--quiet:#8A8D3F;
 --paper:var(--ground);--paper-2:var(--panel);--white:var(--panel);--sage:var(--ink);--sage-deep:#9C9A8A;--sage-soft:var(--panel);--pine:var(--ink);--pine-2:#3A3936;--gold:var(--bright);--magenta:var(--warm);--magenta-deep:var(--warm);
---font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
+--font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);background:var(--ground);color:var(--ink);font-family:var(--font-body)}
 .gved h1{font-family:var(--font-display)}
-.gved h2{font-family:var(--font-heading);font-weight:500;font-stretch:125%;letter-spacing:-.015em;line-height:1.08}
+.gved h2{font-family:var(--font-display);font-weight:400;line-height:1.1}
+.gved h1,.gved h2,.gved h3,.gved h4,.gved h1 em,.gved h2 em,.gved h3 em,.gved h4 em{font-style:normal!important}
 .gved h2 em{font-family:var(--font-display);font-stretch:normal;font-weight:400;font-style:italic;letter-spacing:0}
 /* Pill buttons; pink is for BOOK / primary actions only */
 .gved .btn{border-radius:999px}
@@ -429,7 +429,7 @@ function hub(){
     <div class="slides">${[IMG.steak,IMG.bar,IMG.beach,IMG.harrysRoom].map((u,i)=>`<div class="${i?'':'on'}" style="background-image:url('${u}')"></div>`).join('')}</div>
     <div class="wrap inner">
       <div class="eyebrow rv">Eat and Drink · Camber Sands</div>
-      <h1 class="rv" style="margin-top:16px">Five ways to spend a day <em>by the sea</em></h1>
+      <h1 class="rv" style="margin-top:16px">Five ways to spend a day by the sea</h1>
       <div class="sub rv"><span class="rule"></span><span class="eyebrow">Lunch · Cocktails · Dinner · Nightcaps</span></div>
     </div>
     <div class="dots"></div>
@@ -490,7 +490,7 @@ function dunesBlock(){
     <div class="wrap">
       <div class="copy">
         <div class="eyebrow rv">Signature experience</div>
-        <h2 class="rv">Drinks in <em>the Dunes</em></h2>
+        <h2 class="rv">Drinks in the Dunes</h2>
         <p class="rv">We’ll pack your favourite wine and give you the co-ordinates of the perfect spot in the dunes to watch the sun set. A sky as far as the eye can see, and a glorious silence save the rustle of the grass in the wind.</p>
         <p class="rv" style="font-family:var(--serif);font-size:24px;font-style:italic">Truly remarkable, truly Gallivant.</p>
         <div class="btns rv"><a class="btn btn-i" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DITD-Apr2026.pdf" target="_blank" rel="noopener">See the menu</a><a class="btn btn-m" href="${BOOK}" target="_blank" rel="noopener">Book the dunes</a></div>
