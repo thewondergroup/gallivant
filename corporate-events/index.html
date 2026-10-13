@@ -263,6 +263,15 @@
 @media (max-width:480px){.gved .float-enq{padding:14px 20px;letter-spacing:.16em}}
 @media print{.gved .float-enq{display:none}}
 
+/* Other events */
+.gved .others .cards{grid-template-columns:repeat(3,1fr)}
+.gved .others .card{transition:transform .5s var(--ease)}
+.gved .others .card .img{aspect-ratio:5/4}
+.gved .others .card .txt{display:flex;flex-direction:column;gap:6px;flex:1}
+.gved .others .card .go{margin-top:12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm)}
+.gved .others .card:hover .go{text-decoration:underline}
+@media (max-width:860px){.gved .others .cards{grid-template-columns:1fr}}
+
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .gved .rv.in{opacity:1;transform:none}
@@ -489,6 +498,17 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     </div>
   </div>
 </section>
+<section class="sec others">
+  <div class="wrap">
+    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Other gatherings</div><h2>Not a work trip?</h2></div><a class="link" href="https://thegallivant.co.uk/plan-an-event/">All events</a></div>
+    <div class="cards">
+      <a class="card rv" href="https://thegallivant.co.uk/coastal-weddings/" data-track="other_events_weddings"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/7.jpeg" alt="A beachside wedding ceremony at Camber Sands" loading="lazy"></div><div class="txt"><h3>Weddings</h3><p>Exclusive-use weddings behind the dunes, as individual as you are.</p><span class="go">Weddings →</span></div></a>
+      <a class="card rv" href="../eat-and-drink/#/private-dining" data-track="other_events_private_dining"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/07/Longchamp-22ndMarch2024-8332-820x566.jpeg" alt="A table dressed for a celebration" loading="lazy"></div><div class="txt"><h3>Private parties and dining</h3><p>Birthdays, anniversaries and celebrations, with a room of their own.</p><span class="go">Private dining →</span></div></a>
+      <a class="card rv" href="../christmas/" data-track="other_events_christmas"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"></div><div class="txt"><h3>Christmas 2026</h3><p>A three-night house party by the sea, 23 to 26 December.</p><span class="go">Christmas →</span></div></a>
+    </div>
+  </div>
+</section>
+
 </div>
 
 <script>
