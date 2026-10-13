@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Corporate retreats and offsites at The Gallivant, Camber Sands: exclusive use of the whole house for teams of 15 or more, Harry's menus, the beach across the road, 1 hr 15 min from London.">
 <meta name="twitter:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2024/02/PaulReadPhotography-348-820x566.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -42,7 +42,7 @@
 <style>
 /* THE GALLIVANT — CORPORATE EVENTS (WordPress embed, scoped to .gved) */
 .gved{--ground:#BEBCAB;--panel:#F2EDE0;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--gold:var(--bright);--pine:var(--ink);
---font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:"Swiss 721 Extended BT","Swis721 Ex BT","Swiss721BT-Extended","Archivo",Helvetica,Arial,sans-serif;--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
+--font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);--gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1)}
 .gved{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative;text-align:left}
 .gved,.gved *{box-sizing:border-box}
@@ -51,8 +51,8 @@
 .gved button{background:none;border:0;border-radius:0;padding:0;margin:0;color:inherit;font:inherit;box-shadow:none;text-transform:none;letter-spacing:inherit;min-height:0;cursor:pointer}
 .gved img{display:block;max-width:100%;height:auto;border-radius:0;box-shadow:none}
 .gved h1{font-family:var(--font-display);font-weight:400;line-height:1.02}
-.gved h2{font-family:var(--font-heading);font-weight:500;font-stretch:125%;letter-spacing:-.015em;line-height:1.08}
-.gved h2 em,.gved h1 em{font-family:var(--font-display);font-stretch:normal;font-weight:400;font-style:italic;letter-spacing:0}
+.gved h2{font-family:var(--font-display);font-weight:400;line-height:1.1}
+.gved h1,.gved h2,.gved h3{font-style:normal}
 .gved h3{font-family:var(--font-display);font-weight:400;line-height:1.1}
 .gved .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
 .gved .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
@@ -152,9 +152,9 @@
 .gved .feast{display:grid;grid-template-columns:1fr 1fr;background:var(--panel)}
 .gved .feast figure{min-height:560px;overflow:hidden}
 .gved .feast figure img{width:100%;height:100%;object-fit:cover}
-.gved .feast figure.fv{position:relative;background:var(--ink) url("media/harrys-food-blur.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:clamp(24px,3vw,44px) 0}
-.gved .feast figure.fv video{position:relative;height:100%;max-height:640px;width:auto;aspect-ratio:9/16;object-fit:cover;box-shadow:0 20px 50px rgba(0,0,0,.35)}
-@media (max-width:860px){.gved .feast figure.fv{padding:0;aspect-ratio:4/5;min-height:0}.gved .feast figure.fv video{position:absolute;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;box-shadow:none}}
+.gved .feast figure.fv{position:relative;background:var(--ink);overflow:hidden}
+.gved .feast figure.fv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.gved .feast figure.fv{aspect-ratio:4/5;min-height:0}}
 .gved .fv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;border:1px solid #fff;background:rgba(20,20,15,.35);display:grid;place-items:center}
 .gved .fv-play::before{content:"";border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff;margin-left:5px}
 .gved .fv-play[hidden]{display:none}
@@ -317,16 +317,14 @@
 /* Theme overrides */
 body:has(.gved) section.page-header{display:none}
 body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.gved),body:has(.gved) .content:has(.gved){padding:0;margin:0;max-width:none;width:100%}
-@font-face{font-family:"Swiss 721 Extended BT";src:url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff2") format("woff2"),url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff") format("woff");font-weight:400 600;font-display:swap}
 </style>
 
 <div class="gved" id="gved">
 <section class="hero">
   <video class="bgv" muted loop playsinline preload="metadata" poster="media/corporate-walkthrough-poster.jpg" aria-hidden="true" tabindex="-1"></video>
-  <span class="award">Event Venue of the Year</span>
   <div class="wrap inner">
     <div class="eyebrow rv">Corporate retreats and offsites · Camber Sands</div>
-    <h1 class="rv" data-h1>Your team. <em>Nobody else.</em></h1>
+    <h1 class="rv" data-h1>Your team. Nobody else.</h1>
     <p class="sub rv" data-sub>Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-enquire" data-track="cta_enquire">Make an enquiry</a><a class="btn btn-w" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a></div>
     <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
@@ -355,7 +353,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div>
       <div class="eyebrow rv">Your private house by the sea</div>
-      <h2 class="rv" data-intro-h>The offsite that doesn’t <em>feel like an offsite</em></h2>
+      <h2 class="rv" data-intro-h>The offsite that doesn’t feel like an offsite</h2>
       <p class="body rv">For a night or two, The Gallivant stops being a hotel and becomes your team’s private house by the sea, with a team of our own who’ll know everyone’s name by dinner.</p>
       <p class="body rv">Strategy in the morning. A walk on a deserted beach after lunch. Matthew Harris menus in the evening. Meetings here tend to finish sooner than planned, and the decisions are better for it.</p>
       <ul class="ticks rv">
@@ -364,7 +362,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
         <li>Product and brand launches</li>
       </ul>
     </div>
-    <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8202-copy-1024x685.jpg" alt="A bright workshop space set with long tables" loading="lazy"><span class="tag">Event Venue of the Year</span></figure>
+    <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8202-copy-1024x685.jpg" alt="A bright workshop space set with long tables" loading="lazy"></figure>
   </div>
 </section>
 
@@ -415,7 +413,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <figure class="fv"><video muted loop playsinline preload="none" poster="media/harrys-food-poster.jpg" data-src="media/harrys-food.mp4" aria-label="A pork chop cooked and plated in Harry’s kitchen"></video></figure>
   <div class="txt">
     <div class="eyebrow" style="color:var(--warm)">Food and drink</div>
-    <h2>Matthew Harris <em>menus</em>, from breakfast to dinner</h2>
+    <h2>Matthew Harris menus, from breakfast to dinner</h2>
     <p>Every event, big or small, eats from Harry’s kitchen. Matthew Harris, for many years head chef at Bibendum, writes menus around your day: clean, energising breakfasts, lunches that don’t send anyone to sleep, and dinners worth staying for.</p>
     <ul class="exp">
       <li><b>Drinks in the Dunes</b><small>Cocktails and English sparkling wine as the sun goes down</small></li>
@@ -448,7 +446,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" alt="The Snug, by the fire" loading="lazy"></figure>
     <div>
       <div class="eyebrow rv">Smaller groups</div>
-      <h2 class="rv">Smaller teams get the feeling of <em>exclusivity</em> too</h2>
+      <h2 class="rv">Smaller teams get the feeling of exclusivity too</h2>
       <p class="rv">Not every team needs the whole house. Groups of up to 14 can stay with us too, with one of our private spaces to work in and a long table at Harry’s for dinner.</p>
       <p class="rv">The calm of the beach is never closer, and it’s an hour and a quarter from London.</p>
       <div class="btns rv" style="margin-top:12px"><a class="btn btn-i" href="#gved-enquire" data-track="cta_enquire_small">Ask about smaller groups</a></div>
@@ -516,7 +514,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div class="intro-t">
       <div class="eyebrow rv" style="color:var(--gold)">Make an enquiry</div>
-      <h2 class="rv">Tell us about <em>your team</em></h2>
+      <h2 class="rv">Tell us about your team</h2>
       <p class="rv">Share a few details and Holly will come back to you with dates and ideas.</p>
       <p class="rv">Rather talk? Call Holly on <a href="tel:01797338909" data-track="call_holly">01797 338 909</a>.</p>
     </div>
@@ -691,10 +689,10 @@ root.addEventListener('click',function(e){
 (function(){
   var V={
     ad1:null,
-    ad2:{h1:'Close enough <em>to stay.</em>',sub:'An hour and a quarter from London: arrive for the agenda, then let the evening be dinner at Harry’s rather than the train home.',tab:0},
-    ad3:{h1:'The offsite that doesn’t <em>feel like one.</em>',sub:'Strategy in the morning, a deserted beach after lunch and Matthew Harris menus in the evening. The whole house to yourselves.',intro:'Your private house <em>by the sea</em>'},
-    ad4:{h1:'Two nights. <em>A full day to fill.</em>',sub:'Two nights by the coast give a team a whole day with no arriving or leaving in it, and time to properly reset.',tab:1},
-    ad5:{h1:'Smaller teams, <em>the same feeling.</em>',sub:'Not every team needs the whole house. Groups of up to 14 get a private space to work in and a long table at Harry’s for dinner.',guests:'Up to 14',jump:'#gved-small'}
+    ad2:{h1:'Close enough to stay.',sub:'An hour and a quarter from London: arrive for the agenda, then let the evening be dinner at Harry’s rather than the train home.',tab:0},
+    ad3:{h1:'The offsite that doesn’t feel like one.',sub:'Strategy in the morning, a deserted beach after lunch and Matthew Harris menus in the evening. The whole house to yourselves.',intro:'Your private house by the sea'},
+    ad4:{h1:'Two nights. A full day to fill.',sub:'Two nights by the coast give a team a whole day with no arriving or leaving in it, and time to properly reset.',tab:1},
+    ad5:{h1:'Smaller teams, the same feeling.',sub:'Not every team needs the whole house. Groups of up to 14 get a private space to work in and a long table at Harry’s for dinner.',guests:'Up to 14',jump:'#gved-small'}
   };
   var k=(GV_UTM.utm_content||'').toLowerCase().replace(/[^a-z0-9]/g,'').replace(/^(ad\d).*/,'$1');
   var v=V[k]; if(!v) return;
