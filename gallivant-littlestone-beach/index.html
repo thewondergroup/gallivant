@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gallivant Littlestone Beach · Wonder Gallivant Development Site</title>
-<meta name="description" content="Gallivant Littlestone Beach: the restoration of Romney Bay House, a Clough Williams-Ellis house on the dunes at Littlestone-on-Sea, opening 1 July 2027. Become a Friend.">
+<title>Gallivant Littlestone Beach: the restoration of Romney Bay House · Wonder Gallivant Development Site</title>
+<meta name="description" content="Romney Bay House at Littlestone-on-Sea, a Clough Williams-Ellis house on the dunes, is being restored as Gallivant Littlestone Beach, opening 1 July 2027. Watch the series and become a Friend for first access to book.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Wonder Gallivant Development Site">
-<meta property="og:title" content="Wonder Gallivant Development Site">
-<meta property="og:description" content="Gallivant Littlestone Beach: the restoration of Romney Bay House, a Clough Williams-Ellis house on the dunes at Littlestone-on-Sea, opening 1 July 2027. Become a Friend.">
-<meta property="og:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2024/02/PaulReadPhotography-348-820x566.jpg">
+<meta property="og:title" content="Gallivant Littlestone Beach: the restoration of Romney Bay House">
+<meta property="og:description" content="Romney Bay House at Littlestone-on-Sea, a Clough Williams-Ellis house on the dunes, is being restored as Gallivant Littlestone Beach, opening 1 July 2027. Watch the series and become a Friend for first access to book.">
+<meta property="og:image" content="https://thewondergroup.github.io/gallivant/gallivant-littlestone-beach/media/romney-bay-house-today.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Wonder Gallivant Development Site">
-<meta name="twitter:description" content="Gallivant Littlestone Beach: the restoration of Romney Bay House, a Clough Williams-Ellis house on the dunes at Littlestone-on-Sea, opening 1 July 2027. Become a Friend.">
-<meta name="twitter:image" content="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2024/02/PaulReadPhotography-348-820x566.jpg">
+<meta name="twitter:title" content="Gallivant Littlestone Beach: the restoration of Romney Bay House">
+<meta name="twitter:description" content="Romney Bay House at Littlestone-on-Sea, a Clough Williams-Ellis house on the dunes, is being restored as Gallivant Littlestone Beach, opening 1 July 2027. Watch the series and become a Friend for first access to book.">
+<meta name="twitter:image" content="https://thewondergroup.github.io/gallivant/gallivant-littlestone-beach/media/romney-bay-house-today.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Archivo:ital,wdth,wght@0,62..125,400..700;1,62..125,400..700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
@@ -156,7 +156,7 @@
 .gved .friends .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:start}
 .gved .friends h2{font-size:clamp(30px,4vw,56px);margin:14px 0 20px}
 .gved .friends .intro-t p{color:rgba(255,255,255,.82);max-width:42ch;margin-bottom:14px}
-.gved form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.gved .friends form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 .gved .f{display:flex;flex-direction:column;gap:7px}
 .gved .f label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .gved .f input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.45);color:#fff;font:inherit;font-size:17px;padding:10px 0;border-radius:0;outline:none;transition:border-color .3s}
@@ -170,9 +170,84 @@
 .gved .thanks{display:none;padding:36px;background:var(--panel);color:var(--ink)}
 .gved .thanks h3{font-size:34px;margin-bottom:10px}
 .gved .thanks p{color:var(--ink-soft)}
-.gved .sent form{display:none}.gved .sent .thanks{display:block}
+.gved .formbox .s2{display:none}.gved .formbox.more .s1{display:none}.gved .formbox.more .s2{display:grid}
+.gved .sent form,.gved .formbox.sent .s2{display:none}.gved .sent .thanks{display:block}
+.gved .s2 .lead{grid-column:1/-1;font-family:var(--serif);font-size:clamp(22px,2.2vw,28px);line-height:1.2}
+.gved .s2 .lead small{display:block;font-family:var(--sans);font-size:15px;color:rgba(255,255,255,.75);margin-top:8px;line-height:1.5}
+.gved .fs{grid-column:1/-1;border:0;margin:0;padding:0;min-width:0}
+.gved .fs legend{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:10px;padding:0}
+.gved .chips{display:flex;flex-wrap:wrap;gap:8px}
+.gved .chips label{position:relative;cursor:pointer}
+.gved .chips input{position:absolute;opacity:0;width:1px;height:1px}
+.gved .chips span{display:inline-block;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:9px 16px;font-size:14px;transition:all .25s}
+.gved .chips label:hover span{border-color:#fff}
+.gved .chips input:checked+span{background:var(--blush);border-color:var(--blush);color:var(--ink)}
+.gved .chips input:focus-visible+span{outline:2px solid var(--blush);outline-offset:2px}
+.gved .note{grid-column:1/-1;font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+.gved .note a{border-bottom:1px solid rgba(255,255,255,.45)}
+.gved .submit .skip{margin-left:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px}
+.gved .thanks .btns{margin-top:22px}
+.gved .thanks .share{font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:2px;align-self:center}
 @media (max-width:860px){.gved .friends .grid{grid-template-columns:1fr}}
-@media (max-width:560px){.gved form{grid-template-columns:1fr}}
+@media (max-width:560px){.gved .friends form{grid-template-columns:1fr}}
+
+/* Hero sign-up */
+.gved .quick{margin-top:28px;max-width:540px}
+.gved .quick form{display:flex;align-items:center;background:#fff;border-radius:999px;padding:5px 5px 5px 24px;box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.gved .quick input[type=email]{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:16px;color:var(--ink);padding:12px 12px 12px 0;outline:none}
+.gved .quick input[type=email]::placeholder{color:#7a776f}
+.gved .quick .btn{flex:0 0 auto}
+.gved .quick .qnote{margin-top:12px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.85);max-width:54ch}
+.gved .quick .qnote a{border-bottom:1px solid rgba(255,255,255,.5)}
+.gved .quick .qmsg{margin-top:8px;font-size:14px;color:var(--blush);min-height:0}
+.gved .quick .ok{display:none;background:rgba(242,237,224,.96);color:var(--ink);padding:18px 22px;border-radius:14px;max-width:540px}
+.gved .quick .ok b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:4px}
+.gved .quick .ok a{border-bottom:1px solid var(--ink)}
+.gved .quick.sent form,.gved .quick.sent .qnote,.gved .quick.sent .qmsg{display:none}.gved .quick.sent .ok{display:block}
+.gved .ig{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.gved .ig::before{content:"";width:18px;height:18px;flex:0 0 18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Ccircle cx='17.6' cy='6.4' r='.6' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Ccircle cx='17.6' cy='6.4' r='.6' fill='black'/%3E%3C/svg%3E") center/contain no-repeat}
+.gved .hero .ig{align-self:flex-start;margin-top:18px;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px}
+@media (max-width:520px){.gved .quick form{flex-direction:column;align-items:stretch;border-radius:18px;padding:6px;gap:6px}.gved .quick input[type=email]{padding:12px 14px}.gved .quick .btn{justify-content:center}}
+
+/* Mode switch: elements marked data-only show only in that mode */
+.gved[data-mode=friends] [data-only]:not([data-only~=friends]),.gved[data-mode=prebook] [data-only]:not([data-only~=prebook]),.gved[data-mode=book] [data-only]:not([data-only~=book]){display:none!important}
+
+/* Where we are now */
+.gved .progress{background:var(--panel);padding:clamp(28px,3.4vw,44px) 0;border-bottom:1px solid var(--line)}
+.gved .progress .wrap{display:grid;grid-template-columns:minmax(220px,auto) 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.gved .progress .pt p{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.2;margin-top:8px}
+.gved .progress .pt p span{display:block;font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-top:6px}
+.gved .stages{display:grid;grid-template-columns:repeat(6,1fr);row-gap:22px}
+.gved .stages li{position:relative;padding:28px 10px 0 0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);line-height:1.3}
+.gved .stages li::before{content:"";position:absolute;top:7px;left:0;right:0;height:2px;background:var(--line)}
+.gved .stages li::after{content:"";position:absolute;top:0;left:0;width:16px;height:16px;border-radius:50%;background:var(--panel);border:2px solid rgba(43,42,40,.3);box-sizing:border-box}
+.gved .stages li.done{color:var(--ink)}
+.gved .stages li.done::before{background:var(--ink)}
+.gved .stages li.done::after{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' stroke='white' stroke-width='1.8' fill='none'/%3E%3C/svg%3E") center/100% no-repeat;border-color:var(--ink)}
+.gved .stages li.now{color:var(--ink);font-weight:400}
+.gved .stages li.now::before{background:linear-gradient(90deg,var(--ink) 40%,var(--line) 40%)}
+.gved .stages li.now::after{background:var(--cta);border-color:var(--cta);animation:lsPulse 2.4s ease-out infinite}
+.gved .stages li small{display:block;text-transform:none;letter-spacing:0;font-size:13px;color:var(--ink-soft);margin-top:4px}
+@keyframes lsPulse{0%{box-shadow:0 0 0 0 rgba(208,53,151,.45)}70%{box-shadow:0 0 0 10px rgba(208,53,151,0)}100%{box-shadow:0 0 0 0 rgba(208,53,151,0)}}
+@media (max-width:860px){.gved .progress .wrap{grid-template-columns:1fr}}
+@media (max-width:640px){.gved .stages{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){.gved .stages li.now::after{animation:none}}
+
+/* Episodes strip */
+.gved .eps{margin-top:clamp(50px,6vw,90px)}
+.gved .eps-h{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid rgba(255,255,255,.2)}
+.gved .eps-h .ig{color:#fff}
+.gved .eps-row{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(150px,16vw,200px);gap:clamp(14px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.gved .ep{scroll-snap-align:start;display:block;color:#fff}
+.gved .ep .im{display:block;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#1d1c1a;position:relative}
+.gved .ep .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gved .ep:hover .im img{transform:scale(1.04)}
+.gved .ep .im::after{content:"";position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(20,20,15,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 4.5v7l5.5-3.5z' fill='white'/%3E%3C/svg%3E") center/18px no-repeat}
+.gved .ep .n{display:block;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bright)}
+.gved .ep b{display:block;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;margin-top:4px}
+.gved .ep small{display:block;font-size:13px;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}
+.gved .ep.soon .im{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;font-family:var(--serif);font-size:64px;color:rgba(255,255,255,.35)}
+.gved .ep.soon .im::after{display:none}
 
 /* Floating sign-up */
 .gved .float-enq{position:fixed;right:clamp(14px,2.5vw,32px);bottom:clamp(14px,3vh,32px);z-index:900;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--cta);color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 10px 30px rgba(43,42,40,.28);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s}
@@ -229,7 +304,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 @font-face{font-family:"Swiss 721 Extended BT";src:url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff2") format("woff2"),url("/wp-content/themes/gallivant/webfonts/Swiss721BT-Extended.woff") format("woff");font-weight:400 600;font-display:swap}
 </style>
 
-<div class="gved" id="gved">
+<div class="gved" id="gved" data-mode="friends">
 <section class="hero">
   <img src="media/romney-bay-house-today.jpg" alt="Romney Bay House at Littlestone-on-Sea, before restoration" fetchpriority="high">
   <div class="count" aria-live="polite"><b data-days>&nbsp;</b><span>days until we open</span></div>
@@ -237,7 +312,33 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <div class="eyebrow rv">Opening 1 July 2027 · Littlestone-on-Sea</div>
     <h1 class="rv">Gallivant <em>Littlestone Beach</em></h1>
     <p class="sub rv">We’ve begun the complete restoration of Romney Bay House, a house by Clough Williams-Ellis on a sand dune above the sea. This is its story so far.</p>
-    <div class="btns rv"><a class="btn btn-m" href="#gved-friends" data-track="cta_friend_hero">Become a Friend</a><a class="btn btn-w" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_hero">Follow the restoration</a></div>
+    <div class="quick rv" data-only="friends prebook">
+      <form id="gved-quick" novalidate>
+        <label class="sr" for="ls-q-email" style="position:absolute;left:-9999px">Email address</label>
+        <input id="ls-q-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Your email address" required>
+        <div style="position:absolute;left:-9999px" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-m" type="submit"><span data-only="friends">Become a Friend</span><span data-only="prebook">Get early access</span></button>
+      </form>
+      <p class="qmsg" role="status" aria-live="polite"></p>
+      <p class="qnote"><span data-only="friends">Friends get first access to book, before bookings open to everyone.</span><span data-only="prebook">Friends’ booking is open. Join now and we’ll email you a link to book before everyone else.</span> Unsubscribe any time. <a href="https://thegallivant.co.uk/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a>.</p>
+      <div class="ok" role="status"><b>You’re on the list.</b>Want the right offers? <a href="#gved-friends" data-track="cta_more_hero">Tell us a little more</a>, and <a href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_hero_ok">follow the restoration</a>.</div>
+    </div>
+    <div class="btns rv" data-only="book" style="margin-top:28px"><a class="btn btn-m" data-book href="#gved-friends" target="_blank" rel="noopener" data-track="book_hero">Book your stay</a></div>
+    <a class="ig rv" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_hero">Follow @gallivantlittlestone</a>
+  </div>
+</section>
+
+<section class="progress" aria-label="Where the restoration is now">
+  <div class="wrap">
+    <div class="pt rv"><div class="eyebrow">Where we are now</div><p data-stage-name>Strip-out<span><b data-days2></b> days until we open</span></p></div>
+    <ol class="stages rv" data-stages>
+      <li>Bought<small>We got the keys</small></li>
+      <li>Strip-out<small>Back to the bones</small></li>
+      <li>Structure<small>Roof, walls, windows</small></li>
+      <li>Rooms<small>Bathrooms and bedrooms</small></li>
+      <li>Styling<small>Making it a Gallivant</small></li>
+      <li>Opening<small>1 July 2027</small></li>
+    </ol>
   </div>
 </section>
 
@@ -256,6 +357,13 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <video muted loop playsinline preload="none" poster="media/we-bought-a-hotel-poster.jpg" data-src="media/we-bought-a-hotel.mp4" aria-label="We bought a hotel: Harry and Sigrid at Romney Bay House"></video>
       <button class="tap" type="button" aria-label="Play the film" hidden></button>
       <button class="snd" type="button" aria-pressed="false">Sound on</button>
+    </div>
+  </div>
+  <div class="wrap eps">
+    <div class="eps-h rv"><div class="eyebrow" style="color:var(--bright)">Episodes</div><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_episodes">Follow on Instagram</a></div>
+    <div class="eps-row rv" data-episodes>
+      <a class="ep" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="episode_1"><span class="im"><img src="media/we-bought-a-hotel-poster.jpg" alt="" loading="lazy"></span><span class="n">Episode 1</span><b>We bought a hotel</b></a>
+      <a class="ep soon" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="episode_next"><span class="im">2</span><span class="n">Episode 2</span><b>Coming soon</b><small>Follow so you don’t miss it</small></a>
     </div>
   </div>
 </section>
@@ -370,23 +478,55 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec friends" id="gved-friends">
   <div class="wrap grid">
     <div class="intro-t">
-      <div class="eyebrow rv" style="color:var(--bright)">Become a Friend</div>
-      <h2 class="rv">Be first <em>through the door</em></h2>
-      <p class="rv">Friends of Gallivant Littlestone Beach hear about all our pre-opening events, before anyone else.</p>
+      <div class="eyebrow rv" style="color:var(--bright)"><span data-only="friends prebook">Become a Friend</span><span data-only="book">Stay in touch</span></div>
+      <h2 class="rv"><span data-only="friends">Be first <em>through the door</em></span><span data-only="prebook">Book before <em>everyone else</em></span><span data-only="book">News from <em>the dunes</em></span></h2>
+      <p class="rv" data-only="friends">Friends of Gallivant Littlestone Beach get first access to book, before bookings open to everyone. You’ll also hear about our pre-opening events first.</p>
+      <p class="rv" data-only="prebook">Friends’ booking is open now. Join and we’ll email you a link to book before bookings open to everyone.</p>
+      <p class="rv" data-only="book">Bookings are open. Sign up for news, events and the occasional offer from Gallivant Littlestone Beach.</p>
+      <p class="rv"><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_friends" style="color:#fff">@gallivantlittlestone</a></p>
     </div>
     <div class="formbox rv">
-      <form id="gved-form" novalidate>
-        <div class="f"><label for="ls-first">First name</label><input id="ls-first" name="first_name" autocomplete="given-name" required></div>
-        <div class="f"><label for="ls-last">Last name</label><input id="ls-last" name="last_name" autocomplete="family-name" required></div>
-        <div class="f"><label for="ls-email">Email</label><input id="ls-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="ls-mobile">Mobile</label><input id="ls-mobile" name="mobile" type="tel" autocomplete="tel"></div>
-        <input type="hidden" name="campaign"><input type="hidden" name="source"><input type="hidden" name="medium"><input type="hidden" name="content"><input type="hidden" name="landing_page">
+      <form id="gved-form" class="s1" novalidate>
+        <div class="f"><label for="ls-first">First name</label><input id="ls-first" name="first_name" autocomplete="given-name"></div>
+        <div class="f"><label for="ls-email">Email</label><input id="ls-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
         <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I’d like to hear from Gallivant Littlestone Beach, as set out in the <a href="https://thegallivant.co.uk/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+        <p class="note">By signing up you agree to hear from Gallivant Littlestone Beach by email. Unsubscribe any time. <a href="https://thegallivant.co.uk/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a>.</p>
         <p class="msg" role="status" aria-live="polite"></p>
-        <div class="submit"><button class="btn btn-m" type="submit">Become a Friend</button></div>
+        <div class="submit"><button class="btn btn-m" type="submit"><span data-only="friends">Become a Friend</span><span data-only="prebook">Get early access</span><span data-only="book">Sign up</span></button></div>
       </form>
-      <div class="thanks" role="status"><h3>Welcome, Friend</h3><p>You’ll be the first to hear about our pre-opening events. In the meantime, follow the restoration on <a href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Instagram</a>.</p></div>
+      <form id="gved-more" class="s2" novalidate>
+        <p class="lead">You’re on the list.<small>Tell us a little more and we’ll only send you what’s relevant. It’s all optional.</small></p>
+        <div class="f"><label for="ls-m-first">First name</label><input id="ls-m-first" name="first_name" autocomplete="given-name"></div>
+        <div class="f"><label for="ls-m-last">Last name</label><input id="ls-m-last" name="last_name" autocomplete="family-name"></div>
+        <div class="f" style="grid-column:1/-1"><label for="ls-m-mobile">Mobile</label><input id="ls-m-mobile" name="mobile" type="tel" autocomplete="tel"></div>
+        <fieldset class="fs"><legend>When might you come?</legend><div class="chips">
+          <label><input type="radio" name="when" value="Summer 2027"><span>Summer 2027</span></label>
+          <label><input type="radio" name="when" value="Autumn 2027"><span>Autumn 2027</span></label>
+          <label><input type="radio" name="when" value="Winter 2027-28"><span>Winter</span></label>
+          <label><input type="radio" name="when" value="Not sure yet"><span>Not sure yet</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend>Who with?</legend><div class="chips">
+          <label><input type="checkbox" name="party" value="Couple"><span>The two of us</span></label>
+          <label><input type="checkbox" name="party" value="Family"><span>Family</span></label>
+          <label><input type="checkbox" name="party" value="Friends"><span>Friends</span></label>
+          <label><input type="checkbox" name="party" value="Dog"><span>With the dog</span></label>
+        </div></fieldset>
+        <fieldset class="fs"><legend>Interested in</legend><div class="chips">
+          <label><input type="checkbox" name="interests" value="Staying"><span>Staying</span></label>
+          <label><input type="checkbox" name="interests" value="Eating"><span>Eating and drinking</span></label>
+          <label><input type="checkbox" name="interests" value="Wedding"><span>A wedding</span></label>
+          <label><input type="checkbox" name="interests" value="Event"><span>An event or party</span></label>
+        </div></fieldset>
+        <p class="msg" role="status" aria-live="polite"></p>
+        <div class="submit"><button class="btn btn-m" type="submit">Send</button><button class="skip" type="button">Skip</button></div>
+      </form>
+      <div class="thanks" role="status" tabindex="-1">
+        <h3>Welcome, Friend</h3>
+        <p data-only="friends">You’ll get first access to book, before bookings open to everyone. Until then, follow the restoration as it happens.</p>
+        <p data-only="prebook">We’ll email you your Friends’ booking link shortly. Until then, follow the restoration as it happens.</p>
+        <p data-only="book">Thanks for signing up. Follow the restoration as it happens.</p>
+        <div class="btns"><a class="btn btn-m ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_thanks">Follow on Instagram</a><button class="share" type="button" data-track="share_page">Share with a friend</button></div>
+      </div>
     </div>
   </div>
 </section>
@@ -398,6 +538,24 @@ var root=document.getElementById('gved');
 /* Paste the Google Apps Script web app URL here once it's set up (see gallivant-littlestone-beach/friends-form.gs) */
 var GVED_FORM_ENDPOINT='';
 var GVED_FALLBACK_EMAIL='enquiries@thegallivant.co.uk';
+
+/* ===== Page settings: change these as the project moves on ===== */
+var GVED_LS={
+  /* 'friends'  now: sign up to become a Friend
+     'prebook'  when Friends can book early: same sign-up, wording says the booking link comes by email
+     'book'     when bookings open to everyone: buttons go to bookingUrl */
+  mode:'friends',
+  bookingUrl:'',   /* the Littlestone booking link (Mews), used in 'book' mode */
+  stage:1,         /* where the build is: 0 Bought, 1 Strip-out, 2 Structure, 3 Rooms, 4 Styling, 5 Opening */
+  /* Episodes of the series, newest last. Or set episodesCsv to a published Google Sheet CSV
+     with the columns: title, image, url (one row per episode) and it will be used instead. */
+  episodesCsv:'',
+  episodes:[
+    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', url:'https://www.instagram.com/gallivantlittlestone/'}
+  ]
+};
+/* Preview another mode without editing: add ?ls_mode=prebook or ?ls_mode=book to the URL */
+(function(){ var m=new URLSearchParams(location.search).get('ls_mode'); if(m && /^(friends|prebook|book)$/.test(m)) GVED_LS.mode=m; root.setAttribute('data-mode',GVED_LS.mode); })();
 
 (function(){
   var ph=document.querySelector('section.page-header'); if(ph) ph.style.display='none';
@@ -415,10 +573,40 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
 
 /* Countdown to opening day, 1 July 2027 */
 (function(){
-  var el=root.querySelector('[data-days]'), open=new Date('2027-07-01T00:00:00+01:00');
+  var el=root.querySelector('[data-days]'), el2=root.querySelector('[data-days2]'), open=new Date('2027-07-01T00:00:00+01:00');
   var d=Math.ceil((open-new Date())/86400000);
-  if(d>0){ el.textContent=d.toLocaleString('en-GB'); } else { root.querySelector('.count').style.display='none'; }
+  if(d>0){ el.textContent=el2.textContent=d.toLocaleString('en-GB'); } else { root.querySelector('.count').style.display='none'; el2.parentNode.style.display='none'; }
 })();
+
+/* Where we are now: marks the stages done / now from GVED_LS.stage */
+(function(){
+  var lis=[].slice.call(root.querySelectorAll('[data-stages] li')), n=Math.max(0,Math.min(GVED_LS.stage,lis.length-1)), name=root.querySelector('[data-stage-name]');
+  lis.forEach(function(li,i){ li.classList.toggle('done',i<n); li.classList.toggle('now',i===n); if(i===n) li.setAttribute('aria-current','step'); });
+  if(name && lis[n]) name.firstChild.nodeValue=(n===lis.length-1?'':'Now: ')+lis[n].firstChild.nodeValue;
+})();
+
+/* Episodes strip: from GVED_LS.episodes, or a published Google Sheet CSV if one is set */
+(function(){
+  var row=root.querySelector('[data-episodes]'); if(!row) return;
+  var ig='https://www.instagram.com/gallivantlittlestone/';
+  function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function render(list){
+    list=list.filter(function(e){ return e && e.title; }); if(!list.length) return;
+    row.innerHTML=list.map(function(e,i){ return '<a class="ep" href="'+esc(e.url||ig)+'" target="_blank" rel="noopener" data-track="episode_'+(i+1)+'"><span class="im">'+(e.image?'<img src="'+esc(e.image)+'" alt="" loading="lazy">':'')+'</span><span class="n">Episode '+(i+1)+'</span><b>'+esc(e.title)+'</b></a>'; }).join('')
+      +'<a class="ep soon" href="'+ig+'" target="_blank" rel="noopener" data-track="episode_next"><span class="im">'+(list.length+1)+'</span><span class="n">Episode '+(list.length+1)+'</span><b>Coming soon</b><small>Follow so you don’t miss it</small></a>';
+  }
+  function csv(t){ var out=[],r=[],f='',q=false; for(var i=0;i<t.length;i++){ var c=t[i]; if(q){ if(c==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; } else if(c==='"') q=true; else if(c===','){ r.push(f); f=''; } else if(c==='\n'||c==='\r'){ if(c==='\r'&&t[i+1]==='\n') i++; r.push(f); out.push(r); r=[]; f=''; } else f+=c; } if(f||r.length){ r.push(f); out.push(r); } return out; }
+  render(GVED_LS.episodes||[]);
+  if(GVED_LS.episodesCsv && window.fetch){
+    fetch(GVED_LS.episodesCsv).then(function(r){ return r.text(); }).then(function(t){
+      var rows=csv(t), h=(rows.shift()||[]).map(function(x){ return x.trim().toLowerCase(); });
+      render(rows.map(function(r){ var o={}; h.forEach(function(k,i){ o[k]=(r[i]||'').trim(); }); return o; }));
+    }).catch(function(){});
+  }
+})();
+
+/* Booking links for 'book' mode */
+[].forEach.call(root.querySelectorAll('[data-book]'),function(a){ if(GVED_LS.bookingUrl) a.href=GVED_LS.bookingUrl; else a.removeAttribute('target'); });
 
 /* In-page anchors */
 root.addEventListener('click',function(e){var a=e.target.closest('a[href^="#gved-"]'); if(!a) return; e.preventDefault(); var t=root.querySelector(a.getAttribute('href')); if(t) window.scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})});
@@ -427,26 +615,68 @@ root.addEventListener('click',function(e){ var a=e.target.closest('[data-track]'
 /* Floating button: after the hero, hidden while the form is on screen */
 (function(){
   var b=root.querySelector('.float-enq'), hero=root.querySelector('.hero'), form=root.querySelector('#gved-friends');
+  if(GVED_LS.mode==='prebook') b.textContent='Get early access';
+  if(GVED_LS.mode==='book'){ b.textContent='Book your stay'; b.setAttribute('data-track','book_float'); if(GVED_LS.bookingUrl){ b.href=GVED_LS.bookingUrl; b.target='_blank'; b.rel='noopener'; } }
   if(!('IntersectionObserver' in window)){ b.classList.add('show'); return; }
   var past=false, at=false; function upd(){ b.classList.toggle('show',past&&!at); }
   new IntersectionObserver(function(es){ past=!es[0].isIntersecting; upd(); }).observe(hero);
   new IntersectionObserver(function(es){ at=es[0].isIntersecting; upd(); },{threshold:.15}).observe(form);
 })();
 
-/* Friends sign-up */
+/* Friends sign-up, two steps. Step 1 (email, from the hero or the Friends section) creates the lead
+   straight away. Step 2 (name, mobile, when, who with, interests) is optional and updates the same row. */
 (function(){
-  var f=root.querySelector('#gved-form'), box=root.querySelector('.formbox'), msg=f.querySelector('.msg'), btn=f.querySelector('button[type=submit]');
-  f.campaign.value=GV_UTM.utm_campaign||''; f.source.value=GV_UTM.utm_source||''; f.medium.value=GV_UTM.utm_medium||''; f.content.value=GV_UTM.utm_content||''; f.landing_page.value=location.href.split('#')[0];
-  function done(){ box.classList.add('sent'); box.scrollIntoView({behavior:'smooth',block:'center'}); gvTrack('sign_up',Object.assign({method:'littlestone-friends'},GV_UTM)); try{ if(window.fbq) fbq('track','CompleteRegistration',{content_name:'Littlestone Friends'}); }catch(e){} }
-  f.addEventListener('submit',function(e){
-    e.preventDefault(); msg.textContent=''; msg.className='msg'; if(f.website.value) return;
-    var bad=[].slice.call(f.querySelectorAll('[required]')).filter(function(el){ return el.type==='checkbox'?!el.checked:!String(el.value).trim(); });
-    if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)) bad.push(f.email);
-    if(bad.length){ msg.textContent='Please fill in your name and email, and tick the box.'; msg.className='msg err'; bad[0].focus(); return; }
-    var data=new FormData(f); data.append('submitted_at',new Date().toISOString());
-    if(!GVED_FORM_ENDPOINT){ var lines=[]; data.forEach(function(v,k){ if(v && k!=='website' && k!=='consent') lines.push(k.replace(/_/g,' ')+': '+v); }); location.href='mailto:'+GVED_FALLBACK_EMAIL+'?subject='+encodeURIComponent('New Friend of Gallivant Littlestone Beach')+'&body='+encodeURIComponent(lines.join('\n')); done(); return; }
+  var quick=root.querySelector('.quick'), qf=root.querySelector('#gved-quick'), f1=root.querySelector('#gved-form'), f2=root.querySelector('#gved-more');
+  var box=root.querySelector('.formbox'), thanks=box.querySelector('.thanks'), mailLines=[];
+  var lead={ id:'ls-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6), email:'', first:'' };
+  try{ var saved=JSON.parse(sessionStorage.getItem('gvLsLead')||'null'); if(saved && saved.id){ lead=saved; } }catch(e){}
+  function save(){ try{ sessionStorage.setItem('gvLsLead',JSON.stringify(lead)); }catch(e){} }
+  /* Once someone has joined, the floating button asks them to follow on Instagram instead */
+  function floatToIg(){ var fl=root.querySelector('.float-enq'); if(!fl || GVED_LS.mode==='book') return; fl.textContent='Follow on Instagram'; fl.href='https://www.instagram.com/gallivantlittlestone/'; fl.target='_blank'; fl.rel='noopener'; fl.setAttribute('data-track','instagram_float'); }
+  function okEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(v).trim()); }
+  function send(fields,stepNo){
+    var data=new FormData(); data.append('lead_id',lead.id); data.append('step',stepNo); data.append('mode',GVED_LS.mode); data.append('submitted_at',new Date().toISOString());
+    Object.keys(fields).forEach(function(k){ if(fields[k]) data.append(k,fields[k]); });
+    if(stepNo===1){ data.append('consent','yes: signed up on the page'); data.append('campaign',GV_UTM.utm_campaign||''); data.append('source',GV_UTM.utm_source||''); data.append('medium',GV_UTM.utm_medium||''); data.append('content',GV_UTM.utm_content||''); data.append('landing_page',location.href.split('#')[0]); data.append('referrer',document.referrer||''); }
+    if(!GVED_FORM_ENDPOINT){ data.forEach(function(v,k){ if(v && ['lead_id','step','submitted_at','consent'].indexOf(k)<0) mailLines.push(k.replace(/_/g,' ')+': '+v); }); return Promise.resolve(); }
+    return fetch(GVED_FORM_ENDPOINT,{method:'POST',body:data,mode:'no-cors'});
+  }
+  function joined(where){
+    lead.joined=true; save();
+    gvTrack('sign_up',Object.assign({method:'littlestone-friends',form:where,mode:GVED_LS.mode},GV_UTM));
+    try{ if(window.fbq) fbq('track','CompleteRegistration',{content_name:'Littlestone Friends'}); }catch(e){}
+    if(quick) quick.classList.add('sent');
+    box.classList.add('more'); f2.first_name.value=lead.first||''; floatToIg();
+  }
+  function finish(){
+    box.classList.remove('more'); box.classList.add('sent');
+    if(!GVED_FORM_ENDPOINT && mailLines.length){ location.href='mailto:'+GVED_FALLBACK_EMAIL+'?subject='+encodeURIComponent('New Friend of Gallivant Littlestone Beach')+'&body='+encodeURIComponent(mailLines.join('\n')); mailLines=[]; }
+  }
+  function step1(form,where,btn,msg){
+    msg.textContent=''; msg.classList.remove('err'); if(form.website.value) return;
+    if(!okEmail(form.email.value)){ msg.textContent='Please enter your email address.'; msg.classList.add('err'); form.email.focus(); return; }
+    lead.email=form.email.value.trim(); if(form.first_name) lead.first=form.first_name.value.trim();
+    var label=btn.innerHTML; btn.disabled=true; btn.textContent='Sending…';
+    send({email:lead.email,first_name:lead.first,form:where},1).then(function(){ btn.disabled=false; btn.innerHTML=label; joined(where); }).catch(function(){ btn.disabled=false; btn.innerHTML=label; msg.textContent='Sorry, that didn’t send. Please try again.'; msg.classList.add('err'); });
+  }
+  if(qf) qf.addEventListener('submit',function(e){ e.preventDefault(); step1(qf,'hero',qf.querySelector('button[type=submit]'),quick.querySelector('.qmsg')); });
+  f1.addEventListener('submit',function(e){ e.preventDefault(); step1(f1,'friends',f1.querySelector('button[type=submit]'),f1.querySelector('.msg')); });
+  function picked(name){ return [].slice.call(f2.querySelectorAll('[name="'+name+'"]:checked')).map(function(i){ return i.value; }).join(', '); }
+  f2.addEventListener('submit',function(e){
+    e.preventDefault(); var btn=f2.querySelector('button[type=submit]'), msg=f2.querySelector('.msg');
+    var fields={email:lead.email,first_name:f2.first_name.value.trim(),last_name:f2.last_name.value.trim(),mobile:f2.mobile.value.trim(),when:picked('when'),party:picked('party'),interests:picked('interests')};
+    if(!fields.first_name&&!fields.last_name&&!fields.mobile&&!fields.when&&!fields.party&&!fields.interests){ finish(); return; }
     btn.disabled=true; btn.textContent='Sending…';
-    fetch(GVED_FORM_ENDPOINT,{method:'POST',body:data,mode:'no-cors'}).then(done).catch(function(){ btn.disabled=false; btn.textContent='Become a Friend'; msg.textContent='Sorry, that didn’t send. Please try again.'; msg.className='msg err'; });
+    send(fields,2).then(function(){ gvTrack('littlestone_more_details',{when:fields.when,party:fields.party,interests:fields.interests}); finish(); }).catch(function(){ btn.disabled=false; btn.textContent='Send'; msg.textContent='Sorry, that didn’t send. Please try again.'; msg.classList.add('err'); });
+  });
+  f2.querySelector('.skip').addEventListener('click',function(){ gvTrack('littlestone_more_skip',{}); finish(); });
+  /* Back on the page in the same visit after signing up: go straight to step 2 / thanks */
+  if(lead.joined){ if(quick) quick.classList.add('sent'); box.classList.add('more'); f2.first_name.value=lead.first||''; floatToIg(); }
+  /* Share */
+  thanks.querySelector('.share').addEventListener('click',function(){
+    var url=location.href.split(/[?#]/)[0], b=this;
+    if(navigator.share){ navigator.share({title:'Gallivant Littlestone Beach',text:'Romney Bay House is being restored as Gallivant Littlestone Beach, opening 1 July 2027.',url:url}).catch(function(){}); }
+    else if(navigator.clipboard){ navigator.clipboard.writeText(url).then(function(){ b.textContent='Link copied'; }); }
   });
 })();
 

@@ -57,4 +57,16 @@ The corporate page plays the walkthrough as a silent loop behind the headline, a
 
 ## Littlestone page
 
-Tells the story of Romney Bay House with the archive photos in `gallivant-littlestone-beach/media/`, counts down to opening day (1 July 2027) and signs people up as Friends. The Friends form works the same way as the corporate form: follow `gallivant-littlestone-beach/friends-form.gs` and paste the web app URL into `var GVED_FORM_ENDPOINT=''`. Until then it opens an email to enquiries@thegallivant.co.uk. Sign-ups fire a Google Analytics `sign_up` event and a Meta `CompleteRegistration` event.
+Tells the story of Romney Bay House with the archive photos in `gallivant-littlestone-beach/media/`, counts down to opening day (1 July 2027) and does three jobs: signs people up as Friends, sends them to Instagram, and later takes bookings.
+
+**Sign-up.** There's an email box in the hero and a fuller form in the Friends section. Step 1 is just an email, saved straight away. Step 2 is optional: name, mobile, when they might come, who with (including the dog) and what they're interested in. It's saved to the same row in the sheet, so it can be used to segment the mailing list. Set it up with `gallivant-littlestone-beach/friends-form.gs` and paste the web app URL into `var GVED_FORM_ENDPOINT=''`. Until then it opens an email to enquiries@thegallivant.co.uk. Sign-ups fire a Google Analytics `sign_up` event and a Meta `CompleteRegistration` event. After someone signs up, the floating button changes to "Follow on Instagram".
+
+**Page settings.** These are at the top of the page script, in `GVED_LS`:
+
+| Setting | What it does |
+|---|---|
+| `mode` | `'friends'` now. `'prebook'` when Friends can book early: same sign-up, but the wording says their booking link comes by email. `'book'` when bookings open to everyone: the hero and floating buttons go to `bookingUrl`. Preview any mode by adding `?ls_mode=prebook` or `?ls_mode=book` to the page address. |
+| `bookingUrl` | The Littlestone booking link (Mews), used in `book` mode. |
+| `stage` | Where the build is, for the "Where we are now" tracker: 0 Bought, 1 Strip-out, 2 Structure, 3 Rooms, 4 Styling, 5 Opening. The stage names and the short lines under them are in the page HTML. |
+| `episodes` | The episodes of the series, oldest first: title, poster image and link. A "Coming soon" card for the next one is added automatically. |
+| `episodesCsv` | Optional. A Google Sheet published as CSV, with the columns `title`, `image` and `url`. If it's set, the episode cards come from the sheet, so new episodes can be added without editing the page. |
