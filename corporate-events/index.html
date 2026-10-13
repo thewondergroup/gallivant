@@ -183,7 +183,11 @@
 
 /* Clients */
 .gved .clients{background:var(--panel)}
-.gved .names{display:flex;flex-wrap:wrap;gap:10px 34px;font-family:var(--serif);font-size:clamp(20px,2vw,28px);color:var(--ink-soft);margin-bottom:clamp(30px,4vw,50px)}
+.gved .logos{display:flex;flex-wrap:wrap;align-items:center;gap:30px clamp(36px,5vw,72px)}
+.gved .logos img{width:auto;max-width:100%;filter:grayscale(1);opacity:.82;transition:opacity .3s}
+.gved .logos img:hover{opacity:1}
+.gved .also{margin:22px 0 clamp(30px,4vw,50px);font-size:14px;color:var(--ink-soft)}
+@media (max-width:560px){.gved .logos{gap:24px 34px}.gved .logos img{zoom:.78}}
 .gved .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .gved .quote{background:var(--ground);padding:26px 28px}
 .gved .quote p{font-family:var(--serif);font-size:21px;line-height:1.35}
@@ -415,7 +419,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec clients">
   <div class="wrap">
     <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Who’s been</div><h2>Teams that keep coming back</h2></div><p>From the Magic Circle and Big Tech to investment banks and luxury brands.</p></div>
-    <p class="names rv"><span>Mastercard</span><span>Rapha</span><span>La Mer</span><span>Müller</span><span>RIXO</span><span>Collagerie</span><span>Gusbourne</span><span>A Million Ads</span></p>
+    <div class="logos rv"><img src="media/logos/mastercard.png" alt="Mastercard" style="height:57px" loading="lazy"><img src="media/logos/rapha.svg" alt="Rapha" style="height:44px" loading="lazy"><img src="media/logos/la-mer.png" alt="La Mer" style="height:29px" loading="lazy"><img src="media/logos/gusbourne.png" alt="Gusbourne" style="height:58px" loading="lazy"><img src="media/logos/collagerie.png" alt="Collagerie" style="height:23px" loading="lazy"></div>
+    <p class="also rv">Also Müller, RIXO and A Million Ads, among many others.</p>
     <div class="quotes">
       <div class="quote rv"><p>“We had an incredible experience at The Gallivant for our team offsite.”</p><small>Bridgepoint</small></div>
       <div class="quote rv"><p>“I knew it was going to be good, but it honestly blew me away by how good it was.”</p><small>AEG Presents</small></div>
