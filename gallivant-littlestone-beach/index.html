@@ -70,7 +70,7 @@
 .gved .bw{filter:grayscale(1) contrast(1.02)}
 
 /* Secondary text on the blue panels stays readable */
-.gved .progress,.gved .arch,.gved .town,.gved .next .card,.gved .thanks{--ink-soft:#2F3A42;--line:rgba(43,42,40,.28);--warm:var(--ink)}
+.gved .arch,.gved .town,.gved .next .card,.gved .thanks{--ink-soft:#2F3A42;--line:rgba(43,42,40,.28);--warm:var(--ink)}
 .gved .stages li::after{border-color:rgba(43,42,40,.45)}
 
 /* Hero */
@@ -207,9 +207,9 @@
 .gved .quick .qnote{margin-top:12px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.85);max-width:54ch}
 .gved .quick .qnote a{border-bottom:1px solid rgba(255,255,255,.5)}
 .gved .quick .qmsg{margin-top:8px;font-size:14px;color:var(--blush);min-height:0}
-.gved .quick .ok{display:none;background:rgba(242,237,224,.96);color:var(--ink);padding:18px 22px;border-radius:14px;max-width:540px}
-.gved .quick .ok b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:4px}
-.gved .quick .ok a{border-bottom:1px solid var(--ink)}
+.gved .quick .ok{display:none;color:#fff;max-width:540px;font-size:16px}
+.gved .quick .ok b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.4vw,32px);margin-bottom:6px}
+.gved .quick .ok a{border-bottom:1px solid rgba(255,255,255,.6)}
 .gved .quick.sent form,.gved .quick.sent .qnote,.gved .quick.sent .qmsg{display:none}.gved .quick.sent .ok{display:block}
 .gved .ig{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
 .gved .ig::before{content:"";width:18px;height:18px;flex:0 0 18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Ccircle cx='17.6' cy='6.4' r='.6' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5.5'/%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Ccircle cx='17.6' cy='6.4' r='.6' fill='black'/%3E%3C/svg%3E") center/contain no-repeat}
@@ -220,7 +220,7 @@
 .gved[data-mode=friends] [data-only]:not([data-only~=friends]),.gved[data-mode=prebook] [data-only]:not([data-only~=prebook]),.gved[data-mode=book] [data-only]:not([data-only~=book]){display:none!important}
 
 /* Where we are now */
-.gved .progress{background:var(--panel);padding:clamp(28px,3.4vw,44px) 0;border-bottom:1px solid var(--line)}
+.gved .progress{background:var(--paper);padding:clamp(28px,3.4vw,44px) 0;border-bottom:1px solid var(--line)}
 .gved .progress .wrap{display:grid;grid-template-columns:minmax(220px,auto) 1fr;gap:clamp(24px,5vw,80px);align-items:center}
 .gved .progress .pt p{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.2;margin-top:8px}
 .gved .progress .pt p span{display:block;font-family:var(--sans);font-size:14px;color:var(--ink-soft);margin-top:6px}
@@ -301,7 +301,6 @@
 /* Today band */
 .gved .today{position:relative}
 .gved .today img{width:100%;height:clamp(380px,62vw,820px);object-fit:cover;object-position:50% 45%}
-.gved .today figcaption{position:absolute;left:var(--gutter);bottom:clamp(18px,3vw,36px);background:rgba(242,237,224,.94);padding:14px 18px;font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.6vw,20px);max-width:min(420px,80vw)}
 
 /* Series film */
 .gved .series{background:var(--ink);color:#fff}
@@ -319,6 +318,21 @@
 .gved .reel .tap::before{content:"";border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff;margin-left:5px}
 .gved .reel .tap[hidden]{display:none}
 @media (max-width:860px){.gved .series .grid{grid-template-columns:1fr;gap:30px}.gved .reel{margin:0 auto;order:-1;width:min(340px,86vw)}}
+
+/* Series and episodes on the Littlestone blue */
+.gved .series{background:var(--blue);color:var(--ink);--bright:var(--ink);--ink-soft:#2F3A42}
+.gved .series p{color:var(--ink-soft)}
+.gved .series li{border-color:rgba(43,42,40,.35);color:var(--ink)}
+.gved .series .eps-h{border-bottom-color:rgba(43,42,40,.25)}
+.gved .series .eps-h .ig{color:var(--ink)}
+.gved .series .eps-h .hint{color:var(--ink-soft)}
+.gved .series .ep{color:var(--ink)}
+.gved .series .ep .n i{color:#fff}
+.gved .series .ep .card.plain{color:#fff}
+.gved .series .ep.soon .card{border-color:rgba(43,42,40,.4);color:var(--ink)}
+.gved .series .ep.soon .card small{color:var(--ink-soft)}
+.gved .series .reel{box-shadow:0 30px 60px rgba(30,50,65,.35)}
+.gved .series .eps-row{scrollbar-color:rgba(43,42,40,.35) transparent}
 
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
@@ -378,8 +392,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <p class="rv">Harry and Sigrid are filming the whole restoration of Romney Bay House, from the first walk round to opening day. This is where it starts.</p>
       <p class="rv">They’ll share the lot: the build, the problems, the finds, the makers, the styling of the rooms and the history of the house.</p>
       <ul class="rv"><li>The build</li><li>The problems</li><li>The rooms</li><li>The makers</li><li>The history</li></ul>
-      <div class="btns rv"><a class="btn btn-m" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_series">Watch on Instagram</a><a class="btn btn-w" href="#gved-friends" data-track="cta_friend_series">Become a Friend</a></div>
-      <p class="rv" style="margin-top:18px;font-size:14px;color:rgba(255,255,255,.7)">Every new episode goes up first on <a href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_series_handle" style="color:#fff;border-bottom:1px solid rgba(255,255,255,.5)">@gallivantlittlestone</a>.</p>
+      <div class="btns rv"><a class="btn btn-m" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_series">Watch on Instagram</a><a class="btn btn-i" href="#gved-friends" data-track="cta_friend_series">Become a Friend</a></div>
+      <p class="rv" style="margin-top:18px;font-size:14px">Every new episode goes up first on <a href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_series_handle" style="color:var(--ink);border-bottom:1px solid rgba(43,42,40,.5)">@gallivantlittlestone</a>.</p>
     </div>
     <div class="reel rv">
       <video muted loop playsinline preload="none" poster="media/we-bought-a-hotel-poster.jpg" data-src="media/we-bought-a-hotel.mp4" aria-label="We bought a hotel: Harry and Sigrid at Romney Bay House"></video>
@@ -484,7 +498,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   </div>
 </section>
 
-<figure class="today rv"><img src="media/romney-bay-house-road.jpg" alt="Romney Bay House today, seen from the sea wall" loading="lazy"><figcaption>Romney Bay House today, as the restoration begins.</figcaption></figure>
+<figure class="today rv"><img src="media/romney-bay-house-road.jpg" alt="Romney Bay House today, seen from the sea wall" loading="lazy"></figure>
 <section class="sec next">
   <div class="wrap grid">
     <div class="card rv">
