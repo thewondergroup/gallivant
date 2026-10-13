@@ -154,6 +154,9 @@
 .gved .feast figure img{width:100%;height:100%;object-fit:cover}
 .gved .feast figure{position:relative;background:var(--ink)}
 .gved .feast figure video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gved .fv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;border:1px solid #fff;background:rgba(20,20,15,.35);display:grid;place-items:center}
+.gved .fv-play::before{content:"";border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.gved .fv-play[hidden]{display:none}
 .gved .feast .txt{padding:clamp(34px,6vw,90px);display:flex;flex-direction:column;justify-content:center;gap:18px}
 .gved .feast h2{font-size:clamp(28px,3.4vw,47px)}
 .gved .feast p{color:var(--ink-soft);max-width:50ch}
@@ -697,13 +700,23 @@ root.addEventListener('click',function(e){
   root.setAttribute('data-ad',k);
 })();
 
-/* Food and drink video: loads only when scrolled to, plays muted on a loop */
+/* Food and drink video: loads only when scrolled to, plays muted on a loop.
+   Phones get the lighter 1080p clip; if autoplay is blocked (e.g. Low Power Mode) a tap-to-play button appears. */
 (function(){
   var v=root.querySelector('.feast video'); if(!v) return;
-  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function load(){ if(!v.src){ v.src=v.getAttribute('data-src'); } }
-  if(!('IntersectionObserver' in window)){ load(); if(!still) v.play().catch(function(){}); return; }
-  new IntersectionObserver(function(es){ if(es[0].isIntersecting){ load(); if(!still) v.play().catch(function(){}); } else if(v.src){ v.pause(); } },{rootMargin:'200px 0px'}).observe(v);
+  var fig=v.parentNode, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var small=matchMedia('(max-width: 900px)').matches || (navigator.connection && navigator.connection.saveData);
+  var src=small?'https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/01/harrys_1080.mp4':v.getAttribute('data-src');
+  v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+  var tap=document.createElement('button'); tap.type='button'; tap.className='fv-play'; tap.setAttribute('aria-label','Play the food and drink video'); tap.hidden=true; fig.appendChild(tap);
+  tap.addEventListener('click',function(){ v.play().then(function(){ tap.hidden=true; }).catch(function(){}); });
+  function start(){
+    if(!v.getAttribute('src')){ v.src=src; v.load(); }
+    if(still){ tap.hidden=false; return; }
+    var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){ tap.hidden=false; });
+  }
+  if(!('IntersectionObserver' in window)){ start(); return; }
+  new IntersectionObserver(function(es){ if(es[0].isIntersecting){ start(); } else if(v.getAttribute('src')){ v.pause(); } },{rootMargin:'200px 0px'}).observe(v);
 })();
 
 /* Reveal on scroll */
