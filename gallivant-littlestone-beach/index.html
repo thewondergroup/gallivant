@@ -180,6 +180,25 @@
 .gved .float-enq:hover{background:var(--cta-hover)}
 .gved .float-enq.show{opacity:1;transform:none;pointer-events:auto}
 
+/* Then and now slider */
+.gved .tn .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(26px,3.4vw,44px)}
+.gved .tn h2{font-size:clamp(28px,3.7vw,50px);max-width:16ch}
+.gved .tn .head p{max-width:40ch;color:var(--ink-soft)}
+.gved .compare{position:relative;aspect-ratio:2400/1397;overflow:hidden;background:#222;--x:50%;user-select:none;touch-action:pan-y;box-shadow:0 18px 44px rgba(43,42,40,.18)}
+.gved .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.gved .compare .then{clip-path:inset(0 calc(100% - var(--x)) 0 0);filter:grayscale(1) contrast(1.05)}
+.gved .compare .bar{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:#fff;pointer-events:none;box-shadow:0 0 12px rgba(0,0,0,.35)}
+.gved .compare .bar::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:20px;letter-spacing:4px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.gved .compare .lbl{position:absolute;bottom:16px;padding:7px 14px;border-radius:999px;background:rgba(20,20,15,.6);color:#fff;font-size:11px;letter-spacing:.2em;text-transform:uppercase;pointer-events:none}
+.gved .compare .lbl.l{left:16px}.gved .compare .lbl.r{right:16px}
+.gved .compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.gved .compare input:focus-visible+.bar::after{outline:3px solid var(--cta);outline-offset:3px}
+
+/* Today band */
+.gved .today{position:relative}
+.gved .today img{width:100%;height:clamp(380px,62vw,820px);object-fit:cover;object-position:50% 45%}
+.gved .today figcaption{position:absolute;left:var(--gutter);bottom:clamp(18px,3vw,36px);background:rgba(242,237,224,.94);padding:14px 18px;font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.6vw,20px);max-width:min(420px,80vw)}
+
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .gved .rv.in{opacity:1;transform:none}
@@ -224,6 +243,20 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <figure class="rv"><div class="im plan"><img src="media/plans-entrance.jpg" alt="Architect’s drawing of the entrance elevation and ground floor plan" loading="lazy"></div><figcaption><b>On paper</b>The entrance elevation and ground floor, with a garage, a dining room and a curved bay facing the sea.</figcaption></figure>
       <figure class="rv"><div class="im"><img src="media/construction.jpg" alt="Romney Bay House under construction, with a ladder against the wall" loading="lazy"></div><figcaption><b>Going up</b>Ladders still against the walls, and the dunes running right up to the door.</figcaption></figure>
       <figure class="rv"><div class="im"><img src="media/house-new.jpg" alt="The newly finished house facing the sea" loading="lazy"></div><figcaption><b>Finished</b>The four columns and mansard roof that still face the sea today.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec tn">
+  <div class="wrap">
+    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">Then and now</div><h2>The same steps, <em>the same view</em></h2></div><p>Drag across to see the house as it was, and as we found it. The wings came later.</p></div>
+    <div class="compare rv">
+      <img src="media/now.jpg" alt="Romney Bay House today, from the foot of the garden steps" loading="lazy">
+      <img class="then" src="media/then.jpg" alt="The house in its early years, from the same steps, with the family on the terrace" loading="lazy">
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the house then and now">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="lbl l" aria-hidden="true">Then</span><span class="lbl r" aria-hidden="true">Today</span>
     </div>
   </div>
 </section>
@@ -280,7 +313,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   </div>
 </section>
 
-<section class="sec next" style="padding-top:0">
+<figure class="today rv"><img src="media/romney-bay-house-road.jpg" alt="Romney Bay House today, seen from the sea wall" loading="lazy"><figcaption>Romney Bay House today, as the restoration begins.</figcaption></figure>
+<section class="sec next">
   <div class="wrap grid">
     <div class="card rv">
       <div class="eyebrow" style="color:var(--warm)">What happens next</div>
@@ -378,6 +412,14 @@ root.addEventListener('click',function(e){ var a=e.target.closest('[data-track]'
     btn.disabled=true; btn.textContent='Sending…';
     fetch(GVED_FORM_ENDPOINT,{method:'POST',body:data,mode:'no-cors'}).then(done).catch(function(){ btn.disabled=false; btn.textContent='Become a Friend'; msg.textContent='Sorry, that didn’t send. Please try again.'; msg.className='msg err'; });
   });
+})();
+
+/* Then and now slider */
+(function(){
+  var c=root.querySelector('.compare'); if(!c) return; var r=c.querySelector('input'), used=false;
+  function set(v){ c.style.setProperty('--x',v+'%'); }
+  r.addEventListener('input',function(){ set(r.value); if(!used){ used=true; gvTrack('littlestone_then_now',{}); } });
+  set(r.value);
 })();
 
 /* Reveal on scroll */
