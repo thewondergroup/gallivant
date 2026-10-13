@@ -199,6 +199,23 @@
 .gved .today img{width:100%;height:clamp(380px,62vw,820px);object-fit:cover;object-position:50% 45%}
 .gved .today figcaption{position:absolute;left:var(--gutter);bottom:clamp(18px,3vw,36px);background:rgba(242,237,224,.94);padding:14px 18px;font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.6vw,20px);max-width:min(420px,80vw)}
 
+/* Series film */
+.gved .series{background:var(--ink);color:#fff}
+.gved .series .grid{display:grid;grid-template-columns:1fr auto;gap:clamp(30px,6vw,100px);align-items:center}
+.gved .series h2{font-size:clamp(34px,4.6vw,64px);margin:14px 0 22px}
+.gved .series p{color:rgba(255,255,255,.82);max-width:48ch;margin-bottom:14px}
+.gved .series ul{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px}
+.gved .series li{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.gved .reel{position:relative;width:min(380px,82vw);aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.gved .reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gved .reel .snd{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;background:rgba(20,20,15,.6);color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.gved .reel .snd::before{content:"";width:16px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14'%3E%3Cpath d='M0 4h4l5-4v14l-5-4H0z'/%3E%3Cpath d='M11 4l4 6M15 4l-4 6' stroke='black' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14'%3E%3Cpath d='M0 4h4l5-4v14l-5-4H0z'/%3E%3Cpath d='M11 4l4 6M15 4l-4 6' stroke='black' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.gved .reel .snd.on::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14'%3E%3Cpath d='M0 4h4l5-4v14l-5-4H0z'/%3E%3Cpath d='M11 3.5a5 5 0 0 1 0 7M13 1.5a8 8 0 0 1 0 11' stroke='black' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14'%3E%3Cpath d='M0 4h4l5-4v14l-5-4H0z'/%3E%3Cpath d='M11 3.5a5 5 0 0 1 0 7M13 1.5a8 8 0 0 1 0 11' stroke='black' stroke-width='1.4' fill='none'/%3E%3C/svg%3E")}
+.gved .reel .tap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;border:1px solid #fff;background:rgba(20,20,15,.35);display:grid;place-items:center}
+.gved .reel .tap::before{content:"";border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff;margin-left:5px}
+.gved .reel .tap[hidden]{display:none}
+@media (max-width:860px){.gved .series .grid{grid-template-columns:1fr;gap:30px}.gved .reel{margin:0 auto;order:-1;width:min(340px,86vw)}}
+
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .gved .rv.in{opacity:1;transform:none}
@@ -221,6 +238,24 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <h1 class="rv">Gallivant <em>Littlestone Beach</em></h1>
     <p class="sub rv">We’ve begun the complete restoration of Romney Bay House, a house by Clough Williams-Ellis on a sand dune above the sea. This is its story so far.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-friends" data-track="cta_friend_hero">Become a Friend</a><a class="btn btn-w" href="https://www.instagram.com/gallivantlittlestone" target="_blank" rel="noopener" data-track="instagram_hero">Follow the restoration</a></div>
+  </div>
+</section>
+
+<section class="sec series" id="gved-series">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow rv" style="color:var(--bright)">The series · Episode one</div>
+      <h2 class="rv">We bought <em>a hotel</em></h2>
+      <p class="rv">Harry and Sigrid are filming the whole restoration of Romney Bay House, from the first walk round to opening day. This is where it starts.</p>
+      <p class="rv">They’ll share the lot: the build, the problems, the finds, the makers, the styling of the rooms and the history of the house.</p>
+      <ul class="rv"><li>The build</li><li>The problems</li><li>The rooms</li><li>The makers</li><li>The history</li></ul>
+      <div class="btns rv"><a class="btn btn-m" href="https://www.instagram.com/gallivantlittlestone" target="_blank" rel="noopener" data-track="instagram_series">Follow the series</a><a class="btn btn-w" href="#gved-friends" data-track="cta_friend_series">Become a Friend</a></div>
+    </div>
+    <div class="reel rv">
+      <video muted loop playsinline preload="none" poster="media/we-bought-a-hotel-poster.jpg" data-src="media/we-bought-a-hotel.mp4" aria-label="We bought a hotel: Harry and Sigrid at Romney Bay House"></video>
+      <button class="tap" type="button" aria-label="Play the film" hidden></button>
+      <button class="snd" type="button" aria-pressed="false">Sound on</button>
+    </div>
   </div>
 </section>
 
@@ -420,6 +455,26 @@ root.addEventListener('click',function(e){ var a=e.target.closest('[data-track]'
   function set(v){ c.style.setProperty('--x',v+'%'); }
   r.addEventListener('input',function(){ set(r.value); if(!used){ used=true; gvTrack('littlestone_then_now',{}); } });
   set(r.value);
+})();
+
+/* Series film: plays muted when in view (subtitles are burned in); Sound on restarts it with sound */
+(function(){
+  var r=root.querySelector('.reel'); if(!r) return;
+  var v=r.querySelector('video'), snd=r.querySelector('.snd'), tap=r.querySelector('.tap'), still=matchMedia('(prefers-reduced-motion: reduce)').matches, marks={};
+  v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('webkit-playsinline','');
+  function load(){ if(!v.getAttribute('src')){ v.src=v.getAttribute('data-src'); v.load(); } }
+  function play(){ load(); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){ tap.hidden=false; }); }
+  tap.addEventListener('click',function(){ load(); v.play().then(function(){ tap.hidden=true; }).catch(function(){}); });
+  snd.addEventListener('click',function(){
+    load(); var on=v.muted; v.muted=!on; snd.classList.toggle('on',on); snd.setAttribute('aria-pressed',String(on)); snd.textContent=on?'Sound off':'Sound on';
+    if(on){ v.currentTime=0; v.loop=false; gvTrack('littlestone_film_sound',{}); } else { v.loop=true; }
+    v.play().then(function(){ tap.hidden=true; }).catch(function(){ tap.hidden=false; });
+  });
+  v.addEventListener('ended',function(){ v.muted=true; v.loop=true; snd.classList.remove('on'); snd.setAttribute('aria-pressed','false'); snd.textContent='Sound on'; v.play().catch(function(){}); });
+  v.addEventListener('timeupdate',function(){ if(v.muted||!v.duration) return; [50,100].forEach(function(m){ if(!marks[m]&&v.currentTime/v.duration*100>=m-1){ marks[m]=1; gvTrack('littlestone_film_progress',{percent:m}); } }); });
+  if(still){ tap.hidden=false; return; }
+  if(!('IntersectionObserver' in window)){ play(); return; }
+  new IntersectionObserver(function(es){ if(es[0].isIntersecting){ play(); } else if(v.getAttribute('src')){ v.pause(); } },{threshold:.25}).observe(r);
 })();
 
 /* Reveal on scroll */
