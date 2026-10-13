@@ -250,7 +250,7 @@
 .gved .ep .n{display:block;margin-bottom:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bright)}
 .gved .ep .n i{font-style:normal;color:var(--ink);background:var(--bright);border-radius:999px;padding:3px 9px;margin-left:8px;letter-spacing:.14em}
 .gved .ep .t{display:block;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;margin:-4px 0 10px}
-.gved .ep .card{display:block;position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#1d1c1a}
+.gved .ep .card{display:block;position:relative;aspect-ratio:418/650;border-radius:12px;overflow:hidden;background:#1d1c1a}
 .gved .ep .card img,.gved .ep .card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .gved .ep .card video{opacity:0;transition:opacity .4s}.gved .ep .card video.on{opacity:1}
 .gved .ep .card:hover img{transform:scale(1.04)}
@@ -269,6 +269,11 @@
 .gved .ep .card .foot .t{margin:0;font-size:19px}
 .gved .ep .card.plain.pic .play{background:rgba(20,20,18,.3);backdrop-filter:blur(4px)}
 .gved .ep .card.plain .play{position:absolute;left:50%;top:50%;margin:-31px 0 0 -31px}
+.gved .ep .card.plain.pic{justify-content:flex-end}
+.gved .ep .card.plain.pic .play{left:auto;bottom:auto;right:14px;top:14px;margin:0;width:40px;height:40px}
+.gved .ep .card.plain.pic .play::before{border-width:7px 0 7px 11px;margin-left:3px}
+.gved .ep .card.plain.pic::before{background:linear-gradient(180deg,rgba(20,20,18,0) 55%,rgba(20,20,18,.7) 100%)}
+.gved .ep .card.plain.pic:hover::before{background:linear-gradient(180deg,rgba(20,20,18,0) 50%,rgba(20,20,18,.6) 100%)}
 .gved .ep .card.plain .w{position:static;align-self:flex-start;background:none;padding:0;backdrop-filter:none;border-bottom:1px solid rgba(255,255,255,.4);border-radius:0;padding-bottom:3px}
 
 .gved .ep.soon .card{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;text-align:center;padding:14px}
@@ -405,7 +410,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap eps">
     <div class="eps-h rv"><div><div class="eyebrow" style="color:var(--bright)">Episodes</div><p class="hint">Newest first. Scroll across for the whole story.</p></div><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_episodes">Follow on Instagram</a></div>
     <div class="eps-row rv" data-episodes>
-      <div class="ep"><span class="n">Episode 1</span><a class="card plain pic" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener"><img src="media/we-bought-a-hotel-poster.jpg" alt="" loading="lazy"><span class="num">1</span><span class="play" aria-hidden="true"></span><span class="foot"><b class="t">We bought a hotel</b><span class="w">Watch on Instagram ↗</span></span></a></div>
+      <div class="ep"><span class="n">Episode 1</span><a class="card plain pic" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener"><img src="media/ep/ep1.jpg" alt="We bought a hotel" loading="lazy"><span class="play" aria-hidden="true"></span><span class="foot"><span class="w">Watch on Instagram ↗</span></span></a></div>
     </div>
   </div>
 </section>
@@ -592,19 +597,19 @@ var GVED_LS={
   /* Episodes of the series, oldest first (the page shows the newest first). For each one:
        url    the reel's link on Instagram (on the reel: ⋯ → Copy link). The card links to it.
        title  optional: shown above the reel
-       image  a still for the card (the house photos in media/ep/ are stand-ins until we have each reel's cover)
+       image  the reel's cover for the card (in media/ep/, cut from the Instagram grid)
        video  optional, with image: a short muted clip that plays on our card
      Or set episodesCsv to a published Google Sheet CSV with the same columns (url, title, image, video)
      and it will be used instead. */
   episodesCsv:'',
   episodes:[
-    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', url:'https://www.instagram.com/gallivantlittlestone/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/DcrKxnxMjhK/', image:'media/ep/ep2.jpg'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc3dcnrsnTQ/', image:'media/ep/ep3.jpg'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc_o6boMRly/', image:'media/ep/ep4.jpg'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Ddbq0aCM0Q8/', image:'media/ep/ep5.jpg'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/DdzbzNAMxLz/', image:'media/ep/ep6.jpg'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dd9cHgrstwa/', image:'media/ep/ep7.jpg'}
+    {title:'We bought a hotel', image:'media/ep/ep1.jpg', url:'https://www.instagram.com/gallivantlittlestone/'},
+    {title:'The secret history of this house', image:'media/ep/ep2.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/DcrKxnxMjhK/'},
+    {title:'Hollywood came to Littlestone', image:'media/ep/ep3.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/Dc3dcnrsnTQ/'},
+    {title:'Everything goes wrong', image:'media/ep/ep4.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/Dc_o6boMRly/'},
+    {title:'The walls come down', image:'media/ep/ep5.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/Ddbq0aCM0Q8/'},
+    {title:'Why they called it the Mustard Pot', image:'media/ep/ep6.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/DdzbzNAMxLz/'},
+    {title:'The tour: bottom floor', image:'media/ep/ep7.jpg', url:'https://www.instagram.com/gallivantlittlestone/reel/Dd9cHgrstwa/'}
   ]
 };
 /* Preview another mode without editing: add ?ls_mode=prebook or ?ls_mode=book to the URL */
@@ -649,7 +654,7 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
     var head='<span class="n">Episode '+n+(latest?'<i>Latest</i>':'')+'</span>';
     var link=reel(e.url)||ig;
     if(!e.image && !reel(e.url)) return '';
-    return '<div class="ep">'+head+'<a class="card plain'+(e.image?' pic':'')+'" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'" aria-label="Watch episode '+n+' on Instagram">'+(e.image?'<img src="'+esc(e.image)+'" alt="" loading="lazy">':'')+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+'<span class="num">'+n+'</span><span class="play" aria-hidden="true"></span><span class="foot">'+(e.title?'<b class="t">'+esc(e.title)+'</b>':'')+'<span class="w">Watch on Instagram ↗</span></span></a></div>';
+    return '<div class="ep">'+head+'<a class="card plain'+(e.image?' pic':'')+'" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'" aria-label="Watch episode '+n+(e.title?': '+esc(e.title):'')+' on Instagram">'+(e.image?'<img src="'+esc(e.image)+'" alt="'+esc(e.title||'')+'" loading="lazy">':'')+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+(e.image?'':'<span class="num">'+n+'</span>')+'<span class="play" aria-hidden="true"></span><span class="foot">'+(e.title&&!e.image?'<b class="t">'+esc(e.title)+'</b>':'')+'<span class="w">Watch on Instagram ↗</span></span></a></div>';
   }
   function render(list){
     list=list.filter(function(e){ return e && (e.url||e.image); }); if(!list.length) return;
