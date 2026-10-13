@@ -68,8 +68,8 @@ Tells the story of Romney Bay House with the archive photos in `gallivant-little
 | `mode` | `'friends'` now. `'prebook'` when Friends can book early: same sign-up, but the wording says their booking link comes by email. `'book'` when bookings open to everyone: the hero and floating buttons go to `bookingUrl`. Preview any mode by adding `?ls_mode=prebook` or `?ls_mode=book` to the page address. |
 | `bookingUrl` | The Littlestone booking link (Mews), used in `book` mode. |
 | `stage` | Where the build is, for the "Where we are now" tracker: 0 Bought, 1 Strip-out, 2 Structure, 3 Rooms, 4 Styling, 5 Opening. The stage names and the short lines under them are in the page HTML. |
-| `episodes` | The episodes of the series, oldest first. Each has a title, the reel's Instagram link (on the reel: ⋯ → Copy link), a still for the card and, optionally, a short silent clip that plays on the card and a date. Each card links through to the reel on Instagram. A "Coming soon" card for the next one is added automatically. Instagram doesn't allow the videos to be pulled automatically, so stills and clips go in `gallivant-littlestone-beach/media/`. |
-| `episodesCsv` | Optional. A Google Sheet published as CSV, with the columns `title`, `url`, `image`, `video` and `date`. If it's set, the episode cards come from the sheet, so new episodes can be added without editing the page. |
+| `episodes` | The episodes of the series, oldest first; the page shows them newest first, with a "Coming soon" card for the next one. For each, paste the reel's Instagram link (on the reel: ⋯ → Copy link). The page shows Instagram's own player for it, which plays the reel and links through to Instagram. Titles are optional. An episode can use our own still and silent clip instead (`image`, `video`), as Episode 1 does. Instagram's player only loads when someone scrolls near the strip. |
+| `episodesCsv` | Optional. A Google Sheet published as CSV, with the columns `url`, `title`, `image` and `video`. If it's set, the episode cards come from the sheet, so new episodes can be added without editing the page. |
 
 ## Headings
 
