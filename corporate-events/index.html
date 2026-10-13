@@ -152,8 +152,9 @@
 .gved .feast{display:grid;grid-template-columns:1fr 1fr;background:var(--panel)}
 .gved .feast figure{min-height:560px;overflow:hidden}
 .gved .feast figure img{width:100%;height:100%;object-fit:cover}
-.gved .feast figure{position:relative;background:var(--ink)}
-.gved .feast figure video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gved .feast figure.fv{position:relative;background:var(--ink) url("media/harrys-food-blur.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:clamp(24px,3vw,44px) 0}
+.gved .feast figure.fv video{position:relative;height:100%;max-height:640px;width:auto;aspect-ratio:9/16;object-fit:cover;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+@media (max-width:860px){.gved .feast figure.fv{padding:0;aspect-ratio:4/5;min-height:0}.gved .feast figure.fv video{position:absolute;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;box-shadow:none}}
 .gved .fv-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;border:1px solid #fff;background:rgba(20,20,15,.35);display:grid;place-items:center}
 .gved .fv-play::before{content:"";border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff;margin-left:5px}
 .gved .fv-play[hidden]{display:none}
@@ -406,7 +407,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 
 <section class="feast rv">
-  <figure class="fv"><video muted loop playsinline preload="none" poster="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8334-1024x685.png" data-src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/05/Harrys.mp4" aria-label="Food and drink at Harry’s"></video></figure>
+  <figure class="fv"><video muted loop playsinline preload="none" poster="media/harrys-food-poster.jpg" data-src="media/harrys-food.mp4" aria-label="A pork chop cooked and plated in Harry’s kitchen"></video></figure>
   <div class="txt">
     <div class="eyebrow" style="color:var(--warm)">Food and drink</div>
     <h2>Matthew Harris <em>menus</em>, from breakfast to dinner</h2>
@@ -701,12 +702,11 @@ root.addEventListener('click',function(e){
 })();
 
 /* Food and drink video: loads only when scrolled to, plays muted on a loop.
-   Phones get the lighter 1080p clip; if autoplay is blocked (e.g. Low Power Mode) a tap-to-play button appears. */
+   If autoplay is blocked (e.g. Low Power Mode) a tap-to-play button appears. */
 (function(){
   var v=root.querySelector('.feast video'); if(!v) return;
   var fig=v.parentNode, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var small=matchMedia('(max-width: 900px)').matches || (navigator.connection && navigator.connection.saveData);
-  var src=small?'https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/01/harrys_1080.mp4':v.getAttribute('data-src');
+  var src=v.getAttribute('data-src');
   v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
   var tap=document.createElement('button'); tap.type='button'; tap.className='fv-play'; tap.setAttribute('aria-label','Play the food and drink video'); tap.hidden=true; fig.appendChild(tap);
   tap.addEventListener('click',function(){ v.play().then(function(){ tap.hidden=true; }).catch(function(){}); });
