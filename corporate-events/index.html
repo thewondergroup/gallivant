@@ -256,6 +256,17 @@
 .gved .thanks h3{font-size:34px;margin-bottom:10px}
 .gved .thanks p{color:var(--ink-soft)}
 .gved .sent form{display:none}.gved .sent .thanks{display:block}
+.gved form .step{display:contents}
+.gved form .step[hidden]{display:none}
+.gved .step-k{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em}
+.gved .step-k span{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;opacity:.6}
+.gved .step-k span.on{background:var(--panel);color:var(--ink);border-color:var(--panel);opacity:1}
+.gved .step-k i{width:40px;height:1px;background:rgba(255,255,255,.4)}
+.gved .full{grid-column:1/-1}
+.gved .got h3{font-size:30px;margin-bottom:6px}
+.gved .got p{color:rgba(255,255,255,.82)}
+.gved .hint{font-size:13px;color:rgba(255,255,255,.65)}
+.gved .skip{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.4);padding:4px 0}
 @media (max-width:860px){.gved .enq .grid{grid-template-columns:1fr}}
 @media (max-width:560px){.gved form{grid-template-columns:1fr}}
 
@@ -293,8 +304,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <span class="award">Event Venue of the Year</span>
   <div class="wrap inner">
     <div class="eyebrow rv">Corporate retreats and offsites · Camber Sands</div>
-    <h1 class="rv">Your team. <em>Nobody else.</em></h1>
-    <p class="sub rv">Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
+    <h1 class="rv" data-h1>Your team. <em>Nobody else.</em></h1>
+    <p class="sub rv" data-sub>Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-enquire" data-track="cta_enquire">Make an enquiry</a><a class="btn btn-w" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a></div>
     <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
   </div>
@@ -315,7 +326,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap grid">
     <div>
       <div class="eyebrow rv">Your private house by the sea</div>
-      <h2 class="rv">The offsite that doesn’t <em>feel like an offsite</em></h2>
+      <h2 class="rv" data-intro-h>The offsite that doesn’t <em>feel like an offsite</em></h2>
       <p class="body rv">For a night or two, The Gallivant stops being a hotel and becomes your team’s private house by the sea, with a team of our own who’ll know everyone’s name by dinner.</p>
       <p class="body rv">Strategy in the morning. A walk on a deserted beach after lunch. Matthew Harris menus in the evening. Meetings here tend to finish sooner than planned, and the decisions are better for it.</p>
       <ul class="ticks rv">
@@ -403,9 +414,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   </div>
 </section>
 
-<section class="sec">
+<section class="sec" id="gved-small">
   <div class="wrap split">
-    <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set in the private dining room" loading="lazy"></figure>
+    <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" alt="The Snug, by the fire" loading="lazy"></figure>
     <div>
       <div class="eyebrow rv">Smaller groups</div>
       <h2 class="rv">Smaller teams get the feeling of <em>exclusivity</em> too</h2>
@@ -482,24 +493,31 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     </div>
     <div class="formbox rv">
       <form id="gved-form" novalidate>
-        <div class="f"><label for="gv-first">First name</label><input id="gv-first" name="first_name" autocomplete="given-name" required></div>
-        <div class="f"><label for="gv-last">Last name</label><input id="gv-last" name="last_name" autocomplete="family-name" required></div>
-        <div class="f"><label for="gv-company">Company</label><input id="gv-company" name="company" autocomplete="organization" required></div>
-        <div class="f"><label for="gv-email">Email</label><input id="gv-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="gv-phone">Phone</label><input id="gv-phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="f"><label for="gv-guests">Number of guests</label><select id="gv-guests" name="guests" required><option value="">Choose</option><option>Up to 14</option><option>15 to 20</option><option>21 to 30</option><option>More than 30</option></select></div>
-        <fieldset class="f"><legend>How many nights?</legend><div class="pills"><label><input type="radio" name="nights" value="Day only"><span>Day only</span></label><label><input type="radio" name="nights" value="One night"><span>One night</span></label><label><input type="radio" name="nights" value="Two nights"><span>Two nights</span></label><label><input type="radio" name="nights" value="Longer"><span>Longer</span></label></div></fieldset>
-        <fieldset class="f"><legend>The whole house?</legend><div class="pills"><label><input type="radio" name="exclusive" value="Yes"><span>Yes</span></label><label><input type="radio" name="exclusive" value="No"><span>No</span></label><label><input type="radio" name="exclusive" value="Not sure"><span>Not sure</span></label></div></fieldset>
-        <div class="f"><label for="gv-dates">Preferred dates</label><input id="gv-dates" name="dates" placeholder="e.g. a Tuesday in March"></div>
-        <div class="f"><label for="gv-budget">Budget (optional)</label><input id="gv-budget" name="budget"></div>
-        <div class="f full"><label for="gv-msg">Anything else?</label><textarea id="gv-msg" name="message" placeholder="What the time away is for, any must-haves"></textarea></div>
-        <input type="hidden" name="campaign"><input type="hidden" name="source"><input type="hidden" name="medium"><input type="hidden" name="content"><input type="hidden" name="landing_page"><input type="hidden" name="referrer">
+        <div class="step-k full" aria-hidden="true"><span class="on">1</span><i></i><span>2</span></div>
+        <div class="step s1">
+          <div class="f"><label for="gv-name">Your name</label><input id="gv-name" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="gv-email">Work email</label><input id="gv-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="f"><label for="gv-guests">Number of guests</label><select id="gv-guests" name="guests" required><option value="">Choose</option><option>Up to 14</option><option>15 to 20</option><option>21 to 30</option><option>More than 30</option></select></div>
+          <div class="f"><label for="gv-dates">Rough dates</label><input id="gv-dates" name="dates" placeholder="e.g. a Tuesday in March" required></div>
+          <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I’m happy for The Gallivant to contact me about this enquiry, as set out in the <a href="https://thegallivant.co.uk/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+          <p class="msg" role="status" aria-live="polite"></p>
+          <div class="submit"><button class="btn btn-m" type="submit">Send to Holly</button><span class="hint">Takes 20 seconds</span></div>
+        </div>
+        <div class="step s2" hidden>
+          <div class="got full"><h3>Thank you, Holly has your enquiry.</h3><p>A few more details help her come back with the right dates and ideas. All optional.</p></div>
+          <div class="f"><label for="gv-company">Company</label><input id="gv-company" name="company" autocomplete="organization"></div>
+          <div class="f"><label for="gv-phone">Phone</label><input id="gv-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <fieldset class="f"><legend>How many nights?</legend><div class="pills"><label><input type="radio" name="nights" value="Day only"><span>Day only</span></label><label><input type="radio" name="nights" value="One night"><span>One night</span></label><label><input type="radio" name="nights" value="Two nights"><span>Two nights</span></label><label><input type="radio" name="nights" value="Longer"><span>Longer</span></label></div></fieldset>
+          <fieldset class="f"><legend>The whole house?</legend><div class="pills"><label><input type="radio" name="exclusive" value="Yes"><span>Yes</span></label><label><input type="radio" name="exclusive" value="No"><span>No</span></label><label><input type="radio" name="exclusive" value="Not sure"><span>Not sure</span></label></div></fieldset>
+          <div class="f full"><label for="gv-budget">Budget</label><input id="gv-budget" name="budget"></div>
+          <div class="f full"><label for="gv-msg">Anything else?</label><textarea id="gv-msg" name="message" placeholder="What the time away is for, any must-haves"></textarea></div>
+          <p class="msg" role="status" aria-live="polite"></p>
+          <div class="submit"><button class="btn btn-m" type="submit">Send details</button><button class="skip" type="button">Skip</button></div>
+        </div>
+        <input type="hidden" name="lead_id"><input type="hidden" name="step"><input type="hidden" name="campaign"><input type="hidden" name="source"><input type="hidden" name="medium"><input type="hidden" name="content"><input type="hidden" name="landing_page"><input type="hidden" name="referrer">
         <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I’m happy for The Gallivant to contact me about this enquiry, as set out in the <a href="https://thegallivant.co.uk/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
-        <p class="msg" role="status" aria-live="polite"></p>
-        <div class="submit"><button class="btn btn-m" type="submit">Send enquiry</button></div>
       </form>
-      <div class="thanks" role="status"><h3>Thank you</h3><p>Holly has your enquiry and will be in touch shortly. If it’s urgent, call her on 01797 338 909.</p></div>
+      <div class="thanks" role="status"><h3>Thank you</h3><p>Holly has everything and will be in touch shortly. If it’s urgent, call her on 01797 338 909.</p></div>
     </div>
   </div>
 </section>
@@ -508,7 +526,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Other gatherings</div><h2>Not a work trip?</h2></div><a class="link" href="https://thegallivant.co.uk/plan-an-event/">All events</a></div>
     <div class="cards">
       <a class="card rv" href="https://thegallivant.co.uk/coastal-weddings/" data-track="other_events_weddings"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/7.jpeg" alt="A beachside wedding ceremony at Camber Sands" loading="lazy"></div><div class="txt"><h3>Weddings</h3><p>Exclusive-use weddings behind the dunes, as individual as you are.</p><span class="go">Weddings →</span></div></a>
-      <a class="card rv" href="../eat-and-drink/#/private-dining" data-track="other_events_private_dining"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/07/Longchamp-22ndMarch2024-8332-820x566.jpeg" alt="A table dressed for a celebration" loading="lazy"></div><div class="txt"><h3>Private parties and dining</h3><p>Birthdays, anniversaries and celebrations, with a room of their own.</p><span class="go">Private dining →</span></div></a>
+      <a class="card rv" href="../eat-and-drink/#/private-dining" data-track="other_events_private_dining"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set in the private dining room" loading="lazy"></div><div class="txt"><h3>Private parties and dining</h3><p>Birthdays, anniversaries and celebrations, with a room of their own.</p><span class="go">Private dining →</span></div></a>
       <a class="card rv" href="../christmas/" data-track="other_events_christmas"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"></div><div class="txt"><h3>Christmas 2026</h3><p>A three-night house party by the sea, 23 to 26 December.</p><span class="go">Christmas →</span></div></a>
     </div>
   </div>
@@ -593,37 +611,65 @@ root.addEventListener('click',function(e){
   try{ if(window.fbq && n==='brochure_download') fbq('trackCustom','BrochureDownload',{page:'corporate-events'}); if(window.fbq && n==='call_holly') fbq('track','Contact'); }catch(err){}
 });
 
-/* Enquiry form */
+/* Enquiry form, in two steps. Step 1 sends the lead straight away, so nobody is lost if they stop there. Step 2 adds optional details to the same lead. */
 (function(){
-  var f=root.querySelector('#gved-form'), box=root.querySelector('.formbox'), msg=f.querySelector('.msg'), btn=f.querySelector('button[type=submit]');
+  var f=root.querySelector('#gved-form'), box=root.querySelector('.formbox'), s1=f.querySelector('.s1'), s2=f.querySelector('.s2'), dots=f.querySelectorAll('.step-k span');
+  var step=1, mailLines=[];
+  f.lead_id.value='gv-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
   f.campaign.value=GV_UTM.utm_campaign||''; f.source.value=GV_UTM.utm_source||''; f.medium.value=GV_UTM.utm_medium||''; f.content.value=GV_UTM.utm_content||'';
   f.landing_page.value=location.href.split('#')[0]; f.referrer.value=document.referrer||'';
   var started=false; f.addEventListener('focusin',function(){ if(!started){ started=true; gvTrack('corporate_form_start',GV_UTM); } });
-  function done(){
-    box.classList.add('sent'); box.scrollIntoView({behavior:'smooth',block:'center'});
-    var p=Object.assign({form:'corporate-enquiry',guests:f.guests.value},GV_UTM);
-    gvTrack('generate_lead',p);
-    try{ if(window.fbq) fbq('track','Lead',{content_name:'Corporate enquiry',content_category:GV_UTM.utm_campaign||'corporate-offsites'}); }catch(e){}
+  function send(fields,stepNo){
+    var data=new FormData(); data.append('lead_id',f.lead_id.value); data.append('step',stepNo); data.append('submitted_at',new Date().toISOString());
+    fields.forEach(function(n){ var el=f.elements[n]; var v=el? (el.value!==undefined?el.value:'') : ''; if(el && el.length && el[0] && el[0].type==='radio'){ v=(f.querySelector('input[name="'+n+'"]:checked')||{}).value||''; } data.append(n,v); });
+    if(!GVED_FORM_ENDPOINT){ data.forEach(function(v,k){ if(v && ['lead_id','step','submitted_at','consent'].indexOf(k)<0) mailLines.push(k.replace(/_/g,' ')+': '+v); }); return Promise.resolve(); }
+    return fetch(GVED_FORM_ENDPOINT,{method:'POST',body:data,mode:'no-cors'});
   }
+  function finish(){
+    box.classList.add('sent'); box.scrollIntoView({behavior:'smooth',block:'center'});
+    if(!GVED_FORM_ENDPOINT && mailLines.length){ location.href='mailto:'+GVED_FALLBACK_EMAIL+'?subject='+encodeURIComponent('Corporate enquiry: '+(f.company.value||f.name.value))+'&body='+encodeURIComponent(mailLines.join('\n')); }
+  }
+  f.querySelector('.skip').addEventListener('click',function(){ gvTrack('corporate_form_step2_skip',GV_UTM); finish(); });
   f.addEventListener('submit',function(e){
-    e.preventDefault(); msg.textContent=''; msg.className='msg';
-    if(f.website.value) return;
-    var bad=[].slice.call(f.querySelectorAll('[required]')).filter(function(el){ return el.type==='checkbox'?!el.checked:!String(el.value).trim(); });
-    if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)) bad.push(f.email);
-    if(bad.length){ msg.textContent='Please fill in '+(bad.some(function(b){return b.type==='checkbox'})?'the required details and tick the box':'the required details')+'.'; msg.className='msg err'; bad[0].focus(); return; }
-    var data=new FormData(f); data.append('submitted_at',new Date().toISOString());
-    if(!GVED_FORM_ENDPOINT){
-      /* No endpoint yet: open an email with the enquiry filled in */
-      var lines=[]; data.forEach(function(v,k){ if(v && k!=='website' && k!=='consent') lines.push(k.replace(/_/g,' ')+': '+v); });
-      location.href='mailto:'+GVED_FALLBACK_EMAIL+'?subject='+encodeURIComponent('Corporate enquiry: '+f.company.value)+'&body='+encodeURIComponent(lines.join('\n'));
-      done(); return;
+    e.preventDefault(); if(f.website.value) return;
+    var scope=step===1?s1:s2, msg=scope.querySelector('.msg'), btn=scope.querySelector('button[type=submit]'); msg.textContent=''; msg.className='msg';
+    if(step===1){
+      var bad=[].slice.call(s1.querySelectorAll('[required]')).filter(function(el){ return el.type==='checkbox'?!el.checked:!String(el.value).trim(); });
+      if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)) bad.push(f.email);
+      if(bad.length){ msg.textContent=bad.some(function(b){return b.type==='checkbox'})?'Please fill in all four details and tick the box.':'Please fill in all four details.'; msg.className='msg err'; bad[0].focus(); return; }
+      btn.disabled=true; btn.textContent='Sending…';
+      send(['name','email','guests','dates','consent','campaign','source','medium','content','landing_page','referrer'],1).then(function(){
+        step=2; s1.hidden=true; s2.hidden=false; dots[0].classList.remove('on'); dots[1].classList.add('on');
+        var p=Object.assign({form:'corporate-enquiry',guests:f.guests.value},GV_UTM);
+        gvTrack('generate_lead',p);
+        try{ if(window.fbq) fbq('track','Lead',{content_name:'Corporate enquiry',content_category:GV_UTM.utm_campaign||'corporate-offsites'}); }catch(err){}
+        f.company.focus({preventScroll:true}); window.scrollTo({top:f.getBoundingClientRect().top+scrollY-110,behavior:'smooth'});
+      }).catch(function(){ btn.disabled=false; btn.textContent='Send to Holly'; msg.textContent='Sorry, that didn’t send. Please try again or call Holly on 01797 338 909.'; msg.className='msg err'; });
+    } else {
+      btn.disabled=true; btn.textContent='Sending…';
+      send(['name','email','company','phone','nights','exclusive','budget','message'],2).then(function(){ gvTrack('corporate_form_step2_complete',GV_UTM); finish(); })
+        .catch(function(){ finish(); });
     }
-    btn.disabled=true; btn.textContent='Sending…';
-    fetch(GVED_FORM_ENDPOINT,{method:'POST',body:data,mode:'no-cors'}).then(done).catch(function(){
-      btn.disabled=false; btn.textContent='Send enquiry';
-      msg.textContent='Sorry, that didn’t send. Please try again or call Holly on 01797 338 909.'; msg.className='msg err';
-    });
   });
+})();
+
+/* Match the page to the ad that was clicked (utm_content=ad1 to ad5) */
+(function(){
+  var V={
+    ad1:null,
+    ad2:{h1:'Close enough <em>to stay.</em>',sub:'An hour and a quarter from London: arrive for the agenda, then let the evening be dinner at Harry’s rather than the train home.',tab:0},
+    ad3:{h1:'The offsite that doesn’t <em>feel like one.</em>',sub:'Strategy in the morning, a deserted beach after lunch and Matthew Harris menus in the evening. The whole house to yourselves.',intro:'Your private house <em>by the sea</em>'},
+    ad4:{h1:'Two nights. <em>A full day to fill.</em>',sub:'Two nights by the coast give a team a whole day with no arriving or leaving in it, and time to properly reset.',tab:1},
+    ad5:{h1:'Smaller teams, <em>the same feeling.</em>',sub:'Not every team needs the whole house. Groups of up to 14 get a private space to work in and a long table at Harry’s for dinner.',guests:'Up to 14',jump:'#gved-small'}
+  };
+  var k=(GV_UTM.utm_content||'').toLowerCase().replace(/[^a-z0-9]/g,'').replace(/^(ad\d).*/,'$1');
+  var v=V[k]; if(!v) return;
+  if(v.h1) root.querySelector('[data-h1]').innerHTML=v.h1;
+  if(v.sub) root.querySelector('[data-sub]').textContent=v.sub;
+  if(v.intro) root.querySelector('[data-intro-h]').innerHTML=v.intro;
+  if(typeof v.tab==='number'){ var b=root.querySelectorAll('.tabs button')[v.tab]; if(b) setTimeout(function(){ b.click(); },0); }
+  if(v.guests){ var g=root.querySelector('#gv-guests'); if(g) g.value=v.guests; }
+  root.setAttribute('data-ad',k);
 })();
 
 /* Reveal on scroll */

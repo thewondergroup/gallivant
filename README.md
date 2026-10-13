@@ -36,8 +36,19 @@ The enquiry form on `/corporate-events/` records which ad each enquiry came from
 
 To make it save enquiries to a Google Sheet and email Holly, follow the steps at the top of `corporate-events/enquiry-form.gs`, then paste the web app URL into `var GVED_FORM_ENDPOINT=''` in `corporate-events/index.html`. Until then, sending the form opens an email to enquiries@thegallivant.co.uk with the details filled in.
 
-Meta ads should link to the page with the campaign tag, for example:
-`/corporate-events/?utm_source=meta&utm_medium=paid&utm_campaign=corporate-offsites&utm_content=ad1`
+The form has two steps. Step 1 asks for name, email, number of guests and rough dates, and sends the lead straight away. Step 2 is optional (company, phone, nights, whole house, budget, notes) and adds to the same enquiry.
+
+### Ad links
+
+Each corporate ad links to the page with its own `utm_content`, and the page changes its headline to match the ad:
+
+| Ad | Headline in the ad | Link |
+|---|---|---|
+| 1 | Your Team. Nobody Else But You | `/corporate-events/?utm_source=meta&utm_medium=paid&utm_campaign=corporate-offsites&utm_content=ad1` |
+| 2 | Close Enough to Stay | `...&utm_content=ad2` (opens on the one-night schedule) |
+| 3 | The Offsite That Doesn't Feel Like An Offsite | `...&utm_content=ad3` |
+| 4 | A Full Day to Fill as You Choose | `...&utm_content=ad4` (opens on the two-night schedule) |
+| 5 | Smaller Groups Get The Feeling of Exclusivity | `...&utm_content=ad5` (smaller-groups headline, and the form starts at "Up to 14") |
 
 ## Corporate walkthrough video
 
