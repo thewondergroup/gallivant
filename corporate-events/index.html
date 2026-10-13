@@ -152,6 +152,8 @@
 .gved .feast{display:grid;grid-template-columns:1fr 1fr;background:var(--panel)}
 .gved .feast figure{min-height:560px;overflow:hidden}
 .gved .feast figure img{width:100%;height:100%;object-fit:cover}
+.gved .feast figure{position:relative;background:var(--ink)}
+.gved .feast figure video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .gved .feast .txt{padding:clamp(34px,6vw,90px);display:flex;flex-direction:column;justify-content:center;gap:18px}
 .gved .feast h2{font-size:clamp(28px,3.4vw,47px)}
 .gved .feast p{color:var(--ink-soft);max-width:50ch}
@@ -383,7 +385,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 
 <section class="feast rv">
-  <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8334-1024x685.png" alt="The private dining room set with tulips" loading="lazy"></figure>
+  <figure class="fv"><video muted loop playsinline preload="none" poster="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8334-1024x685.png" data-src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/05/Harrys.mp4" aria-label="Food and drink at Harry’s"></video></figure>
   <div class="txt">
     <div class="eyebrow" style="color:var(--warm)">Food and drink</div>
     <h2>Matthew Harris <em>menus</em>, from breakfast to dinner</h2>
@@ -670,6 +672,15 @@ root.addEventListener('click',function(e){
   if(typeof v.tab==='number'){ var b=root.querySelectorAll('.tabs button')[v.tab]; if(b) setTimeout(function(){ b.click(); },0); }
   if(v.guests){ var g=root.querySelector('#gv-guests'); if(g) g.value=v.guests; }
   root.setAttribute('data-ad',k);
+})();
+
+/* Food and drink video: loads only when scrolled to, plays muted on a loop */
+(function(){
+  var v=root.querySelector('.feast video'); if(!v) return;
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function load(){ if(!v.src){ v.src=v.getAttribute('data-src'); } }
+  if(!('IntersectionObserver' in window)){ load(); if(!still) v.play().catch(function(){}); return; }
+  new IntersectionObserver(function(es){ if(es[0].isIntersecting){ load(); if(!still) v.play().catch(function(){}); } else if(v.src){ v.pause(); } },{rootMargin:'200px 0px'}).observe(v);
 })();
 
 /* Reveal on scroll */
