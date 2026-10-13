@@ -17,6 +17,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<style>/* Littlestone uses the blue from its page on thegallivant.co.uk for the header and menu */:root{--ground:#9BB4C8}</style>
 </head>
 <body>
 <header class="site-hdr"><div class="in">
@@ -41,7 +42,7 @@
 <main>
 <style>
 /* GALLIVANT LITTLESTONE BEACH (WordPress embed, scoped to .gved) */
-.gved{--ground:#BEBCAB;--panel:#F2EDE0;--paper:#ECE7DA;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--sea:#4FA3A5;
+.gved{--ground:#9BB4C8;--blue:#9BB4C8;--panel:#9BB4C8;--paper:#ECE7DA;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--sea:#4FA3A5;
 --font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);--gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1)}
 .gved{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative;text-align:left}
@@ -67,6 +68,10 @@
 .gved .cap{font-size:13px;line-height:1.45;color:var(--ink-soft);margin-top:10px}
 .gved .cap b{font-weight:400;color:var(--ink)}
 .gved .bw{filter:grayscale(1) contrast(1.02)}
+
+/* Secondary text on the blue panels stays readable */
+.gved .progress,.gved .arch,.gved .town,.gved .next .card,.gved .thanks{--ink-soft:#2F3A42;--line:rgba(43,42,40,.28);--warm:var(--ink)}
+.gved .stages li::after{border-color:rgba(43,42,40,.45)}
 
 /* Hero */
 .gved .hero{position:relative;min-height:max(620px,calc(100svh - 82px));display:flex;flex-direction:column;color:#fff;overflow:hidden;background:#111}
