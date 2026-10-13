@@ -38,3 +38,7 @@ To make it save enquiries to a Google Sheet and email Holly, follow the steps at
 
 Meta ads should link to the page with the campaign tag, for example:
 `/corporate-events/?utm_source=meta&utm_medium=paid&utm_campaign=corporate-offsites&utm_content=ad1`
+
+## Corporate walkthrough video
+
+The corporate page plays the walkthrough as a silent loop behind the headline, and in full with sound from the "Watch the walkthrough" button. The files are in `corporate-events/media/`: a 1080p version (about 19MB) for desktop and a 720p version (about 10MB) for phones and data-saver mode, both cut down from the 400MB 4K original. When the page moves to WordPress, upload both files and the poster image to the media library and update the `media/` paths in the page.

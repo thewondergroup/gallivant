@@ -72,19 +72,24 @@
 
 /* Hero */
 .gved .hero{position:relative;height:calc(100svh - 82px);min-height:600px;color:#fff;overflow:hidden;background:var(--ink)}
-.gved .hero .slides,.gved .hero .slides div{position:absolute;inset:0}
-.gved .hero .slides div{background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 8s linear}
-.gved .hero .slides div.on{opacity:1;transform:scale(1)}
+.gved .hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .gved .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,20,.35) 0%,rgba(20,25,20,.05) 35%,rgba(20,25,20,.2) 60%,rgba(20,25,20,.75) 100%);z-index:1}
 .gved .hero .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,8vh,90px)}
 .gved .hero h1{font-size:clamp(46px,7.6vw,118px);max-width:13ch;margin-top:16px}
 .gved .hero .sub{margin-top:18px;max-width:46ch;font-size:clamp(16px,1.4vw,19px)}
 .gved .hero .btns{margin-top:28px}
 .gved .hero .award{position:absolute;right:var(--gutter);top:clamp(24px,5vh,48px);z-index:3;border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:9px 16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
-.gved .hero .dots{position:absolute;right:var(--gutter);bottom:clamp(40px,8vh,90px);z-index:3;display:flex;gap:10px}
-.gved .hero .dots button{width:28px;height:2px;background:rgba(255,255,255,.4)}
-.gved .hero .dots button.on{background:var(--panel)}
-@media (max-width:760px){.gved .hero .dots{display:none}.gved .hero .award{left:var(--gutter);right:auto}}
+.gved .play{display:inline-flex;align-items:center;gap:14px;margin-top:22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.gved .play i{display:grid;place-items:center;width:46px;height:46px;border:1px solid #fff;border-radius:50%;transition:background .3s,color .3s}
+.gved .play i::before{content:"";border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent currentColor;margin-left:3px}
+.gved .play:hover i{background:#fff;color:var(--ink)}
+@media (max-width:760px){.gved .hero .award{left:var(--gutter);right:auto}}
+.gved .vmodal{position:fixed;inset:0;z-index:1200;background:rgba(20,20,15,.94);display:none;align-items:center;justify-content:center;padding:clamp(12px,4vw,60px)}
+.gved .vmodal.open{display:flex}
+.gved .vmodal video{width:100%;max-width:1400px;max-height:100%;aspect-ratio:16/9;background:#000}
+.gved .vmodal .vclose{position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.6)}
+.gved .vmodal .vclose::before,.gved .vmodal .vclose::after{content:"";position:absolute;left:14px;top:23px;width:20px;height:1.5px;background:#fff;transform:rotate(45deg)}
+.gved .vmodal .vclose::after{transform:rotate(-45deg)}
 
 /* Facts strip */
 .gved .facts{border-bottom:1px solid var(--line)}
@@ -262,21 +267,17 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <div class="gved" id="gved">
 <section class="hero">
-  <div class="slides">
-    <div class="on" style="background-image:url('https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2024/02/PaulReadPhotography-348-820x566.jpg')"></div>
-    <div style="background-image:url('https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8202-copy-1024x685.jpg')"></div>
-    <div style="background-image:url('https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/CollageriexWNU16-1440x685.jpg')"></div>
-    <div style="background-image:url('https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/03/PaulReadPhotography-33-scaled.jpg')"></div>
-  </div>
+  <video class="bgv" muted loop playsinline preload="metadata" poster="media/corporate-walkthrough-poster.jpg" aria-hidden="true" tabindex="-1"></video>
   <span class="award">Event Venue of the Year</span>
   <div class="wrap inner">
     <div class="eyebrow rv">Corporate retreats and offsites · Camber Sands</div>
     <h1 class="rv">Your team. <em>Nobody else.</em></h1>
     <p class="sub rv">Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-enquire" data-track="cta_enquire">Make an enquiry</a><a class="btn btn-w" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a></div>
+    <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
   </div>
-  <div class="dots"></div>
 </section>
+<div class="vmodal" role="dialog" aria-modal="true" aria-label="Corporate walkthrough video"><button class="vclose" type="button" aria-label="Close video"></button><video controls playsinline preload="none" poster="media/corporate-walkthrough-poster.jpg"></video></div>
 
 <div class="facts">
   <div class="wrap">
@@ -512,14 +513,22 @@ function gvCampaign(){
 }
 var GV_UTM=gvCampaign();
 
-/* Hero crossfade */
+/* Walkthrough video: silent loop in the hero, full version with sound in a pop-up */
 (function(){
-  var hero=root.querySelector('.hero'), slides=[].slice.call(hero.querySelectorAll('.slides div')), dots=hero.querySelector('.dots'), i=0, t;
-  dots.innerHTML=slides.map(function(_,k){return '<button aria-label="Slide '+(k+1)+'" class="'+(k?'':'on')+'"></button>'}).join('');
-  function go(n){slides[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;slides[i].classList.add('on');dots.children[i].classList.add('on')}
-  function restart(){clearInterval(t);t=setInterval(function(){go((i+1)%slides.length)},5500)}
-  [].forEach.call(dots.children,function(d,k){d.onclick=function(){go(k);restart()}});
-  restart();
+  var small=matchMedia('(max-width: 900px)').matches || (navigator.connection && navigator.connection.saveData);
+  var src='media/corporate-walkthrough-'+(small?'720':'1080')+'.mp4';
+  var bg=root.querySelector('.hero .bgv'), modal=root.querySelector('.vmodal'), mv=modal.querySelector('video'), btn=root.querySelector('.play');
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  bg.src=src; if(!still){ var pr=bg.play(); if(pr&&pr.catch) pr.catch(function(){}); }
+  if('IntersectionObserver' in window && !still) new IntersectionObserver(function(es){ if(modal.classList.contains('open')) return; es[0].isIntersecting?bg.play().catch(function(){}):bg.pause(); }).observe(bg);
+  var marks={};
+  function open(){ if(!mv.src) mv.src=src; modal.classList.add('open'); document.documentElement.style.overflow='hidden'; bg.pause(); mv.currentTime=0; mv.play().catch(function(){}); modal.querySelector('.vclose').focus(); }
+  function close(){ modal.classList.remove('open'); document.documentElement.style.overflow=''; mv.pause(); if(!still) bg.play().catch(function(){}); btn.focus(); }
+  btn.addEventListener('click',open);
+  modal.querySelector('.vclose').addEventListener('click',close);
+  modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+  mv.addEventListener('timeupdate',function(){ if(!mv.duration) return; [50,100].forEach(function(m){ if(!marks[m] && mv.currentTime/mv.duration*100>=m-1){ marks[m]=1; gvTrack('video_progress',{video:'corporate-walkthrough',percent:m}); } }); });
 })();
 
 /* One night / two nights tabs */
