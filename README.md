@@ -1,6 +1,6 @@
 # The Gallivant – test site
 
-Five pages, with a shared header and footer:
+Six pages, with a shared header and footer:
 
 | Page | File | Address once live |
 |---|---|---|
@@ -9,6 +9,7 @@ Five pages, with a shared header and footer:
 | Harry's | `eat-and-drink/harrys/index.html` | `/eat-and-drink/harrys/` |
 | Christmas 2026 | `christmas/index.html` | `/christmas/` |
 | Corporate events | `corporate-events/index.html` | `/corporate-events/` (same address as the current page) |
+| Gallivant Littlestone Beach | `gallivant-littlestone-beach/index.html` | `/gallivant-littlestone-beach/` (same address as the current page) |
 
 The Bar, The Terrace, The Snug and Private dining open inside the Eat and Drink page, at `/eat-and-drink/#/bar`, `#/terrace`, `#/snug` and `#/private-dining`.
 
@@ -16,7 +17,7 @@ The Bar, The Terrace, The Snug and Private dining open inside the Eat and Drink 
 
 1. On GitHub (thewondergroup), click **New repository**. Name it, for example `gallivant-test`, set it to **Public** and click **Create repository**.
 2. On the new repository page, click **uploading an existing file**, or use **Add file → Upload files**.
-3. Drag in everything inside this folder: `index.html`, `404.html`, `README.md`, and the `assets`, `eat-and-drink`, `christmas`, `plan` and `corporate-events` folders. Keep the folders as they are. `.nojekyll` is optional (it's hidden on a Mac, and the site works without it).
+3. Drag in everything inside this folder: `index.html`, `404.html`, `README.md`, and the `assets`, `eat-and-drink`, `christmas`, `plan`, `corporate-events` and `gallivant-littlestone-beach` folders. Keep the folders as they are. `.nojekyll` is optional (it's hidden on a Mac, and the site works without it).
 4. Click **Commit changes**.
 5. Go to **Settings → Pages**. Under "Build and deployment", choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then click **Save**.
 6. After a minute or two the site is live at `https://thewondergroup.github.io/gallivant-test/`, or whatever you named the repository.
@@ -53,3 +54,7 @@ Each corporate ad links to the page with its own `utm_content`, and the page cha
 ## Corporate walkthrough video
 
 The corporate page plays the walkthrough as a silent loop behind the headline, and in full with sound from the "Watch the walkthrough" button. The files are in `corporate-events/media/`: a 1080p version (about 19MB) for desktop and a 720p version (about 10MB) for phones and data-saver mode, both cut down from the 400MB 4K original. When the page moves to WordPress, upload both files and the poster image to the media library and update the `media/` paths in the page.
+
+## Littlestone page
+
+Tells the story of Romney Bay House with the archive photos in `gallivant-littlestone-beach/media/`, counts down to opening day (1 July 2027) and signs people up as Friends. The Friends form works the same way as the corporate form: follow `gallivant-littlestone-beach/friends-form.gs` and paste the web app URL into `var GVED_FORM_ENDPOINT=''`. Until then it opens an email to enquiries@thegallivant.co.uk. Sign-ups fire a Google Analytics `sign_up` event and a Meta `CompleteRegistration` event.
