@@ -195,7 +195,8 @@
 /* Holly + getting here */
 .gved .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px)}
 .gved .person{display:flex;gap:22px;align-items:flex-start}
-.gved .person .ph{flex:0 0 110px;height:110px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-family:var(--serif);font-size:44px;color:var(--warm)}
+.gved .person .ph{flex:0 0 132px;width:132px;height:132px;border-radius:50%;object-fit:cover;background:var(--panel)}
+@media (max-width:480px){.gved .person{flex-direction:column}.gved .person .ph{flex-basis:auto}}
 .gved .person h3{font-size:30px}
 .gved .person .role{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:4px 0 12px}
 .gved .person p{color:var(--ink-soft);max-width:44ch;margin-bottom:12px}
@@ -254,6 +255,14 @@
 @media (max-width:860px){.gved .enq .grid{grid-template-columns:1fr}}
 @media (max-width:560px){.gved form{grid-template-columns:1fr}}
 
+/* Floating enquire button */
+.gved .float-enq{position:fixed;right:clamp(14px,2.5vw,32px);bottom:clamp(14px,3vh,32px);z-index:900;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--cta);color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 10px 30px rgba(43,42,40,.28);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s}
+.gved .float-enq::after{content:"→";font-size:15px;letter-spacing:0}
+.gved .float-enq:hover{background:var(--cta-hover)}
+.gved .float-enq.show{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:480px){.gved .float-enq{padding:14px 20px;letter-spacing:.16em}}
+@media print{.gved .float-enq{display:none}}
+
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .gved .rv.in{opacity:1;transform:none}
@@ -277,6 +286,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
   </div>
 </section>
+<a class="float-enq" href="#gved-enquire" data-track="cta_enquire_float" aria-label="Make an enquiry">Enquire</a>
 <div class="vmodal" role="dialog" aria-modal="true" aria-label="Corporate walkthrough video"><button class="vclose" type="button" aria-label="Close video"></button><video controls playsinline preload="none" poster="media/corporate-walkthrough-poster.jpg"></video></div>
 
 <div class="facts">
@@ -412,7 +422,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <div class="eyebrow rv">Your contact</div>
       <h2 class="rv">Talk to Holly</h2>
       <div class="person rv">
-        <div class="ph" aria-hidden="true">H</div>
+        <img class="ph" src="media/holly.jpg" alt="Holly, Head of Stays and Gatherings at The Gallivant" width="132" height="132" loading="lazy">
         <div><h3>Holly</h3><div class="role">Head of Stays and Gatherings</div>
           <p>Holly looks after every corporate stay from the first call to the last breakfast. Tell her what the time away needs to achieve, and she’ll put the days together around it.</p>
           <a class="tel" href="tel:01797338909" data-track="call_holly">01797 338 909</a></div>
@@ -529,6 +539,16 @@ var GV_UTM=gvCampaign();
   modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
   addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
   mv.addEventListener('timeupdate',function(){ if(!mv.duration) return; [50,100].forEach(function(m){ if(!marks[m] && mv.currentTime/mv.duration*100>=m-1){ marks[m]=1; gvTrack('video_progress',{video:'corporate-walkthrough',percent:m}); } }); });
+})();
+
+/* Floating enquire button: shows after the hero, hides while the form is on screen */
+(function(){
+  var b=root.querySelector('.float-enq'), hero=root.querySelector('.hero'), form=root.querySelector('#gved-enquire');
+  if(!('IntersectionObserver' in window)){ b.classList.add('show'); return; }
+  var pastHero=false, atForm=false;
+  function upd(){ b.classList.toggle('show', pastHero && !atForm); }
+  new IntersectionObserver(function(es){ pastHero=!es[0].isIntersecting; upd(); }).observe(hero);
+  new IntersectionObserver(function(es){ atForm=es[0].isIntersecting; upd(); },{threshold:.15}).observe(form);
 })();
 
 /* One night / two nights tabs */
