@@ -241,7 +241,7 @@
 .gved .eps-h .ig{color:#fff}
 .gved .eps-h .hint{margin:6px 0 0;font-size:13px;color:rgba(255,255,255,.6)}
 .gved .eps-row{display:flex;align-items:flex-start;gap:clamp(14px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.3) transparent}
-.gved .ep{flex:0 0 330px;width:330px;scroll-snap-align:start;color:#fff}
+.gved .ep{flex:0 0 clamp(200px,17vw,240px);width:clamp(200px,17vw,240px);scroll-snap-align:start;color:#fff}
 .gved .ep .n{display:block;margin-bottom:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bright)}
 .gved .ep .n i{font-style:normal;color:var(--ink);background:var(--bright);border-radius:999px;padding:3px 9px;margin-left:8px;letter-spacing:.14em}
 .gved .ep .t{display:block;font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;margin:-4px 0 10px}
@@ -250,15 +250,20 @@
 .gved .ep .card video{opacity:0;transition:opacity .4s}.gved .ep .card video.on{opacity:1}
 .gved .ep .card:hover img{transform:scale(1.04)}
 .gved .ep .card .w{position:absolute;left:12px;bottom:12px;padding:9px 14px;border-radius:999px;background:rgba(20,20,15,.6);font-size:11px;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(6px)}
-.gved .ep .instagram-media{margin:0!important;min-width:0!important;width:100%!important;max-width:100%!important;border-radius:12px!important;border:0!important;background:#fff}
-.gved .ep blockquote.instagram-media{display:grid;place-items:center;aspect-ratio:9/16;background:#1d1c1a!important;color:#fff}
-.gved .ep blockquote.instagram-media a{display:inline-block;max-width:75%;text-align:center;line-height:1.7;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:3px}
-.gved .ep.soon{flex-basis:220px;width:220px}
-.gved .ep.soon .card{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;text-align:center;padding:24px}
+.gved .ep .card.plain{background:linear-gradient(160deg,#3a3834 0%,#22211f 100%);border:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;justify-content:space-between;padding:20px;transition:border-color .3s,transform .4s var(--ease)}
+.gved .ep .card.plain:hover{border-color:rgba(255,255,255,.4);transform:translateY(-3px)}
+.gved .ep .card.plain .num{font-family:var(--serif);font-weight:400;font-size:clamp(80px,9vw,120px);line-height:.9;color:rgba(255,255,255,.9)}
+.gved .ep .card.plain .play{align-self:center;width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.7);display:grid;place-items:center;transition:background .3s}
+.gved .ep .card.plain .play::before{content:"";border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.gved .ep .card.plain:hover .play{background:var(--cta);border-color:var(--cta)}
+.gved .ep .card.plain .w{position:static;align-self:flex-start;background:none;padding:0;backdrop-filter:none;border-bottom:1px solid rgba(255,255,255,.4);border-radius:0;padding-bottom:3px}
+
+.gved .ep.soon .card{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;text-align:center;padding:14px}
 .gved .ep.soon .card b{display:block;font-family:var(--serif);font-weight:400;font-size:64px;line-height:1;color:rgba(255,255,255,.35)}
-.gved .ep.soon .card span{display:block;font-family:var(--serif);font-size:22px;margin-top:10px}
+.gved .ep.soon .card span{display:block;font-family:var(--serif);font-size:20px;line-height:1.2}
 .gved .ep.soon .card small{display:block;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.65);margin-top:8px;line-height:1.4}
-@media (max-width:480px){.gved .ep{flex-basis:min(330px,84vw);width:min(330px,84vw)}}
+.gved .ep.soon{flex-basis:150px;width:150px}
+@media (max-width:480px){.gved .ep{flex-basis:60vw;width:60vw}.gved .ep.soon{flex-basis:120px;width:120px}}
 
 /* Floating sign-up */
 .gved .float-enq{position:fixed;right:clamp(14px,2.5vw,32px);bottom:clamp(14px,3vh,32px);z-index:900;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--cta);color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 10px 30px rgba(43,42,40,.28);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s}
@@ -557,10 +562,9 @@ var GVED_LS={
   bookingUrl:'',   /* the Littlestone booking link (Mews), used in 'book' mode */
   stage:1,         /* where the build is: 0 Bought, 1 Strip-out, 2 Structure, 3 Rooms, 4 Styling, 5 Opening */
   /* Episodes of the series, oldest first (the page shows the newest first). For each one:
-       url    the reel's link on Instagram (on the reel: ⋯ → Copy link). The page shows
-              Instagram's own player for it, which links through to the reel.
+       url    the reel's link on Instagram (on the reel: ⋯ → Copy link). The card links to it.
        title  optional: shown above the reel
-       image  optional: use our own still instead of Instagram's player (needs url too)
+       image  optional: a still for the card (otherwise it shows a plain numbered card)
        video  optional, with image: a short muted clip that plays on our card
      Or set episodesCsv to a published Google Sheet CSV with the same columns (url, title, image, video)
      and it will be used instead. */
@@ -606,11 +610,11 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
   if(name && lis[n]) name.firstChild.nodeValue=(n===lis.length-1?'':'Now: ')+lis[n].firstChild.nodeValue;
 })();
 
-/* Episodes strip: newest first. Each reel shows in Instagram's own player (embed.js, loaded only when
-   the strip is nearly on screen) and links through to Instagram. An episode with an image uses our own card. */
+/* Episodes strip: newest first. Each card links through to the reel on Instagram. An episode with an
+   image (and optional silent clip) gets a picture card; without one it gets a plain numbered card. */
 (function(){
   var row=root.querySelector('[data-episodes]'); if(!row) return;
-  var ig='https://www.instagram.com/gallivantlittlestone/', loaded=false;
+  var ig='https://www.instagram.com/gallivantlittlestone/';
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function reel(u){ var m=String(u||'').match(/instagram\.com\/(?:[\w.]+\/)?(reel|p)\/([\w-]+)/); return m?'https://www.instagram.com/'+m[1]+'/'+m[2]+'/':''; }
   function item(e,n,latest){
@@ -618,18 +622,13 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
     var link=reel(e.url)||ig;
     if(e.image) return '<div class="ep">'+head+'<a class="card" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'"><img src="'+esc(e.image)+'" alt="" loading="lazy">'+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+'<span class="w">Watch on Instagram ↗</span></a></div>';
     if(!reel(e.url)) return '';
-    return '<div class="ep">'+head+'<blockquote class="instagram-media" data-instgrm-permalink="'+esc(link)+'?utm_source=ig_embed" data-instgrm-version="14"><a href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'">Watch episode '+n+' on Instagram ↗</a></blockquote></div>';
+    return '<div class="ep">'+head+'<a class="card plain" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'" aria-label="Watch episode '+n+' on Instagram"><span class="num">'+n+'</span><span class="play" aria-hidden="true"></span><span class="w">Watch on Instagram ↗</span></a></div>';
   }
   function render(list){
     list=list.filter(function(e){ return e && (e.url||e.image); }); if(!list.length) return;
-    var next=list.length+1, html='<div class="ep soon"><a class="card" href="'+ig+'" target="_blank" rel="noopener" data-track="episode_next"><span><b>'+next+'</b><span>Coming soon</span><small>Follow @gallivantlittlestone so you don’t miss it</small></span></a></div>';
+    var next=list.length+1, html='<div class="ep soon"><span class="n">Episode '+next+'</span><a class="card" href="'+ig+'" target="_blank" rel="noopener" data-track="episode_next"><span><span>Coming soon</span><small>Follow so you don’t miss it</small></span></a></div>';
     for(var i=list.length-1;i>=0;i--) html+=item(list[i],i+1,i===list.length-1);
-    row.innerHTML=html; previews(); if(loaded) process();
-  }
-  function process(){ if(window.instgrm && instgrm.Embeds) instgrm.Embeds.process(); }
-  function loadEmbeds(){
-    if(loaded || !row.querySelector('blockquote.instagram-media')) return; loaded=true;
-    var sc=document.createElement('script'); sc.async=true; sc.src='https://www.instagram.com/embed.js'; sc.onload=process; document.body.appendChild(sc);
+    row.innerHTML=html; previews();
   }
   /* Our own cards: the clip plays silently while the card is on screen (or hovered) */
   function previews(){
@@ -641,7 +640,6 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
   }
   function csv(t){ var out=[],r=[],f='',q=false; for(var i=0;i<t.length;i++){ var c=t[i]; if(q){ if(c==='"'){ if(t[i+1]==='"'){ f+='"'; i++; } else q=false; } else f+=c; } else if(c==='"') q=true; else if(c===','){ r.push(f); f=''; } else if(c==='\n'||c==='\r'){ if(c==='\r'&&t[i+1]==='\n') i++; r.push(f); out.push(r); r=[]; f=''; } else f+=c; } if(f||r.length){ r.push(f); out.push(r); } return out; }
   render(GVED_LS.episodes||[]);
-  if('IntersectionObserver' in window){ var lio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ loadEmbeds(); lio.disconnect(); } },{rootMargin:'600px 0px'}); lio.observe(row); } else loadEmbeds();
   if(GVED_LS.episodesCsv && window.fetch){
     fetch(GVED_LS.episodesCsv).then(function(r){ return r.text(); }).then(function(t){
       var rows=csv(t), h=(rows.shift()||[]).map(function(x){ return x.trim().toLowerCase(); });
