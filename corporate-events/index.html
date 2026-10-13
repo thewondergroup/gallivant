@@ -277,12 +277,17 @@
 @media (max-width:560px){.gved form{grid-template-columns:1fr}}
 
 /* Floating enquire button */
-.gved .float-enq{position:fixed;right:clamp(14px,2.5vw,32px);bottom:clamp(14px,3vh,32px);z-index:900;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--cta);color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 10px 30px rgba(43,42,40,.28);opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s}
+.gved .float-bar{position:fixed;right:clamp(14px,2.5vw,32px);bottom:clamp(14px,3vh,32px);z-index:900;display:flex;gap:10px;align-items:center;opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.gved .float-bar.show{opacity:1;transform:none;pointer-events:auto}
+.gved .float-enq,.gved .float-bro{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 10px 30px rgba(43,42,40,.28);transition:background .3s,color .3s}
+.gved .float-enq{background:var(--cta);color:#fff}
 .gved .float-enq::after{content:"→";font-size:15px;letter-spacing:0}
 .gved .float-enq:hover{background:var(--cta-hover)}
-.gved .float-enq.show{opacity:1;transform:none;pointer-events:auto}
-@media (max-width:480px){.gved .float-enq{padding:14px 20px;letter-spacing:.16em}}
-@media print{.gved .float-enq{display:none}}
+.gved .float-bro{background:var(--panel);color:var(--ink);padding:15px 20px}
+.gved .float-bro::after{content:"↓";font-size:14px;letter-spacing:0}
+.gved .float-bro:hover{background:#fff}
+@media (max-width:480px){.gved .float-enq,.gved .float-bro{padding:14px 18px;letter-spacing:.14em}.gved .float-bar{left:14px;right:14px;justify-content:flex-end}}
+@media print{.gved .float-bar{display:none}}
 
 /* Other events */
 .gved .others .cards{grid-template-columns:repeat(3,1fr)}
@@ -327,7 +332,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
   </div>
 </section>
-<a class="float-enq" href="#gved-enquire" data-track="cta_enquire_float" aria-label="Make an enquiry">Enquire</a>
+<div class="float-bar"><a class="float-bro" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download_float">Brochure</a><a class="float-enq" href="#gved-enquire" data-track="cta_enquire_float" aria-label="Make an enquiry">Enquire</a></div>
 <div class="vmodal" role="dialog" aria-modal="true" aria-label="Corporate walkthrough video"><button class="vclose" type="button" aria-label="Close video"></button><video controls playsinline preload="none" poster="media/corporate-walkthrough-poster.jpg"></video></div>
 
 <div class="facts">
@@ -615,7 +620,7 @@ var GV_UTM=gvCampaign();
 
 /* Floating enquire button: shows after the hero, hides while the form is on screen */
 (function(){
-  var b=root.querySelector('.float-enq'), hero=root.querySelector('.hero'), form=root.querySelector('#gved-enquire');
+  var b=root.querySelector('.float-bar'), hero=root.querySelector('.hero'), form=root.querySelector('#gved-enquire');
   if(!('IntersectionObserver' in window)){ b.classList.add('show'); return; }
   var pastHero=false, atForm=false;
   function upd(){ b.classList.toggle('show', pastHero && !atForm); }
