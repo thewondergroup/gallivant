@@ -256,6 +256,14 @@
 .gved .ep .card.plain .play{align-self:center;width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.7);display:grid;place-items:center;transition:background .3s}
 .gved .ep .card.plain .play::before{content:"";border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #fff;margin-left:4px}
 .gved .ep .card.plain:hover .play{background:var(--cta);border-color:var(--cta)}
+.gved .ep .card.plain.pic{background:#1d1c1a}
+.gved .ep .card.plain.pic::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,20,18,.55) 0%,rgba(20,20,18,.1) 35%,rgba(20,20,18,.15) 60%,rgba(20,20,18,.75) 100%);transition:background .4s}
+.gved .ep .card.plain.pic:hover::before{background:linear-gradient(180deg,rgba(20,20,18,.45) 0%,rgba(20,20,18,0) 35%,rgba(20,20,18,.05) 60%,rgba(20,20,18,.7) 100%)}
+.gved .ep .card.plain .num,.gved .ep .card.plain .play,.gved .ep .card.plain .foot{position:relative;z-index:2}
+.gved .ep .card .foot{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.gved .ep .card .foot .t{margin:0;font-size:19px}
+.gved .ep .card.plain.pic .play{background:rgba(20,20,18,.3);backdrop-filter:blur(4px)}
+.gved .ep .card.plain .play{position:absolute;left:50%;top:50%;margin:-31px 0 0 -31px}
 .gved .ep .card.plain .w{position:static;align-self:flex-start;background:none;padding:0;backdrop-filter:none;border-bottom:1px solid rgba(255,255,255,.4);border-radius:0;padding-bottom:3px}
 
 .gved .ep.soon .card{border:1px dashed rgba(255,255,255,.35);background:transparent;display:grid;place-items:center;text-align:center;padding:14px}
@@ -377,7 +385,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap eps">
     <div class="eps-h rv"><div><div class="eyebrow" style="color:var(--bright)">Episodes</div><p class="hint">Newest first. Scroll across for the whole story.</p></div><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_episodes">Follow on Instagram</a></div>
     <div class="eps-row rv" data-episodes>
-      <div class="ep"><span class="n">Episode 1</span><b class="t">We bought a hotel</b><a class="card" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener"><img src="media/we-bought-a-hotel-poster.jpg" alt="" loading="lazy"><span class="w">Watch on Instagram ↗</span></a></div>
+      <div class="ep"><span class="n">Episode 1</span><a class="card plain pic" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener"><img src="media/we-bought-a-hotel-poster.jpg" alt="" loading="lazy"><span class="num">1</span><span class="play" aria-hidden="true"></span><span class="foot"><b class="t">We bought a hotel</b><span class="w">Watch on Instagram ↗</span></span></a></div>
     </div>
   </div>
 </section>
@@ -564,19 +572,19 @@ var GVED_LS={
   /* Episodes of the series, oldest first (the page shows the newest first). For each one:
        url    the reel's link on Instagram (on the reel: ⋯ → Copy link). The card links to it.
        title  optional: shown above the reel
-       image  optional: a still for the card (otherwise it shows a plain numbered card)
+       image  a still for the card (the house photos in media/ep/ are stand-ins until we have each reel's cover)
        video  optional, with image: a short muted clip that plays on our card
      Or set episodesCsv to a published Google Sheet CSV with the same columns (url, title, image, video)
      and it will be used instead. */
   episodesCsv:'',
   episodes:[
-    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', video:'media/we-bought-a-hotel-preview.mp4', url:'https://www.instagram.com/gallivantlittlestone/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/DcrKxnxMjhK/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc3dcnrsnTQ/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc_o6boMRly/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Ddbq0aCM0Q8/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/DdzbzNAMxLz/'},
-    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dd9cHgrstwa/'}
+    {title:'We bought a hotel', image:'media/we-bought-a-hotel-poster.jpg', url:'https://www.instagram.com/gallivantlittlestone/'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/DcrKxnxMjhK/', image:'media/ep/ep2.jpg'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc3dcnrsnTQ/', image:'media/ep/ep3.jpg'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dc_o6boMRly/', image:'media/ep/ep4.jpg'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/Ddbq0aCM0Q8/', image:'media/ep/ep5.jpg'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/DdzbzNAMxLz/', image:'media/ep/ep6.jpg'},
+    {url:'https://www.instagram.com/gallivantlittlestone/reel/Dd9cHgrstwa/', image:'media/ep/ep7.jpg'}
   ]
 };
 /* Preview another mode without editing: add ?ls_mode=prebook or ?ls_mode=book to the URL */
@@ -618,11 +626,10 @@ var GV_UTM=(function(){ var q=new URLSearchParams(location.search), keep={}; ['u
   function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function reel(u){ var m=String(u||'').match(/instagram\.com\/(?:[\w.]+\/)?(reel|p)\/([\w-]+)/); return m?'https://www.instagram.com/'+m[1]+'/'+m[2]+'/':''; }
   function item(e,n,latest){
-    var head='<span class="n">Episode '+n+(latest?'<i>Latest</i>':'')+'</span>'+(e.title?'<b class="t">'+esc(e.title)+'</b>':'');
+    var head='<span class="n">Episode '+n+(latest?'<i>Latest</i>':'')+'</span>';
     var link=reel(e.url)||ig;
-    if(e.image) return '<div class="ep">'+head+'<a class="card" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'"><img src="'+esc(e.image)+'" alt="" loading="lazy">'+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+'<span class="w">Watch on Instagram ↗</span></a></div>';
-    if(!reel(e.url)) return '';
-    return '<div class="ep">'+head+'<a class="card plain" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'" aria-label="Watch episode '+n+' on Instagram"><span class="num">'+n+'</span><span class="play" aria-hidden="true"></span><span class="w">Watch on Instagram ↗</span></a></div>';
+    if(!e.image && !reel(e.url)) return '';
+    return '<div class="ep">'+head+'<a class="card plain'+(e.image?' pic':'')+'" href="'+esc(link)+'" target="_blank" rel="noopener" data-track="episode_'+n+'" aria-label="Watch episode '+n+' on Instagram">'+(e.image?'<img src="'+esc(e.image)+'" alt="" loading="lazy">':'')+(e.video?'<video muted loop playsinline preload="none" data-src="'+esc(e.video)+'"></video>':'')+'<span class="num">'+n+'</span><span class="play" aria-hidden="true"></span><span class="foot">'+(e.title?'<b class="t">'+esc(e.title)+'</b>':'')+'<span class="w">Watch on Instagram ↗</span></span></a></div>';
   }
   function render(list){
     list=list.filter(function(e){ return e && (e.url||e.image); }); if(!list.length) return;
