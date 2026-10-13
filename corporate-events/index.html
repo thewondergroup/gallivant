@@ -289,6 +289,17 @@
 .gved .others .card:hover .go{text-decoration:underline}
 @media (max-width:860px){.gved .others .cards{grid-template-columns:1fr}}
 
+/* Walkthrough video, mobile only (under the facts) */
+.gved .walk{display:none}
+@media (max-width:760px){
+  .gved .walk{display:block;padding:34px 0 0}
+  .gved .walk .vid{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink);border-radius:2px}
+  .gved .walk video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gved .walk .play{position:absolute;left:14px;bottom:14px;margin:0;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .gved .walk .play i{background:rgba(20,20,15,.35)}
+  .gved .walk .cap{margin-top:10px;font-size:13px;color:var(--ink-soft)}
+}
+
 /* Reveal */
 .gved .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .gved .rv.in{opacity:1;transform:none}
@@ -323,6 +334,13 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <div><b>Harry’s</b><small>Menus by Matthew Harris, formerly of Bibendum</small></div>
   </div>
 </div>
+
+<section class="walk" aria-label="Corporate walkthrough video">
+  <div class="wrap">
+    <div class="vid"><video muted loop playsinline preload="none" poster="media/corporate-walkthrough-poster.jpg" data-src="media/corporate-walkthrough-720.mp4"></video><button class="play" type="button" data-track="video_play_inline"><i aria-hidden="true"></i>Watch with sound</button></div>
+    <p class="cap">A walk through the house, from the beach to the bedrooms.</p>
+  </div>
+</section>
 
 <section class="sec intro">
   <div class="wrap grid">
@@ -572,14 +590,19 @@ var GV_UTM=gvCampaign();
 (function(){
   var small=matchMedia('(max-width: 900px)').matches || (navigator.connection && navigator.connection.saveData);
   var src='media/corporate-walkthrough-'+(small?'720':'1080')+'.mp4';
-  var bg=root.querySelector('.hero .bgv'), modal=root.querySelector('.vmodal'), mv=modal.querySelector('video'), btn=root.querySelector('.play');
+  var bg=root.querySelector('.hero .bgv'), modal=root.querySelector('.vmodal'), mv=modal.querySelector('video'), btn=root.querySelector('.play'), opener=null;
   var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   bg.src=src; if(!still){ var pr=bg.play(); if(pr&&pr.catch) pr.catch(function(){}); }
   if('IntersectionObserver' in window && !still) new IntersectionObserver(function(es){ if(modal.classList.contains('open')) return; es[0].isIntersecting?bg.play().catch(function(){}):bg.pause(); }).observe(bg);
   var marks={};
   function open(){ if(!mv.src) mv.src=src; modal.classList.add('open'); document.documentElement.style.overflow='hidden'; bg.pause(); mv.currentTime=0; mv.play().catch(function(){}); modal.querySelector('.vclose').focus(); }
-  function close(){ modal.classList.remove('open'); document.documentElement.style.overflow=''; mv.pause(); if(!still) bg.play().catch(function(){}); btn.focus(); }
-  btn.addEventListener('click',open);
+  function close(){ modal.classList.remove('open'); document.documentElement.style.overflow=''; mv.pause(); if(!still) bg.play().catch(function(){}); (opener||btn).focus(); }
+  [].forEach.call(root.querySelectorAll('.play'),function(b){ b.addEventListener('click',function(){ opener=b; open(); }); });
+  /* Mobile inline walkthrough: loads when scrolled to, plays muted */
+  (function(){ var v=root.querySelector('.walk video'); if(!v || getComputedStyle(root.querySelector('.walk')).display==='none') return;
+    function go(){ if(!v.src) v.src=v.getAttribute('data-src'); if(!still && !modal.classList.contains('open')) v.play().catch(function(){}); }
+    if(!('IntersectionObserver' in window)){ go(); return; }
+    new IntersectionObserver(function(es){ es[0].isIntersecting?go():v.pause(); },{rootMargin:'100px 0px'}).observe(v); })();
   modal.querySelector('.vclose').addEventListener('click',close);
   modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
   addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
