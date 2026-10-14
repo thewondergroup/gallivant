@@ -324,7 +324,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <video class="bgv" muted loop playsinline preload="metadata" poster="media/corporate-walkthrough-poster.jpg" aria-hidden="true" tabindex="-1"></video>
   <div class="wrap inner">
     <div class="eyebrow rv">Corporate retreats and offsites · Camber Sands</div>
-    <h1 class="rv" data-h1>Your team. Nobody else.</h1>
+    <h1 class="rv" data-h1>Your team,<br>Nobody else</h1>
     <p class="sub rv" data-sub>Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-enquire" data-track="cta_enquire">Make an enquiry</a><a class="btn btn-w" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a></div>
     <div class="rv"><button class="play" type="button" data-track="video_play"><i aria-hidden="true"></i>Watch the walkthrough</button></div>
@@ -689,10 +689,10 @@ root.addEventListener('click',function(e){
 (function(){
   var V={
     ad1:null,
-    ad2:{h1:'Close enough to stay.',sub:'An hour and a quarter from London: arrive for the agenda, then let the evening be dinner at Harry’s rather than the train home.',tab:0},
-    ad3:{h1:'The offsite that doesn’t feel like one.',sub:'Strategy in the morning, a deserted beach after lunch and Matthew Harris menus in the evening. The whole house to yourselves.',intro:'Your private house by the sea'},
-    ad4:{h1:'Two nights. A full day to fill.',sub:'Two nights by the coast give a team a whole day with no arriving or leaving in it, and time to properly reset.',tab:1},
-    ad5:{h1:'Smaller teams, the same feeling.',sub:'Not every team needs the whole house. Groups of up to 14 get a private space to work in and a long table at Harry’s for dinner.',guests:'Up to 14',jump:'#gved-small'}
+    ad2:{h1:'Close enough to stay',sub:'An hour and a quarter from London: arrive for the agenda, then let the evening be dinner at Harry’s rather than the train home.',tab:0},
+    ad3:{h1:'The offsite that doesn’t feel like one',sub:'Strategy in the morning, a deserted beach after lunch and Matthew Harris menus in the evening. The whole house to yourselves.',intro:'Your private house by the sea'},
+    ad4:{h1:'Two nights,<br>A full day to fill',sub:'Two nights by the coast give a team a whole day with no arriving or leaving in it, and time to properly reset.',tab:1},
+    ad5:{h1:'Smaller teams,<br>The same feeling',sub:'Not every team needs the whole house. Groups of up to 14 get a private space to work in and a long table at Harry’s for dinner.',guests:'Up to 14',jump:'#gved-small'}
   };
   var k=(GV_UTM.utm_content||'').toLowerCase().replace(/[^a-z0-9]/g,'').replace(/^(ad\d).*/,'$1');
   var v=V[k]; if(!v) return;
@@ -752,7 +752,6 @@ root.addEventListener('click',function(e){
     <div><h4>Book</h4><ul><li><a href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book a stay</a></li><li><a href="https://www.harryscambersands.co.uk/book-a-table" target="_blank" rel="noopener">Book a table at Harry’s</a></li><li><a href="https://thegallivant.mews-giftvoucher.com" target="_blank" rel="noopener">Gift cards</a></li><li><a href="tel:01797225057">01797 225 057</a></li></ul></div>
     <div><h4>Follow</h4><ul><li><a href="https://www.instagram.com/thegallivant" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.instagram.com/harryscambersands" target="_blank" rel="noopener">Harry’s on Instagram</a></li><li><a href="https://www.facebook.com/gallivanthotel" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.harryscambersands.co.uk/subscribe" target="_blank" rel="noopener">Newsletter</a></li></ul></div>
   </div>
-  <p class="give">You give, we give: every stay and every meal includes a donation to Blood Cancer UK.</p>
   <div class="base"><span>© 2026 The Gallivant</span><span>Test site – design preview</span></div>
 </div></footer>
 <script src="../assets/site.js"></script>

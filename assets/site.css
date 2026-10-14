@@ -163,3 +163,4 @@ body.hdr-over .site-hdr:not(.scrolled) .logo img{filter:brightness(0) invert(1);
 body.hdr-over .site-hdr:not(.scrolled) .burger,body.hdr-over .site-hdr:not(.scrolled) .tel,body.hdr-over .site-hdr:not(.scrolled) nav a{color:#fff}
 body.hdr-over .site-hdr:not(.scrolled) nav a:hover,body.hdr-over .site-hdr:not(.scrolled) nav a[aria-current="page"]{border-color:#fff}
 @media (max-width:640px){body.hdr-over .gved .wx{top:calc(var(--hdr) + 10px)}}
+.site-ftr .top+.base{margin-top:clamp(40px,5vw,64px);padding-top:22px;border-top:1px solid rgba(242,237,224,.18)}
