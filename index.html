@@ -274,7 +274,7 @@
 @media (max-width:860px){.gved .duo{grid-template-columns:1fr}.gved .posts a{grid-template-columns:68px 1fr auto;gap:14px}.gved .posts .th{width:68px;height:68px}.gved .posts b{font-size:19px}}
 
 /* Final CTA */
-.gved .cta{background:var(--ground,#BEBCAB);color:#fff;text-align:center;padding:clamp(70px,9vw,130px) 0}
+.gved .cta{background:var(--ground,#BEBCAB);color:var(--ink);text-align:center;padding:clamp(70px,9vw,130px) 0}
 .gved .cta h2{font-size:clamp(34px,5.18vw,81px);margin:14px auto 24px}
 .gved .cta .btns{justify-content:center}
 
@@ -393,19 +393,29 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .sec p.body,.gved .welcome p.body,.gved .plan .intro p,.gved .planband .pb-txt p,.gved .little p,.gved .sec-head p,.gved .duo p{font-size:17px;line-height:1.65}
 /* Accolades now sit at the very bottom, on the brand grey/green above the footer */
 .gved .awards{background:var(--ground,#BEBCAB);border-top:1px solid rgba(255,255,255,.4)}
-.gved .awards figcaption{color:#fff}
+.gved .awards figcaption,.gved .awards figcaption b{color:var(--ink)}
+.gved .awards{color:var(--ink)}
+.gved .cta .btn-w{border-color:var(--ink);color:var(--ink)}.gved .cta .btn-w:hover{background:var(--ink);color:#fff}
 
 /* Test for Harry: white text on the grey/green, black text stays on cream. Turn on with ?text=white */
 .gved.wt{color:#fff;--ink-soft:rgba(255,255,255,.9);--line:rgba(255,255,255,.45)}
 .gved.wt h1,.gved.wt h2,.gved.wt h3,.gved.wt .eyebrow{color:#fff}
 .gved.wt .btn-i{border-color:#fff;color:#fff}.gved.wt .btn-i:hover{background:#fff;color:var(--ink)}
 .gved.wt .link{color:#fff}
+.gved.wt .posts span.ar{border-color:#fff;color:#fff}
+.gved.wt .cta .btn-w{border-color:#fff;color:#fff}
+.gved.wt .cta,.gved.wt .awards,.gved.wt .awards figcaption,.gved.wt .awards figcaption b{color:#fff}
 .gved.wt .posts,.gved.wt .posts b,.gved.wt .posts small,.gved.wt .feature-post,.gved.wt .feature-post b,.gved.wt .feature-post small{color:#fff}
 .gved.wt .posts .circ,.gved.wt .posts a::after{color:#fff;border-color:#fff}
 .gved.wt .stay,.gved.wt .plan,.gved.wt .here,.gved.wt .rev{color:var(--ink);--ink-soft:#5E5C52;--line:rgba(46,45,39,.14)}
 .gved.wt .stay h2,.gved.wt .stay h3,.gved.wt .stay .eyebrow,.gved.wt .plan h2,.gved.wt .plan h3,.gved.wt .plan .eyebrow,.gved.wt .here h2,.gved.wt .here h3,.gved.wt .here .eyebrow{color:var(--ink)}
 .gved.wt .stay .btn-i,.gved.wt .plan .btn-i,.gved.wt .here .btn-i{border-color:var(--ink);color:var(--ink)}
 .gved.wt .stay .link,.gved.wt .plan .link,.gved.wt .here .link{color:var(--ink)}
+
+.vswitch{position:fixed;left:16px;bottom:16px;z-index:1200;display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:rgba(43,42,40,.88);color:#fff;font-family:var(--body,sans-serif);font-size:11px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.vswitch span{padding:0 10px;opacity:.7}
+.vswitch a{color:#fff;text-decoration:none;padding:8px 14px;border-radius:999px}
+.vswitch a[aria-current]{background:#fff;color:#2B2A28}
 </style>
 
 <div class="gved" id="gved">
@@ -630,7 +640,14 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <script>
 var root=document.getElementById('gved');
-if(/[?&]text=white\b/.test(location.search)) root.classList.add('wt');
+/* Test switch for Harry: black or white text on the grey/green (test site only) */
+(function(){
+  var white=/[?&]text=white\b/.test(location.search);
+  if(white){ root.classList.add('wt'); document.body.classList.add('wt-on'); }
+  var sw=document.createElement('div'); sw.className='vswitch'; sw.setAttribute('aria-label','Compare text colour');
+  sw.innerHTML='<span>Text on grey/green</span><a href="./"'+(white?'':' aria-current="true"')+'>Black</a><a href="./?text=white"'+(white?' aria-current="true"':'')+'>White</a>';
+  document.body.appendChild(sw);
+})();
 /* Break out of the theme's content wrappers: no gap, full width */
 (function(){
   var ph=document.querySelector('section.page-header'); if(ph) ph.style.display='none';
