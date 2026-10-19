@@ -1,7 +1,13 @@
 (function(){
   var hdr=document.querySelector('.site-hdr'), dr=document.querySelector('.drawer');
-  function onScroll(){ hdr.classList.toggle('scrolled', window.scrollY>10); }
-  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  /* Header is see-through only while it sits over a page-top photo or film; anywhere else it is solid grey/green */
+  function overHero(){
+    var h=document.querySelector('main .hero, main [data-hero], main .intro.scr'); if(!h) return false;
+    var r=h.getBoundingClientRect(); return r.top<40 && r.bottom>hdr.offsetHeight;
+  }
+  function onScroll(){ hdr.classList.toggle('scrolled', window.scrollY>10 || !overHero()); }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+  var mn=document.querySelector('main'); if(mn && 'MutationObserver' in window) new MutationObserver(function(){ requestAnimationFrame(onScroll); }).observe(mn,{childList:true,subtree:true});
   var openB=document.querySelector('.site-hdr .burger'), closeB=dr.querySelector('.close');
   var slides=[].slice.call(dr.querySelectorAll('.slide')), cap=dr.querySelector('.cap'), capK=dr.querySelector('.cap-k'), capT=dr.querySelector('.cap-t');
   var loaded=false, current=(dr.querySelector('.slide.on')||slides[0]).getAttribute('data-k');
