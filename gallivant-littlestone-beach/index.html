@@ -18,7 +18,14 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
-<style>/* Littlestone uses the blue from its page on thegallivant.co.uk for the header and menu */:root{--ground:#9BB4C8}</style>
+<style>/* Littlestone palette (from Clough Williams-Ellis's own drawings): pale yellow ground, dark header icons once you scroll */
+:root{--ground:#F8EFCA;--panel:#D3D8BD;--ink:#2F2D29;--cta:#9E3F28;--cta-hover:#8F3A26}
+.site-hdr.scrolled .logo img,.drawer .mlogo img{filter:brightness(0)!important;opacity:.88!important}
+.site-hdr.scrolled .burger,.site-hdr.scrolled .tel{color:#2F2D29!important}
+.site-hdr.scrolled .book,.drawer .top .book{border-color:#2F2D29!important;color:#2F2D29!important}
+.site-hdr.scrolled .book:hover,.drawer .top .book:hover{background:#2F2D29!important;color:#F8EFCA!important}
+.drawer .ml[aria-current="page"] .t,.drawer .ml[aria-current="page"] .no{color:#9E3F28}
+</style>
 </head>
 <body>
 <header class="site-hdr"><div class="in">
@@ -43,7 +50,7 @@
 <main>
 <style>
 /* GALLIVANT LITTLESTONE BEACH (WordPress embed, scoped to .gved) */
-.gved{--ground:#9BB4C8;--blue:#9BB4C8;--panel:#9BB4C8;--paper:#ECE7DA;--ink:#2B2A28;--ink-soft:#4F4D47;--line:rgba(43,42,40,.18);--cta:#D03597;--cta-hover:#A82878;--blush:#F4C2CA;--warm:#C2541B;--bright:#D9A520;--sea:#4FA3A5;
+.gved{--ground:#F8EFCA;--blue:#A1A8B6;--panel:#D3D8BD;--paper:#F8EFCA;--ink:#2F2D29;--ink-soft:#57524A;--line:rgba(47,45,41,.2);--cta:#9E3F28;--cta-hover:#8F3A26;--blush:#DAC8A2;--warm:#AA7C6F;--bright:#DAC8A2;--brick:#9E3F28;--cream:#F8EFCA;--sky:#D7D8E2;--sea:#4FA3A5;
 --font-display:"SangBleu Empire","SangBleu","Cormorant Garamond",Georgia,serif;--font-heading:var(--font-display);--font-body:"Euclid Circular A","Euclid","Jost",Helvetica,Arial,sans-serif;
 --serif:var(--font-display);--sans:var(--font-body);--gutter:clamp(16px,4vw,56px);--ease:cubic-bezier(.2,.7,.2,1)}
 .gved{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative;text-align:left}
@@ -71,7 +78,7 @@
 .gved .bw{filter:grayscale(1) contrast(1.02)}
 
 /* Secondary text on the blue panels stays readable */
-.gved .progress,.gved .arch,.gved .town,.gved .next .card,.gved .thanks{--ink-soft:#2F3A42;--line:rgba(43,42,40,.28);--warm:var(--ink)}
+.gved .progress,.gved .arch,.gved .town,.gved .next .card,.gved .thanks{--ink-soft:#4A4740;--line:rgba(47,45,41,.25);--warm:var(--ink)}
 .gved .stages li::after{border-color:rgba(43,42,40,.45)}
 
 /* Hero */
@@ -383,6 +390,31 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 /* no arrows on links or cards (arrows only on carousels) */
 .gved .float-enq::after,.gved .arrow{display:none!important}
+
+/* Littlestone palette: the dark charcoal sections become brick red (film, sign-up) and sage (the build); episodes on the soft blue-grey */
+.gved .series,.gved .friends{background:var(--brick)!important;color:var(--cream)!important}
+.gved .series p,.gved .series li,.gved .friends p,.gved .friends .note,.gved .friends .f label,.gved .friends .fs legend{color:var(--cream)!important}
+.gved .series li{border-color:rgba(248,239,202,.45)!important}
+.gved .series .btn-m,.gved .friends .btn-m{background:var(--cream)!important;color:var(--brick)!important}
+.gved .series .btn-m:hover,.gved .friends .btn-m:hover{background:#fff!important}
+.gved .series .btn-w{border-color:var(--cream)!important;color:var(--cream)!important}
+.gved .series .btn-w:hover{background:var(--cream)!important;color:var(--brick)!important}
+.gved .friends .f input{border-bottom-color:rgba(248,239,202,.6)!important;color:var(--cream)!important}
+.gved .friends .f input:focus{border-color:var(--cream)!important}
+.gved .friends .chips span{border-color:rgba(248,239,202,.5)!important}
+.gved .friends .chips input:checked+span{background:var(--cream)!important;border-color:var(--cream)!important;color:var(--brick)!important}
+.gved .friends .msg.err{color:var(--cream)!important}
+.gved .friends .ig{color:var(--cream)!important}
+.gved .build{background:var(--panel)!important;color:var(--ink)!important}
+.gved .build .head p,.gved .build figcaption{color:var(--ink-soft)!important}
+.gved .build figcaption b{color:var(--ink)!important}
+.gved .build .frames .im{background:#C5CAAE}
+.gved .episodes{background:var(--blue)!important}
+.gved .float-enq{background:var(--brick)}
+.gved .float-enq:hover{background:var(--cta-hover)}
+.gved .stages li.now::after{background:var(--brick)!important;border-color:var(--brick)!important;animation:none}
+.gved .stages li.done::before,.gved .stages li.done::after{background-color:var(--ink)}
+.gved .ep .n i{background:var(--brick)!important;color:var(--cream)!important}
 </style>
 
 <div class="gved" id="gved" data-mode="friends">
