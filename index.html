@@ -362,31 +362,38 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 @media (max-width:860px){.gved .quotes{grid-template-columns:1fr}}
 
 /* Stay planner band */
-.gved .planband{background:var(--ink);color:var(--panel);padding:clamp(64px,8vw,120px) 0;position:relative;overflow:hidden;overflow:clip}
-.gved .planband::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(242,237,224,.12);box-shadow:0 0 0 60px rgba(242,237,224,.03)}
-/* Heading and intro across the top, five photo tiles to pick from, then the button */
-.gved .pb-head{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:end;position:relative;margin-bottom:clamp(32px,3.5vw,48px)}
-.gved .planband h2{font-size:clamp(32px,4vw,58px);margin:0;color:var(--panel);grid-column:1/3}
-.gved .planband .pb-head p{grid-column:3/-1}
-.gved .planband .pb-head p{max-width:52ch;margin:0;opacity:.9}
-.gved .pb-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);position:relative}
+/* "Plan your own": the stay planner, merged into the perfect day section */
+.gved .pb-own{margin-top:clamp(48px,5vw,80px)}
+.gved .pb-own .pb-in{border-top:1px solid var(--line);padding-top:clamp(40px,4vw,64px)}
+.gved .pb-head{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:end;margin-bottom:clamp(32px,3.5vw,48px)}
+.gved .pb-head h3{grid-column:1/3;margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(28px,3vw,44px);line-height:1.1;color:var(--ink)}
+.gved .pb-head p{grid-column:3/-1;max-width:52ch;margin:0;color:var(--ink-soft);font-size:17px;line-height:1.65}
+.gved .pb-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px)}
 .gved .pb-tile{display:block;padding:0;margin:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
 .gved .pb-ph{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;outline:2px solid transparent;outline-offset:4px;transition:outline-color .3s}
 .gved .pb-ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,filter .4s}
 .gved .pb-tile:hover .pb-ph img{transform:scale(1.04)}
 .gved .pb-ph i{position:absolute;top:12px;right:12px;width:26px;height:26px;border-radius:50%;border:1.5px solid #fff;background:rgba(0,0,0,.12);transition:background .25s,border-color .25s}
-.gved .pb-ph i::after{content:"";position:absolute;left:8px;top:4px;width:6px;height:11px;border-right:2px solid #576B31;border-bottom:2px solid #576B31;transform:rotate(45deg);opacity:0;transition:opacity .2s}
-.gved .pb-l{display:block;padding-top:14px;font-size:16px;line-height:1.35;color:#F2EDE0}
-.gved .pb-tile[aria-pressed="true"] .pb-ph{outline-color:#F2EDE0}
-.gved .pb-tile[aria-pressed="true"] .pb-ph i{background:#F2EDE0;border-color:#F2EDE0}
+.gved .pb-ph i::after{content:"";position:absolute;left:8px;top:4px;width:6px;height:11px;border-right:2px solid #F2EDE0;border-bottom:2px solid #F2EDE0;transform:rotate(45deg);opacity:0;transition:opacity .2s}
+.gved .pb-l{display:block;padding-top:14px;font-size:16px;line-height:1.35;color:var(--ink)}
+.gved .pb-tile[aria-pressed="true"] .pb-ph{outline-color:#576B31}
+.gved .pb-tile[aria-pressed="true"] .pb-ph i{background:#576B31;border-color:#576B31}
 .gved .pb-tile[aria-pressed="true"] .pb-ph i::after{opacity:1}
-.gved .pb-tiles.has-on .pb-tile[aria-pressed="false"] .pb-ph img{filter:saturate(.6) brightness(.85)}
-.gved .pb-tile:focus-visible{outline:none}.gved .pb-tile:focus-visible .pb-ph{outline-color:#F2EDE0}
+.gved .pb-tiles.has-on .pb-tile[aria-pressed="false"] .pb-ph img{filter:saturate(.6) brightness(.9)}
+.gved .pb-tile:focus-visible{outline:none}.gved .pb-tile:focus-visible .pb-ph{outline-color:var(--ink)}
 .gved .pb-go{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:clamp(32px,3.5vw,48px)}
-.gved .btn-c{background:var(--panel);color:var(--ink)}.gved .btn-c:hover{background:#fff}
-.gved .planband p.pb-ask{margin:0 0 16px;font-size:15px;opacity:.75;max-width:none}
-.gved .planband p.pb-hint{margin:0;font-size:15px;opacity:.75;max-width:none}
-@media (max-width:900px){.gved .pb-head{grid-template-columns:1fr;gap:18px}.gved .planband h2,.gved .planband .pb-head p{grid-column:auto}.gved .pb-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.gved .pb-tile:last-child{grid-column:1/-1}.gved .pb-tile:last-child .pb-ph{aspect-ratio:2/1}.gved .pb-ph{aspect-ratio:4/3}}
+.gved p.pb-ask{margin:0 0 16px;font-size:15px;color:var(--ink-soft)}
+.gved p.pb-hint{margin:0;font-size:15px;color:var(--ink-soft)}
+/* The merged section keeps the brand green band, with cream text */
+.gved .sec.plan{background:#576B31;color:#F2EDE0;--ink:#F2EDE0;--ink-soft:rgba(242,237,224,.86);--line:rgba(242,237,224,.26)}
+.gved .plan .day-pic{background:rgba(0,0,0,.12)}
+.gved .plan .btn-i{border-color:#F2EDE0;color:#F2EDE0}.gved .plan .btn-i:hover{background:#F2EDE0;color:#576B31}
+.gved .plan .day-list li::before{background:#F2EDE0}
+.gved .plan .day-list li:not(.on) time,.gved .plan .day-list li:not(.on) span{opacity:.6}
+.gved .plan .pb-ph i::after{border-color:#576B31}
+.gved .plan .pb-tile[aria-pressed="true"] .pb-ph{outline-color:#F2EDE0}
+.gved .plan .pb-tile[aria-pressed="true"] .pb-ph i{background:#F2EDE0;border-color:#F2EDE0}
+@media (max-width:900px){.gved .pb-head{grid-template-columns:1fr;gap:16px}.gved .pb-head h3,.gved .pb-head p{grid-column:auto}.gved .pb-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.gved .pb-tile:last-child{grid-column:1/-1}.gved .pb-tile:last-child .pb-ph{aspect-ratio:2/1}.gved .pb-ph{aspect-ratio:4/3}}
 @media (max-width:480px){.gved .pb-l{font-size:15px;padding-top:10px}.gved .pb-ph i{top:8px;right:8px;width:22px;height:22px}.gved .pb-ph i::after{left:6.5px;top:3px;width:5px;height:9px}}
 
 /* Page top: the same on every page. Photo or film runs to the top edge under the header, white heading and copy over it */
@@ -404,7 +411,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
 
 /* Home: one size for paragraph copy under every heading, the same as under the main heading */
-.gved .sec p.body,.gved .welcome p.body,.gved .plan .intro p,.gved .planband .pb-txt p,.gved .little p,.gved .sec-head p,.gved .duo p{font-size:17px;line-height:1.65}
+.gved .sec p.body,.gved .welcome p.body,.gved .plan .intro p,.gved .little p,.gved .sec-head p,.gved .duo p{font-size:17px;line-height:1.65}
 /* Accolades now sit at the very bottom, on the brand grey/green above the footer */
 .gved .awards{background:var(--ground,#BEBCAB);border-top:1px solid rgba(255,255,255,.4)}
 .gved .awards figcaption,.gved .awards figcaption b{color:var(--ink)}
@@ -456,8 +463,6 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
 @media (max-width:960px){.gved .harrys .grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.gved .harrys .grid{grid-template-columns:1fr}}
 /* Stay planner band: brand green with cream text, not charcoal */
-.gved .planband{background:#576B31!important;color:#F2EDE0!important}
-.gved .planband h2,.gved .planband p{color:#F2EDE0!important}
 /* Dogs: a normal row, not a dark block */
 .gved .dogs{max-width:1320px;margin:0 auto;padding:0 var(--gutter);gap:clamp(30px,5vw,80px)}
 .gved .dogs .txt{background:none!important;color:var(--ink)!important;padding:clamp(10px,2vw,30px) 0}
@@ -568,12 +573,9 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
         <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" data-alt="Games by the log fire" data-line="Last one up puts the guard on the fire."><time>10.30</time><span>Scrabble by the fire</span></li>
     </ol>
   </div>
-</section>
-
-<section class="planband">
-  <div class="wrap">
+  <div class="wrap pb-own"><div class="pb-in">
     <div class="pb-head">
-      <h2 class="rv">Stay planner</h2>
+      <h3 class="rv">Plan your own</h3>
       <p class="rv"><span class="lead-in">How are you going to gallivant?</span> Pick the kind of stay you’re after and we’ll sketch out the whole thing: what to do, where to go, what to eat, and the bits worth booking ahead. Then send it to us, or keep it for yourself.</p>
     </div>
     <p class="pb-ask rv">Pick as many as you like</p>
@@ -584,9 +586,10 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
         <button type="button" class="pb-tile" data-m="romantic" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Romance</span></button>
         <button type="button" class="pb-tile" data-m="explore" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/30-1080x854.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Explore the coast</span></button>
     </div>
-    <div class="pb-go rv"><a class="btn btn-c pb-btn" href="plan/">Plan my gallivant</a><p class="pb-hint" aria-live="polite"></p></div>
-  </div>
+    <div class="pb-go rv"><a class="btn btn-i pb-btn" href="plan/">Plan my gallivant</a><p class="pb-hint" aria-live="polite"></p></div>
+  </div></div>
 </section>
+
 
 <section class="sec harrys">
   <div class="wrap grid">
@@ -853,7 +856,7 @@ var root=document.getElementById('gved');
 
 /* Stay planner band: chosen moods carry through to the planner */
 (function(){
-  var band=root.querySelector('.planband'); if(!band) return;
+  var band=root.querySelector('.pb-own'); if(!band) return;
   var btn=band.querySelector('.pb-btn'), base=btn.getAttribute('href'), hint=band.querySelector('.pb-hint'), wrap=band.querySelector('.pb-tiles');
   band.addEventListener('click',function(e){
     var c=e.target.closest('.pb-tile'); if(!c) return;
