@@ -245,6 +245,21 @@ body:has(.gved) section.page-header{display:none}
 .gved h1,.gved h2,.gved h3{font-style:normal}
 .gved .eyebrow{font-size:14px!important;letter-spacing:.18em!important}
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* Call with Harry, 20 Oct: one paragraph font, plain headings with a capitals lead-in, smaller page-top headings, lozenge buttons, brush carousel arrows */
+.gved .lead-in{text-transform:uppercase;letter-spacing:.1em;font-size:.86em}
+.gved .lead-in-p{margin:16px 0 0;font-size:15px}
+.gved p.lead{font-family:var(--font-body,var(--sans,"Euclid","Jost",sans-serif))!important;font-size:17px!important;line-height:1.65!important;font-weight:300}
+.gved .hero h1,.gved .intro.scr h1{font-size:clamp(38px,4.6vw,66px)!important;max-width:16ch!important;line-height:1.08!important}
+.gved .link{display:inline-flex!important;align-items:center;gap:0!important;padding:13px 24px;border:1px solid currentColor;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;line-height:1;transition:background .3s,color .3s,border-color .3s;width:auto!important}
+.gved .link::after,.gved .link::before{display:none!important}
+.gved .link:hover{background:var(--ink,#2B2A28);border-color:var(--ink,#2B2A28);color:#fff!important}
+.gved .brush{width:64px!important;height:40px!important;border:0!important;border-radius:0!important;background:none!important;color:inherit;display:inline-grid!important;place-items:center;cursor:pointer;padding:0;transition:transform .3s,opacity .3s}
+.gved .brush svg{width:58px;height:24px;fill:currentColor;display:block}
+.gved .brush:hover{transform:translateX(4px);background:none!important;color:inherit!important}
+.gved .brush[data-dir="-1"]:hover{transform:translateX(-4px)}
+.gved .brush[disabled]{opacity:.25}
+.gved .nav-count{display:inline-block;min-width:66px;text-align:center;font-size:12px;letter-spacing:.18em}
 </style>
 
 <div class="gved" id="gved"><div class="planner" aria-live="polite"></div></div>
@@ -432,7 +447,7 @@ function render(){
 var introTimer;
 function intro(){
   clearInterval(introTimer);
-  el.innerHTML='<section class="intro scr"><div class="txt"><div class="eyebrow">Plan your gallivant</div><h1>How do you want to gallivant?</h1><p class="lead">Answer four quick questions and we’ll sketch out your stay at the Gallivant: what to do, where to go and what to eat. Then send it to us and we’ll book the bits you love.</p><div class="steps"><span><b>1</b>Your mood</span><span><b>2</b>Who’s coming</span><span><b>3</b>How long</span><span><b>4</b>When</span></div><div class="go"><button class="btn btn-m" data-go="1">Start planning</button></div></div><div class="pics">'+MOODS.map(function(m,i){return '<img src="'+IMG[m.k]+'" alt="" class="'+(i?'':'on')+'">';}).join('')+'</div></section>';
+  el.innerHTML='<section class="intro scr"><div class="txt"><h1>How do you want to gallivant?</h1><p class="lead">Answer four quick questions and we’ll sketch out your stay at the Gallivant: what to do, where to go and what to eat. Then send it to us and we’ll book the bits you love.</p><div class="steps"><span><b>1</b>Your mood</span><span><b>2</b>Who’s coming</span><span><b>3</b>How long</span><span><b>4</b>When</span></div><div class="go"><button class="btn btn-m" data-go="1">Start planning</button></div></div><div class="pics">'+MOODS.map(function(m,i){return '<img src="'+IMG[m.k]+'" alt="" class="'+(i?'':'on')+'">';}).join('')+'</div></section>';
   var imgs=el.querySelectorAll('.pics img'), i=0;
   introTimer=setInterval(function(){ if(!document.body.contains(imgs[0])){clearInterval(introTimer);return;} imgs[i].classList.remove('on'); i=(i+1)%imgs.length; imgs[i].classList.add('on'); },4200);
 }
@@ -448,7 +463,7 @@ function question(n){
   if(n===4){h=['When are you coming?','Camber is a different place in every season.'];cls='four';
     opts=SEASONS.map(function(x){return '<button class="opt" data-set="season" data-v="'+x.k+'"><b>'+x.t+'</b><small>'+x.s+'</small>'+(x.k===curSeason?'<span class="flag now">Now</span>':'')+'</button>';}).join('');}
   var dog=n===2?'<button class="dogtog" type="button" aria-pressed="'+P.dog+'"><i></i>We’re bringing the dog</button>':'';
-  el.innerHTML='<section class="quiz scr'+(n===1?' has-fix':'')+'"><div class="wrap" style="width:100%"><div class="q-top"><div class="bar"><i style="width:'+(n*25)+'%"></i></div><span class="q-count">Question '+n+' of 4</span></div><div class="q-head"><div class="eyebrow">Plan your gallivant</div><h2>'+h[0]+'</h2>'+(h[1]?'<p>'+h[1]+'</p>':'')+'</div>'+dog+'<div class="opts '+cls+'">'+opts+'</div><div class="q-foot'+(n===1?' fix':'')+'"><button class="link back" data-go="'+(n-1)+'">Back</button>'+(n===1?'<button class="btn btn-k q-next" type="button" data-go="2"'+(P.moods.length?'':' disabled')+'>Next<span class="qn">'+(P.moods.length?' · '+P.moods.length+' picked':'')+'</span></button>':'')+'</div></div></section>';
+  el.innerHTML='<section class="quiz scr'+(n===1?' has-fix':'')+'"><div class="wrap" style="width:100%"><div class="q-top"><div class="bar"><i style="width:'+(n*25)+'%"></i></div><span class="q-count">Question '+n+' of 4</span></div><div class="q-head"><h2>'+h[0]+'</h2>'+(h[1]?'<p>'+h[1]+'</p>':'')+'</div>'+dog+'<div class="opts '+cls+'">'+opts+'</div><div class="q-foot'+(n===1?' fix':'')+'"><button class="link back" data-go="'+(n-1)+'">Back</button>'+(n===1?'<button class="btn btn-k q-next" type="button" data-go="2"'+(P.moods.length?'':' disabled')+'>Next<span class="qn">'+(P.moods.length?' · '+P.moods.length+' picked':'')+'</span></button>':'')+'</div></div></section>';
 }
 function result(){
   var phrase=moodPhrase();
@@ -463,7 +478,7 @@ function result(){
   var tips='';
   if(P.nights===3) tips+='<p class="tip"><b>psst</b><span>Coming Sunday to Thursday? Book three nights and the third is on us. <a href="https://thegallivant.co.uk/offers/stay-longer-on-us/">Stay longer on us</a></span></p>';
   var food=FOOD.filter(fits).sort(function(a,b){return score(b,.4)-score(a,.4);}).slice(0,3);
-  el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><div class="eyebrow">Your Gallivant plan</div><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' '+phrase+'</h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
+  el.innerHTML='<div class="scr"><section class="res-head"><div class="wrap"><div class="top"><h3 class="card-t">Your Gallivant plan</h3><div class="tools"><button type="button" data-shuffle>↻ Shuffle the ideas</button><button type="button" data-go="1">Start again</button></div></div><h1>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+' '+phrase+'</h1><div class="chips"><span>'+who+'</span>'+(P.dog?'<span>Plus the dog</span>':'')+'<span>'+P.season.charAt(0).toUpperCase()+P.season.slice(1)+'</span><span>'+NUM[P.nights]+' night'+(P.nights>1?'s':'')+'</span></div></div></section>'+
   '<div class="wrap res-grid"><div>'+days+tips+'<section class="try"><h3>Don’t leave without trying</h3><ul>'+food.map(function(f){return '<li><b>'+f.t+'</b><p>'+f.d+'</p></li>';}).join('')+'</ul></section></div>'+
   '<aside class="sum" id="gp-sum"><div class="lbl">Your stay</div><h3>Ready when you are</h3><div><div class="lbl" style="margin-bottom:10px">Extras to book</div><div class="xl"></div></div>'+(P.dog?'<p class="dogline">Dogs are welcome, up to Labrador size, at £25 a day. We’ll add it to your booking.</p>':'')+'<label><span class="lbl">Arriving (optional)</span><input type="date" class="gp-date" value="'+P.date+'"></label><a class="btn btn-k gp-send" href="#">Send my plan to the hotel</a><a class="btn btn-m gp-book" href="'+BOOK+'" target="_blank" rel="noopener">Book your stay</a><div class="self"><span class="self-h">Save your plan!</span><span class="self-s">Pop it in your inbox and start the countdown to the sea.</span><div class="self-row"><input type="email" class="gp-me" placeholder="Your email address" autocomplete="email" aria-label="Your email address"><a class="btn btn-i gp-self" href="#">Email me my plan</a></div></div><p class="fine">Both buttons open your email app with the plan written out. Nothing is booked until we confirm with you.</p><div class="sum-hint" aria-hidden="true"><button type="button" tabindex="-1">Save your plan ↓</button></div></aside></div>'+
   '</div><div class="mbar"><span class="mcount"></span><button type="button" data-sum>Review and send</button></div>';

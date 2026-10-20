@@ -362,6 +362,27 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved h1,.gved h2,.gved h3{font-style:normal}
 .gved .eyebrow{font-size:14px!important;letter-spacing:.18em!important}
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* Call with Harry, 20 Oct: one paragraph font, plain headings with a capitals lead-in, smaller page-top headings, lozenge buttons, brush carousel arrows */
+.gved .lead-in{text-transform:uppercase;letter-spacing:.1em;font-size:.86em}
+.gved .lead-in-p{margin:16px 0 0;font-size:15px}
+.gved p.lead{font-family:var(--font-body,var(--sans,"Euclid","Jost",sans-serif))!important;font-size:17px!important;line-height:1.65!important;font-weight:300}
+.gved .hero h1,.gved .intro.scr h1{font-size:clamp(38px,4.6vw,66px)!important;max-width:16ch!important;line-height:1.08!important}
+.gved .link{display:inline-flex!important;align-items:center;gap:0!important;padding:13px 24px;border:1px solid currentColor;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;line-height:1;transition:background .3s,color .3s,border-color .3s;width:auto!important}
+.gved .link::after,.gved .link::before{display:none!important}
+.gved .link:hover{background:var(--ink,#2B2A28);border-color:var(--ink,#2B2A28);color:#fff!important}
+.gved .brush{width:64px!important;height:40px!important;border:0!important;border-radius:0!important;background:none!important;color:inherit;display:inline-grid!important;place-items:center;cursor:pointer;padding:0;transition:transform .3s,opacity .3s}
+.gved .brush svg{width:58px;height:24px;fill:currentColor;display:block}
+.gved .brush:hover{transform:translateX(4px);background:none!important;color:inherit!important}
+.gved .brush[data-dir="-1"]:hover{transform:translateX(-4px)}
+.gved .brush[disabled]{opacity:.25}
+.gved .nav-count{display:inline-block;min-width:66px;text-align:center;font-size:12px;letter-spacing:.18em}
+
+.gved .card-t{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.2}
+.gved .eps-h .card-t{color:inherit}
+
+/* no arrows on links or cards (arrows only on carousels) */
+.gved .float-enq::after,.gved .arrow{display:none!important}
 </style>
 
 <div class="gved" id="gved" data-mode="friends">
@@ -369,7 +390,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <img src="media/romney-bay-house-today.jpg" alt="Romney Bay House at Littlestone-on-Sea, before restoration" fetchpriority="high">
   <div class="count" aria-live="polite"><b data-days>&nbsp;</b><span>days until we open</span></div>
   <div class="wrap inner">
-    <div class="eyebrow rv">Opening 1 July 2027 · Littlestone-on-Sea</div>
+    
     <h1 class="rv">Gallivant Littlestone Beach</h1>
     <p class="sub rv">We’ve begun the complete restoration of Romney Bay House, a house by Clough Williams-Ellis on a sand dune above the sea. This is its story so far.</p>
     <div class="quick rv" data-only="friends prebook">
@@ -390,7 +411,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="progress" aria-label="Where the restoration is now">
   <div class="wrap">
-    <div class="pt rv"><div class="eyebrow">Where we are now</div><p data-stage-name>Strip-out<span><b data-days2></b> days until we open</span></p></div>
+    <div class="pt rv"><h3 class="card-t">Where we are now</h3><p data-stage-name>Strip-out<span><b data-days2></b> days until we open</span></p></div>
     <ol class="stages rv" data-stages>
       <li>Bought<small>We got the keys</small></li>
       <li>Strip-out<small>Back to the bones</small></li>
@@ -405,9 +426,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec series" id="gved-series">
   <div class="wrap grid">
     <div>
-      <div class="eyebrow rv" style="color:var(--bright)">The series · Episode one</div>
+      
       <h2 class="rv">We bought a hotel</h2>
-      <p class="rv">Harry and Sigrid are filming the whole restoration of Romney Bay House, from the first walk round to opening day. This is where it starts.</p>
+      <p class="rv"><span class="lead-in">The series, episode one.</span> Harry and Sigrid are filming the whole restoration of Romney Bay House, from the first walk round to opening day. This is where it starts.</p>
       <p class="rv">They’ll share the lot: the build, the problems, the finds, the makers, the styling of the rooms and the history of the house.</p>
       <ul class="rv"><li>The build</li><li>The problems</li><li>The rooms</li><li>The makers</li><li>The history</li></ul>
       <div class="btns rv"><a class="btn btn-m" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_series">Watch on Instagram</a><a class="btn btn-w" href="#gved-friends" data-track="cta_friend_series">Become a Friend</a></div>
@@ -423,7 +444,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="episodes" id="gved-episodes">
   <div class="wrap eps">
-    <div class="eps-h rv"><div><div class="eyebrow" style="color:var(--bright)">Episodes</div><p class="hint">Newest first. Scroll across for the whole story.</p></div><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_episodes">Follow on Instagram</a></div>
+    <div class="eps-h rv"><div><h3 class="card-t">Episodes</h3><p class="hint">Newest first. Scroll across for the whole story.</p></div><a class="ig" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_episodes">Follow on Instagram</a></div>
     <div class="eps-row rv" data-episodes>
       <div class="ep"><span class="n">Episode 1</span><a class="card plain pic" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener"><img src="media/ep/ep1.jpg" alt="We bought a hotel" loading="lazy"><span class="play" aria-hidden="true"></span><span class="foot"><span class="w">Watch on Instagram ↗</span></span></a></div>
     </div>
@@ -433,9 +454,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec intro">
   <div class="wrap grid">
     <div>
-      <div class="eyebrow rv">A house on the dunes</div>
-      <h2 class="rv">Our second house, and its first life</h2>
-      <p class="body rv">Along the coast from Camber, at Littlestone-on-Sea, a white house with a mansard roof and four tall columns looks straight out to sea. It was drawn up by Clough Williams-Ellis, the architect behind Portmeirion, for a Mrs M. E. Bray.</p>
+      
+      <h2 class="rv">A house on the dunes</h2>
+      <p class="body rv"><span class="lead-in">Our second house, and its first life.</span> Along the coast from Camber, at Littlestone-on-Sea, a white house with a mansard roof and four tall columns looks straight out to sea. It was drawn up by Clough Williams-Ellis, the architect behind Portmeirion, for a Mrs M. E. Bray.</p>
       <p class="body rv">Today it’s known as Romney Bay House. Now we’re restoring it, room by room, to become Gallivant Littlestone Beach: our second house by the sea, with the same welcome you know from Camber.</p>
     </div>
     <figure class="rv"><img src="media/plans-sea.jpg" alt="The original architect’s plans: Proposed house, Littlestone-on-Sea, for Mrs M. E. Bray, by Clough Williams-Ellis" loading="lazy"><figcaption class="cap"><b>The original plans.</b> “Proposed house, Littlestone-on-Sea, Kent, for Mrs M. E. Bray.” Clough Williams-Ellis, architect, 22B Ebury Street, London SW1.</figcaption></figure>
@@ -444,7 +465,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec build">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px;color:var(--bright)">From the drawing board to the dunes</div><h2>How the house came to be</h2></div><p>The house went up on bare sand, with nothing between it and the sea but marram grass.</p></div>
+    <div class="head rv"><div><h2>The build</h2></div><p><span class="lead-in">How the house came to be.</span> The house went up on bare sand, with nothing between it and the sea but marram grass.</p></div>
     <div class="frames">
       <figure class="rv"><div class="im plan"><img src="media/plans-entrance.jpg" alt="Architect’s drawing of the entrance elevation and ground floor plan" loading="lazy"></div><figcaption><b>On paper</b>The entrance elevation and ground floor, with a garage, a dining room and a curved bay facing the sea.</figcaption></figure>
       <figure class="rv"><div class="im"><img src="media/construction.jpg" alt="Romney Bay House under construction, with a ladder against the wall" loading="lazy"></div><figcaption><b>Going up</b>Ladders still against the walls, and the dunes running right up to the door.</figcaption></figure>
@@ -456,7 +477,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec tn">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">Then and now</div><h2>The same steps, the same view</h2></div><p>Drag across to see the house as it was, and as we found it. The wings came later.</p></div>
+    <div class="head rv"><div><h2>Then and now</h2></div><p><span class="lead-in">The same steps, the same view.</span> Drag across to see the house as it was, and as we found it. The wings came later.</p></div>
     <div class="compare rv">
       <img src="media/now.jpg" alt="Romney Bay House today, from the foot of the garden steps" loading="lazy">
       <img class="then" src="media/then.jpg" alt="The house in its early years, from the same steps, with the family on the terrace" loading="lazy">
@@ -470,16 +491,16 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="arch">
   <figure class="rv"><img src="media/clough-williams-ellis.jpg" alt="Sir Clough Williams-Ellis at Portmeirion" loading="lazy"></figure>
   <div class="txt">
-    <div class="eyebrow rv" style="color:var(--warm)">The architect</div>
-    <h2 class="rv">The man who built Portmeirion</h2>
-    <p class="rv">Clough Williams-Ellis is best known for Portmeirion, the Italianate village he built on the Welsh coast. Romney Bay House is one of only a few examples of his work.</p>
+    
+    <h2 class="rv">The architect</h2>
+    <p class="rv"><span class="lead-in">The man who built Portmeirion.</span> Clough Williams-Ellis is best known for Portmeirion, the Italianate village he built on the Welsh coast. Romney Bay House is one of only a few examples of his work.</p>
     <p class="rv">The columns, the roofline and the windows facing the sea are all his. Our job is to make them ready for many more summers.</p>
   </div>
 </section>
 
 <section class="sec album">
   <div class="wrap">
-    <div class="head rv"><div><div class="eyebrow" style="margin-bottom:10px">From the archive</div><h2>Summers at Littlestone</h2></div><p>Beach days, motor cars, model aeroplanes on the lawn and a lot of sitting on the front steps.</p></div>
+    <div class="head rv"><div><h2>From the archive</h2></div><p><span class="lead-in">Summers at Littlestone.</span> Beach days, motor cars, model aeroplanes on the lawn and a lot of sitting on the front steps.</p></div>
     <div class="masonry">
       <figure class="rv"><img class="bw" src="media/house-steps-family.jpg" alt="The family on the steps of the house" loading="lazy"><figcaption>The front steps, and the people on them</figcaption></figure>
       <figure class="rv"><img class="bw" src="media/beach-girl.jpg" alt="A girl in a swimming cap with a rubber ring on the beach" loading="lazy"><figcaption>Ready for the sea</figcaption></figure>
@@ -499,9 +520,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec town">
   <div class="wrap grid">
     <div>
-      <div class="eyebrow rv">Wish you were here</div>
-      <h2 class="rv">Littlestone-on-Sea, by postcard</h2>
-      <p class="rv">A long sea wall to sit on, breakers to dodge, a parade of grand houses and The Grand Hotel. Littlestone was a seaside resort with ambitions.</p>
+      
+      <h2 class="rv">Littlestone-on-Sea</h2>
+      <p class="rv"><span class="lead-in">Wish you were here.</span> A long sea wall to sit on, breakers to dodge, a parade of grand houses and The Grand Hotel. Littlestone was a seaside resort with ambitions.</p>
       <p class="rv">The beach is still there, and so are the big skies over Romney Marsh. We think it’s ready for a second act.</p>
     </div>
     <div class="cards4 rv">
@@ -523,15 +544,15 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec next">
   <div class="wrap grid">
     <div class="card rv">
-      <div class="eyebrow" style="color:var(--warm)">What happens next</div>
-      <h2>Watch it come back to life</h2>
-      <p>Work has started on site. Harry and Sigrid are sharing the restoration as it happens: the build, the problems, the finds, the makers and the rooms taking shape.</p>
+      
+      <h2>What happens next</h2>
+      <p><span class="lead-in">Watch it come back to life.</span> Work has started on site. Harry and Sigrid are sharing the restoration as it happens: the build, the problems, the finds, the makers and the rooms taking shape.</p>
       <a class="link" href="https://www.instagram.com/gallivantlittlestone/" target="_blank" rel="noopener" data-track="instagram_next">@gallivantlittlestone</a>
     </div>
     <div class="card rv">
-      <div class="eyebrow" style="color:var(--warm)">Do you remember Romney Bay House?</div>
-      <h2>Help us fill in the story</h2>
-      <p>If you stayed here, grew up nearby or have old photographs of the house, we’d love to see them. Every memory helps us restore it properly.</p>
+      
+      <h2>Your memories</h2>
+      <p><span class="lead-in">Do you remember Romney Bay House?</span> If you stayed here, grew up nearby or have old photographs of the house, we’d love to see them. Every memory helps us restore it properly.</p>
       <a class="link" href="mailto:enquiries@thegallivant.co.uk?subject=My%20memories%20of%20Romney%20Bay%20House" data-track="share_memories">Share your memories</a>
     </div>
   </div>
@@ -540,7 +561,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec friends" id="gved-friends">
   <div class="wrap grid">
     <div class="intro-t">
-      <div class="eyebrow rv" style="color:var(--bright)"><span data-only="friends prebook">Become a Friend</span><span data-only="book">Stay in touch</span></div>
+      
       <h2 class="rv"><span data-only="friends">Be first through the door</span><span data-only="prebook">Book before everyone else</span><span data-only="book">News from the dunes</span></h2>
       <p class="rv" data-only="friends">Friends of Gallivant Littlestone Beach get first access to book, before bookings open to everyone. You’ll also hear about our pre-opening events first.</p>
       <p class="rv" data-only="prebook">Friends’ booking is open now. Join and we’ll email you a link to book before bookings open to everyone.</p>

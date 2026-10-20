@@ -292,6 +292,32 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved h1,.gved h2,.gved h3{font-style:normal}
 .gved .eyebrow{font-size:14px!important;letter-spacing:.18em!important}
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* Call with Harry, 20 Oct: one paragraph font, plain headings with a capitals lead-in, smaller page-top headings, lozenge buttons, brush carousel arrows */
+.gved .lead-in{text-transform:uppercase;letter-spacing:.1em;font-size:.86em}
+.gved .lead-in-p{margin:16px 0 0;font-size:15px}
+.gved p.lead{font-family:var(--font-body,var(--sans,"Euclid","Jost",sans-serif))!important;font-size:17px!important;line-height:1.65!important;font-weight:300}
+.gved .hero h1,.gved .intro.scr h1{font-size:clamp(38px,4.6vw,66px)!important;max-width:16ch!important;line-height:1.08!important}
+.gved .link{display:inline-flex!important;align-items:center;gap:0!important;padding:13px 24px;border:1px solid currentColor;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;line-height:1;transition:background .3s,color .3s,border-color .3s;width:auto!important}
+.gved .link::after,.gved .link::before{display:none!important}
+.gved .link:hover{background:var(--ink,#2B2A28);border-color:var(--ink,#2B2A28);color:#fff!important}
+.gved .brush{width:64px!important;height:40px!important;border:0!important;border-radius:0!important;background:none!important;color:inherit;display:inline-grid!important;place-items:center;cursor:pointer;padding:0;transition:transform .3s,opacity .3s}
+.gved .brush svg{width:58px;height:24px;fill:currentColor;display:block}
+.gved .brush:hover{transform:translateX(4px);background:none!important;color:inherit!important}
+.gved .brush[data-dir="-1"]:hover{transform:translateX(-4px)}
+.gved .brush[disabled]{opacity:.25}
+.gved .nav-count{display:inline-block;min-width:66px;text-align:center;font-size:12px;letter-spacing:.18em}
+
+.gved .facts.v-float .wrap{background:#576B31!important;color:#F2EDE0!important}
+.gved .book{background:#576B31!important;color:#F2EDE0!important}
+.gved .book h2,.gved .book p{color:#F2EDE0}
+
+/* no arrows on links or cards (arrows only on carousels) */
+.gved .float-enq::after,.gved .arrow{display:none!important}
+
+/* Harry's tidy-up after the call: green bar, no arrow circles on cards */
+.gved .facts{--fx-bg:#576B31!important;--fx-fg:#F2EDE0!important;--fx-soft:#F2EDE0!important}
+.gved .stay .offer .circ,.gved .ex .circ{display:none!important}
 </style>
 
 <div class="gved" id="gved">
@@ -300,7 +326,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     <video muted playsinline loop autoplay preload="metadata" poster="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF0116-820x566.jpeg"><source src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/01/harrys_1080.mp4" type="video/mp4"></video>
   </div>
   <div class="wrap inner">
-    <div class="eyebrow rv">The restaurant at The Gallivant</div>
+    
     <h1 class="rv">Harry’s</h1>
     <p class="sub rv">A French brasserie by the sea. French dishes cooked with confidence and skill, using the best of what comes off the boats or out of the fields nearby. Lunch and dinner, every day.</p>
     <div class="btns rv"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book a table</a><a class="btn btn-w" href="#gved-menus">See the menus</a></div>
@@ -320,9 +346,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec">
   <div class="wrap character">
     <div>
-      <div class="eyebrow rv">The character</div>
-      <h2 class="rv">A table for the occasion</h2>
-      <p class="lead rv">Candlelight, white tablecloths and food for sharing – inspired by the Paris brasseries that people in the know frequent.</p>
+      
+      <h2 class="rv">The restaurant</h2>
+      <p class="lead rv"><span class="lead-in">A table for the occasion.</span> Candlelight, white tablecloths and food for sharing – inspired by the Paris brasseries that people in the know frequent.</p>
       <p class="body rv">We’re the restaurant locals pick when there’s something to celebrate. Order to share – a whole roast fish or a cut of beef – and finish with our signature tarte fine aux pommes, flambéed in Calvados at your table.</p>
       <p class="body rv">By day it’s relaxed and full of light: slow weekend lunches and a Sunday roast with a silver gravy jug that doesn’t leave the table.</p>
       <div class="btns rv" style="margin-top:26px"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book a table</a></div>
@@ -333,7 +359,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec menus" id="gved-menus">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">What’s on offer</div><h2>Menus</h2></div><p>Menus change with the seasons and with what’s good that week. Tell us about any dietary needs when you book.</p></div>
+    <div class="sec-head rv"><div><h2>Menus</h2></div><p>Menus change with the seasons and with what’s good that week. Tell us about any dietary needs when you book.</p></div>
     <div class="tabs rv" role="tablist">
       <button class="on" data-m="0" role="tab" aria-selected="true">Dinner</button>
       <button data-m="1" role="tab" aria-selected="false">Weekday lunch</button>
@@ -342,29 +368,29 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     </div>
     <div class="menu on">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/Harrys_14Jan26_Tolga_19-scaled.jpeg" alt="Steak at Harry's" loading="lazy"></figure>
-      <div><div class="eyebrow">Every evening</div><h3>Dinner by candlelight</h3>
-        <p>French classics cooked with confidence: steak with Roquefort butter, whole roast fish to share and the tarte fine aux pommes, flambéed at the table.</p>
+      <div><h3>Dinner by candlelight</h3>
+        <p><span class="lead-in">Every evening.</span> French classics cooked with confidence: steak with Roquefort butter, whole roast fish to share and the tarte fine aux pommes, flambéed at the table.</p>
         <dl><dt>When</dt><dd>6–9pm, daily</dd><dt>Good to know</dt><dd>Dishes for sharing · ages 12 and over</dd></dl>
         <div class="btns"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book dinner</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/menus" target="_blank" rel="noopener">View the menu</a></div></div>
     </div>
     <div class="menu">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF8135-820x566.jpeg" alt="Scallops at Harry's" loading="lazy"></figure>
-      <div><div class="eyebrow">Monday to Friday</div><h3>Weekday lunch</h3>
-        <p>The à la carte, with daily specials that follow what’s best from the boats and the fields nearby – plus a vegetarian menu and the puddings people come back for.</p>
+      <div><h3>Weekday lunch</h3>
+        <p><span class="lead-in">Monday to Friday.</span> The à la carte, with daily specials that follow what’s best from the boats and the fields nearby – plus a vegetarian menu and the puddings people come back for.</p>
         <dl><dt>When</dt><dd>12.30–2.30pm, Monday to Friday</dd><dt>Good to know</dt><dd>Ages 6 and over</dd></dl>
         <div class="btns"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book lunch</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/menus" target="_blank" rel="noopener">View the menu</a></div></div>
     </div>
     <div class="menu">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF7863-scaled.jpeg" alt="Fish and chips at Harry's" loading="lazy"></figure>
-      <div><div class="eyebrow">Saturdays</div><h3>The Saturday set menu</h3>
-        <p>An easy, informal Saturday lunch: three courses chosen by the kitchen, changing every week with the seasons. Because we’re by the sea, proper fish and chips is on too.</p>
+      <div><h3>The Saturday set menu</h3>
+        <p><span class="lead-in">Saturdays.</span> An easy, informal Saturday lunch: three courses chosen by the kitchen, changing every week with the seasons. Because we’re by the sea, proper fish and chips is on too.</p>
         <dl><dt>When</dt><dd>12.30–2.30pm, Saturdays</dd><dt>Price</dt><dd>Three courses, £39</dd><dt>A recent menu</dt><dd>Pickled anchovies · grilled bavette with girolles · petit pot au chocolat</dd></dl>
         <div class="btns"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book Saturday lunch</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/menus" target="_blank" rel="noopener">View the menu</a></div></div>
     </div>
     <div class="menu">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/178A9688-scaled.jpeg" alt="Sunday roast at Harry's" loading="lazy"></figure>
-      <div><div class="eyebrow">Sundays</div><h3>The Sunday roast</h3>
-        <p>Unashamedly British: the juiciest roast beef, crispier-than-crisp potatoes and enormous Yorkshire puddings. A long lunch either side of a walk on the beach.</p>
+      <div><h3>The Sunday roast</h3>
+        <p><span class="lead-in">Sundays.</span> Unashamedly British: the juiciest roast beef, crispier-than-crisp potatoes and enormous Yorkshire puddings. A long lunch either side of a walk on the beach.</p>
         <dl><dt>When</dt><dd>Sunday lunchtime</dd><dt>Good to know</dt><dd>Book ahead – it’s popular</dd></dl>
         <div class="btns"><a class="btn btn-m" href="https://www.harryscambersands.co.uk/book-a-table">Book Sunday lunch</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/sunday-roast" target="_blank" rel="noopener">View the menu</a></div></div>
     </div>
@@ -372,7 +398,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 
 <section class="sec season">
-  <div class="wrap"><div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">In season this autumn</div><h2>What’s good right now</h2><p class="intro">The produce we’re most excited about this autumn, from the coast and the Marsh around us. It shapes the menu week by week.</p></div><div class="p-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous">←</button><button class="circ" type="button" data-dir="1" aria-label="Next">→</button></div></div></div>
+  <div class="wrap"><div class="sec-head rv"><div><h2>In season</h2><p class="intro"><span class="lead-in">What’s good right now.</span> The produce we’re most excited about this autumn, from the coast and the Marsh around us. It shapes the menu week by week.</p></div><div class="p-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous">←</button><button class="circ" type="button" data-dir="1" aria-label="Next">→</button></div></div></div>
   <div class="ptrack rv">
     <article class="pcard"><figure><img src="https://images.unsplash.com/photo-1717251882176-acdf0d46282c?w=900&amp;h=1125&amp;fit=crop&amp;q=75&amp;auto=format" alt="Oysters on ice with lemon" loading="lazy"></figure><div class="pt"><div class="meta"><span class="n">01</span><small>Essex</small></div><b>Maldon oysters</b><p>From the Blackwater estuary. Back with the “R” months – cold water makes them firm, briny and sweet.</p></div></article>
     <article class="pcard"><figure><img src="https://images.unsplash.com/photo-1593252073713-d82278ca4883?w=900&amp;h=1125&amp;fit=crop&amp;q=75&amp;auto=format" alt="A fishing boat pulled up on a shingle beach" loading="lazy"></figure><div class="pt"><div class="meta"><span class="n">02</span><small>Rye Bay</small></div><b>Skate and brown shrimps</b><p>Landed by Rye’s day boats. Delicate, sweet skate wings, and tiny brown shrimps from the shallow, sandy bay.</p></div></article>
@@ -386,9 +412,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sig">
   <img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/Harrys_14Jan26_Tolga_31-scaled.jpeg" alt="Tarte fine aux pommes at Harry's" loading="lazy">
   <div class="wrap">
-    <div class="eyebrow rv">The signature</div>
-    <h2 class="rv">Tarte fine aux pommes, flambéed at your table</h2>
-    <p class="rv">Matthew brought it with him from Bibendum. The flambé, in Calvados, he only started doing here.</p>
+    
+    <h2 class="rv">The signature</h2>
+    <p class="rv"><span class="lead-in">Tarte fine aux pommes, flambéed at your table.</span> Matthew brought it with him from Bibendum. The flambé, in Calvados, he only started doing here.</p>
   </div>
 </section>
 
@@ -401,7 +427,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">The kitchen</div><h2>A team to make you smile</h2></div></div>
+    <div class="sec-head rv"><div><h2>The kitchen</h2><p class="lead-in-p"><span class="lead-in">A team to make you smile.</span></p></div></div>
     <div class="kitchen">
       <div class="chef rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/05/Matthew-1.jpg" alt="Matthew Harris" loading="lazy"><div><h3>Matthew Harris</h3><span class="role">Executive Chef</span><p>More than thirty years at the stove, twenty as Head Chef at Bibendum on the Fulham Road under his mentor Simon Hopkinson. He brought his French-led cooking to the coast – steak with Roquefort butter and the tarte fine aux pommes made the journey with him.</p></div></div>
       <div class="chef rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/05/Gianmarco-1.jpg" alt="Gianmarco Abramo" loading="lazy"><div><h3>Gianmarco Abramo</h3><span class="role">Head Chef</span><p>Trained at Sketch, Joël Robuchon and Aquavit before head chef roles at The Rabbit and Cora Pearl. Runs the kitchen day to day alongside Matthew, and the seasonal specials that follow what’s good that week.</p></div></div>
@@ -410,7 +436,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 
 <section class="sec" style="padding-top:0">
-  <div class="wrap"><div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Gallery</div><h2>A look inside</h2></div><div class="gal-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous photos">←</button><button class="circ" type="button" data-dir="1" aria-label="Next photos">→</button></div></div></div>
+  <div class="wrap"><div class="sec-head rv"><div><h2>Gallery</h2></div><div class="gal-nav"><button class="circ" type="button" data-dir="-1" aria-label="Previous photos">←</button><button class="circ" type="button" data-dir="1" aria-label="Next photos">→</button></div></div></div>
   <div class="gal rv">
     <figure class="l"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF7892-820x566.jpeg" alt="Lobster at Harry's" loading="lazy"></figure>
     <figure class="l"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF8135-820x566.jpeg" alt="Scallops" loading="lazy"></figure>
@@ -425,18 +451,18 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="pd rv">
   <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set for private dining" loading="lazy"></figure>
   <div class="txt">
-    <div class="eyebrow">Private dining</div>
-    <h2>A celebration that needs its own room</h2>
-    <p>The Cabin seats up to 18 for lunch or dinner, with its own menus and personal service for you and your guests.</p>
+    
+    <h2>Private dining</h2>
+    <p><span class="lead-in">A celebration that needs its own room.</span> The Cabin seats up to 18 for lunch or dinner, with its own menus and personal service for you and your guests.</p>
     <div class="btns"><a class="btn btn-i" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/08/Private-Dining-brochure-260826.pdf" target="_blank" rel="noopener">The brochure</a><a class="link" href="https://thegallivant.co.uk/private-dining/">Make an enquiry</a></div>
   </div>
 </section>
 
 <section class="stay">
   <div class="txt">
-    <div class="eyebrow rv">Stay the night</div>
-    <h2 class="rv">Dinner, then a few steps to bed</h2>
-    <p class="rv">Harry’s is at the heart of The Gallivant, so after dinner there’s no taxi to call – just a deeply comfortable bed upstairs, and breakfast on the tray in the morning, which is just for hotel guests.</p>
+    
+    <h2 class="rv">Stay the night</h2>
+    <p class="rv"><span class="lead-in">Dinner, then a few steps to bed.</span> Harry’s is at the heart of The Gallivant, so after dinner there’s no taxi to call – just a deeply comfortable bed upstairs, and breakfast on the tray in the morning, which is just for hotel guests.</p>
     <a class="offer rv" href="https://thegallivant.co.uk/offers/stay-longer-on-us/"><small>Offer · Sunday to Thursday</small><b>Stay longer on us</b><span>Book three nights from Sunday to Thursday and the third night is on us. More time for slow dinners at Harry’s.</span><span class="circ">→</span></a>
     <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book a stay</a><a class="link" href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/rooms/">See the rooms</a></div>
   </div>
@@ -452,7 +478,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec also">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">You might also like</div><h2>Before and after dinner</h2></div><a class="link" href="../../eat-and-drink/">All spaces</a></div>
+    <div class="sec-head rv"><div><h2>Before and after dinner</h2></div><a class="link" href="../../eat-and-drink/">All spaces</a></div>
     <div class="row">
       <a class="rv" href="../../eat-and-drink/#/bar"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/10-1080x835.jpeg" alt="The Bar" loading="lazy"><span class="t"><span><b>The Bar</b><small>Cocktails before dinner</small></span><span class="circ">→</span></span></a>
       <a class="rv" href="../../eat-and-drink/#/snug"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" alt="The Snug" loading="lazy"><span class="t"><span><b>The Snug</b><small>A nightcap by the fire</small></span><span class="circ">→</span></span></a>
@@ -462,7 +488,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 <section class="sec faq">
   <div class="wrap fgrid">
-    <div class="rv"><div class="eyebrow" style="margin-bottom:10px">Good to know</div><h2>FAQs</h2><p class="fi">Anything else? Call Harry’s on <a href="tel:01797330955">01797 330 955</a> or email <a href="mailto:hello@harryscambersands.co.uk">hello@harryscambersands.co.uk</a>.</p></div>
+    <div class="rv"><h2>FAQs</h2><p class="fi">Anything else? Call Harry’s on <a href="tel:01797330955">01797 330 955</a> or email <a href="mailto:hello@harryscambersands.co.uk">hello@harryscambersands.co.uk</a>.</p></div>
     <div class="acc rv">
       <details open><summary>Can I bring children?</summary><div class="a"><p>Children aged 6 and over are welcome at lunch, and 12 and over at dinner. There’s no children’s menu, and we don’t serve half portions.</p></div></details>
       <details><summary>Are dogs allowed?</summary><div class="a"><p>Dogs are welcome in the Sitting Room and the Bar at lunchtime, but not in the dining room or in the evening.</p></div></details>

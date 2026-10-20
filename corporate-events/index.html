@@ -331,13 +331,45 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved h1,.gved h2,.gved h3{font-style:normal}
 .gved .eyebrow{font-size:14px!important;letter-spacing:.18em!important}
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* Call with Harry, 20 Oct: one paragraph font, plain headings with a capitals lead-in, smaller page-top headings, lozenge buttons, brush carousel arrows */
+.gved .lead-in{text-transform:uppercase;letter-spacing:.1em;font-size:.86em}
+.gved .lead-in-p{margin:16px 0 0;font-size:15px}
+.gved p.lead{font-family:var(--font-body,var(--sans,"Euclid","Jost",sans-serif))!important;font-size:17px!important;line-height:1.65!important;font-weight:300}
+.gved .hero h1,.gved .intro.scr h1{font-size:clamp(38px,4.6vw,66px)!important;max-width:16ch!important;line-height:1.08!important}
+.gved .link{display:inline-flex!important;align-items:center;gap:0!important;padding:13px 24px;border:1px solid currentColor;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;line-height:1;transition:background .3s,color .3s,border-color .3s;width:auto!important}
+.gved .link::after,.gved .link::before{display:none!important}
+.gved .link:hover{background:var(--ink,#2B2A28);border-color:var(--ink,#2B2A28);color:#fff!important}
+.gved .brush{width:64px!important;height:40px!important;border:0!important;border-radius:0!important;background:none!important;color:inherit;display:inline-grid!important;place-items:center;cursor:pointer;padding:0;transition:transform .3s,opacity .3s}
+.gved .brush svg{width:58px;height:24px;fill:currentColor;display:block}
+.gved .brush:hover{transform:translateX(4px);background:none!important;color:inherit!important}
+.gved .brush[data-dir="-1"]:hover{transform:translateX(-4px)}
+.gved .brush[disabled]{opacity:.25}
+.gved .nav-count{display:inline-block;min-width:66px;text-align:center;font-size:12px;letter-spacing:.18em}
+
+.gved .ticks li{padding-left:0!important}
+.gved .ticks li::before{display:none!important}
+/* The beach: photo and copy side by side, no text laid over the photo */
+.gved .beach{display:grid!important;grid-template-columns:1fr 1fr;align-items:center;min-height:0!important;color:var(--ink)!important}
+.gved .beach::after{display:none!important}
+.gved .beach>img{position:static!important;width:100%;height:100%;min-height:520px;object-fit:cover}
+.gved .beach .wrap{padding:clamp(40px,6vw,90px)!important;max-width:none}
+.gved .beach p,.gved .beach li small{color:var(--ink-soft);opacity:1}
+.gved .beach ul{grid-template-columns:1fr 1fr!important}
+@media (max-width:860px){.gved .beach{grid-template-columns:1fr}.gved .beach>img{min-height:0;aspect-ratio:4/3}}
+.gved .days,.gved .enq{background:#576B31!important;color:#F2EDE0!important}
+.gved .days h2,.gved .days h3,.gved .days p,.gved .days li,.gved .enq h2,.gved .enq p{color:#F2EDE0}
+.gved h2{font-size:clamp(32px,4.2vw,60px)}
+
+/* no arrows on links or cards (arrows only on carousels) */
+.gved .float-enq::after,.gved .arrow{display:none!important}
 </style>
 
 <div class="gved" id="gved">
 <section class="hero">
   <video class="bgv" muted loop playsinline preload="metadata" poster="media/corporate-walkthrough-poster.jpg" aria-hidden="true" tabindex="-1"></video>
   <div class="wrap inner">
-    <div class="eyebrow rv">Corporate retreats and offsites · Camber Sands</div>
+    
     <h1 class="rv" data-h1>Your team,<br>Nobody else</h1>
     <p class="sub rv" data-sub>Twenty bedrooms, a beach across the road and the whole house to yourselves, for one night or more. An hour and a quarter from London.</p>
     <div class="btns rv"><a class="btn btn-m" href="#gved-enquire" data-track="cta_enquire">Make an enquiry</a><a class="btn btn-w" href="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/04/The_Gallivant_Brochure_Corporate_Retreats_V5-1.pdf" target="_blank" rel="noopener" data-track="brochure_download">Download the brochure</a></div>
@@ -366,9 +398,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec intro">
   <div class="wrap grid">
     <div>
-      <div class="eyebrow rv">Your private house by the sea</div>
-      <h2 class="rv" data-intro-h>The offsite that doesn’t feel like an offsite</h2>
-      <p class="body rv">For a night or two, The Gallivant stops being a hotel and becomes your team’s private house by the sea, with a team of our own who’ll know everyone’s name by dinner.</p>
+      
+      <h2 class="rv">Your private house by the sea</h2>
+      <p class="body rv"><span class="lead-in" data-intro-h>The offsite that doesn’t feel like an offsite.</span> For a night or two, The Gallivant stops being a hotel and becomes your team’s private house by the sea, with a team of our own who’ll know everyone’s name by dinner.</p>
       <p class="body rv">Strategy in the morning. A walk on a deserted beach after lunch. Matthew Harris menus in the evening. Meetings here tend to finish sooner than planned, and the decisions are better for it.</p>
       <ul class="ticks rv">
         <li>Leadership and board retreats</li>
@@ -382,15 +414,15 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec days" id="gved-days">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px;color:var(--gold)">Close enough to stay</div><h2>One night, or two</h2></div><p>Close enough to come for the day, and exactly why it’s worth staying. Here’s how a stay usually runs. Holly will shape it around your agenda.</p></div>
+    <div class="sec-head rv"><div><h2>One night or two</h2></div><p>Close enough to come for the day, and exactly why it’s worth staying. Here’s how a stay usually runs. Holly will shape it around your agenda.</p></div>
     <div class="tabs" role="tablist">
       <button class="on" data-d="0" role="tab" aria-selected="true"><small>The overnight</small><b>One night</b></button>
       <button data-d="1" role="tab" aria-selected="false"><small>The full retreat</small><b>Two nights</b></button>
     </div>
     <div class="day on" role="tabpanel">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/CollageriexWNU16-1440x685.jpg" alt="A long table set for a team lunch" loading="lazy"></figure>
-      <div><div class="eyebrow" style="color:var(--gold)">One night</div><h3>Arrive for the agenda, stay for dinner</h3>
-        <p>Arrive in the morning, get through the agenda, then let the evening be dinner at Harry’s rather than the train home.</p>
+      <div><h3>One night</h3>
+        <p><span class="lead-in">Arrive for the agenda, stay for dinner.</span> Arrive in the morning, get through the agenda, then let the evening be dinner at Harry’s rather than the train home.</p>
         <h4>Day one</h4>
         <ol><li><span>Morning</span>Arrive, coffee and the first session</li><li><span>Lunch</span>A long table at Harry’s</li><li><span>Afternoon</span>Sessions, then out across the road to the beach</li><li><span>Evening</span>Drinks in the Dunes, then dinner at Harry’s</li></ol>
         <h4>Day two</h4>
@@ -398,8 +430,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
     </div>
     <div class="day" role="tabpanel">
       <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/03/PaulReadPhotography-33-scaled.jpg" alt="Yoga in the dunes at Camber Sands" loading="lazy"></figure>
-      <div><div class="eyebrow" style="color:var(--gold)">Two nights</div><h3>A full day to fill as you choose</h3>
-        <p>Two nights by the coast gives a team a whole day with no arriving or leaving in it: time to properly reset, away from the noise of the office.</p>
+      <div><h3>Two nights</h3>
+        <p><span class="lead-in">A full day to fill as you choose.</span> Two nights by the coast gives a team a whole day with no arriving or leaving in it: time to properly reset, away from the noise of the office.</p>
         <h4>Day one</h4>
         <ol><li><span>Afternoon</span>Arrive, settle in and a first wellness session</li><li><span>Evening</span>Welcome drinks and an oyster station, then dinner</li></ol>
         <h4>Day two</h4>
@@ -412,7 +444,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec" id="gved-spaces">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">The spaces</div><h2>Room to think, and room to talk</h2></div><p>Light-filled spaces that set up for workshops, presentations or a board meeting, with high-speed Wi-Fi and full AV on site.</p></div>
+    <div class="sec-head rv"><div><h2>The spaces</h2></div><p><span class="lead-in">Room to think, and room to talk.</span> Light-filled spaces that set up for workshops, presentations or a board meeting, with high-speed Wi-Fi and full AV on site.</p></div>
     <div class="cards">
       <article class="card rv"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/08/Longchamp-22ndMarch2024-8202-copy-1024x685.jpg" alt="Workshop space with long tables" loading="lazy"></div><div class="txt"><h3>Meeting spaces</h3><p>Configured your way: around one table, in workshop groups or set for presentations.</p></div></article>
       <article class="card rv"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2020/08/20_010SummerHseYogaStudio_026-1440x685.jpeg" alt="The Open Space studio" loading="lazy"></div><div class="txt"><h3>The Open Space</h3><p>Our 120 sq m studio, for yoga, meditation or a session with a different feel.</p></div></article>
@@ -426,9 +458,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="feast rv">
   <figure class="fv"><video muted loop playsinline preload="none" poster="media/harrys-food-poster.jpg" data-src="media/harrys-food.mp4" aria-label="A pork chop cooked and plated in Harry’s kitchen"></video></figure>
   <div class="txt">
-    <div class="eyebrow" style="color:var(--warm)">Food and drink</div>
-    <h2>Matthew Harris menus, from breakfast to dinner</h2>
-    <p>Every event, big or small, eats from Harry’s kitchen. Matthew Harris, for many years head chef at Bibendum, writes menus around your day: clean, energising breakfasts, lunches that don’t send anyone to sleep, and dinners worth staying for.</p>
+    
+    <h2>Food and drink</h2>
+    <p><span class="lead-in">Matthew Harris menus, from breakfast to dinner.</span> Every event, big or small, eats from Harry’s kitchen. Matthew Harris, for many years head chef at Bibendum, writes menus around your day: clean, energising breakfasts, lunches that don’t send anyone to sleep, and dinners worth staying for.</p>
     <ul class="exp">
       <li><b>Drinks in the Dunes</b><small>Cocktails and English sparkling wine as the sun goes down</small></li>
       <li><b>Oyster station</b><small>Local oysters shucked at the bar, with something chilled</small></li>
@@ -441,9 +473,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="beach">
   <img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/03/DSC00414-1024x685.jpg" alt="Wild yoga on the beach at Camber Sands" loading="lazy">
   <div class="wrap">
-    <div class="eyebrow rv">Beyond the meeting room</div>
-    <h2 class="rv">A beach across the road, and nobody on it</h2>
-    <p class="rv">The beach across the road is deserted for most of the year. Our wellness programme makes the most of it, and two of the very best English wine estates are close by.</p>
+    
+    <h2 class="rv">The beach</h2>
+    <p class="rv"><span class="lead-in">A beach across the road, and nobody on it.</span> The beach across the road is deserted for most of the year. Our wellness programme makes the most of it, and two of the very best English wine estates are close by.</p>
     <ul class="rv">
       <li><b>Wild yoga</b><small>In the dunes or right by the sea</small></li>
       <li><b>Guided coastal walks</b><small>Along the shore or through the nature reserves</small></li>
@@ -459,9 +491,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
   <div class="wrap split">
     <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" alt="The Snug, by the fire" loading="lazy"></figure>
     <div>
-      <div class="eyebrow rv">Smaller groups</div>
-      <h2 class="rv">Smaller teams get the feeling of exclusivity too</h2>
-      <p class="rv">Not every team needs the whole house. Groups of up to 14 can stay with us too, with one of our private spaces to work in and a long table at Harry’s for dinner.</p>
+      
+      <h2 class="rv">Smaller groups</h2>
+      <p class="rv"><span class="lead-in">Smaller teams get the feeling of exclusivity too.</span> Not every team needs the whole house. Groups of up to 14 can stay with us too, with one of our private spaces to work in and a long table at Harry’s for dinner.</p>
       <p class="rv">The calm of the beach is never closer, and it’s an hour and a quarter from London.</p>
       <div class="btns rv" style="margin-top:12px"><a class="btn btn-i" href="#gved-enquire" data-track="cta_enquire_small">Ask about smaller groups</a></div>
     </div>
@@ -470,7 +502,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 <section class="sec clients">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Who’s been</div><h2>Teams that keep coming back</h2></div><p>From the Magic Circle and Big Tech to investment banks and luxury brands.</p></div>
+    <div class="sec-head rv"><div><h2>Who’s been</h2></div><p><span class="lead-in">Teams that keep coming back.</span> From the Magic Circle and Big Tech to investment banks and luxury brands.</p></div>
     <div class="logos rv"><img src="media/logos/apple.png" alt="Apple" style="height:50px" loading="lazy"><img src="media/logos/mastercard.png" alt="Mastercard" style="height:57px" loading="lazy"><img src="media/logos/rapha.svg" alt="Rapha" style="height:44px" loading="lazy"><img src="media/logos/la-mer.png" alt="La Mer" style="height:29px" loading="lazy"><img src="media/logos/gusbourne.png" alt="Gusbourne" style="height:58px" loading="lazy"><img src="media/logos/collagerie.png" alt="Collagerie" style="height:23px" loading="lazy"></div>
     <p class="also rv">Also Müller and A Million Ads, among many others.</p>
     <div class="quotes">
@@ -485,7 +517,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec">
   <div class="wrap two">
     <div>
-      <div class="eyebrow rv">Your contact</div>
+      
       <h2 class="rv">Talk to Holly</h2>
       <div class="person rv">
         <img class="ph" src="media/holly.jpg" alt="Holly, Head of Stays and Gatherings at The Gallivant" width="132" height="132" loading="lazy">
@@ -495,8 +527,8 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       </div>
     </div>
     <div>
-      <div class="eyebrow rv">Getting here</div>
-      <h2 class="rv">An hour and a quarter from London</h2>
+      
+      <h2 class="rv">Getting here</h2><p class="lead-in-p"><span class="lead-in">An hour and a quarter from London.</span></p>
       <ol class="route rv">
         <li><span>By train</span>St Pancras to Ashford International by high-speed train in 38 minutes, then a private transfer to the door</li>
         <li><span>By car</span>About two hours from central London</li>
@@ -509,9 +541,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec" style="padding-top:0">
   <div class="wrap faq">
     <div>
-      <div class="eyebrow rv" style="margin-bottom:10px">Good to know</div>
+      
       <h2 class="rv" style="font-size:clamp(28px,3.7vw,50px)">Questions</h2>
-      <div class="xmas rv"><div class="eyebrow" style="color:var(--warm)">Christmas</div><p>Adding a Christmas party to your offsite, or planning one on its own? Ask Holly about our Christmas packages for teams.</p><a class="link" href="#gved-enquire">Ask about Christmas</a></div>
+      <div class="xmas rv"><p>Adding a Christmas party to your offsite, or planning one on its own? Ask Holly about our Christmas packages for teams.</p><a class="link" href="#gved-enquire">Ask about Christmas</a></div>
     </div>
     <div class="acc rv">
       <details open><summary>How many people can you host?</summary><div class="a">Groups of up to 14 can stay without taking the whole house. From 15 guests, most teams take exclusive use of all twenty bedrooms. We can host up to 30 overnight, with luxury cottages a short walk away.</div></details>
@@ -527,9 +559,9 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 <section class="sec enq" id="gved-enquire">
   <div class="wrap grid">
     <div class="intro-t">
-      <div class="eyebrow rv" style="color:var(--gold)">Make an enquiry</div>
-      <h2 class="rv">Tell us about your team</h2>
-      <p class="rv">Share a few details and Holly will come back to you with dates and ideas.</p>
+      
+      <h2 class="rv">Make an enquiry</h2>
+      <p class="rv"><span class="lead-in">Tell us about your team.</span> Share a few details and Holly will come back to you with dates and ideas.</p>
       <p class="rv">Rather talk? Call Holly on <a href="tel:01797338909" data-track="call_holly">01797 338 909</a>.</p>
     </div>
     <div class="formbox rv">
@@ -564,11 +596,11 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 </section>
 <section class="sec others">
   <div class="wrap">
-    <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Other gatherings</div><h2>Not a work trip?</h2></div><a class="link" href="https://thegallivant.co.uk/plan-an-event/">All events</a></div>
+    <div class="sec-head rv"><div><h2>Other gatherings</h2><p class="lead-in-p"><span class="lead-in">Not a work trip?</span></p></div><a class="link" href="https://thegallivant.co.uk/plan-an-event/">All events</a></div>
     <div class="cards">
-      <a class="card rv" href="https://thegallivant.co.uk/coastal-weddings/" data-track="other_events_weddings"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/7.jpeg" alt="A beachside wedding ceremony at Camber Sands" loading="lazy"></div><div class="txt"><h3>Weddings</h3><p>Exclusive-use weddings behind the dunes, as individual as you are.</p><span class="go">Weddings →</span></div></a>
-      <a class="card rv" href="../eat-and-drink/#/private-dining" data-track="other_events_private_dining"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set in the private dining room" loading="lazy"></div><div class="txt"><h3>Private parties and dining</h3><p>Birthdays, anniversaries and celebrations, with a room of their own.</p><span class="go">Private dining →</span></div></a>
-      <a class="card rv" href="../christmas/" data-track="other_events_christmas"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"></div><div class="txt"><h3>Christmas 2026</h3><p>A three-night house party by the sea, 23 to 26 December.</p><span class="go">Christmas →</span></div></a>
+      <a class="card rv" href="https://thegallivant.co.uk/coastal-weddings/" data-track="other_events_weddings"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/7.jpeg" alt="A beachside wedding ceremony at Camber Sands" loading="lazy"></div><div class="txt"><h3>Weddings</h3><p>Exclusive-use weddings behind the dunes, as individual as you are.</p><span class="go">Weddings</span></div></a>
+      <a class="card rv" href="../eat-and-drink/#/private-dining" data-track="other_events_private_dining"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A long table set in the private dining room" loading="lazy"></div><div class="txt"><h3>Private parties and dining</h3><p>Birthdays, anniversaries and celebrations, with a room of their own.</p><span class="go">Private dining</span></div></a>
+      <a class="card rv" href="../christmas/" data-track="other_events_christmas"><div class="img"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="The bar dressed for Christmas" loading="lazy"></div><div class="txt"><h3>Christmas 2026</h3><p>A three-night house party by the sea, 23 to 26 December.</p><span class="go">Christmas</span></div></a>
     </div>
   </div>
 </section>

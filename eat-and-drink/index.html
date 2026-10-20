@@ -283,6 +283,34 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved h1,.gved h2,.gved h3{font-style:normal}
 .gved .eyebrow{font-size:14px!important;letter-spacing:.18em!important}
 .gved .hero .eyebrow,.gved .intro.scr .eyebrow{text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* Call with Harry, 20 Oct: one paragraph font, plain headings with a capitals lead-in, smaller page-top headings, lozenge buttons, brush carousel arrows */
+.gved .lead-in{text-transform:uppercase;letter-spacing:.1em;font-size:.86em}
+.gved .lead-in-p{margin:16px 0 0;font-size:15px}
+.gved p.lead{font-family:var(--font-body,var(--sans,"Euclid","Jost",sans-serif))!important;font-size:17px!important;line-height:1.65!important;font-weight:300}
+.gved .hero h1,.gved .intro.scr h1{font-size:clamp(38px,4.6vw,66px)!important;max-width:16ch!important;line-height:1.08!important}
+.gved .link{display:inline-flex!important;align-items:center;gap:0!important;padding:13px 24px;border:1px solid currentColor;border-radius:999px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;line-height:1;transition:background .3s,color .3s,border-color .3s;width:auto!important}
+.gved .link::after,.gved .link::before{display:none!important}
+.gved .link:hover{background:var(--ink,#2B2A28);border-color:var(--ink,#2B2A28);color:#fff!important}
+.gved .brush{width:64px!important;height:40px!important;border:0!important;border-radius:0!important;background:none!important;color:inherit;display:inline-grid!important;place-items:center;cursor:pointer;padding:0;transition:transform .3s,opacity .3s}
+.gved .brush svg{width:58px;height:24px;fill:currentColor;display:block}
+.gved .brush:hover{transform:translateX(4px);background:none!important;color:inherit!important}
+.gved .brush[data-dir="-1"]:hover{transform:translateX(-4px)}
+.gved .brush[disabled]{opacity:.25}
+.gved .nav-count{display:inline-block;min-width:66px;text-align:center;font-size:12px;letter-spacing:.18em}
+
+.gved .card-t{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.2;margin-bottom:10px}
+.gved .dunes,.gved .book-band{background:#576B31!important;color:#F2EDE0!important}
+
+/* no arrows on links or cards (arrows only on carousels) */
+.gved .float-enq::after,.gved .arrow{display:none!important}
+
+/* Eat and Drink tidy-up after the call: no small caps tags on cards, no side line, readable text on green */
+.gved .card .when{display:none!important}
+.gved .character .when{border-left:0!important;border-radius:999px;padding:14px 22px}
+.gved .dunes,.gved .dunes p,.gved .dunes h2,.gved .dunes li,.gved .dunes small{color:#F2EDE0!important}
+.gved .dunes .btn-i{border-color:#F2EDE0!important;color:#F2EDE0!important}
+.gved .feature .tag{display:none}
 </style>
 
 <div class="gved" id="gved">
@@ -441,9 +469,9 @@ function hub(){
   <section class="hero" data-hero>
     <div class="slides">${[IMG.steak,IMG.bar,IMG.beach,IMG.harrysRoom].map((u,i)=>`<div class="${i?'':'on'}" style="background-image:url('${u}')"></div>`).join('')}</div>
     <div class="wrap inner">
-      <div class="eyebrow rv">Eat and Drink · Camber Sands</div>
-      <h1 class="rv" style="margin-top:16px">Five ways to spend a day by the sea</h1>
-      <p class="sub rv">Lunch, cocktails, dinner and nightcaps, with Harry’s, our French brasserie by the sea, at the heart of it.</p>
+      
+      <h1 class="rv">Eat and Drink</h1>
+      <p class="sub rv"><span class="lead-in">Five ways to spend a day by the sea.</span> Lunch, cocktails, dinner and nightcaps, with Harry’s, our French brasserie by the sea, at the heart of it.</p>
     </div>
     <div class="dots"></div>
   </section>
@@ -451,7 +479,7 @@ function hub(){
   <section class="intro">
     <div class="wrap">
       <div class="grid">
-        <div class="eyebrow rv">Eat and Drink</div>
+        
         <p class="lead rv">From a long lunch to a nightcap by the fire, there’s a table for every mood – anchored by Harry’s, our French brasserie by the sea.</p>
       </div>
     </div>
@@ -460,19 +488,19 @@ function hub(){
 
   <section class="sec" id="gved-spaces">
     <div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">The spaces</div><h2>Where will it be?</h2></div><p>Every space has its own character. Pick the one that fits your mood – or work your way through all five.</p></div>
+      <div class="sec-head rv"><div><h2>The spaces</h2></div><p><span class="lead-in">Where will it be?</span> Every space has its own character. Pick the one that fits your mood – or work your way through all five.</p></div>
 
       <a class="feature rv" href="harrys/">
         <div class="img"><img src="${IMG.steak}" alt="Steak with green beans at Harry's" loading="lazy"></div>
         <div class="txt">
           <div>
-            <span class="eyebrow tag">The restaurant</span>
+            
             <h3>Harry’s</h3>
             <p style="margin-top:16px">${h.short} Led by Executive Chef Matthew Harris, formerly of Bibendum.</p>
           </div>
           <div>
             <ul class="tbc">${h.hours.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><span class="eyebrow">Explore Harry’s</span>${arrow}</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px"><span class="link">Explore Harry’s</span></div>
           </div>
         </div>
       </a>
@@ -502,7 +530,7 @@ function dunesBlock(){
   <section class="dunes" id="gved-dunes">
     <div class="wrap">
       <div class="copy">
-        <div class="eyebrow rv">Signature experience</div>
+        
         <h2 class="rv">Drinks in the Dunes</h2>
         <p class="rv">We’ll pack your favourite wine and give you the co-ordinates of the perfect spot in the dunes to watch the sun set. A sky as far as the eye can see, and a glorious silence save the rustle of the grass in the wind.</p>
         <p class="rv" style="font-family:var(--serif);font-size:24px;font-style:italic">Truly remarkable, truly Gallivant.</p>
@@ -521,8 +549,9 @@ function space(s){
     <div class="slides">${s.hero.map((u,i)=>`<div class="${i?'':'on'}" style="background-image:url('${u}')"></div>`).join('')}</div>
     <div class="wrap inner">
       <a class="back rv" href="#/">← Eat and Drink</a>
-      <div class="eyebrow rv">${s.name} · ${s.tag}</div>
-      <h1 class="rv" style="margin-top:14px">${s.mood}</h1>
+      
+      <h1 class="rv">${s.name}</h1>
+      <p class="sub rv">${s.mood}.</p>
     </div>
     <div class="dots"></div>
   </section>
@@ -530,7 +559,7 @@ function space(s){
   <section class="sec">
     <div class="wrap character">
       <div class="rv${tbc}">
-        <div class="eyebrow">${s.eyebrow}</div>
+        
         <h2>${s.title}</h2>
         ${s.body.map(p=>`<p>${p}</p>`).join('')}
         <div class="when">${s.whenCopy}</div>
@@ -542,22 +571,22 @@ function space(s){
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">What’s on offer</div><h2>Menus, hours and booking</h2></div></div>
+      <div class="sec-head rv"><div><h2>Menus, hours and booking</h2></div></div>
       <div class="offer">
         <div class="box rv">
-          <div class="eyebrow">${s.slug==='private-dining'?'Brochure':'Menu / list'}</div>
+          <h3 class="card-t">${s.slug==='private-dining'?'Brochure':'Menu / list'}</h3>
           <ul class="menu-list${s.menus.some(m=>m[1]==='#')?' tbc':''}">${s.menus.map(m=>`<li><a href="${m[1]}" ${m[1]!=='#'?'target="_blank" rel="noopener"':''}>${m[0]} <small>${m[1]==='#'?'Coming soon':'PDF ↗'}</small></a></li>`).join('')}</ul>
           <span>Dietary needs catered for – just tell us when you book.</span>
         </div>
         <div class="box rv">
-          <div class="eyebrow">${s.slug==='private-dining'?'The room':'Hours'}</div>
+          <h3 class="card-t">${s.slug==='private-dining'?'The room':'Hours'}</h3>
           <ul class="hours tbc">${s.hours.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('')}</ul>
           <span>Times can change with the seasons.</span>
         </div>
-        <div class="box rv" style="background:var(--sage);color:#fff">
-          <div class="eyebrow">Booking</div>
+        <div class="box rv" style="background:#576B31;color:#F2EDE0">
+          
           <h3>${s.booking.title}</h3>
-          <span style="color:#fff;opacity:.92">${s.booking.text}</span>
+          <span style="color:#F2EDE0">${s.booking.text}</span>
           <a class="btn btn-m" href="${s.booking.href}" ${s.booking.href.startsWith('http')?'target="_blank" rel="noopener"':''}>${s.booking.cta}</a>
         </div>
       </div>
@@ -569,14 +598,14 @@ function space(s){
     <div class="wrap">
       <div class="moments">${s.moments.map(m=>`
         <article class="moment rv"><div class="img"><img src="${m.img}" alt="${m.title}" loading="lazy"></div>
-        <div class="txt"><div class="eyebrow" style="color:var(--magenta)">${m.eyebrow}</div><h3>${m.title}</h3><p>${m.text}</p></div></article>`).join('')}
+        <div class="txt"><h3>${m.title}</h3><p><span class="lead-in">${m.eyebrow}.</span> ${m.text}</p></div></article>`).join('')}
       </div>
     </div>
   </section>`:''}
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">Gallery</div><h2>A look inside</h2></div><a class="link" href="https://www.instagram.com/thegallivant" target="_blank" rel="noopener">Instagram</a></div>
+      <div class="sec-head rv"><div><h2>Gallery</h2></div><a class="link" href="https://www.instagram.com/thegallivant" target="_blank" rel="noopener">Instagram</a></div>
       <div class="gallery rv">${s.gallery.map((u,i)=>`<button data-i="${i}" aria-label="Open image ${i+1}"><img src="${u}" alt="" loading="lazy"></button>`).join('')}</div>
     </div>
   </section>
@@ -584,7 +613,7 @@ function space(s){
   ${s.kitchen?`
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">The kitchen</div><h2>A team to make you smile</h2></div></div>
+      <div class="sec-head rv"><div><h2>The kitchen</h2><p class="lead-in-p"><span class="lead-in">A team to make you smile.</span></p></div></div>
       <div class="kitchen">
         <div class="chef rv"><img src="${IMG.matthew}" alt="Matthew Harris" loading="lazy"><div><h3>Matthew Harris</h3><span class="role">Executive Chef</span><p>Thirty years at the stove, twenty as Head Chef at Bibendum under his mentor Simon Hopkinson. He brought his French-led style to the coast – steak with Roquefort butter and the tarte fine aux pommes made the journey, the tarte now flambéed tableside.</p></div></div>
         <div class="chef rv"><img src="${IMG.gianmarco}" alt="Gianmarco Abramo" loading="lazy"><div><h3>Gianmarco Abramo</h3><span class="role">Head Chef</span><p>Trained at Sketch, Joël Robuchon and Aquavit before head chef roles at The Rabbit and Cora Pearl. Runs the day-to-day kitchen alongside Matthew, and the seasonal specials that follow what’s good that week.</p></div></div>
@@ -603,7 +632,7 @@ function space(s){
 
   <section class="sec also">
     <div class="wrap">
-      <div class="sec-head rv"><div><div class="eyebrow" style="margin-bottom:10px">You might also like</div><h2>Stay a little longer</h2></div><a class="link" href="#/">All spaces</a></div>
+      <div class="sec-head rv"><div><h2>Stay a little longer</h2></div><a class="link" href="#/">All spaces</a></div>
       <div class="row">${s.also.map(k=>{const o=bySlug[k];return `<a class="rv" href="${o.slug==='harrys'?'harrys/':'#/'+o.slug}"><img src="${o.card}" alt="${o.name}" loading="lazy"><span class="t"><b>${o.name}</b><small>${o.short}</small></span></a>`}).join('')}</div>
     </div>
   </section>`;
