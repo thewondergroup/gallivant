@@ -365,7 +365,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .planband{background:var(--ink);color:var(--panel);padding:clamp(64px,8vw,120px) 0;position:relative;overflow:hidden;overflow:clip}
 .gved .planband::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(242,237,224,.12);box-shadow:0 0 0 60px rgba(242,237,224,.03)}
 /* Heading and intro across the top, five photo tiles to pick from, then the button */
-.gved .pb-head{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:end;position:relative;margin-bottom:clamp(36px,4vw,56px)}
+.gved .pb-head{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:end;position:relative;margin-bottom:clamp(32px,3.5vw,48px)}
 .gved .planband h2{font-size:clamp(32px,4vw,58px);margin:0;color:var(--panel);grid-column:1/3}
 .gved .planband .pb-head p{grid-column:3/-1}
 .gved .planband .pb-head p{max-width:52ch;margin:0;opacity:.9}
@@ -384,6 +384,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 .gved .pb-tile:focus-visible{outline:none}.gved .pb-tile:focus-visible .pb-ph{outline-color:#F2EDE0}
 .gved .pb-go{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:clamp(32px,3.5vw,48px)}
 .gved .btn-c{background:var(--panel);color:var(--ink)}.gved .btn-c:hover{background:#fff}
+.gved .planband p.pb-ask{margin:0 0 16px;font-size:15px;opacity:.75;max-width:none}
 .gved .planband p.pb-hint{margin:0;font-size:15px;opacity:.75;max-width:none}
 @media (max-width:900px){.gved .pb-head{grid-template-columns:1fr;gap:18px}.gved .planband h2,.gved .planband .pb-head p{grid-column:auto}.gved .pb-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.gved .pb-tile:last-child{grid-column:1/-1}.gved .pb-tile:last-child .pb-ph{aspect-ratio:2/1}.gved .pb-ph{aspect-ratio:4/3}}
 @media (max-width:480px){.gved .pb-l{font-size:15px;padding-top:10px}.gved .pb-ph i{top:8px;right:8px;width:22px;height:22px}.gved .pb-ph i::after{left:6.5px;top:3px;width:5px;height:9px}}
@@ -575,6 +576,7 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
       <h2 class="rv">Stay planner</h2>
       <p class="rv"><span class="lead-in">How are you going to gallivant?</span> Pick the kind of stay you’re after and we’ll sketch out the whole thing: what to do, where to go, what to eat, and the bits worth booking ahead. Then send it to us, or keep it for yourself.</p>
     </div>
+    <p class="pb-ask rv">Pick as many as you like</p>
     <div class="pb-tiles rv" role="group" aria-label="What kind of stay are you after?">
         <button type="button" class="pb-tile" data-m="cosy" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Do absolutely nothing</span></button>
         <button type="button" class="pb-tile" data-m="foodie" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF7904-scaled.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Eat and drink well</span></button>
@@ -582,7 +584,7 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
         <button type="button" class="pb-tile" data-m="romantic" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Romance</span></button>
         <button type="button" class="pb-tile" data-m="explore" aria-pressed="false"><span class="pb-ph"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/30-1080x854.jpeg" alt="" loading="lazy"><i aria-hidden="true"></i></span><span class="pb-l">Explore the coast</span></button>
     </div>
-    <div class="pb-go rv"><a class="btn btn-c pb-btn" href="plan/">Plan my gallivant</a><p class="pb-hint" aria-live="polite">Pick as many as you like</p></div>
+    <div class="pb-go rv"><a class="btn btn-c pb-btn" href="plan/">Plan my gallivant</a><p class="pb-hint" aria-live="polite"></p></div>
   </div>
 </section>
 
@@ -861,7 +863,7 @@ var root=document.getElementById('gved');
     wrap.classList.toggle('has-on',on.length>0);
     var names=on.map(function(x){ var t=x.querySelector('.pb-l').textContent.toLowerCase(); return t==='romance'?'fall in love':t; });
     if(names.length>1) names=[names.slice(0,-1).join(', ')+' and '+names[names.length-1]];
-    hint.textContent=on.length?'A stay to '+names[0]+'.':'Pick as many as you like';
+    hint.textContent=on.length?'A stay to '+names[0]+'.':'';
   });
 })();
 /* Perfect day: the photo and caption follow the activity you hover, focus or tap.
