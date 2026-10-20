@@ -300,7 +300,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
       <p class="body rv">Imagine crisp December days filled with invigorating walks along the beach, followed by cosy evenings of games and conversation beside the fire. As twilight falls, craft cocktails await, then intimate dinners in our acclaimed restaurant.</p>
       <p class="body rv">We’ve attended to every detail, so all that’s left for you to do is arrive, unwind and enjoy it.</p>
     </div>
-    <figure class="rv invite-film"><video muted playsinline loop autoplay preload="none" poster="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-114-of-184.jpeg" data-src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/12/gallivant-home-01.m4v" aria-label="A film of The Gallivant"></video></figure>
+    <figure class="rv invite-film"><video muted playsinline loop autoplay preload="none" poster="media/christmas-film-poster.jpg" data-src="media/christmas-film.mp4" aria-label="Christmas dinner at Harry’s: friends laughing round the table, festive ribbons and plates from the kitchen"></video></figure>
   </div>
 </section>
 
@@ -467,6 +467,13 @@ root.addEventListener('click',function(e){var a=e.target.closest('a[href^="#gved
   if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   [].forEach.call(els,function(el,k){el.style.transitionDelay=(k%4)*70+'ms';io.observe(el)});
+})();
+/* "You're invited" film: load it only when it comes near the screen, then play it silently on a loop */
+(function(){
+  var v=root.querySelector('.invite-film video'); if(!v) return;
+  var still=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function load(){ if(v.getAttribute('src')) return; v.src=v.getAttribute('data-src'); if(!still){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.removeAttribute('autoplay'); } }
+  if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(); io.disconnect(); } }); },{rootMargin:'300px'}); io.observe(v); } else load();
 })();
 </script>
 
