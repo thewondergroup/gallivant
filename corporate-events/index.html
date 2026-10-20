@@ -363,6 +363,14 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 
 /* no arrows on links or cards (arrows only on carousels) */
 .gved .float-enq::after,.gved .arrow{display:none!important}
+/* Colour rules (20 Oct): black text on putty, cream text on green, white only over photos and film */
+html .gved{--ink-soft:#2B2A28;--warm:#2B2A28;--gold:#F2EDE0}
+html .gved .btn-i:hover,html .gved .link:hover{background:#576B31!important;border-color:#576B31!important;color:#F2EDE0!important}
+html .gved .days .sec-head p,html .gved .day p,html .gved .day li span,html .gved .intro figure .tag{color:#F2EDE0}
+html .gved .intro figure .tag{background:#576B31}
+html .gved .enq .intro-t p,html .gved .f label,html .gved .f legend,html .gved .consent,html .gved .got p,html .gved .hint,html .gved .skip,html .gved .pills label{color:#F2EDE0}
+html .gved .f input,html .gved .f select,html .gved .f textarea{color:#F2EDE0;border-bottom-color:rgba(242,237,224,.5)}
+html .gved .skip{border-bottom-color:rgba(242,237,224,.5)}
 </style>
 
 <div class="gved" id="gved">
