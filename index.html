@@ -418,8 +418,16 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 body.hdr-over .gved .wx{position:fixed;top:calc((var(--hdr,82px) - 42px)/2);right:clamp(16px,4vw,56px);z-index:1001;transition:right .45s,opacity .45s}
 body.hdr-over .site-hdr:not(.scrolled) .book{opacity:0;pointer-events:none;visibility:hidden}
 body.hdr-over .site-hdr .book{transition:opacity .45s,background .3s,color .3s}
-body.hdr-over.hdr-scrolled .gved .wx{right:calc(clamp(16px,4vw,56px) + 150px)}
+body.hdr-over.hdr-scrolled .gved .wx{right:calc(clamp(16px,4vw,56px) + 136px)}
 body.hdr-over.hdr-scrolled .gved .wx-pill .x{display:none}
+/* In the solid header the weather drops its lozenge and sits quietly as text beside BOOK */
+body.hdr-over .gved .wx-pill{transition:background .3s,border-color .3s,padding .3s,opacity .3s}
+body.hdr-over.hdr-scrolled .gved .wx-pill{background:transparent;border-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;padding:9px 4px;gap:7px;opacity:.9}
+body.hdr-over.hdr-scrolled .gved .wx-pill:hover,body.hdr-over.hdr-scrolled .gved .wx-pill[aria-expanded="true"]{background:transparent;opacity:1}
+body.hdr-over.hdr-scrolled .gved .wx-pill svg{width:16px;height:16px}
+body.hdr-over.hdr-scrolled .gved .wx-pill b{font-size:16px}
+body.hdr-over.hdr-scrolled .gved .wx-pill>span:not(.chev){font-size:10px;letter-spacing:.14em}
+body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-width:0 1px 1px 0;margin-left:2px}
 @media (max-width:760px){.gved .wx-pill>span:not(.chev){display:none}.gved .wx-pill{gap:6px;padding:8px 12px 8px 10px}body.hdr-over .gved .wx{top:calc((var(--hdr,72px) - 38px)/2);right:14px}body.hdr-over.hdr-scrolled .gved .wx{opacity:0;pointer-events:none}}
 /* Stay: copy left, rooms right */
 .gved .stay-grid{display:grid;grid-template-columns:minmax(260px,.8fr) 1.7fr;gap:clamp(30px,5vw,80px);align-items:start}
