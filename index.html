@@ -465,6 +465,15 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .x{display:none}
 .gved .posts span.ar{display:none}
 .gved .posts a{grid-template-columns:84px 1fr}
 .gved .yr .more{display:inline-flex;align-self:flex-start;padding:10px 18px;border:1px solid rgba(255,255,255,.8);border-radius:999px;border-top:1px solid rgba(255,255,255,.8)!important}
+
+/* Perfect day: the photo changes to match the activity you hover over (or tap on a phone) */
+.gved .day-pic{position:relative}
+.gved .day-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease}
+.gved .day-pic img.off{opacity:0}
+.gved .day-list li{cursor:default;transition:background .3s,padding .3s}
+.gved .day-list li[data-img]{cursor:pointer}
+.gved .day-list li.on{background:rgba(255,255,255,.45);padding-left:10px;padding-right:10px}
+.gved .day-list li:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 </style>
 
 <div class="gved" id="gved">
@@ -531,16 +540,16 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .x{display:none}
     <div class="day">
       <figure class="day-pic rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="Sunset over the dunes at Camber Sands" loading="lazy"></figure>
       <ol class="day-list rv">
-        <li><time>8.30</time><span>Breakfast in bed</span></li>
-        <li><time>9.30</time><span>Yoga in the studio</span></li>
-        <li><time>10.30</time><span>A long walk on the beach</span></li>
-        <li><time>12.00</time><span>Coffee in Rye and a wander up the cobbles</span></li>
-        <li><time>1.30</time><span>A nap in the window seat</span></li>
-        <li><time>4.00</time><span>House cake in the Snug</span></li>
-        <li><time>5.00</time><span>English wine on the terrace</span></li>
-        <li><time>6.30</time><span>Sunset drinks in the dunes</span></li>
-        <li><time>8.00</time><span>Dinner at Harry’s, and the tarte fine</span></li>
-        <li><time>10.30</time><span>Scrabble by the fire</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF1654-scaled.jpeg" data-alt="Breakfast at The Gallivant"><time>8.30</time><span>Breakfast in bed</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2020/08/20_010SummerHseYogaStudio_026-1440x685.jpeg" data-alt="The yoga studio"><time>9.30</time><span>Yoga in the studio</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2021/11/PaulReadPhotography-109.jpg" data-alt="In the waves at Camber Sands"><time>10.30</time><span>A long walk on the beach</span></li>
+        <li tabindex="0"><time>12.00</time><span>Coffee in Rye and a wander up the cobbles</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/09/TheGallivant-16-1.jpeg" data-alt="A bedroom with a window sofa"><time>1.30</time><span>A nap in the window seat</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" data-alt="The Snug"><time>4.00</time><span>House cake in the Snug</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/39-1080x835.jpeg" data-alt="The garden room and terrace"><time>5.00</time><span>English wine on the terrace</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" data-alt="Sunset over the dunes at Camber Sands"><time>6.30</time><span>Sunset drinks in the dunes</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/Harrys_14Jan26_Tolga_31-scaled.jpeg" data-alt="Tarte fine aux pommes at Harry’s"><time>8.00</time><span>Dinner at Harry’s, and the tarte fine</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" data-alt="Games by the log fire"><time>10.30</time><span>Scrabble by the fire</span></li>
       </ol>
     </div>
   </div>
@@ -835,6 +844,27 @@ var root=document.getElementById('gved');
     btn.href=base+(on.length?'?moods='+on.join(','):'');
     btn.textContent=on.length?'Plan my stay →':'Plan my stay';
   });
+})();
+/* Perfect day: swap the photo for the activity being hovered, focused or tapped */
+(function(){
+  var fig=root.querySelector('.day-pic'), list=root.querySelector('.day-list'); if(!fig||!list) return;
+  var base=fig.querySelector('img'), cache={}, cur=base.getAttribute('src');
+  cache[cur]=base;
+  function show(src,alt,li){
+    [].forEach.call(list.children,function(x){ x.classList.toggle('on',x===li); });
+    if(!src||src===cur) return;
+    var im=cache[src]; if(!im){ im=document.createElement('img'); im.src=src; im.alt=alt||''; im.className='off'; fig.appendChild(im); cache[src]=im; void im.offsetWidth; }
+    Object.keys(cache).forEach(function(k){ cache[k].classList.toggle('off',k!==src); }); cur=src;
+  }
+  [].forEach.call(list.children,function(li){
+    function go(){ show(li.getAttribute('data-img'),li.getAttribute('data-alt'),li); }
+    li.addEventListener('mouseenter',go); li.addEventListener('focus',go); li.addEventListener('click',go);
+  });
+  /* load the photos once the section is near, so hovering is instant */
+  function preload(){ [].forEach.call(list.querySelectorAll('[data-img]'),function(li){ var i=new Image(); i.src=li.getAttribute('data-img'); }); }
+  if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ preload(); io.disconnect(); } },{rootMargin:'400px'}); io.observe(list); } else preload();
+  /* sunset is the starting photo, so mark that line */
+  var start=[].filter.call(list.children,function(li){ return li.getAttribute('data-img')===cur; })[0]; if(start) start.classList.add('on');
 })();
 </script>
 
