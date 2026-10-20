@@ -156,18 +156,29 @@
 
 /* Handwritten day plan */
 .gved .plan{background:var(--paper-2);overflow:hidden}
-.gved .plan .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,100px);align-items:center}
+/* Intro and photo on the left, the day's timetable on the right, stretched to the same height */
+.gved .pday{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:stretch}
 .gved .plan h2{font-size:clamp(30px,3.70vw,53px);margin:14px 0 22px}
 .gved .plan .intro p{color:var(--ink-soft);max-width:44ch;margin-bottom:28px}
-.gved .plan .grid{align-items:start}
-.gved .day{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,3vw,48px);align-items:start}
-.gved .day-pic{margin:0;aspect-ratio:4/5;overflow:hidden}
-.gved .day-pic img{width:100%;height:100%;object-fit:cover}
-.gved .day-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.gved .day-list li{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.4}
+.gved .day-fig{margin:clamp(28px,3vw,44px) 0 0}
+.gved .day-pic{position:relative;aspect-ratio:3/2;overflow:hidden;background:rgba(0,0,0,.05)}
+.gved .day-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s ease}
+.gved .day-pic img.off{opacity:0}
+.gved .day-cap{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:baseline;padding-top:16px;min-height:4.4em;font-size:15px;line-height:1.5;color:var(--ink-soft);transition:opacity .3s}
+.gved .day-cap.fade{opacity:0}
+.gved .day-cap time{font-family:var(--serif);font-size:20px;color:var(--ink)}
+.gved .day-cap b{display:block;font-weight:400;color:var(--ink);font-size:16px}
+.gved .day-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);display:flex;flex-direction:column}
+.gved .day-list li{position:relative;flex:1 1 auto;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:12px 0 12px 20px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.4;cursor:pointer}
+.gved .day-list li::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:2px;background:var(--cta);transform:scaleY(0);transition:transform .35s ease}
+.gved .day-list li.on::before{transform:scaleY(1)}
 .gved .day-list time{font-family:var(--serif);font-size:20px;color:var(--ink)}
-@media (max-width:960px){.gved .plan .grid{grid-template-columns:1fr}}
-@media (max-width:640px){.gved .day{grid-template-columns:1fr}.gved .day-pic{aspect-ratio:4/3}}
+.gved .day-list time,.gved .day-list span{transition:opacity .35s}
+.gved .day-list li:not(.on) time,.gved .day-list li:not(.on) span{opacity:.55}
+.gved .day-list li:hover time,.gved .day-list li:hover span{opacity:1}
+.gved .day-list li:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+@media (max-width:960px){.gved .pday{grid-template-columns:1fr}.gved .day-list li{flex:none}}
+@media (max-width:640px){.gved .day-pic{aspect-ratio:4/3}.gved .day-list li{padding-left:16px}}
 
 /* Harry's */
 .gved .harrys .grid{display:grid;grid-template-columns:.8fr 1fr .9fr;gap:clamp(20px,3vw,48px);align-items:end}
@@ -474,14 +485,7 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
 .gved .posts a{grid-template-columns:84px 1fr}
 .gved .yr .more{display:inline-flex;align-self:flex-start;padding:10px 18px;border:1px solid rgba(255,255,255,.8);border-radius:999px;border-top:1px solid rgba(255,255,255,.8)!important}
 
-/* Perfect day: the photo changes to match the activity you hover over (or tap on a phone) */
-.gved .day-pic{position:relative}
-.gved .day-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease}
-.gved .day-pic img.off{opacity:0}
-.gved .day-list li{cursor:default;transition:background .3s,padding .3s}
-.gved .day-list li[data-img]{cursor:pointer}
-.gved .day-list li.on{background:rgba(255,255,255,.45);padding-left:10px;padding-right:10px}
-.gved .day-list li:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
 </style>
 
 <div class="gved" id="gved">
@@ -538,28 +542,30 @@ body.hdr-over.hdr-scrolled .gved .wx-pill .chev{width:6px;height:6px;border-widt
 
 
 <section class="sec plan">
-  <div class="wrap grid">
-    <div class="intro">
-      
-      <h2 class="rv">A perfect Gallivant day</h2>
-      <p class="rv"><span class="lead-in">Nothing to do, and all day to do it.</span> Beach, cake, English wine, sunset in the dunes and dinner at Harry’s. Here’s how we’d spend it – though doing absolutely nothing is also allowed.</p>
-      <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book your day</a><a class="btn btn-i" href="https://thegallivant.co.uk/gallivant-guides/">Gallivant guides</a></div>
+  <div class="wrap pday">
+    <div class="pday-l">
+      <div class="intro">
+        <h2 class="rv">A perfect Gallivant day</h2>
+        <p class="rv"><span class="lead-in">Nothing to do, and all day to do it.</span> Beach, cake, English wine, sunset in the dunes and dinner at Harry’s. Here’s how we’d spend it – though doing absolutely nothing is also allowed.</p>
+        <div class="btns rv"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book your day</a><a class="btn btn-i" href="https://thegallivant.co.uk/gallivant-guides/">Gallivant guides</a></div>
+      </div>
+      <figure class="day-fig rv">
+        <div class="day-pic"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF1654-scaled.jpeg" alt="Breakfast at The Gallivant" loading="lazy"></div>
+        <figcaption class="day-cap" aria-live="polite"><time>8.30</time><span><b>Breakfast in bed</b>Brought up on a tray. Nobody needs to see you before coffee.</span></figcaption>
+      </figure>
     </div>
-    <div class="day">
-      <figure class="day-pic rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" alt="Sunset over the dunes at Camber Sands" loading="lazy"></figure>
-      <ol class="day-list rv">
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF1654-scaled.jpeg" data-alt="Breakfast at The Gallivant"><time>8.30</time><span>Breakfast in bed</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2020/08/20_010SummerHseYogaStudio_026-1440x685.jpeg" data-alt="The yoga studio"><time>9.30</time><span>Yoga in the studio</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2021/11/PaulReadPhotography-109.jpg" data-alt="In the waves at Camber Sands"><time>10.30</time><span>A long walk on the beach</span></li>
-        <li tabindex="0"><time>12.00</time><span>Coffee in Rye and a wander up the cobbles</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/09/TheGallivant-16-1.jpeg" data-alt="A bedroom with a window sofa"><time>1.30</time><span>A nap in the window seat</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" data-alt="The Snug"><time>4.00</time><span>House cake in the Snug</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/39-1080x835.jpeg" data-alt="The garden room and terrace"><time>5.00</time><span>English wine on the terrace</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" data-alt="Sunset over the dunes at Camber Sands"><time>6.30</time><span>Sunset drinks in the dunes</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/Harrys_14Jan26_Tolga_31-scaled.jpeg" data-alt="Tarte fine aux pommes at Harry’s"><time>8.00</time><span>Dinner at Harry’s, and the tarte fine</span></li>
-        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" data-alt="Games by the log fire"><time>10.30</time><span>Scrabble by the fire</span></li>
-      </ol>
-    </div>
+    <ol class="day-list rv">
+        <li tabindex="0" class="on" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF1654-scaled.jpeg" data-alt="Breakfast at The Gallivant" data-line="Brought up on a tray. Nobody needs to see you before coffee."><time>8.30</time><span>Breakfast in bed</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2020/08/20_010SummerHseYogaStudio_026-1440x685.jpeg" data-alt="The yoga studio" data-line="A slow class in the garden studio, before the beach wakes up."><time>9.30</time><span>Yoga in the studio</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2021/11/PaulReadPhotography-109.jpg" data-alt="In the waves at Camber Sands" data-line="Out of the gate and straight onto Camber Sands. Boots optional."><time>10.30</time><span>A long walk on the beach</span></li>
+        <li tabindex="0" data-line="Ten minutes up the road. Mermaid Street is steeper than it looks."><time>12.00</time><span>Coffee and cobbles in Rye</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/09/TheGallivant-16-1.jpeg" data-alt="A bedroom with a window sofa" data-line="The sea air does this to everyone."><time>1.30</time><span>A nap in the window seat</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/5-1080x854.jpeg" data-alt="The Snug" data-line="Whatever came out of the oven this afternoon, and a pot of tea."><time>4.00</time><span>House cake in the Snug</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/39-1080x835.jpeg" data-alt="The garden room and terrace" data-line="Something sparkling from the vineyards just up the road."><time>5.00</time><span>English wine on the terrace</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/1-1080x927.jpeg" data-alt="Sunset over the dunes at Camber Sands" data-line="Drinks in the Dunes, while the sun goes down over the bay."><time>6.30</time><span>Sunset drinks in the dunes</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/Harrys_14Jan26_Tolga_31-scaled.jpeg" data-alt="Tarte fine aux pommes at Harry’s" data-line="Order the tarte fine. Share it, if you really must."><time>8.00</time><span>Dinner at Harry’s</span></li>
+        <li tabindex="0" data-img="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" data-alt="Games by the log fire" data-line="Last one up puts the guard on the fire."><time>10.30</time><span>Scrabble by the fire</span></li>
+    </ol>
   </div>
 </section>
 
@@ -853,26 +859,38 @@ var root=document.getElementById('gved');
     btn.textContent=on.length?'Plan my stay →':'Plan my stay';
   });
 })();
-/* Perfect day: swap the photo for the activity being hovered, focused or tapped */
+/* Perfect day: the photo and caption follow the activity you hover, focus or tap.
+   Left alone, the day plays through by itself every few seconds (not for people who prefer less motion). */
 (function(){
-  var fig=root.querySelector('.day-pic'), list=root.querySelector('.day-list'); if(!fig||!list) return;
-  var base=fig.querySelector('img'), cache={}, cur=base.getAttribute('src');
+  var fig=root.querySelector('.day-pic'), list=root.querySelector('.day-list'), cap=root.querySelector('.day-cap'); if(!fig||!list) return;
+  var lis=[].slice.call(list.children), base=fig.querySelector('img'), cache={}, cur=base.getAttribute('src'), idx=0;
   cache[cur]=base;
-  function show(src,alt,li){
-    [].forEach.call(list.children,function(x){ x.classList.toggle('on',x===li); });
-    if(!src||src===cur) return;
-    var im=cache[src]; if(!im){ im=document.createElement('img'); im.src=src; im.alt=alt||''; im.className='off'; fig.appendChild(im); cache[src]=im; void im.offsetWidth; }
+  function show(i){
+    var li=lis[i]; if(!li) return; idx=i;
+    lis.forEach(function(x){ x.classList.toggle('on',x===li); });
+    if(cap){ cap.classList.add('fade'); setTimeout(function(){ cap.innerHTML='<time>'+li.querySelector('time').textContent+'</time><span><b>'+li.querySelector('span').textContent+'</b>'+(li.getAttribute('data-line')||'')+'</span>'; cap.classList.remove('fade'); },250); }
+    var src=li.getAttribute('data-img'); if(!src||src===cur) return;
+    var im=cache[src]; if(!im){ im=document.createElement('img'); im.src=src; im.alt=li.getAttribute('data-alt')||''; im.className='off'; fig.appendChild(im); cache[src]=im; void im.offsetWidth; }
     Object.keys(cache).forEach(function(k){ cache[k].classList.toggle('off',k!==src); }); cur=src;
   }
-  [].forEach.call(list.children,function(li){
-    function go(){ show(li.getAttribute('data-img'),li.getAttribute('data-alt'),li); }
-    li.addEventListener('mouseenter',go); li.addEventListener('focus',go); li.addEventListener('click',go);
+  var still=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer=null, inView=false, hold=false, resumeAt=0;
+  function tick(){ if(inView && !hold && Date.now()>=resumeAt) show((idx+1)%lis.length); }
+  function run(){ if(still||timer) return; timer=setInterval(tick,4200); }
+  lis.forEach(function(li,i){
+    li.addEventListener('mouseenter',function(){ if(i!==idx) show(i); });
+    li.addEventListener('focus',function(){ if(i!==idx) show(i); });
+    li.addEventListener('click',function(){ if(i!==idx) show(i); resumeAt=Date.now()+12000; });
   });
-  /* load the photos once the section is near, so hovering is instant */
-  function preload(){ [].forEach.call(list.querySelectorAll('[data-img]'),function(li){ var i=new Image(); i.src=li.getAttribute('data-img'); }); }
-  if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ preload(); io.disconnect(); } },{rootMargin:'400px'}); io.observe(list); } else preload();
-  /* sunset is the starting photo, so mark that line */
-  var start=[].filter.call(list.children,function(li){ return li.getAttribute('data-img')===cur; })[0]; if(start) start.classList.add('on');
+  var area=root.querySelector('.pday')||list;
+  [list,fig].forEach(function(el){ el.addEventListener('mouseenter',function(){ hold=true; }); el.addEventListener('mouseleave',function(){ hold=false; resumeAt=Date.now()+2500; }); });
+  list.addEventListener('focusin',function(){ hold=true; }); list.addEventListener('focusout',function(){ hold=false; });
+  /* load the photos once the section is near, so changes are instant */
+  function preload(){ lis.forEach(function(li){ var s=li.getAttribute('data-img'); if(s){ var i=new Image(); i.src=s; } }); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ preload(); io.disconnect(); } },{rootMargin:'400px'}); io.observe(list);
+    var vo=new IntersectionObserver(function(es){ inView=es[0].isIntersecting; if(inView){ resumeAt=Math.max(resumeAt,Date.now()+1500); run(); } },{threshold:.35}); vo.observe(area);
+  } else { preload(); inView=true; run(); }
 })();
 </script>
 
