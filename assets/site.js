@@ -50,9 +50,11 @@
     var c=document.createElement('span'); c.className='nav-count'; c.setAttribute('aria-live','polite'); bs[0].after(c);
     function upd(){ var kids=[].slice.call(row.children).filter(function(k){ return k.offsetWidth>0; }); if(!kids.length) return;
       var step=kids.length>1?(kids[1].offsetLeft-kids[0].offsetLeft):kids[0].offsetWidth; var i=Math.round(row.scrollLeft/Math.max(1,step));
-      var vis=Math.max(1,Math.round(row.clientWidth/Math.max(1,step))); var last=Math.max(1,kids.length-vis+1);
+      var last=Math.max(1,Math.min(kids.length,Math.ceil((row.scrollWidth-row.clientWidth-4)/Math.max(1,step))+1));
+      /* count the stops the arrows can actually reach, not the photos, since several show at once */
+      if(row.scrollLeft+row.clientWidth>=row.scrollWidth-4) i=last-1;
       i=Math.min(Math.max(i,0),last-1); var pad=function(n){ return (n<10?'0':'')+n; };
-      c.textContent=pad(i+1)+' / '+pad(kids.length);
+      c.textContent=pad(i+1)+' / '+pad(last); c.style.visibility=last>1?'':'hidden';
       bs[0].disabled=row.scrollLeft<4; bs[bs.length-1].disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-4; }
     row.addEventListener('scroll',function(){ requestAnimationFrame(upd); },{passive:true}); addEventListener('resize',upd); setTimeout(upd,300); upd();
   });
