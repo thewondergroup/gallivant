@@ -438,7 +438,7 @@ body:has(.gved) .content-section:has(.gved),body:has(.gved) section-inner:has(.g
 body.hdr-over .gved .wx{position:fixed;top:calc((var(--hdr,82px) - 42px)/2);right:clamp(16px,4vw,56px);z-index:1001;transition:right .45s,opacity .45s}
 body.hdr-over .site-hdr:not(.scrolled) .book{opacity:0;pointer-events:none;visibility:hidden}
 body.hdr-over .site-hdr .book{transition:opacity .45s,background .3s,color .3s}
-body.hdr-over.hdr-scrolled .gved .wx{right:calc(clamp(16px,4vw,56px) + 136px)}
+body.hdr-over.hdr-scrolled .gved .wx{right:var(--wx-r,calc(clamp(16px,4vw,56px) + 170px))}
 body.hdr-over.hdr-scrolled .gved .wx-pill .x{display:none}
 /* In the solid header the weather drops its lozenge and sits quietly as text beside BOOK */
 body.hdr-over .gved .wx-pill{transition:background .3s,border-color .3s,padding .3s,opacity .3s}
@@ -778,6 +778,10 @@ var root=document.getElementById('gved');
 /* Live weather at Camber Sands (Open-Meteo, free, no key): now, 4-day view and today's tides. Hidden if it can't load. */
 (function(){
   var box=root.querySelector('.wx'); if(!box || !window.fetch) return;
+  /* in the scrolled header, sit a clear gap to the left of BOOK, however wide BOOK is */
+  (function(){ var bk=document.querySelector('.site-hdr .book'); if(!bk) return;
+    function place(){ var r=bk.getBoundingClientRect(); if(r.width) box.style.setProperty('--wx-r',Math.round(document.documentElement.clientWidth-r.left+24)+'px'); }
+    place(); addEventListener('resize',place); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(place); setTimeout(place,1200); })();
   var pill=box.querySelector('.wx-pill'), panel=box.querySelector('.wx-panel');
   var KEY='gvWx2', TTL=15*60*1000;
   var ic={
