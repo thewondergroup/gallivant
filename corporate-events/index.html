@@ -371,6 +371,12 @@ html .gved .intro figure .tag{background:#576B31}
 html .gved .enq .intro-t p,html .gved .f label,html .gved .f legend,html .gved .consent,html .gved .got p,html .gved .hint,html .gved .skip,html .gved .pills label{color:#F2EDE0}
 html .gved .f input,html .gved .f select,html .gved .f textarea{color:#F2EDE0;border-bottom-color:rgba(242,237,224,.5)}
 html .gved .skip{border-bottom-color:rgba(242,237,224,.5)}
+/* Harry's edits (22 Oct): softer pink buttons that brighten on hover; outline buttons on green turn cream; one heading size */
+html .gved{--cta:#A82878;--cta-hover:#D03597;--magenta:#A82878;--magenta-deep:#D03597}
+html .gved .btn-m{background:#A82878}html .gved .btn-m:hover{background:#D03597}
+html .gved :is(.plan,.days,.cta,.enq,.book-band,.dunes,.facts,.book,.booking) :is(.btn-i,.btn-w,.link):hover{background:#F2EDE0!important;border-color:#F2EDE0!important;color:#576B31!important}
+html .gved h1,html .gved h2,html .gved .pb-head h3{font-size:clamp(34px,4.44vw,64px)!important}
+html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1{font-size:clamp(34px,4.44vw,64px)!important}
 </style>
 
 <div class="gved" id="gved">
