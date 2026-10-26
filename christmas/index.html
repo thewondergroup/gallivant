@@ -315,6 +315,68 @@ html .gved .intro figure .tag{background:#576B31}
 .gved .cta-x .acc .a a{text-decoration:underline}
 .gved .cta-btns{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 @media (max-width:860px){.gved .split{grid-template-columns:1fr}.gved .split figure{min-height:0;aspect-ratio:4/3}.gved .split.flip figure,.gved .feast.flip figure{order:0}.gved .cta-grid{grid-template-columns:1fr}}
+/* Lower half reworked (26 Oct pm): less blocky, each row its own shape */
+.gved .xp{background:var(--ground);padding:clamp(70px,9vw,130px) 0}
+.gved .xp-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 clamp(16px,2vw,28px);align-items:center}
+.gved .xp-pics{grid-column:1/7;position:relative;aspect-ratio:1/1.08}
+.gved .xp-pics img{position:absolute;object-fit:cover}
+.gved .xp-pics .a{left:0;top:0;width:80%;height:76%}
+.gved .xp-pics .b{right:0;bottom:0;width:50%;height:46%;border:8px solid var(--ground)}
+.gved .xp-txt{grid-column:8/13;display:flex;flex-direction:column;gap:18px}
+.gved .xp-txt h2,.gved .xe h2,.gved .xh h2,.gved .xg h2{margin:0}
+.gved .xp-txt p{margin:0;max-width:52ch}
+.gved .xp-opts{list-style:none;margin:6px 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.gved .xp-opts li{display:grid;grid-template-columns:minmax(150px,38%) 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.gved .xp-opts b{font-family:var(--font-display);font-weight:400;font-size:21px;line-height:1.2}
+.gved .xp-opts span{font-size:15px;line-height:1.55}
+.gved .xe{background:var(--panel);padding:clamp(70px,9vw,130px) 0 clamp(60px,8vw,110px)}
+.gved .xe-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,90px);align-items:end}
+.gved .xe-head h2{max-width:14ch}
+.gved .xe-head p{margin:0;max-width:50ch}
+.gved .xe-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);margin:clamp(40px,5vw,70px) 0;align-items:start}
+.gved .xe-strip figure{margin:0}
+.gved .xe-strip figure:nth-child(2){margin-top:clamp(30px,5vw,80px)}
+.gved .xe-strip img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.gved .xe-strip figcaption{font-family:var(--font-display);font-size:20px;line-height:1.25;margin-top:14px}
+.gved .xe-foot{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,90px);align-items:start}
+.gved .xe-foot>p{margin:0;max-width:56ch}
+.gved .xe .sign{font-family:var(--font-display);font-size:clamp(22px,2.2vw,30px);line-height:1.25;margin:0 0 20px}
+.gved .xh{background:var(--ground);padding:clamp(70px,9vw,130px) 0}
+.gved .xh-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 clamp(16px,2vw,28px);align-items:center}
+.gved .xh-txt{grid-column:1/6;display:flex;flex-direction:column;gap:18px}
+.gved .xh-txt p{margin:0;max-width:46ch}
+.gved .xh-q{font-family:var(--font-display);font-size:clamp(22px,2.1vw,30px);line-height:1.3;padding-top:20px;border-top:1px solid var(--line);font-style:normal}
+.gved .xh-img{grid-column:7/13;margin:0;aspect-ratio:4/5;overflow:hidden}
+.gved .xh-img img{width:100%;height:100%;object-fit:cover}
+.gved .xg{background:var(--panel);padding:clamp(80px,10vw,150px) 0;overflow:hidden}
+.gved .xg-grid{display:grid;grid-template-columns:1fr minmax(0,560px) 1fr;gap:clamp(20px,4vw,70px);align-items:center}
+.gved .xg-txt{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.gved .xg-txt p{margin:0}
+.gved .xg-line{font-family:var(--font-display);font-size:clamp(20px,1.9vw,26px);line-height:1.35}
+.gved .xg-card{margin:0}
+.gved .xg-card .pc{background:#fff;padding:10px 10px 34px;box-shadow:0 14px 34px rgba(43,42,40,.16);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gved .xg-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.gved .xg-card.l .pc{transform:rotate(-4deg) translateY(30px)}
+.gved .xg-card.r .pc{transform:rotate(3.5deg) translateY(-30px)}
+.gved .xg-card .pc:hover{transform:rotate(0) translateY(0)}
+@media (max-width:960px){
+  .gved .xp-pics{grid-column:1/-1;max-width:560px;width:100%;margin-bottom:40px}
+  .gved .xp-txt,.gved .xh-txt{grid-column:1/-1}
+  .gved .xe-head,.gved .xe-foot{grid-template-columns:1fr;gap:20px}
+  .gved .xh-img{grid-column:1/-1;margin:40px 0 0;aspect-ratio:4/3}
+  .gved .xg-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .gved .xg-txt{grid-column:1/-1;grid-row:2}
+  .gved .xg-card{max-width:220px;justify-self:center}
+  .gved .xg-card.l .pc{transform:rotate(-4deg)}.gved .xg-card.r .pc{transform:rotate(3.5deg) translateY(16px)}
+}
+@media (max-width:620px){
+  .gved .xe-strip{grid-template-columns:1fr 1fr}
+  .gved .xe-strip figure:nth-child(2){margin-top:40px}
+  .gved .xe-strip figure:nth-child(3){grid-column:1/-1;width:62%;margin-top:4px}
+  .gved .xe-strip img{aspect-ratio:4/5}
+  .gved .xp-opts li{grid-template-columns:1fr;gap:4px}
+  .gved .xg-card .pc{padding:7px 7px 22px}
+}
 /* Harry's edits (22 Oct): softer pink buttons that brighten on hover; outline buttons on green turn cream; one heading size */
 html .gved{--cta:#A82878;--cta-hover:#D03597;--magenta:#A82878;--magenta-deep:#D03597}
 html .gved .btn-m{background:#A82878}html .gved .btn-m:hover{background:#D03597}
@@ -404,25 +466,40 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
   </div>
 </section>
 
-<section class="split parties">
-  <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/Still-2025-10-31-092223_1.8.1-820x566.jpg" alt="Raising a glass by candlelight" loading="lazy"></figure>
-  <div class="txt rv">
-    <h2>Christmas parties</h2>
-    <p>Celebrate Christmas with friends and colleagues in the run-up to the big day. Toast the end of the year and the festive holidays ahead with delicious food and wine in one of our beautiful spaces.</p>
-    <p>You can take over the whole Gallivant for 24 hours for an exclusive, completely private event, or enjoy one of our stunning spaces, from The Cabin, our beautiful Ralph Lauren-inspired private dining room, to somewhere in Harry’s.</p>
-    <p>Whatever the occasion, the Gallivant at Christmas provides a stunning festive backdrop for every special celebration or event.</p>
-    <div class="btns"><a class="btn btn-m" href="../corporate-events/">Christmas parties</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/christmas-dining" target="_blank" rel="noopener">Harry’s Christmas menus</a></div>
+<section class="xp">
+  <div class="wrap xp-grid">
+    <div class="xp-pics rv">
+      <img class="a" src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/Still-2025-10-31-092223_1.8.1-820x566.jpg" alt="Raising a glass by candlelight" loading="lazy">
+      <img class="b" src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/10/32-1080x854.jpeg" alt="A table laid in The Cabin" loading="lazy">
+    </div>
+    <div class="xp-txt">
+      <h2 class="rv">Christmas parties</h2>
+      <p class="rv">Celebrate Christmas with friends and colleagues in the run-up to the big day. Toast the end of the year and the festive holidays ahead with delicious food and wine in one of our beautiful spaces.</p>
+      <ul class="xp-opts rv">
+        <li><b>The whole Gallivant</b><span>Take it over for 24 hours for an exclusive, completely private event.</span></li>
+        <li><b>The Cabin or Harry’s</b><span>Our beautiful Ralph Lauren-inspired private dining room, or somewhere in Harry’s.</span></li>
+      </ul>
+      <p class="rv">Whatever the occasion, the Gallivant at Christmas provides a stunning festive backdrop for every special celebration or event.</p>
+      <div class="btns rv"><a class="btn btn-m" href="../corporate-events/">Christmas parties</a><a class="btn btn-i" href="https://www.harryscambersands.co.uk/christmas-dining" target="_blank" rel="noopener">Harry’s Christmas menus</a></div>
+    </div>
   </div>
 </section>
 
-<section class="split escape flip">
-  <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/04/DB-GALLIVANT-EXTERIORS-16-1440x685.jpeg" alt="The Gallivant from the dunes" loading="lazy"></figure>
-  <div class="txt rv">
-    <h2>Escape to the Gallivant over the holidays</h2>
-    <p>We might well be the ultimate home from home to escape to over the Christmas and New Year holidays. If you need to get away from it all in search of the carefree happiness that spending a day or two by the sea can bring, we’re here for you.</p>
-    <p>We offer the simple pleasures that make a trip away over the holidays feel like a proper escape. Deeply comfortable beds, exquisite food and drink, long walks on a sandy beach. A team to make you smile, a roaring log fire and not a young child in sight.</p>
-    <p>Happy holidays at the Gallivant.</p>
-    <div class="btns"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book a room</a><a class="btn btn-i" href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/">Stay</a></div>
+<section class="xe">
+  <div class="wrap">
+    <div class="xe-head">
+      <h2 class="rv">Escape to the Gallivant over the holidays</h2>
+      <p class="rv">We might well be the ultimate home from home to escape to over the Christmas and New Year holidays. If you need to get away from it all in search of the carefree happiness that spending a day or two by the sea can bring, we’re here for you.</p>
+    </div>
+    <div class="xe-strip">
+      <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2023/09/TheGallivant-16-1.jpeg" alt="A bedroom at The Gallivant" loading="lazy"><figcaption>Deeply comfortable beds</figcaption></figure>
+      <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2022/10/unnamed-file-scaled-e1665757582251.jpeg" alt="The log fire in the Sitting Room" loading="lazy"><figcaption>A roaring log fire</figcaption></figure>
+      <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/178A3383-820x566.jpeg" alt="A walk in the dunes with the dog" loading="lazy"><figcaption>Long walks on a sandy beach</figcaption></figure>
+    </div>
+    <div class="xe-foot">
+      <p class="rv">We offer the simple pleasures that make a trip away over the holidays feel like a proper escape. Deeply comfortable beds, exquisite food and drink, long walks on a sandy beach. A team to make you smile, a roaring log fire and not a young child in sight.</p>
+      <div class="rv"><p class="sign">Happy holidays at the Gallivant.</p><div class="btns"><a class="btn btn-m" href="https://app.mews.com/distributor/d855485b-6230-4be6-b8aa-ab3d012255ab" target="_blank" rel="noopener">Book a room</a><a class="btn btn-i" href="https://thegallivant.co.uk/coastal-hotel-stay-east-sussex/">Stay</a></div></div>
+    </div>
   </div>
 </section>
 
@@ -434,24 +511,29 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
   </div>
 </section>
 
-<section class="feast flip rv" id="gved-dining">
-  <figure><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/DSCF0120-1.jpeg" alt="Roast turkey Christmas lunch at Harry's" loading="lazy"></figure>
-  <div class="txt">
-    <h2>Christmas at Harry’s</h2>
-    <p><span class="lead-in">Festive menus from Chef Matthew.</span> Executive Chef Matthew Harris, twenty years Head Chef at Bibendum, writes menus that celebrate the season, each course paired with fine and rare wines and finished with moreish digestifs.</p>
-    <blockquote>Candlelight, white tablecloths and food made for sharing: a French brasserie by the sea.</blockquote>
-    <div class="btns stack-btns" style="margin-top:8px"><a class="btn btn-i" href="../eat-and-drink/harrys/">Explore Harry’s</a><a class="btn btn-m" href="https://www.harryscambersands.co.uk/christmas-dining" target="_blank" rel="noopener">Christmas menus</a></div>
+<section class="xh" id="gved-dining">
+  <div class="wrap xh-grid">
+    <div class="xh-txt">
+      <h2 class="rv">Christmas at Harry’s</h2>
+      <p class="rv"><span class="lead-in">Festive menus from Chef Matthew.</span> Executive Chef Matthew Harris, twenty years Head Chef at Bibendum, writes menus that celebrate the season, each course paired with fine and rare wines and finished with moreish digestifs.</p>
+      <p class="xh-q rv">Candlelight, white tablecloths and food made for sharing: a French brasserie by the sea.</p>
+      <div class="btns stack-btns rv"><a class="btn btn-i" href="../eat-and-drink/harrys/">Explore Harry’s</a><a class="btn btn-m" href="https://www.harryscambersands.co.uk/christmas-dining" target="_blank" rel="noopener">Christmas menus</a></div>
+    </div>
+    <figure class="xh-img rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/DSCF0120-1.jpeg" alt="Roast turkey Christmas lunch at Harry's" loading="lazy"></figure>
   </div>
 </section>
 
-<section class="split gifts" id="gved-gifts">
-  <figure class="rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="Siggy’s dressed for Christmas" loading="lazy"></figure>
-  <div class="txt rv">
-    <h2>Christmas gifts</h2>
-    <p>Finding the perfect gift for someone you love is getting increasingly difficult, with every product or ‘thing’ only a couple of clicks away.</p>
-    <p>Have you thought about giving them the gift of the Gallivant? Whether it’s to come and stay or to enjoy a sumptuous dinner in Harry’s, we’re very confident the gift of the Gallivant experience will be something they remember for a very long time.</p>
-    <p>Gift the unique experience of the Gallivant to someone you love this year. It really is the thought that counts.</p>
-    <div class="btns"><a class="btn btn-m" href="https://thegallivant.mews-giftvoucher.com" target="_blank" rel="noopener">Buy now</a></div>
+<section class="xg" id="gved-gifts">
+  <div class="wrap xg-grid">
+    <figure class="xg-card l rv"><div class="pc"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="Siggy’s dressed for Christmas" loading="lazy"></div></figure>
+    <div class="xg-txt">
+      <h2 class="rv">Christmas gifts</h2>
+      <p class="rv">Finding the perfect gift for someone you love is getting increasingly difficult, with every product or ‘thing’ only a couple of clicks away.</p>
+      <p class="rv">Have you thought about giving them the gift of the Gallivant? Whether it’s to come and stay or to enjoy a sumptuous dinner in Harry’s, we’re very confident the gift of the Gallivant experience will be something they remember for a very long time.</p>
+      <p class="xg-line rv">Gift the unique experience of the Gallivant to someone you love this year. It really is the thought that counts.</p>
+      <div class="btns rv"><a class="btn btn-m" href="https://thegallivant.mews-giftvoucher.com" target="_blank" rel="noopener">Buy now</a></div>
+    </div>
+    <figure class="xg-card r rv"><div class="pc"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF0116-820x566.jpeg" alt="Harry’s dining room" loading="lazy"></div></figure>
   </div>
 </section>
 
