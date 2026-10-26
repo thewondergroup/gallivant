@@ -142,12 +142,12 @@ main{display:block}
 .site-ftr .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:12px;opacity:.85}
 @media (max-width:960px){.site-ftr .top{grid-template-columns:1fr 1fr}.site-ftr .brand{grid-column:1/-1}}
 
-/* pages not built yet: shown faded, not clickable */
+/* pages not built yet: shown faded, not clickable (26 Oct: same size as the rest, in the client's order) */
 .drawer li.off .ml{opacity:.32;cursor:default;pointer-events:none}
-.drawer li.off .ml .t{font-size:clamp(18px,1.55vw,24px)}
-.drawer li:not(.off)+li.off{margin-top:clamp(10px,2vh,22px);padding-top:clamp(10px,2vh,22px);border-top:1px solid rgba(43,42,40,.16)}
-.drawer .more.off span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.32;padding:4px 0}
-@media (max-width:860px){.drawer li.off .ml .t{font-size:20px}.drawer li:not(.off)+li.off{margin-top:0;padding-top:0;border-top:0}.drawer .more.off span{font-size:11px;padding:8px 0}}
+.drawer .chip.off{opacity:.4;cursor:default}
+.drawer .chip.off:hover{background:none}
+.drawer .more .soon{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.32;padding:4px 0}
+@media (max-width:860px){.drawer .more .soon{font-size:11px;padding:8px 0}}
 
 /* Every page: header sits transparent over the top image, turns grey/green once you scroll */
 .site-hdr{transition:background-color .45s,box-shadow .3s}
@@ -186,3 +186,24 @@ body.wt-on .site-ftr .top+.base{border-top-color:rgba(255,255,255,.4)}
 }
 /* the menu sits on putty, so its BOOK button is ink, not white */
 .drawer .top .book{border-color:var(--ink);color:var(--ink)}
+
+/* ===== 26 Oct navigation doc: newsletter sign-up at the foot of the menu, MICHELIN Key by the logo ===== */
+.drawer .news{flex:0 0 auto;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:12px 28px;padding:18px 0 4px;margin-top:18px;border-top:1px solid rgba(43,42,40,.22);opacity:0;transition:opacity .8s ease .7s}
+.drawer.open .news{opacity:1}
+.drawer .news label b{display:block;font-family:var(--display);font-weight:400;font-size:20px;line-height:1.2}
+.drawer .news label small{display:block;font-size:12px;color:rgba(43,42,40,.7);margin-top:2px}
+.drawer .news .f{display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;max-width:420px;width:100%;justify-self:end}
+.drawer .news input[type=email]{flex:1;min-width:0;border:0;background:transparent;padding:11px 18px;font:inherit;font-size:14px;color:var(--ink);outline:0}
+.drawer .news input[type=email]::placeholder{color:rgba(43,42,40,.6)}
+.drawer .news button{border:0;background:var(--cta);color:#fff;padding:0 22px;font:inherit;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.drawer .news button:hover{background:var(--cta-hover)}
+.drawer .news .f:focus-within{box-shadow:0 0 0 3px rgba(168,40,120,.18)}
+@media (max-width:1100px){.drawer .news{grid-template-columns:1fr}.drawer .news .f{justify-self:start}}
+.site-hdr .mkey{position:absolute;top:50%;right:calc(50% + 104px);transform:translateY(-50%);line-height:0;pointer-events:none}
+.site-hdr .mkey img{height:15px;width:auto;display:block}
+@media (max-width:760px){
+  .site-hdr .mkey{right:auto;left:calc(clamp(16px,4vw,56px) + 134px);transition:opacity .3s}
+  .site-hdr .mkey img{height:10px}
+  .site-hdr.scrolled .mkey{opacity:0}
+}
+@media (max-width:359px){.site-hdr .mkey{display:none}}
