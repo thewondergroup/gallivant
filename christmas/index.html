@@ -349,34 +349,25 @@ html .gved .intro figure .tag{background:#576B31}
 .gved .xh-img{grid-column:7/13;margin:0;aspect-ratio:4/5;overflow:hidden}
 .gved .xh-img img{width:100%;height:100%;object-fit:cover}
 .gved .xg{background:var(--panel);padding:clamp(80px,10vw,150px) 0;overflow:hidden}
-.gved .xg-grid{display:grid;grid-template-columns:1fr minmax(0,560px) 1fr;gap:clamp(20px,4vw,70px);align-items:center}
-.gved .xg-txt{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.gved .xg-txt{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;max-width:640px;margin:0 auto}
+.gved .xg-wide{margin:clamp(44px,6vw,80px) 0 0;aspect-ratio:21/9;overflow:hidden}
+.gved .xg-wide img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+@media (max-width:620px){.gved .xg-wide{aspect-ratio:4/3}}
 .gved .xg-txt p{margin:0}
 .gved .xg-line{font-family:var(--font-display);font-size:clamp(20px,1.9vw,26px);line-height:1.35}
-.gved .xg-card{margin:0}
-.gved .xg-card .pc{background:#fff;padding:10px 10px 34px;box-shadow:0 14px 34px rgba(43,42,40,.16);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.gved .xg-card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.gved .xg-card.l .pc{transform:rotate(-4deg) translateY(30px)}
-.gved .xg-card.r .pc{transform:rotate(3.5deg) translateY(-30px)}
-.gved .xg-card .pc:hover{transform:rotate(0) translateY(0)}
 @media (max-width:960px){
   .gved .xp-pics{grid-column:1/-1;max-width:560px;width:100%;margin-bottom:40px}
   .gved .xp-txt,.gved .xh-txt{grid-column:1/-1}
   .gved .xe-head,.gved .xe-foot{grid-template-columns:1fr;gap:20px}
   .gved .xh-img{grid-column:1/-1;margin:40px 0 0;aspect-ratio:4/3}
-  .gved .xg-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .gved .xg-txt{grid-column:1/-1;grid-row:2}
-  .gved .xg-card{max-width:220px;justify-self:center}
-  .gved .xg-card.l .pc{transform:rotate(-4deg)}.gved .xg-card.r .pc{transform:rotate(3.5deg) translateY(16px)}
-}
+      }
 @media (max-width:620px){
   .gved .xe-strip{grid-template-columns:1fr 1fr}
   .gved .xe-strip figure:nth-child(2){margin-top:40px}
   .gved .xe-strip figure:nth-child(3){grid-column:1/-1;width:62%;margin-top:4px}
   .gved .xe-strip img{aspect-ratio:4/5}
   .gved .xp-opts li{grid-template-columns:1fr;gap:4px}
-  .gved .xg-card .pc{padding:7px 7px 22px}
-}
+  }
 /* Harry's edits (22 Oct): softer pink buttons that brighten on hover; outline buttons on green turn cream; one heading size */
 html .gved{--cta:#A82878;--cta-hover:#D03597;--magenta:#A82878;--magenta-deep:#D03597}
 html .gved .btn-m{background:#A82878}html .gved .btn-m:hover{background:#D03597}
@@ -524,8 +515,7 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
 </section>
 
 <section class="xg" id="gved-gifts">
-  <div class="wrap xg-grid">
-    <figure class="xg-card l rv"><div class="pc"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="Siggy’s dressed for Christmas" loading="lazy"></div></figure>
+  <div class="wrap">
     <div class="xg-txt">
       <h2 class="rv">Christmas gifts</h2>
       <p class="rv">Finding the perfect gift for someone you love is getting increasingly difficult, with every product or ‘thing’ only a couple of clicks away.</p>
@@ -533,7 +523,7 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
       <p class="xg-line rv">Gift the unique experience of the Gallivant to someone you love this year. It really is the thought that counts.</p>
       <div class="btns rv"><a class="btn btn-m" href="https://thegallivant.mews-giftvoucher.com" target="_blank" rel="noopener">Buy now</a></div>
     </div>
-    <figure class="xg-card r rv"><div class="pc"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2026/09/DSCF0116-820x566.jpeg" alt="Harry’s dining room" loading="lazy"></div></figure>
+    <figure class="xg-wide rv"><img src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-125-of-184.jpeg" alt="Siggy’s dressed for Christmas" loading="lazy"></figure>
   </div>
 </section>
 
