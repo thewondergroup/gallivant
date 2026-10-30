@@ -207,3 +207,8 @@ body.wt-on .site-ftr .top+.base{border-top-color:rgba(255,255,255,.4)}
   .site-hdr .mkey{--mk:18px;order:-1;margin-left:0}
 }
 
+
+/* footer legal links (30 Oct) */
+.site-ftr .legal{display:flex;gap:18px;flex-wrap:wrap}
+.site-ftr .legal a{color:inherit;text-decoration:none}
+.site-ftr .legal a:hover{text-decoration:underline}
