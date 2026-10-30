@@ -399,7 +399,7 @@ const SPACES = [
     title:'A table for the occasion',
     body:[
       "Inspired by the Paris brasseries that people in the know frequent. French dishes cooked with confidence, using the best of what comes off the boats or out of the fields nearby.",
-      "White tablecloths, soft lighting, a room that sets the occasion after dark. Order to share – a whole roast fish or cut of beef – and finish with our signature tarte fine aux pommes, flambéed in Calvados at the table."
+      "White tablecloths, soft lighting, a room that sets the occasion after dark. Order to share, a whole roast fish or cut of beef, and finish with our signature tarte fine aux pommes, flambéed in Calvados at the table."
     ],
     whenCopy:'<b>Come for</b> a long weekend lunch either side of a walk on the beach, or dinner when there’s something to celebrate.',
     side:IMG.harrysRoom,
@@ -413,7 +413,7 @@ const SPACES = [
     gallery:[IMG.lobster,IMG.scallops,IMG.pork,IMG.roast,IMG.fishChips,IMG.steakPlate,IMG.tarte],
     moments:[
       {img:IMG.roast,eyebrow:'Weekend lunches',title:'Sunday roasts and slow Saturdays',text:"Sundays are unashamedly British: the juiciest roast beef, crispier-than-crisp potatoes, enormous Yorkshire puddings and a silver gravy jug that doesn't leave the table. Saturdays are relaxed, with a weekly-changing prix fixe and proper beer-battered fish and chips."},
-      {img:IMG.tarte,eyebrow:'The signature',title:'Tarte fine, flambéed at the table',text:"Matthew brought his tarte fine aux pommes with him from Bibendum. Here it’s finished at your table, flambéed in Calvados – the way to end any dinner at Harry’s."}
+      {img:IMG.tarte,eyebrow:'The signature',title:'Tarte fine, flambéed at the table',text:"Matthew brought his tarte fine aux pommes with him from Bibendum. Here it’s finished at your table, flambéed in Calvados: the way to end any dinner at Harry’s."}
     ],
     kitchen:true,
     also:['siggys','the-cabin','terrace']
@@ -455,7 +455,7 @@ const SPACES = [
     mood:'Sun, sea air, glasses of rosé and long lunches',
     hero:[IMG.garden], card:IMG.gardenRoom,
     eyebrow:'The character', title:'Lunch in the open air',
-    body:["When the weather’s with us, the terrace is the best seat in the house – coastal planting, big skies and the smell of the sea a few steps away.","Long lunches from the Harry’s menu and a glass of rosé in the afternoon. Dogs very welcome."],
+    body:["When the weather’s with us, the terrace is the best seat in the house: coastal planting, big skies and the smell of the sea a few steps away.","Long lunches from the Harry’s menu and a glass of rosé in the afternoon. Dogs very welcome."],
     whenCopy:'<b>Come for</b> a lazy lunch on a sunny day, or a glass of something cold after the beach.',
     side:IMG.conserv,
     menus:[['Lunch menu','https://www.harryscambersands.co.uk/s/Harrys-Autumn-Lunch_12102026.pdf']],
@@ -606,7 +606,7 @@ function space(s){
         ${s.menus.length?`<div class="box rv">
           <h3 class="card-t">${s.slug==='the-cabin'?'Brochure':'Menu'}</h3>
           <ul class="menu-list${s.menus.some(m=>m[1]==='#')?' tbc':''}">${s.menus.map(m=>`<li><a href="${m[1]}" ${m[1]!=='#'?'target="_blank" rel="noopener"':''}>${m[0]} <small>${m[1]==='#'?'Coming soon':'PDF ↗'}</small></a></li>`).join('')}</ul>
-          <span>Dietary needs catered for – just tell us when you book.</span>
+          <span>Dietary needs catered for. Just tell us when you book.</span>
         </div>`:''}
         <div class="box rv">
           <h3 class="card-t">${s.slug==='the-cabin'?'The room':'Hours'}</h3>
@@ -645,7 +645,7 @@ function space(s){
     <div class="wrap">
       <div class="sec-head rv"><div><h2>The kitchen</h2><p class="lead-in-p"><span class="lead-in">A team to make you smile.</span></p></div></div>
       <div class="kitchen">
-        <div class="chef rv"><img src="${IMG.matthew}" alt="Matthew Harris" loading="lazy"><div><h3>Matthew Harris</h3><span class="role">Executive Chef</span><p>Thirty years at the stove, twenty as Head Chef at Bibendum under his mentor Simon Hopkinson. He brought his French-led style to the coast – steak with Roquefort butter and the tarte fine aux pommes made the journey, the tarte now flambéed tableside.</p></div></div>
+        <div class="chef rv"><img src="${IMG.matthew}" alt="Matthew Harris" loading="lazy"><div><h3>Matthew Harris</h3><span class="role">Executive Chef</span><p>Thirty years at the stove, twenty as Head Chef at Bibendum under his mentor Simon Hopkinson. He brought his French-led style to the coast: steak with Roquefort butter and the tarte fine aux pommes made the journey, the tarte now flambéed tableside.</p></div></div>
         <div class="chef rv"><img src="${IMG.gianmarco}" alt="Gianmarco Abramo" loading="lazy"><div><h3>Gianmarco Abramo</h3><span class="role">Head Chef</span><p>Trained at Sketch, Joël Robuchon and Aquavit before head chef roles at The Rabbit and Cora Pearl. Runs the day-to-day kitchen alongside Matthew, and the seasonal specials that follow what’s good that week.</p></div></div>
       </div>
     </div>
