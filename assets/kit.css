@@ -256,7 +256,7 @@
 @media (max-width:860px){.gved .k-sticky{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s ease}
 .gved .k-sticky.on{transform:none}.gved .k-sticky .btn{flex:1;justify-content:center;text-align:center;padding-left:10px;padding-right:10px}}
 /* Place photos with credits */
-.gved figure.cr-fig{aspect-ratio:auto;overflow:visible;background:none;margin:0 0 6px}
+.gved figure.cr-fig{aspect-ratio:auto;overflow:visible;background:none;margin:0 0 12px}
 .gved .cr-fig img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--panel)}
 .gved .k-tile .cr-fig img{aspect-ratio:3/2}
 .gved .k-tile.has-img{padding-top:clamp(14px,1.6vw,20px)}
