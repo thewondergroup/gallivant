@@ -1,0 +1,201 @@
+/* ===== Page kit (2 Nov 2026): shared parts for the new pages (Stay, New Year, events, Weddings, Membership, Wellbeing, Offers, About us, Gallery).
+   Loads after each page's own .gved block, so it reuses its colours, fonts and buttons. ===== */
+.gved{--green:#576B31;--cream:#F2EDE0}
+.gved .k-sec{padding:clamp(70px,9vw,130px) 0}
+.gved .k-sec.tight{padding-top:clamp(40px,5vw,70px)}
+.gved .bg-ground{background:var(--ground)}
+.gved .bg-panel{background:var(--panel)}
+.gved .bg-green{background:var(--green);color:var(--cream)}
+.gved .bg-green :is(h2,h3,p,li,small,b,span,td,th,summary,a){color:var(--cream)}
+.gved .bg-green .btn-i{border-color:var(--cream);color:var(--cream)}
+.gved .bg-green .btn-i:hover{background:var(--cream)!important;border-color:var(--cream)!important;color:var(--green)!important}
+.gved .k-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,90px);align-items:end;margin-bottom:clamp(30px,4vw,56px)}
+.gved .k-head p{max-width:52ch;margin:0}
+.gved .k-head p+p{margin-top:12px}
+.gved .k-head.solo{grid-template-columns:1fr}
+.gved .k-body{max-width:62ch}
+.gved .k-body p{margin:0 0 14px}
+.gved .k-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(26px,3vw,40px)}
+.gved .k-note{font-size:14px;margin-top:18px;max-width:70ch}
+.gved .k-list{display:grid;gap:0;border-top:1px solid var(--line);margin:18px 0 0}
+.gved .k-list li{padding:11px 0 11px 22px;border-bottom:1px solid var(--line);position:relative;font-size:15px}
+.gved .k-list li::before{content:"";position:absolute;left:2px;top:1.15em;width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.gved .bg-green .k-list,.gved .bg-green .k-list li{border-color:rgba(242,237,224,.28)}
+
+/* Picture + words row */
+.gved .k-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.gved .k-split.flip>figure{order:2}
+.gved .k-split figure{margin:0;aspect-ratio:4/5;overflow:hidden}
+.gved .k-split figure.wide{aspect-ratio:5/4}
+.gved .k-split figure img{width:100%;height:100%;object-fit:cover}
+.gved .k-split .txt{display:flex;flex-direction:column;gap:16px}
+.gved .k-split .txt h2{margin:0 0 6px}
+.gved .k-split .txt p{margin:0;max-width:54ch}
+.gved .k-split .txt .k-btns{margin-top:10px}
+.gved .k-duo{position:relative;aspect-ratio:1/1.05;margin:0}
+.gved .k-duo img{position:absolute;object-fit:cover}
+.gved .k-duo .a{right:0;top:0;width:78%;height:76%}
+.gved .k-duo .b{left:0;bottom:0;width:48%;height:50%;border:8px solid var(--bg,var(--ground))}
+.gved .bg-panel .k-duo .b{border-color:var(--panel)}
+.gved .bg-green .k-duo .b{border-color:var(--green)}
+@media (max-width:860px){.gved .k-split,.gved .k-head{grid-template-columns:1fr}.gved .k-split.flip>figure{order:0}.gved .k-split figure{aspect-ratio:4/3}}
+
+/* Cards: rates, memberships, offers */
+.gved .k-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+.gved .k-cards.two{grid-template-columns:repeat(2,1fr)}
+.gved .k-card{background:var(--panel);color:var(--ink);display:flex;flex-direction:column;position:relative}
+.gved .bg-panel .k-card{background:var(--ground)}
+.gved .k-card .img{aspect-ratio:3/2;overflow:hidden}
+.gved .k-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gved .k-card:hover .img img{transform:scale(1.04)}
+.gved .k-card .txt{padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:12px;flex:1}
+.gved .k-card h3{font-size:clamp(24px,2.2vw,30px);line-height:1.15}
+.gved .k-card .price{font-family:var(--font-display);font-size:clamp(26px,2.4vw,34px);line-height:1.1}
+.gved .k-card .price small{font-family:var(--font-body);font-size:14px;margin-left:6px}
+.gved .k-card .deal{font-weight:500;font-size:17px;line-height:1.45}
+.gved .k-card .terms{font-size:13px;color:var(--ink-soft);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.gved .k-card .k-list{margin-top:6px}
+.gved .k-card .k-btns{margin-top:auto;padding-top:18px}
+.gved .k-card .terms+.k-btns{margin-top:0}
+.gved .k-flag{position:absolute;right:16px;top:16px;background:#A82878;color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:999px;z-index:2}
+.gved .k-card.feat{outline:2px solid #A82878;outline-offset:-2px}
+@media (max-width:960px){.gved .k-cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.gved .k-cards,.gved .k-cards.two{grid-template-columns:1fr}}
+
+/* Place guides (Newt style) */
+.gved .k-places{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3vw,44px) clamp(16px,2vw,28px)}
+.gved .k-place{display:flex;flex-direction:column;gap:12px}
+.gved .k-place figure{margin:0 0 6px;aspect-ratio:4/3;overflow:hidden;background:var(--panel)}
+.gved .k-place figure img{width:100%;height:100%;object-fit:cover}
+.gved .k-place h3{font-size:clamp(22px,2vw,27px)}
+.gved .k-place p{margin:0;font-size:15px}
+.gved .k-place .drive{font-style:italic;font-size:14px;color:var(--ink-soft)}
+.gved .k-place.noimg{background:var(--panel);padding:24px}
+.gved .k-place.noimg figure{display:none}
+@media (max-width:960px){.gved .k-places{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.gved .k-places{grid-template-columns:1fr}}
+
+/* Small tiles: evenings out, extras, why points */
+.gved .k-tiles{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gved .k-tile{padding:clamp(20px,2.4vw,30px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.gved .k-tile h3{font-size:22px;line-height:1.2}
+.gved .k-tile p{margin:0;font-size:15px}
+.gved .k-tile .drive{font-size:13px;color:var(--ink-soft)}
+.gved .k-tile .go{margin-top:auto;padding-top:8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.gved .k-tile .amt{font-family:var(--font-display);font-size:24px;margin-top:auto;padding-top:6px}
+.gved .bg-green .k-tiles,.gved .bg-green .k-tile{border-color:rgba(242,237,224,.28)}
+.gved .k-tiles.five{grid-template-columns:repeat(5,1fr)}
+@media (max-width:960px){.gved .k-tiles,.gved .k-tiles.five{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.gved .k-tiles,.gved .k-tiles.five{grid-template-columns:1fr}}
+
+/* Events */
+.gved .k-events{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}
+.gved .k-ev{background:var(--panel);color:var(--ink);display:flex;flex-direction:column}
+.gved .bg-panel .k-ev{background:var(--ground)}
+.gved .k-ev .img{aspect-ratio:1/1;overflow:hidden;background:var(--green)}
+.gved .k-ev .img img{width:100%;height:100%;object-fit:cover}
+.gved .k-ev .txt{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.gved .k-ev small{font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.gved .k-ev h3{font-size:22px;line-height:1.2}
+.gved .k-ev p{margin:0;font-size:14px}
+.gved .k-ev a.go{margin-top:auto;padding-top:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:960px){.gved .k-events{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gved .k-events{grid-template-columns:1fr}}
+
+/* Questions: heading left, accordion right */
+.gved .k-faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,90px);align-items:start}
+.gved .k-faq .acc summary{font-size:clamp(19px,1.7vw,23px)}
+.gved .k-faq .acc .a{color:var(--ink)}
+@media (max-width:860px){.gved .k-faq{grid-template-columns:1fr}}
+
+/* Guest quotes */
+.gved .k-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+.gved .k-quotes .quote{background:var(--panel);color:var(--ink)}
+.gved .bg-panel .k-quotes .quote{background:var(--ground)}
+.gved .k-quotes .quote p{font-size:20px}
+@media (max-width:860px){.gved .k-quotes{grid-template-columns:1fr}}
+
+/* Simple tables: sittings, timetable */
+.gved .k-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+.gved .k-table th,.gved .k-table td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.gved .k-table th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:400}
+.gved .k-table td.n{font-family:var(--font-display);font-size:22px;white-space:nowrap}
+.gved .bg-green .k-table th,.gved .bg-green .k-table td{border-color:rgba(242,237,224,.28)}
+.gved .k-tt-wrap{overflow-x:auto;margin-top:26px}
+.gved .k-tt{min-width:760px;width:100%;border-collapse:collapse;font-size:14px}
+.gved .k-tt th{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;text-align:left;padding:10px 10px 10px 0;border-bottom:2px solid currentColor}
+.gved .k-tt td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;width:14.28%}
+.gved .k-tt td b{display:block;font-weight:500}
+.gved .k-tt td small{font-size:13px}
+
+/* Person band (Holly, Naketa) */
+.gved .k-person{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,3vw,40px);align-items:center;max-width:860px}
+.gved .k-person .ph{width:clamp(120px,14vw,170px);height:clamp(120px,14vw,170px);border-radius:50%;object-fit:cover;background:var(--panel)}
+.gved .k-person h2{margin:0 0 8px}
+.gved .k-person .role{font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.gved .k-person p{margin:0 0 14px;max-width:54ch}
+.gved .k-person .contact{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:var(--font-display);font-size:clamp(20px,1.9vw,26px)}
+.gved .k-person .contact a{border-bottom:1px solid currentColor}
+@media (max-width:560px){.gved .k-person{grid-template-columns:1fr}}
+
+/* Points (why us, getting here) */
+.gved .k-points{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.gved .k-points.four{grid-template-columns:repeat(4,1fr)}
+.gved .k-points>div{padding:24px 22px 24px 0;border-bottom:1px solid var(--line)}
+.gved .k-points b{display:block;font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.2;margin-bottom:6px}
+.gved .k-points p{margin:0;font-size:15px}
+.gved .bg-green .k-points,.gved .bg-green .k-points>div{border-color:rgba(242,237,224,.28)}
+@media (max-width:860px){.gved .k-points,.gved .k-points.four{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gved .k-points,.gved .k-points.four{grid-template-columns:1fr}}
+
+/* Awards and press */
+.gved .k-awards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.gved .k-awards>div{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:130px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.gved .k-awards b{font-family:var(--font-display);font-weight:400;font-size:24px;line-height:1.15}
+.gved .k-awards small{font-size:14px}
+@media (max-width:860px){.gved .k-awards{grid-template-columns:1fr 1fr}}
+.gved .k-press{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+.gved .k-press>div{border-top:1px solid currentColor;padding-top:16px}
+.gved .k-press small{font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.gved .k-press p{font-family:var(--font-display);font-size:21px;line-height:1.3;margin:10px 0 0}
+@media (max-width:760px){.gved .k-press{grid-template-columns:1fr}}
+
+/* Strip: a single highlighted line (newcomers, class passes) */
+.gved .k-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 30px;padding:22px clamp(20px,2.4vw,30px);background:var(--panel);color:var(--ink);margin-top:clamp(26px,3vw,40px)}
+.gved .k-strip p{margin:0;font-family:var(--font-display);font-size:clamp(20px,1.9vw,25px);line-height:1.3}
+.gved .k-strip .opts{display:flex;flex-wrap:wrap;gap:10px}
+
+/* Gallery */
+.gved .k-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(24px,3vw,36px)}
+.gved .k-filter button{padding:10px 18px;border:1px solid var(--ink);border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s}
+.gved .k-filter button:hover{background:var(--green);border-color:var(--green);color:var(--cream)}
+.gved .k-filter button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.gved .k-gal{columns:3 280px;column-gap:clamp(10px,1.2vw,16px)}
+.gved .k-gal figure{break-inside:avoid;margin:0 0 clamp(10px,1.2vw,16px)}
+.gved .k-gal figure[hidden]{display:none}
+.gved .k-gal img{width:100%;height:auto;display:block}
+.gved .k-gal figcaption{font-size:13px;padding:8px 0 4px}
+.gved .k-gal-foot{margin-top:clamp(20px,3vw,34px);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.gved .k-gal-foot [data-cat]{display:none}
+.gved .k-gal-foot [data-cat].on{display:inline-flex}
+
+/* Day tabs and rooms reuse the Christmas parts; on these pages the green version */
+.gved .days{background:var(--green)!important;color:var(--cream)!important}
+.gved .k-small{font-size:14px;margin-top:22px}
+.gved .k-sold .none{display:none}
+
+/* Closing band */
+.gved .k-close{background:var(--green);color:var(--cream);padding:clamp(70px,9vw,120px) 0}
+.gved .k-close .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.gved .k-close h2{margin:0 0 18px;max-width:18ch}
+.gved .k-close p{margin:0 0 12px;max-width:52ch}
+.gved .k-close p a{text-decoration:underline;text-underline-offset:3px}
+.gved .k-close .stack{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+@media (max-width:860px){.gved .k-close .grid{grid-template-columns:1fr}}
+
+/* Placeholder marker for copy still to come */
+.gved .k-tbc{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;border:1px dashed currentColor;border-radius:999px;margin-left:6px;vertical-align:middle;opacity:.8}
+.gved .hero .hero-sub2{margin-top:12px}
+.gved [id]{scroll-margin-top:96px}
+.gved .k-body{display:flex;flex-direction:column;gap:14px}.gved .k-body p{margin:0}
+.gved .k-head.solo{display:block;margin-bottom:clamp(26px,3vw,44px)}
