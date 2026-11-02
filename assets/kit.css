@@ -199,3 +199,4 @@
 .gved [id]{scroll-margin-top:96px}
 .gved .k-body{display:flex;flex-direction:column;gap:14px}.gved .k-body p{margin:0}
 .gved .k-head.solo{display:block;margin-bottom:clamp(26px,3vw,44px)}
+.gved .hero[data-hero]::after{background:linear-gradient(180deg,rgba(20,25,20,.35) 0%,rgba(20,25,20,.06) 28%,rgba(20,25,20,.34) 55%,rgba(20,25,20,.8) 100%),linear-gradient(90deg,rgba(20,25,20,.5) 0%,rgba(20,25,20,0) 62%)}
