@@ -18,7 +18,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
-<link rel="stylesheet" href="../assets/kit.css?v=3">
+<link rel="stylesheet" href="../assets/kit.css?v=4">
 </head>
 <body>
 <header class="site-hdr"><div class="in">
@@ -430,6 +430,25 @@ var root=document.getElementById('gved');
     figs.forEach(function(g){ g.hidden=!(c==='all' || (' '+g.getAttribute('data-c')+' ').indexOf(' '+c+' ')>-1); });
     foot.forEach(function(a){ a.classList.toggle('on',a.getAttribute('data-cat')===c); });
   });
+})();
+/* Film in a lightbox */
+(function(){
+  var d=root.querySelector('.k-film'); if(!d) return; var fr=d.querySelector('.fr');
+  function shut(){ fr.innerHTML=''; if(d.open) d.close(); }
+  [].forEach.call(root.querySelectorAll('.k-play'),function(b){ b.addEventListener('click',function(){
+    fr.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-film')+'?autoplay=1&rel=0&playsinline=1" title="The Gallivant wedding film" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    if(d.showModal) d.showModal(); else d.setAttribute('open',''); }); });
+  d.querySelector('.x').addEventListener('click',shut);
+  d.addEventListener('click',function(e){ if(e.target===d) shut(); });
+  d.addEventListener('close',function(){ fr.innerHTML=''; });
+})();
+/* Phone: enquiry bar once past the top photo, hidden at the end */
+(function(){
+  var bar=root.querySelector('.k-sticky'); if(!bar||!('IntersectionObserver' in window)) return;
+  var h=root.querySelector('[data-hero]'), end=root.querySelector('#lunch'), past=false, atEnd=false;
+  function set(){ var on=past&&!atEnd; bar.classList.toggle('on',on); bar.setAttribute('aria-hidden',String(!on)); [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1}); }
+  new IntersectionObserver(function(es){ past=!es[0].isIntersecting; set(); }).observe(h);
+  if(end) new IntersectionObserver(function(es){ atEnd=es[0].isIntersecting; set(); }).observe(end);
 })();
 /* Reveal on scroll */
 (function(){
