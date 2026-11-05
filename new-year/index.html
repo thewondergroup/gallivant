@@ -18,7 +18,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
-<link rel="stylesheet" href="../assets/kit.css?v=7">
+<link rel="stylesheet" href="../assets/kit.css?v=8">
 </head>
 <body>
 <header class="site-hdr"><div class="in">
@@ -454,6 +454,15 @@ var root=document.getElementById('gved');
   function set(){ var on=past&&!atEnd; bar.classList.toggle('on',on); bar.setAttribute('aria-hidden',String(!on)); [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1}); }
   new IntersectionObserver(function(es){ past=!es[0].isIntersecting; set(); }).observe(h);
   if(end) new IntersectionObserver(function(es){ atEnd=es[0].isIntersecting; set(); }).observe(end);
+})();
+/* Local guide filter */
+(function(){
+  var f=root.querySelector('[data-guide]'); if(!f) return;
+  var tiles=[].slice.call(root.querySelectorAll('.k-guide .k-tile'));
+  f.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; var c=b.getAttribute('data-f');
+    [].forEach.call(f.querySelectorAll('button'),function(x){ x.setAttribute('aria-pressed',String(x===b)); });
+    tiles.forEach(function(t){ t.hidden=!(c==='all'||t.getAttribute('data-a')===c); });
+  });
 })();
 /* Reveal on scroll */
 (function(){

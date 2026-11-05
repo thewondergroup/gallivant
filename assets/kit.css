@@ -266,3 +266,7 @@
 .gved .k-duo .b{border:0}
 .gved .k-place .web{margin:0;font-size:13px;letter-spacing:.02em}
 .gved .k-place .web a{text-decoration:underline;text-underline-offset:3px}
+/* Local guide */
+.gved .k-guide .k-tile[hidden]{display:none}
+.gved .k-guide .area{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.gved [data-guide]{margin-bottom:clamp(20px,2.4vw,30px)}
