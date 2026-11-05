@@ -59,3 +59,25 @@
     row.addEventListener('scroll',function(){ requestAnimationFrame(upd); },{passive:true}); addEventListener('resize',upd); setTimeout(upd,300); upd();
   });
 })();
+/* Buttons that sit together (side by side or stacked) share one width: the widest of the group */
+(function(){
+  function eq(){
+    var groups=new Map();
+    [].forEach.call(document.querySelectorAll('.gved .btn, .gved .link-btn'),function(b){
+      if(b.closest('.k-sticky')) return;
+      var p=b.parentElement; if(!groups.has(p)) groups.set(p,[]); groups.get(p).push(b);
+    });
+    groups.forEach(function(bs,p){
+      if(bs.length<2) return;
+      bs.forEach(function(b){ b.style.minWidth=''; });
+      var avail=p.clientWidth, w=0;
+      bs.forEach(function(b){ if(b.offsetParent) w=Math.max(w,b.getBoundingClientRect().width); });
+      if(!w||w>avail) return;
+      bs.forEach(function(b){ b.style.minWidth=Math.ceil(w)+'px'; b.style.justifyContent='center'; });
+    });
+  }
+  var t; function later(){ clearTimeout(t); t=setTimeout(eq,150); }
+  if(document.readyState!=='loading') eq(); else document.addEventListener('DOMContentLoaded',eq);
+  addEventListener('load',eq); addEventListener('resize',later);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(eq);
+})();

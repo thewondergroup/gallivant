@@ -262,3 +262,7 @@
 .gved .k-tile.has-img{padding-top:clamp(14px,1.6vw,20px)}
 .gved .cr{font-size:10.5px;line-height:1.4;color:var(--ink-soft);opacity:.8;margin-top:6px}
 .gved .cr a{text-decoration:underline;text-underline-offset:2px}
+/* Nov amends */
+.gved .k-duo .b{border:0}
+.gved .k-place .web{margin:0;font-size:13px;letter-spacing:.02em}
+.gved .k-place .web a{text-decoration:underline;text-underline-offset:3px}
