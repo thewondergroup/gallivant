@@ -62,7 +62,8 @@
 
 /* Hero */
 .gved .hero{position:relative;color:#fff;background:var(--pine-3) center/cover no-repeat;overflow:hidden}
-.gved .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,24,20,.78) 0%,rgba(18,24,20,.45) 55%,rgba(18,24,20,.3) 100%),linear-gradient(180deg,rgba(18,24,20,.25) 0%,rgba(18,24,20,0) 40%,rgba(18,24,20,.7) 100%)}
+.gved .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center}
+.gved .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,24,20,.78) 0%,rgba(18,24,20,.45) 55%,rgba(18,24,20,.3) 100%),linear-gradient(180deg,rgba(18,24,20,.25) 0%,rgba(18,24,20,0) 40%,rgba(18,24,20,.7) 100%)}
 .gved .hero .inner{position:relative;z-index:2;padding-top:clamp(90px,14vh,150px);padding-bottom:clamp(56px,8vh,90px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,80px);align-items:end}
 .gved .hero h1{font-size:clamp(52px,8.4vw,124px);margin:16px 0 22px;max-width:9ch}
 .gved .hero h1 .ten{display:block;font-size:.5em;line-height:1;color:var(--gold-2);margin-bottom:.08em}
@@ -76,7 +77,7 @@
 .gved .clock .units b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1;font-variant-numeric:tabular-nums}
 .gved .clock .units small{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .gved .clock.wrapup .units{display:none}
-@media (max-width:860px){.gved .hero .inner{grid-template-columns:1fr;padding-top:70px}.gved .hero{background-position:30% center}}
+@media (max-width:860px){.gved .hero .inner{grid-template-columns:1fr;padding-top:70px}.gved .hero .bg{object-position:60% center}}
 
 /* Calendar */
 .gved .cal{position:relative;background:var(--pine);color:#fff;padding:clamp(60px,8vw,110px) 0}
@@ -204,7 +205,8 @@
 </style>
 <div class="gved" id="gved">
 
-<section class="hero" style="background-image:url('https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-114-of-184.jpeg')">
+<section class="hero">
+  <img class="bg" src="https://bunny-wp-pullzone-fg2nucp9oh.b-cdn.net/wp-content/uploads/2025/11/CHRISTMAS-INTERIORS-2020-114-of-184.jpeg" alt="" referrerpolicy="no-referrer">
   <div class="wrap inner">
     <div>
       <p class="eyebrow">Tuesday 1 to Thursday 10 December</p>
@@ -261,7 +263,7 @@
 <div class="gift" role="dialog" aria-modal="true" aria-labelledby="g10-title" aria-hidden="true">
   <div class="box">
     <button class="x" type="button" aria-label="Close"></button>
-    <figure><img src="" alt=""></figure>
+    <figure><img src="" alt="" referrerpolicy="no-referrer"></figure>
     <div class="txt">
       <p class="eyebrow"></p>
       <h3 id="g10-title"></h3>
@@ -317,7 +319,7 @@
     b.dataset.a=g.bonus?'bn':'d'+g.day;b.dataset.day=g.day;if(g.c)b.dataset.c=g.c;if(g.p)b.dataset.p=g.p;
     b.style.gridArea=b.dataset.a;
     var label=g.bonus?'Bonus':'Day '+g.day;
-    b.innerHTML='<span class="in"><img src="'+g.img+'" alt="" loading="lazy"><span class="chip"></span><span class="cap"><small>'+label+' · '+dlabel(g)+'</small><b>'+g.title+'</b></span></span>'+
+    b.innerHTML='<span class="in"><img src="'+g.img+'" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="chip"></span><span class="cap"><small>'+label+' · '+dlabel(g)+'</small><b>'+g.title+'</b></span></span>'+
       '<span class="leaf"><span class="pat"></span>'+(g.bonus?'<span class="ribbon"></span><span class="no">11<em>Bonus</em></span>'+star:'<span class="no">'+g.day+'</span>')+'<span class="dt">'+dlabel(g)+'</span><span class="knob"></span><span class="tag">Open me!</span></span>';
     b.addEventListener('click',function(){tap(g,b)});
     grid.appendChild(b);g.el=b;
