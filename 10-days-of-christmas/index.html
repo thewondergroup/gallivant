@@ -111,13 +111,23 @@
 .gved .door[data-a="d1"] .leaf .dt{left:32px;bottom:28px;font-size:12px}
 .gved .door .leaf .knob{position:absolute;right:18px;top:50%;width:11px;height:11px;margin-top:-5px;border-radius:50%;background:var(--gold);box-shadow:0 1px 2px rgba(0,0,0,.35),inset 0 1px 1px rgba(255,255,255,.6)}
 .gved .door .leaf .tag{position:absolute;right:16px;top:14px;font-family:var(--hand);font-size:26px;line-height:1;transform:rotate(-6deg);color:var(--gold-2);display:none}
-.gved .door.live:not(.open) .leaf{animation:gvGlow 2.4s ease-in-out infinite}
+.gved .door.live:not(.open) .leaf{animation:gvGlow 2.4s ease-in-out infinite,gvCreak 3.6s cubic-bezier(.3,.7,.2,1) infinite}
+@keyframes gvCreak{0%,62%,100%{transform:rotateY(0)}70%{transform:rotateY(-16deg)}76%{transform:rotateY(-6deg)}82%{transform:rotateY(-13deg)}90%{transform:rotateY(0)}}
+.gved .door.live:not(.open) .leaf .tag{animation:gvBob 1.2s ease-in-out infinite}
+@keyframes gvBob{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-5px)}}
+.gved .door .sp{position:absolute;z-index:4;width:14px;height:14px;pointer-events:none;opacity:0;display:none}
+.gved .door.live:not(.open) .sp{display:block;animation:gvSpark 1.8s ease-in-out infinite}
+.gved .door .sp.s1{top:-7px;left:18%}.gved .door .sp.s2{top:30%;right:-7px;animation-delay:.6s!important;width:11px;height:11px}.gved .door .sp.s3{bottom:-7px;left:58%;animation-delay:1.2s!important;width:12px;height:12px}
+@keyframes gvSpark{0%,100%{opacity:0;transform:scale(.3) rotate(0)}40%{opacity:1;transform:scale(1) rotate(45deg)}70%{opacity:.2;transform:scale(.6) rotate(90deg)}}
+.gved .door.live:not(.open){z-index:3}
+.gved .door.live:not(.open)::after{content:"Today";position:absolute;z-index:4;left:50%;bottom:-11px;transform:translateX(-50%);background:var(--gold-2);color:var(--ink);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;font-weight:500;box-shadow:0 4px 10px rgba(0,0,0,.25)}
 .gved .door.live:not(.open) .leaf .tag{display:block}
 @keyframes gvGlow{0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 0 rgba(226,204,151,0)}50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 5px rgba(226,204,151,.7)}}
 .gved .door.open .leaf,.gved .door.past .leaf{transform:rotateY(-93deg);box-shadow:16px 0 30px rgba(0,0,0,.35)}
 .gved .door.open,.gved .door.past{z-index:2}
 .gved .door.open .in img{transform:scale(1.04)}
-.gved .door:hover:not(.open):not(.past) .leaf{transform:rotateY(-9deg)}
+.gved .door:hover:not(.open):not(.past):not(.live) .leaf{transform:rotateY(-9deg)}
+.gved .door.live:not(.open):hover .leaf{animation-play-state:paused;transform:rotateY(-20deg)}
 .gved .door.shake .leaf{animation:gvShake .5s}
 @keyframes gvShake{0%,100%{transform:none}20%{transform:rotateY(-7deg)}40%{transform:rotateY(0)}60%{transform:rotateY(-4deg)}80%{transform:rotateY(0)}}
 .gved .door:focus-visible{outline:2px solid var(--gold-2)}
@@ -325,7 +335,7 @@
     b.style.gridArea=b.dataset.a;
     var label=g.bonus?'Bonus':'Day '+g.day;
     b.innerHTML='<span class="in"><img src="'+g.img+'" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="chip"></span><span class="cap"><small>'+label+' · '+dlabel(g)+'</small><b>'+g.title+'</b></span></span>'+
-      '<span class="leaf"><span class="pat"></span>'+(g.bonus?'<span class="ribbon"></span><span class="no">11<em>Bonus</em></span>'+star:'<span class="no">'+g.day+'</span>')+'<span class="dt">'+dlabel(g)+'</span><span class="knob"></span><span class="tag">Open me!</span></span>';
+      '<svg class="sp s1" viewBox="0 0 20 20"><path d="M10 0l2.2 7.8L20 10l-7.8 2.2L10 20l-2.2-7.8L0 10l7.8-2.2z" fill="#E2CC97"/></svg><svg class="sp s2" viewBox="0 0 20 20"><path d="M10 0l2.2 7.8L20 10l-7.8 2.2L10 20l-2.2-7.8L0 10l7.8-2.2z" fill="#E2CC97"/></svg><svg class="sp s3" viewBox="0 0 20 20"><path d="M10 0l2.2 7.8L20 10l-7.8 2.2L10 20l-2.2-7.8L0 10l7.8-2.2z" fill="#fff"/></svg><span class="leaf"><span class="pat"></span>'+(g.bonus?'<span class="ribbon"></span><span class="no">11<em>Bonus</em></span>'+star:'<span class="no">'+g.day+'</span>')+'<span class="dt">'+dlabel(g)+'</span><span class="knob"></span><span class="tag">Open me!</span></span>';
     b.addEventListener('click',function(){tap(g,b)});
     grid.appendChild(b);g.el=b;
   });
