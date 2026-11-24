@@ -427,7 +427,7 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
 .gved .oa-key{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:13px}
 .gved .oa-key span{display:inline-flex;align-items:center;gap:8px}
 .gved .oa-key i{width:12px;height:12px;border-radius:50%;display:inline-block}
-.gved .leaflet-tile-pane{filter:sepia(.28) saturate(.75) brightness(1.02)}
+.gved .leaflet-tile-pane{filter:grayscale(.55) sepia(.35) saturate(.8) brightness(1.04) contrast(.92)}
 .gved .leaflet-popup-content-wrapper{border-radius:0;padding:0;overflow:hidden}
 .gved .leaflet-popup-content{margin:0;width:240px!important;font-family:var(--font-body,var(--sans));font-size:14px;line-height:1.5;color:var(--ink)}
 .gved .oa-pop img{width:100%;height:130px;object-fit:cover}
@@ -473,7 +473,7 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
 
 function gvMap(el,opts){
   var map=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',referrerPolicy:'strict-origin-when-cross-origin',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,referrerPolicy:'strict-origin-when-cross-origin',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
   L.marker([50.9349,0.7948],{icon:L.divIcon({className:'',html:'<span class="oa-home">The Gallivant</span>',iconSize:[0,0]}),zIndexOffset:1000,keyboard:false}).addTo(map);
   map.on('focus',function(){map.scrollWheelZoom.enable()});map.on('blur',function(){map.scrollWheelZoom.disable()});
   return map;
