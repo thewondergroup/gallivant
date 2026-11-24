@@ -339,7 +339,7 @@ html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1
 .gved .card .txt{padding:20px 20px 24px}
 .gved .card h3{font-size:clamp(24px,2.1vw,32px)}
 .gved .card p{font-size:14px}
-@media (max-width:1100px){.gved .cards{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){.gved .cards{grid-template-columns:repeat(2,1fr)!important}}
 @media (max-width:520px){.gved .cards{grid-template-columns:1fr!important}}
 .gved .character figure video{width:100%;height:100%;object-fit:cover;display:block;background:#A9A790}
 /* 24 Nov: before and after slider (The Cabin) */
@@ -471,9 +471,9 @@ const SPACES = [
           "At lunchtime it’s the informal choice: a plate from the kitchen at the bar, when you don’t want the full sit-down lunch."],
     whenCopy:'',
     side:IMG.barTender,
-    menus:[['Harry’s menus','https://www.harryscambersands.co.uk/menus']],
+    menus:[['Lunch and dinner menus','https://www.harryscambersands.co.uk/menus']],
     menuTitle:'Menus',
-    hours:[['Lunch at the bar','Daily · 12.30 – 2.30pm'],['Cocktails and drinks','Daily · from 5pm']],
+    hours:[['Bar lunch','Daily · 12.30 – 2.30pm'],['Drinks','Daily · from 5pm']],
     booking:{title:'Book a table',text:'Book a table at Harry’s and we’ll have a drink waiting in Siggy’s. For lunch at the bar, call us on 01797 225 057.',cta:'Book a table',href:BOOK},
     moments:[
       {img:IMG.terrFire,eyebrow:'Outside',title:'The Terrace',text:'Take your drink outside to the Terrace, sheltered from the wind, with the fire pits lit on colder evenings and the sea a few steps away.',link:['The Terrace','#/terrace']},
@@ -679,7 +679,7 @@ function space(s){
       <div class="offer">
         ${s.menus.length?`<div class="box rv">
           <h3 class="card-t">${s.menuTitle||'Menu'}</h3>
-          <ul class="menu-list${s.menus.some(m=>m[1]==='#')?' tbc':''}">${s.menus.map(m=>`<li><a href="${m[1]}" ${m[1]!=='#'?'target="_blank" rel="noopener"':''}>${m[0]} <small>${m[1]==='#'?'Coming soon':'PDF ↗'}</small></a></li>`).join('')}</ul>
+          <ul class="menu-list${s.menus.some(m=>m[1]==='#')?' tbc':''}">${s.menus.map(m=>`<li><a href="${m[1]}" ${m[1]!=='#'?'target="_blank" rel="noopener"':''}>${m[0]} <small>${m[1]==='#'?'Coming soon':(/\.pdf$/i.test(m[1])?'PDF ↗':'↗')}</small></a></li>`).join('')}</ul>
           <span>Dietary needs catered for. Just tell us when you book.</span>
         </div>`:''}
         <div class="box rv">

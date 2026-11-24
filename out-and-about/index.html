@@ -376,6 +376,17 @@ html .gved .btn-m{background:#A82878}html .gved .btn-m:hover{background:#D03597}
 html .gved :is(.plan,.days,.cta,.enq,.book-band,.dunes,.facts,.book,.booking) :is(.btn-i,.btn-w,.link):hover{background:#F2EDE0!important;border-color:#F2EDE0!important;color:#576B31!important}
 html .gved h1,html .gved h2,html .gved .pb-head h3{font-size:clamp(34px,4.44vw,64px)!important}
 html body .gved .hero h1,html body .gved .intro.scr h1,html body .gved .intro h1{font-size:clamp(34px,4.44vw,64px)!important}
+
+/* 24 Nov: local guide moved to its own map page */
+.gved .oa-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+.gved .oa-teaser a{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#fff}
+.gved .oa-teaser img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gved .oa-teaser a:hover img{transform:scale(1.05)}
+.gved .oa-teaser a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,20,15,.65))}
+.gved .oa-teaser span{position:absolute;left:20px;bottom:16px;z-index:2}
+.gved .oa-teaser b{display:block;font-family:var(--font-display,var(--serif));font-weight:400;font-size:28px;line-height:1.1;color:#fff}
+.gved .oa-teaser small{font-size:13px;color:#fff}
+@media (max-width:760px){.gved .oa-teaser{grid-template-columns:1fr}}
 </style>
 <style>
 /* Out and about (24 Nov): map page and one page per place */
@@ -481,7 +492,7 @@ var P=[{"name": "Rye", "slug": "rye", "area": "rye", "areaName": "Rye and Rye Ha
 
 function gvMap(el,opts){
   var map=L.map(el,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',referrerPolicy:'strict-origin-when-cross-origin',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
   L.marker([50.9349,0.7948],{icon:L.divIcon({className:'',html:'<span class="oa-home">The Gallivant</span>',iconSize:[0,0]}),zIndexOffset:1000,keyboard:false}).addTo(map);
   map.on('focus',function(){map.scrollWheelZoom.enable()});map.on('blur',function(){map.scrollWheelZoom.disable()});
   return map;
