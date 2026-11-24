@@ -227,7 +227,7 @@
       <p class="eyebrow">Tuesday 1 to Thursday 10 December</p>
       <h1><span class="ten">The</span>10 Days of Christmas</h1>
       <p class="sub">Ten days, ten Gallivant gifts. Every day at midday a new door opens on a different gift, at a special price for 24 hours. When the door closes, the offer’s gone.</p>
-      <div class="btns"><a class="btn btn-m" href="#gved-cal" data-go>See the calendar</a><a class="btn btn-w" href="https://www.instagram.com/thegallivant" target="_blank" rel="noopener">Follow on Instagram</a></div>
+      <div class="btns"><a class="btn btn-m" href="#gved-cal" data-claim>Claim your latest offer</a></div>
     </div>
     <div class="clock" aria-live="polite">
       <p class="lbl">The first door opens in</p>
@@ -252,7 +252,7 @@
     <ol class="steps">
       <li><span class="n">1</span><h3>A new door at midday</h3><p>From Tuesday 1 to Thursday 10 December, a different Gallivant gift goes live at 12pm each day.</p></li>
       <li><span class="n">2</span><h3>24 hours only</h3><p>Each gift keeps its special price until midday the next day. Then the door closes and the next one opens.</p></li>
-      <li><span class="n">3</span><h3>Follow along</h3><p>We reveal every gift on Instagram stories at midday too, so follow <a href="https://www.instagram.com/thegallivant" target="_blank" rel="noopener" style="text-decoration:underline">@thegallivant</a> and you won’t miss a door.</p></li>
+      <li><span class="n">3</span><h3>Don’t miss a door</h3><p>Once a door closes, that gift is gone until next year, so keep an eye on the calendar and come back each day at midday.</p></li>
     </ol>
   </div>
 </section>
@@ -403,6 +403,14 @@
   function loop(){var k=GIFTS.map(function(g){return state(g)}).join();if(k!==lastStates){lastStates=k;paint()}tickClock();tickModal()}
   loop();setInterval(loop,1000);
 
+  root.querySelectorAll('[data-claim]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();var t=now(),cal=document.getElementById('gved-cal');
+    var live=GIFTS.filter(function(g){return state(g,t)==='live'});var g=live.filter(function(x){return !x.bonus})[0]||live[0];
+    var next=GIFTS.filter(function(x){return state(x,t)==='locked'})[0];
+    if(!g&&!next){location.href=SHOP;return}
+    if(cal)cal.scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){ if(g){tap(g,g.el)} else {say(next.day===1?'The first door opens '+dlabel(next)+' at 12pm.':(next.bonus?'One more door opens ':'Door '+next.day+' opens ')+dlabel(next)+' at 12pm.')} },700);
+  })});
   root.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){var el=document.getElementById('gved-cal');if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}})});
 
   /* Preview bar: add ?preview to the URL to try any day. Not shown to normal visitors. */
