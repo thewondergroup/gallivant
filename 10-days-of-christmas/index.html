@@ -201,9 +201,11 @@
 /* Toast and preview bar */
 .gved .toast{position:fixed;left:50%;bottom:24px;z-index:3001;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:#fff;padding:14px 20px;font-size:14px;max-width:calc(100% - 32px);text-align:center;transition:all .35s var(--ease);pointer-events:none}
 .gved .toast.on{opacity:1;transform:translate(-50%,0)}
-.gved .pv{position:fixed;left:12px;bottom:12px;z-index:999;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.18);padding:10px 12px;font-size:12px;display:flex;gap:8px;align-items:center}
-.gved .pv b{font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:10px;color:var(--magenta)}
-.gved .pv select{font:inherit;font-size:12px;padding:4px}
+.gved .pv{position:fixed;left:50%;transform:translateX(-50%);top:94px;z-index:5000;background:#D01A8E;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.3);padding:10px 14px;font-size:13px;display:flex;gap:10px;align-items:center;border-radius:40px;white-space:nowrap}
+.gved .pv button{background:#fff;color:#2E2D27;width:30px;height:30px;border-radius:50%;font-size:16px;line-height:30px}
+.gved .pv b{font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#fff}
+.gved .pv select{font:inherit;font-size:14px;padding:6px 8px;border-radius:6px;border:0;color:#2E2D27;background:#fff}
+@media (max-width:560px){.gved .pv{top:80px;padding:8px 10px;gap:6px}.gved .pv b{display:none}}
 @media (prefers-reduced-motion:reduce){.gved *{animation:none!important;transition:none!important}}
 </style>
 <div class="gved" id="gved">
@@ -399,8 +401,11 @@
     GIFTS.forEach(function(g){var d=new Date(opens(g)+30*6e4).toISOString().slice(0,16);opts.push([d,(g.bonus?'Bonus':'Day '+g.day)+', just opened'])});
     opts.push(['2026-12-14T12:00','After it ends']);
     var bar=document.createElement('div');bar.className='pv';
-    bar.innerHTML='<b>Preview</b><select aria-label="Preview a day">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===(q.get('now')||'')?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select>';
-    bar.querySelector('select').addEventListener('change',function(){var u=new URL(location.href);if(this.value)u.searchParams.set('now',this.value);else u.searchParams.delete('now');try{localStorage.removeItem('g10-opened-'+Y)}catch(e){}location.href=u.toString()});
+    bar.innerHTML='<b>Preview mode</b><button type="button" data-s="-1" aria-label="Previous day">‹</button><select aria-label="Preview a day">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===(q.get('now')||'')?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select><button type="button" data-s="1" aria-label="Next day">›</button>';
+    var sel=bar.querySelector('select');
+    function go(v){var u=new URL(location.href);if(v)u.searchParams.set('now',v);else u.searchParams.delete('now');try{localStorage.removeItem('g10-opened-'+Y)}catch(e){}location.href=u.toString()}
+    sel.addEventListener('change',function(){go(this.value)});
+    bar.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){var i=Math.max(0,Math.min(sel.options.length-1,sel.selectedIndex+(+btn.dataset.s)));if(i!==sel.selectedIndex){sel.selectedIndex=i;go(sel.value)}})});
     root.appendChild(bar);
   }
 })();
